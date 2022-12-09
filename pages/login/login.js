@@ -18,7 +18,6 @@ Page({
     login=this;
     rootIP=getApp().getRootIP();
     utilMd5 = require('../../utils/md5.js');
-    console.log(utilMd5.hexMD5("123456").toUpperCase())
   },
 
   /**
@@ -71,14 +70,17 @@ Page({
   },
   checkInfo:function(){
     if(login.checkYhm()){
-      login.login();
+      if(login.checkMm()){
+        login.login();
+      }
     }
   },
   login:function(){
     let yhm=login.data.yhm;
+    let mm=utilMd5.hexMD5(login.data.mm).toUpperCase();
     wx.request({
       url: rootIP+"login",
-      data:{yhm:yhm},
+      data:{yhm:yhm,mm:mm},
       method: 'POST',
       header: {
         'content-type': 'application/x-www-form-urlencoded',
@@ -88,7 +90,7 @@ Page({
         let status=data.status;
         console.log("status==="+status)
         if(status=="ok"){
-          wx.setStorageSync("yongHu",data.staff);
+          wx.setStorageSync("yongHu",data.yongHu);
           wx.redirectTo({
             url: '/pages/index/index',
           })
@@ -103,9 +105,12 @@ Page({
   },
   getInputValue:function(e){
     if(e.currentTarget.id=="yhm_inp"){
-      let yhm=login.data.yhm;
-      yhm=e.detail.value;
+      let yhm=e.detail.value;
       login.setData({yhm:yhm});
+    }
+    else if(e.currentTarget.id=="mm_inp"){
+      let mm=e.detail.value;
+      login.setData({mm:mm});
     }
   },
   focusYhm:function(){
@@ -118,6 +123,18 @@ Page({
     let yhm=login.data.yhm;
     if(yhm==""||yhm==null||yhm=="用户名不能为空"){
       login.setData({yhm:'用户名不能为空'});
+      return false;
+    }
+    else{
+      return true;
+    }
+  },
+  checkMm:function(){
+    let mm=login.data.mm;
+    if(mm==""||mm==null){
+      wx.showToast({
+        title: '密码不能为空',
+      })
       return false;
     }
     else{

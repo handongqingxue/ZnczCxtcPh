@@ -6,7 +6,7 @@
   </view>
   <view class="mm_v">
     <span class="mm_span">密码</span>
-    <input class="mm_inp" id="mm_inp" type="password" placeholder="请输入密码" value="{{mm}}" bindfocus="focusMm" bindblur="checkMm" bindinput="getInputValue"/>
+    <input class="mm_inp" id="mm_inp" type="password" placeholder="请输入密码" value="{{mm}}" bindinput="getInputValue"/>
   </view>
   <view class="login_but_v" catchtap="checkInfo">登录</view>
 </view>
