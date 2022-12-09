@@ -1,0 +1,28 @@
+/* pages/home/home.wxss */
+.main_v{
+  width: 100%;
+  background-color: #eee;
+  padding-top: 1px;
+}
+.first_level_v{
+  width: 92%;
+  background-color: #fff;
+  margin: 10px auto 0;
+}
+.first_level_v .title_v{
+  height: 30px;
+  line-height: 30px;
+  margin-left: 10px;
+  border-bottom: #eee solid 1px;
+}
+.second_level_v{
+  width: 92%;
+  height: 30px;
+  line-height: 30px;
+  margin: auto;
+  padding-left: 10px;
+  font-size: 15px;
+  /*
+  background-color: #0f0;
+  */
+}
