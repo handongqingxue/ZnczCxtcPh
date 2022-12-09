@@ -1,2 +1,17 @@
 <!--pages/ddgl/ddzt/ddzt.wxml-->
-<text>pages/ddgl/ddzt/ddzt.wxml</text>
+<view class="title_v">列表页面</view>
+<view class="back_but_v">{{back_but_sign}}</view>
+<view class="list_v">
+  <view class="item_v">
+    <view class="item_v">
+      <view class="mc_v">
+        <view class="key_v">111</view>
+        <view class="val_v">222</view>
+      </view>
+      <view class="px_v">
+        <view class="key_v">111</view>
+        <view class="val_v">222</view>
+      </view>
+    </view>
+  </view>
+</view>

@@ -1,10 +1,10 @@
 {
   "pages": [
+    "pages/ddgl/ddzt/list",
     "pages/home/home",
     "pages/login/login",
     "pages/index/index",
-    "pages/logs/logs",
-    "pages/ddgl/ddzt/list"
+    "pages/logs/logs"
   ],
   "window": {
     "backgroundTextStyle": "light",

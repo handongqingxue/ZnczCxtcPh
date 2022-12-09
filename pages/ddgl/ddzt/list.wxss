@@ -1,1 +1,37 @@
 /* pages/ddgl/ddzt/ddzt.wxss */
+.title_v{
+  width: 100%;
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
+  background-color: #eee;
+}
+.back_but_v{
+  height: 40px;
+  line-height: 40px;
+  margin-top: -40px;
+  margin-left: 10px;
+}
+.list_v{
+  width: 95%;
+  margin: auto;
+}
+.list_v .item_v{
+  width: 100%;
+  border: #999 solid 1px;
+  border-radius:5px;
+}
+.list_v .item_v .key_v{
+  width:80px;
+  height:40px;
+  line-height:40px;
+  margin-left:8px;
+  color:#666;
+  text-align:center;
+}
+.list_v .item_v .val_v{
+  height:40px;
+  line-height:40px;
+  margin-top:-40px;
+  margin-left:120px;
+}
