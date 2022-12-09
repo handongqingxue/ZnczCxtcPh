@@ -1,0 +1,12 @@
+<!--pages/login/login.wxml-->
+<view class="main_v">
+  <view class="yhm_v">
+    <span class="yhm_span">用户名</span>
+    <input class="yhm_inp" id="yhm_inp" type="text" placeholder="请输入用户名" value="{{yhm}}" bindfocus="focusYhm" bindblur="checkYhm" bindinput="getInputValue"/>
+  </view>
+  <view class="mm_v">
+    <span class="mm_span">密码</span>
+    <input class="mm_inp" id="mm_inp" type="password" placeholder="请输入密码" value="{{mm}}" bindfocus="focusMm" bindblur="checkMm" bindinput="getInputValue"/>
+  </view>
+  <view class="login_but_v" catchtap="checkInfo">登录</view>
+</view>

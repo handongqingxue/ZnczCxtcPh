@@ -1,0 +1,29 @@
+/* pages/login/login.wxss */
+/* miniprogram/pages/login/login.wxss */
+.main_v{
+  width:250px;
+  margin: 50px auto 0;
+}
+.yhm_v,.mm_v{
+  width:100%;
+  height:50px;
+  line-height:50px;
+}
+.yhm_span,.mm_span{
+  margin-left:10px;
+}
+.yhm_inp,.mm_inp{
+  width:180px;
+  margin-top:-35px;
+  margin-left:80px;
+}
+.login_but_v{
+  width:200px;
+  height:30px;
+  line-height:30px;
+  margin:10px auto 0;
+  color:#fff;
+  text-align:center;
+  background-color:#00f;
+  border-radius:5px;
+}
