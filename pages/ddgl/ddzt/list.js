@@ -10,11 +10,15 @@ Page({
     backButSign:'<',
     showDjckgdView:true,
     showPageView:false,
-    showToolBarView:true,
+    showToolBarView:false,
     currentPage:1,
     pageSize:10,
     showNoDataView:false,
-    mc:""
+    mc:"",
+    prePageFlag:1,
+    nextPageFlag:2,
+    prePageEnable:false,
+    nextPageEnable:true
   },
 
   /**
@@ -29,7 +33,7 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-
+    ddztListPage.selectListData();
   },
 
   /**
@@ -83,10 +87,10 @@ Page({
   },
   showToolBarView:function(e){
     let flag=e.currentTarget.dataset.flag;
-    if(flag=="true"){
+    if(flag){
       ddztListPage.setData({showToolBarView:true});
     }
-    else if(flag=="false"){
+    else{
       ddztListPage.setData({showToolBarView:false});
     }
   },
@@ -104,6 +108,31 @@ Page({
       ddztListPage.setData({mc:mc});
     }
   },
+  loadListDataByPageFlag:function(e){
+    let flag=e.currentTarget.dataset.flag;
+    let prePageFlag=ddztListPage.data.prePageFlag;
+    let nextPageFlag=ddztListPage.data.nextPageFlag;
+    let currentPage=ddztListPage.data.currentPage;
+    let pageCount=ddztListPage.data.pageCount;
+    if(flag==prePageFlag)
+      currentPage--;
+    else if(flag==nextPageFlag)
+      currentPage++;
+
+    if(currentPage<1)
+      currentPage=1;
+    else if(currentPage>pageCount)
+      currentPage=pageCount;
+
+    if(currentPage<=1){
+      ddztListPage.setData({prePageEnable:false,nextPageEnable:true});
+    }
+    else if(currentPage>=pageCount){
+      ddztListPage.setData({prePageEnable:true,nextPageEnable:false});
+    }
+    ddztListPage.setData({currentPage:currentPage});
+    ddztListPage.selectListData();
+  },
   selectListData:function(){
     let currentPage=ddztListPage.data.currentPage;
     let pageSize=ddztListPage.data.pageSize;
@@ -119,6 +148,7 @@ Page({
         let data=res.data;
         let status=data.status;
         console.log("status==="+status)
+        let dataCount;
         if(status=="ok"){
           var ddztList=data.list;
           ddztListPage.setData({ddztList:ddztList});
@@ -127,7 +157,9 @@ Page({
           ddztListPage.showNoDataView(true);
           ddztListPage.setData({noDataText:data.message});
         }
-        let e={currentTarget:{dataset:{flag:"false"}}};
+        dataCount=data.total;
+        ddztListPage.setData({dataCount:dataCount,pageCount:Math.floor((dataCount-1)/pageSize)+1});
+        let e={currentTarget:{dataset:{flag:false}}};
         ddztListPage.showToolBarView(e);
       }
     })
