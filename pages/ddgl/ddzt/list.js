@@ -163,5 +163,10 @@ Page({
         ddztListPage.showToolBarView(e);
       }
     })
+  },
+  goAddPage:function(){
+    wx.redirectTo({
+      url: '/pages/ddgl/ddzt/new',
+    })
   }
 })

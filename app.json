@@ -1,5 +1,6 @@
 {
   "pages": [
+    "pages/ddgl/ddzt/new",
     "pages/ddgl/ddzt/list",
     "pages/home/home",
     "pages/login/login",
