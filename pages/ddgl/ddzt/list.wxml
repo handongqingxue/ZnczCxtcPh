@@ -8,7 +8,7 @@
   </view>
   <view class="bottom_v">
     <view class="but_list_v">
-      <view class="but_v confirm_but_v" data-flag="false" catchtap="showToolBarView">确定</view>
+      <view class="but_v confirm_but_v" data-flag="false" catchtap="selectListData">确定</view>
       <view class="but_v reset_but_v">重置</view>
     </view>
   </view>
@@ -17,17 +17,16 @@
 <view class="main_v">
   <view class="title_v">列表页面</view>
   <view class="back_but_v">{{backButSign}}</view>
-  <view class="list_v">
-    <view class="item_v">
-      <view class="item_v">
-        <view class="row_v mc_v">
-          <view class="key_v">名称</view>
-          <view class="val_v">222</view>
-        </view>
-        <view class="row_v px_v">
-          <view class="key_v">排序</view>
-          <view class="val_v">222</view>
-        </view>
+  <view class="no_data_v" wx:if="{{showNoDataView}}">{{noDataText}}</view>
+  <view class="list_v" wx:if="{{!showNoDataView}}">
+    <view class="item_v" wx:for-items="{{ddztList}}">
+      <view class="row_v mc_v">
+        <view class="key_v">名称</view>
+        <view class="val_v">{{item.mc}}</view>
+      </view>
+      <view class="row_v px_v">
+        <view class="key_v">排序</view>
+        <view class="val_v">{{item.px}}</view>
       </view>
     </view>
   </view>
