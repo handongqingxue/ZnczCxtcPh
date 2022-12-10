@@ -1,18 +1,22 @@
 // pages/ddgl/ddzt/ddzt.js
+var ddztList;
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    back_but_sign:'<'
+    backButSign:'<',
+    showDjckgdView:true,
+    showPageView:false,
+    showToolBarView:true
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    ddztList=this;
   },
 
   /**
@@ -62,5 +66,22 @@ Page({
    */
   onShareAppMessage: function () {
 
+  },
+  showPageView:function(flag){
+    if(flag){
+      ddztList.setData({showDjckgdView:false,showPageView:true});
+    }
+    else{
+      ddztList.setData({showDjckgdView:true,showPageView:false});
+    }
+  },
+  showToolBarView:function(e){
+    let flag=e.currentTarget.dataset.flag;
+    if(flag=="true"){
+      ddztList.setData({showToolBarView:true});
+    }
+    else if(flag=="false"){
+      ddztList.setData({showToolBarView:false});
+    }
   }
 })
