@@ -1,0 +1,15 @@
+<!--pages/test/multipleSelect.wxml-->
+<view class="page-section page-section-gap form">
+  <view class="page-section-title">提醒时间(每日)</view>
+  <view class="body-list" >
+    <block wx:for="{{array}}" wx:key="index">
+      <view class='list-item-choosed' wx:if='{{item.type=="choosed"}}' data-index='{{index}}' bindtap='choose_item'>
+        <view class='item-choosed-txt'>{{item.name}}</view>
+      </view>
+      <view class='list-item' data-index='{{index}}' bindtap='choose_item' wx:else>
+        <view class='item-txt'>{{item.name}}</view>
+      </view>
+    </block>
+  </view>
+</view>
+

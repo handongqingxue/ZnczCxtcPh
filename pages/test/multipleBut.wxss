@@ -1,0 +1,53 @@
+/* pages/test/multipleSelect.wxss */
+.list-item-choosed {
+  width: 182rpx;
+  height: 70rpx;
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+  background: rgb(51, 175, 61);
+  border-radius: 6rpx;
+  margin-right: 30rpx;
+  padding: 0rpx 10rpx 0rpx 10rpx;
+  margin-bottom: 30rpx;
+}
+.item-choosed-txt {
+  font-size: 30rpx;
+  font-family: PingFangSC-Regular;
+  font-weight: 400;
+  color:rgb(255, 255, 255);
+  line-height: 70rpx;
+  display: -webkit-box;
+  word-break: break-all;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+}
+.list-item {
+  width: 182rpx;
+  height: 70rpx;
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+  background: rgba(240, 240, 240, 1);
+  border-radius: 6rpx;
+  margin-right: 30rpx;
+  padding: 0rpx 10rpx 0rpx 10rpx;
+  margin-bottom: 30rpx;
+}
+.list-item  .item-txt {
+  font-size: 30rpx;
+  font-family: PingFangSC-Regular;
+  font-weight: 400;
+  color: rgba(51, 51, 51, 1);
+  line-height: 70rpx;
+  display: -webkit-box;
+  word-break: break-all;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+}
