@@ -174,5 +174,11 @@ Page({
     wx.redirectTo({
       url: '/pages/ddgl/ddzt/edit?id='+id,
     })
+  },
+  goDetailPage:function(e){
+    let id=e.currentTarget.dataset.id;
+    wx.redirectTo({
+      url: '/pages/ddgl/ddzt/detail?id='+id,
+    })
   }
 })

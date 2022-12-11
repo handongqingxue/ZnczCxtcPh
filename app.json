@@ -3,13 +3,14 @@
     "calendar": "/pages/test/multipleCalendar"
   },
   "pages": [
+    "pages/ddgl/ddzt/list",
+    "pages/ddgl/ddzt/detail",
     "pages/test/datePicker",
     "pages/test/calendarDemo",
     "pages/test/calendar",
     "pages/test/multipleBut",
     "pages/test/sineleSelect",
     "pages/ddgl/ddzt/edit",
-    "pages/ddgl/ddzt/list",
     "pages/ddgl/ddzt/new",
     "pages/home/home",
     "pages/login/login",
