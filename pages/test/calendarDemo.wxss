@@ -1,0 +1,6 @@
+/* pages/test/calendarDemo.wxss */
+.center{
+  display: flex;
+  justify-content: center;
+  margin-bottom: 10rpx;
+}

@@ -1,5 +1,10 @@
 {
+  "usingComponents": {
+    "calendar": "/pages/test/multipleCalendar"
+  },
   "pages": [
+    "pages/test/calendarDemo",
+    "pages/test/calendar",
     "pages/test/multipleBut",
     "pages/test/sineleSelect",
     "pages/ddgl/ddzt/edit",
