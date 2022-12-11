@@ -1,5 +1,6 @@
 {
   "pages": [
+    "pages/test/sineleSelect",
     "pages/ddgl/ddzt/edit",
     "pages/ddgl/ddzt/list",
     "pages/ddgl/ddzt/new",
