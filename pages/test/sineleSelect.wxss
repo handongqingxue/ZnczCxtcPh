@@ -33,7 +33,7 @@
   padding: 0 20rpx;
 }
 .select_text {
-  ont-size: 28rpx;
+  font-size: 28rpx;
   flex: 1;color: rgb(102, 102, 102);
   line-height: 86rpx;
   height: 86rpx;

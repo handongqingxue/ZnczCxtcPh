@@ -3,6 +3,7 @@
     "calendar": "/pages/test/multipleCalendar"
   },
   "pages": [
+    "pages/test/datePicker",
     "pages/test/calendarDemo",
     "pages/test/calendar",
     "pages/test/multipleBut",

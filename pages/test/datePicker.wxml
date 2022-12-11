@@ -1,0 +1,31 @@
+<!--pages/test/datePicker.wxml-->
+<!-- 自定义选择日期层 start -->
+<view class="date-layer" wx:if="{{isShowDateLayer}}" catchtouchmove="catchTouchMove">
+    <view class="layer-box">
+        <view class="box-top">
+            <!-- 选中行背景色 start-->
+            <view class="top-background">
+                <view></view>
+                <view></view>
+                <view></view>
+            </view>
+            <!-- 选中行背景色 end-->
+            <picker-view indicator-class="picker-indicator" value="{{pickerIndexList}}" bindchange="bindChangeDate">
+                <picker-view-column>
+                    <view wx:for="{{yearList}}" wx:key="index" class="{{pickerIndexList[0]==index?'txt-active':''}}">{{item}}年</view>
+                </picker-view-column>
+                <picker-view-column>
+                    <view wx:for="{{monthList}}" wx:key="index" class="{{pickerIndexList[1]==index?'txt-active':''}}">{{item}}月</view>
+                </picker-view-column>
+                <picker-view-column>
+                    <view wx:for="{{dayList}}" wx:key="index" class="{{pickerIndexList[2]==index?'txt-active':''}}">{{item}}日</view>
+                </picker-view-column>
+            </picker-view>
+        </view>
+        <view class="box-bottom">
+            <button class="btn-confirm" bindtap="bindConfirmDate">確定</button>
+            <button class="btn-cancel" bindtap="bindCancelDate">取消</button>
+        </view>
+    </view>
+</view>
+<!-- 选择日期层 end -->
