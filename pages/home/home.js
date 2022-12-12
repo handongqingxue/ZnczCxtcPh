@@ -81,6 +81,9 @@ Page({
       case home.data.ddgl_dzj:
         url+='ddgl/dzj/list';
         break;
+        case home.data.ddgl_drk:
+          url+='ddgl/drk/list';
+          break;
     }
     wx.redirectTo({
       url: url,
