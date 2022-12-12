@@ -1,6 +1,7 @@
 // pages/ddgl/dsh/list.js
 var dshListPage;
 var rootIP;
+var lxlxMap;
 Page({
 
   /**
@@ -37,7 +38,8 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-    dshListPage.getListData();
+    let lxlxConstantFlag=getApp().getLxlxConstantFlag();
+    dshListPage.getConstantMap(lxlxConstantFlag);
   },
 
   /**
@@ -80,6 +82,22 @@ Page({
    */
   onShareAppMessage: function () {
 
+  },
+  getConstantMap:function(flags){
+    wx.request({
+      url: rootIP+"getConstantMap",
+      data:{flags:flags},
+      method: 'POST',
+      header: {
+        'content-type': 'application/x-www-form-urlencoded',
+      },
+      success: function (res) {
+        let constantMap=res.data;
+        console.log(constantMap);
+        dshListPage.setData({constantMap:constantMap});
+        dshListPage.getListData();
+      }
+    })
   },
   showPageView:function(flag){
     if(flag){
@@ -180,7 +198,7 @@ Page({
           for(let i=0;i<dshList.length;i++){
             let dsh=dshList[i];
             let lxlx=dsh.lxlx;
-            let lxlxMc=getApp().getLxlxMcById(lxlx);
+            let lxlxMc=dshListPage.getLxlxMcById(lxlx);
             dsh.lxlxMc=lxlxMc;
           }
           dshListPage.setData({dshList:dshList});
@@ -197,5 +215,20 @@ Page({
         dshListPage.showToolBarView(e);
       }
     })
+  },
+  getLxlxMcById:function(lxlxId){
+    let constantMap=dshListPage.data.constantMap;
+    let lxlxMap=constantMap.lxlxMap;
+    //console.log(lxlxMap);
+    var str;
+    switch (lxlxId) {
+      case lxlxMap.syLxlx:
+        str=lxlxMap.syLxlxMc;//送运
+        break;
+      case lxlxMap.qyLxlx:
+        str=lxlxMap.qyLxlxMc;//取运
+        break;
+    }
+    return str;
   },
 })
