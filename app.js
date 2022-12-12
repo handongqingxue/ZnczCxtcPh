@@ -4,7 +4,6 @@ var serverRootIP = "http://192.168.40.1:8080/";
 //var rootIP = "http://192.168.0.103:8080/ZnczCxtc/phone/";
 //var serverRootIP = "http://192.168.0.103:8080/";
 
-var lxlxConstantFlag=1;
 App({
   onLaunch() {
     // 展示本地存储能力
@@ -27,8 +26,5 @@ App({
   },
   getServerRootIP:function(){
     return serverRootIP;
-  },
-  getLxlxConstantFlag:function(){
-    return lxlxConstantFlag;
   },
 })

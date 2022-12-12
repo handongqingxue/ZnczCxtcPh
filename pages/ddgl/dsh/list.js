@@ -38,8 +38,7 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-    let lxlxConstantFlag=getApp().getLxlxConstantFlag();
-    dshListPage.getConstantMap(lxlxConstantFlag);
+    dshListPage.getConstantFlagMap();
   },
 
   /**
@@ -82,6 +81,24 @@ Page({
    */
   onShareAppMessage: function () {
 
+  },
+  getConstantFlagMap:function(){
+    wx.request({
+      url: rootIP+"getConstantFlagMap",
+      method: 'POST',
+      header: {
+        'content-type': 'application/x-www-form-urlencoded',
+      },
+      success: function (res) {
+        let constantFlagMap=res.data;
+        console.log(constantFlagMap);
+        //dshListPage.setData({constantFlagMap:constantFlagMap});
+        let lxlx=constantFlagMap.lxlx;
+        let ddzt=constantFlagMap.ddzt;
+        let constantFlags=lxlx+","+ddzt;
+        dshListPage.getConstantMap(constantFlags);
+      }
+    })
   },
   getConstantMap:function(flags){
     wx.request({
@@ -175,6 +192,8 @@ Page({
     let currentPage=dshListPage.data.currentPage;
     let pageSize=dshListPage.data.pageSize;
     let ddh=dshListPage.data.ddh;
+    let ddztConstantMap=dshListPage.data.constantMap.ddztMap;
+    let defaultDdztMc=ddztConstantMap.dshDdztMc;
     let wzMc=dshListPage.data.wzMc;
     let yssMc=dshListPage.data.yssMc;
     let fhdwMc=dshListPage.data.fhdwMc;
@@ -182,7 +201,7 @@ Page({
     
     wx.request({
       url: rootIP+"getZHCXList",
-      data:{page:currentPage,rows:pageSize,ddh:ddh,wzMc:wzMc,yssMc:yssMc,fhdwMc:fhdwMc,shdwMc:shdwMc},
+      data:{page:currentPage,rows:pageSize,ddh:ddh,ddztMc:defaultDdztMc,wzMc:wzMc,yssMc:yssMc,fhdwMc:fhdwMc,shdwMc:shdwMc},
       method: 'POST',
       header: {
         'content-type': 'application/x-www-form-urlencoded',
