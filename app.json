@@ -1,7 +1,8 @@
 {
   "pages": [
-    "pages/ddgl/dsh/list",
+    "pages/ddgl/dzj/list",
     "pages/home/home",
+    "pages/ddgl/dsh/list",
     "pages/ddgl/ddzt/list",
     "pages/ddgl/ddzt/detail",
     "pages/test/datePicker",
