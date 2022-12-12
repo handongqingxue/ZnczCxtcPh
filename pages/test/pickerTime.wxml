@@ -1,0 +1,8 @@
+<!--pages/test/pickerTime.wxml-->
+<view>
+  <picker disabled="{{disabled}}" mode="multiSelector" bindchange="pickerChange" bindcolumnchange="pickerColumnChange" bindcancel ="pickerCancel" value="{{pickerIndex}}" range="{{pickerArray}}" range-key="{{'name'}}">
+    <view>
+      {{placeholder}}
+    </view>
+  </picker>
+</view>

@@ -25,6 +25,11 @@ Page({
     prePageEnable:false,
     nextPageEnable:true,
     showDdztOption:false,
+    
+    date: '2019-01-01 13:37',
+     startDate: '2019-01-01 12:37',
+     endDate: '2029-03-12 12:38',
+     placeholder: '请选择时间'
   },
 
   /**
@@ -33,6 +38,13 @@ Page({
   onLoad: function (options) {
     zhcxListPage=this;
     rootIP=getApp().getRootIP();
+
+    let dayTime= this.getToday();
+    let dayHour = "18:00";
+    let endedTime1 = dayTime + " " + dayHour;
+    this.setData({
+      date: endedTime1
+    })
   },
 
   /**
@@ -278,5 +290,25 @@ Page({
       ddztSelectIndex: index,
       showDdztOption: !this.data.showDdztOption
     });
-  }
+  },
+onPickerChange: function (e) {
+  console.log("dateString==="+e.detail.dateString)
+    this.setData({
+      date: e.detail.dateString  //选中的数据
+    })
+   },
+   toDouble: function (num) {
+    if (num >= 10) {//大于10
+      return num;
+    } else {//0-9
+      return '0' + num
+    }
+    },
+   getToday: function () {
+    let date = new Date();
+    let year = date.getFullYear();
+    let month = date.getMonth() + 1;
+    let day = date.getDate();
+    return year + '-' + this.toDouble(month) + '-' + this.toDouble(day)
+    },
 })
