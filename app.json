@@ -1,7 +1,8 @@
 {
   "pages": [
-    "pages/ddgl/drk/list",
+    "pages/ddgl/zhcx/list",
     "pages/home/home",
+    "pages/ddgl/drk/list",
     "pages/ddgl/dzj/list",
     "pages/ddgl/dsh/list",
     "pages/ddgl/ddzt/list",
@@ -9,8 +10,8 @@
     "pages/test/datePicker",
     "pages/test/calendarDemo",
     "pages/test/calendar",
-    "pages/test/multipleBut",
     "pages/test/sineleSelect",
+    "pages/test/multipleBut",
     "pages/ddgl/ddzt/edit",
     "pages/ddgl/ddzt/new",
     "pages/login/login",

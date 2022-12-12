@@ -8,7 +8,9 @@ Page({
   data: {
     ddgl_ddzt:1,
     ddgl_dsh:2,
-    ddgl_dzj:3
+    ddgl_dzj:3,
+    ddgl_drk:4,
+    ddgl_zhcx:5
   },
 
   /**
@@ -81,9 +83,12 @@ Page({
       case home.data.ddgl_dzj:
         url+='ddgl/dzj/list';
         break;
-        case home.data.ddgl_drk:
-          url+='ddgl/drk/list';
-          break;
+      case home.data.ddgl_drk:
+        url+='ddgl/drk/list';
+        break;
+      case home.data.ddgl_zhcx:
+        url+='ddgl/zhcx/list';
+        break;
     }
     wx.redirectTo({
       url: url,

@@ -6,7 +6,7 @@
     <view class="dsh_v second_level_v" data-pageflag="{{ddgl_dsh}}" catchtap="goPage">待审核</view>
     <view class="dzj_v second_level_v" data-pageflag="{{ddgl_dzj}}" catchtap="goPage">待质检</view>
     <view class="drk_v second_level_v" data-pageflag="{{ddgl_drk}}" catchtap="goPage">待入库</view>
-    <view class="zhcx_v second_level_v">综合查询</view>
+    <view class="zhcx_v second_level_v" data-pageflag="{{ddgl_zhcx}}" catchtap="goPage">综合查询</view>
     <view class="shjl_v second_level_v">审核记录</view>
   </view>
 </view>
