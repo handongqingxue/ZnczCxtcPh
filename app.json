@@ -1,7 +1,6 @@
 {
   "pages": [
     "pages/ddgl/zhcx/list",
-    "pages/test/pickerTime",
     "pages/test/datePicker",
     "pages/home/home",
     "pages/ddgl/drk/list",

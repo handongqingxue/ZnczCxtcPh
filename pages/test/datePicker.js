@@ -195,14 +195,14 @@ Page({
       dayList,
     })
   },
-/**
+  /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-  var that = this;
-  that.getCurrentDate();//獲取當前時間
-  that.setData({
-    pickerIndexList: that.data.pickerIndexList
-  })
+    var that = this;
+    that.getCurrentDate();//獲取當前時間
+    that.setData({
+      pickerIndexList: that.data.pickerIndexList
+    })
   }
 })

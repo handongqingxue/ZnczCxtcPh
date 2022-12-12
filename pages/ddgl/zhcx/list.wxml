@@ -90,9 +90,11 @@
     </view>
   </view>
 
+<view class="pt_v">
   <pickerTime placeholder="{{placeholder}}" date="{{date}}" bind:onPickerChange="onPickerChange"
 startDate="{{startDate}}" endDate="{{endDate}}">
-</pickerTime>
+  </pickerTime>
+</view>
 
   <view class="space1_v"></view>
   <view class="bottom_v">

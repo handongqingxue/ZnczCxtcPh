@@ -1,1 +1,6 @@
-{"navigationBarTitleText":"demo","usingComponents": {"pickerTime": "/pages/test/pickerTime"}}
+{
+  "navigationBarTitleText":"demo",
+  "usingComponents": {
+    "pickerTime": "/components/pickerTime/pickerTime"
+  }
+}
