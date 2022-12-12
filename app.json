@@ -1,8 +1,7 @@
 {
-  "usingComponents": {
-    "calendar": "/pages/test/multipleCalendar"
-  },
   "pages": [
+    "pages/ddgl/dsh/list",
+    "pages/home/home",
     "pages/ddgl/ddzt/list",
     "pages/ddgl/ddzt/detail",
     "pages/test/datePicker",
@@ -12,7 +11,6 @@
     "pages/test/sineleSelect",
     "pages/ddgl/ddzt/edit",
     "pages/ddgl/ddzt/new",
-    "pages/home/home",
     "pages/login/login",
     "pages/index/index",
     "pages/logs/logs"

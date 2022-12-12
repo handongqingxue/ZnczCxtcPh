@@ -3,7 +3,7 @@
   <view class="ddgl_v first_level_v">
     <view class="title_v">订单管理</view>
     <view class="ddzt_v second_level_v" data-pageflag="{{ddgl_ddzt}}" catchtap="goPage">订单状态</view>
-    <view class="dsh_v second_level_v">待审核</view>
+    <view class="dsh_v second_level_v" data-pageflag="{{ddgl_dsh}}" catchtap="goPage">待审核</view>
     <view class="dzj_v second_level_v">待质检</view>
     <view class="drk_v second_level_v">待入库</view>
     <view class="zhcx_v second_level_v">综合查询</view>

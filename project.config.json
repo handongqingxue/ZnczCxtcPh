@@ -5,7 +5,7 @@
     "include": []
   },
   "setting": {
-    "urlCheck": true,
+    "urlCheck": false,
     "es6": true,
     "enhance": true,
     "postcss": true,
@@ -43,9 +43,9 @@
   "libVersion": "2.28.1",
   "appid": "wx9d3e8c7a3bc57b80",
   "projectname": "ZnczCxtcPh",
-  "condition": {},
   "editorSetting": {
     "tabIndent": "insertSpaces",
     "tabSize": 2
-  }
+  },
+  "condition": {}
 }

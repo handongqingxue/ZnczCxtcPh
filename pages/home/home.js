@@ -6,7 +6,8 @@ Page({
    * 页面的初始数据
    */
   data: {
-    ddgl_ddzt:1
+    ddgl_ddzt:1,
+    ddgl_dsh:2
   },
 
   /**
@@ -73,6 +74,9 @@ Page({
       case home.data.ddgl_ddzt:
         url+='ddgl/ddzt/list';
         break;
+        case home.data.ddgl_dsh:
+          url+='ddgl/dsh/list';
+          break;
     }
     wx.redirectTo({
       url: url,
