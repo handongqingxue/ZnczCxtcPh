@@ -17,7 +17,8 @@
 .tool_bar_v .shdwMc_v,
 .tool_bar_v .cysjXm_v,
 .tool_bar_v .cysjSfzh_v,
-.tool_bar_v .jcsj_v{
+.tool_bar_v .jcsj_v,
+.tool_bar_v .ccsj_v{
   width:100%;
   height:50px;
   line-height:50px;
@@ -32,7 +33,8 @@
 .tool_bar_v .shdwMc_v .shdwMc_span,
 .tool_bar_v .cysjXm_v .cysjXm_span,
 .tool_bar_v .cysjSfzh_v .cysjSfzh_span,
-.tool_bar_v .jcsj_v .jcsj_span{
+.tool_bar_v .jcsj_v .jcsj_span,
+.tool_bar_v .ccsj_v .ccsj_span{
   margin-left:10px;
 }
 .tool_bar_v .ddh_v .ddh_inp,
@@ -58,15 +60,27 @@
   background-color:#00f;
   */
 }
-.ddzt_select_v{
+.tool_bar_v .jcsj_v .jcsj_pt_v,
+.tool_bar_v .ccsj_v .ccsj_pt_v{
+  width:140px;
+  height:40px;
+}
+.tool_bar_v .jcsj_v .jcsj_pt_v .jcsj_pt,
+.tool_bar_v .ccsj_v .ccsj_pt_v .ccsj_pt{
+  margin-top: -148px;
+  margin-left: 91px;
+  position: absolute;
+}
+
+.tool_bar_v .ddzt_v .ddzt_select_v{
   width: 150px;
   height: 30px;
   margin-top: -40px;
-  margin-left: 100px;
+  margin-left: 120px;
   background-color: #fff;
   border: #eee solid 1px;
 }
-.selected_text_v {
+.tool_bar_v .ddzt_v .ddzt_select_v .selected_text_v {
   width: 120px;
   height: 30px;
   line-height: 30px;
@@ -74,26 +88,26 @@
   font-size: 15px;
   background-color: #0f0;
 }
-.select_img {
+.tool_bar_v .ddzt_v .ddzt_select_v .select_img {
   width: 17px;
   height: 17px;
   float: right;
   margin-top: -25px;
   margin-right: 3px;
 }
-.select_img_rotate {
+.tool_bar_v .ddzt_v .ddzt_select_v .select_img_rotate {
   transform: rotate(180deg);
 }
-.ddzt_option_list_v{
+.tool_bar_v .ddzt_v .ddzt_option_list_v{
   width: 150px;
   margin-top: 1px;
-  margin-left: 100px;
+  margin-left: 120px;
   background-color: #eee;
   overflow-y: auto;
   position: absolute;
   z-index: 3;
 }
-.ddzt_option_list_v .item_v{
+.tool_bar_v .ddzt_v .ddzt_option_list_v .item_v{
   width: 100%;
   height: 30px;
   line-height: 30px;
@@ -151,13 +165,29 @@
   margin: auto;
 }
 .main_v .list_v .item_v .ddh_v,
-.main_v .list_v .item_v .cyclCph_v,
+.main_v .list_v .item_v .cysjSfzh_v,
+.main_v .list_v .item_v .wzlxMc_v,
 .main_v .list_v .item_v .wzMc_v,
+.main_v .list_v .item_v .cyclCph_v,
 .main_v .list_v .item_v .yssMc_v,
 .main_v .list_v .item_v .fhdwMc_v,
 .main_v .list_v .item_v .shdwMc_v,
 .main_v .list_v .item_v .lxlxMc_v,
-.main_v .list_v .item_v .jhysrq_v{
+.main_v .list_v .item_v .jhysrq_v,
+.main_v .list_v .item_v .ddztMc_v,
+.main_v .list_v .item_v .yjztMc_v,
+.main_v .list_v .item_v .ejztMc_v,
+.main_v .list_v .item_v .yjbfMc_v,
+.main_v .list_v .item_v .ejbfMc_v,
+.main_v .list_v .item_v .yzxzl_v,
+.main_v .list_v .item_v .bjsj_v,
+.main_v .list_v .item_v .jcsj_v,
+.main_v .list_v .item_v .ccsj_v,
+.main_v .list_v .item_v .mz_v,
+.main_v .list_v .item_v .pz_v,
+.main_v .list_v .item_v .sjzl_v,
+.main_v .list_v .item_v .dfgbmz_v,
+.main_v .list_v .item_v .dfgbpz_v{
   border-bottom: #eee solid 1px;
 }
 .main_v .list_v .item_v .key_v{
@@ -188,7 +218,7 @@
   border: #BFBFBF solid 1px;
   border-radius:3px;
 }
-.main_v .list_v .item_v .but_list_v .th_but_v{
+.main_v .list_v .item_v .but_list_v .edit_but_v{
   margin-top:-32px;
   margin-left:100px;
 }

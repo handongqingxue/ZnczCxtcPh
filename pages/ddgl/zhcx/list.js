@@ -19,9 +19,11 @@ Page({
     pageSize:10,
     showNoDataView:false,
     ddh:"",
+    ddztSelectId:"",
     cyclCph:"",
-    wzMc:"",
+    jhysrq:'',
     yssMc:"",
+    wzMc:"",
     fhdwMc:"",
     shdwMc:"",
     cysjXm:"",
@@ -32,11 +34,11 @@ Page({
     nextPageEnable:true,
     showDdztOption:false,
     
-    date: '2019-01-01 13:37',
-    startDate: '1970-01-01 12:37',
-    endDate: '2099-12-31 12:38',
-    placeholder: '请选择时间',
-    jhysrq:'',
+    //date: '2019-01-01 13:37',
+    pickerStartTime: '1970-01-01 12:37',
+    pickerEndTime: '2099-12-31 12:38',
+    jcsjPlaceholder: '请选择时间',
+    ccsjPlaceholder: '请选择时间',
     jhysrqPlaceholder:'请选择计划运输日期',
   },
 
@@ -116,7 +118,9 @@ Page({
         //zhcxListPage.setData({constantFlagMap:constantFlagMap});
         let lxlx=constantFlagMap.lxlx;
         let ddzt=constantFlagMap.ddzt;
-        let constantFlags=lxlx+","+ddzt;
+        let ddGbzt=constantFlagMap.ddGbzt;
+        let place=constantFlagMap.place;
+        let constantFlags=lxlx+","+ddzt+","+ddGbzt+","+place;
         zhcxListPage.getConstantMap(constantFlags);
       }
     })
@@ -213,14 +217,29 @@ Page({
     let currentPage=zhcxListPage.data.currentPage;
     let pageSize=zhcxListPage.data.pageSize;
     let ddh=zhcxListPage.data.ddh;
-    let wzMc=zhcxListPage.data.wzMc;
+    let ddztId=zhcxListPage.data.ddztSelectId;
+    let cyclCph=zhcxListPage.data.cyclCph;
+    let jhysrq=zhcxListPage.data.jhysrq;
     let yssMc=zhcxListPage.data.yssMc;
+    let wzMc=zhcxListPage.data.wzMc;
     let fhdwMc=zhcxListPage.data.fhdwMc;
     let shdwMc=zhcxListPage.data.shdwMc;
+    let cysjXm=zhcxListPage.data.cysjXm;
+    let cysjSfzh=zhcxListPage.data.cysjSfzh;
+    console.log("ddh==="+ddh)
+    console.log("ddztId==="+ddztId)
+    console.log("cyclCph==="+cyclCph)
+    console.log("jhysrq==="+jhysrq)
+    console.log("yssMc==="+yssMc)
+    console.log("wzMc==="+wzMc)
+    console.log("fhdwMc==="+fhdwMc)
+    console.log("shdwMc==="+shdwMc)
+    console.log("cysjXm==="+cysjXm)
+    console.log("cysjSfzh==="+cysjSfzh)
     
     wx.request({
       url: rootIP+"getZHCXList",
-      data:{page:currentPage,rows:pageSize,ddh:ddh,wzMc:wzMc,yssMc:yssMc,fhdwMc:fhdwMc,shdwMc:shdwMc},
+      data:{page:currentPage,rows:pageSize,ddh:ddh,ddztId:ddztId,cyclCph:cyclCph,jhysrq:jhysrq,wzMc:wzMc,yssMc:yssMc,fhdwMc:fhdwMc,shdwMc:shdwMc,cysjXm:cysjXm,cysjSfzh:cysjSfzh},
       method: 'POST',
       header: {
         'content-type': 'application/x-www-form-urlencoded',
@@ -230,16 +249,32 @@ Page({
         let status=data.status;
         console.log("status==="+status)
         let dataCount;
-        zhcxListPage.setData({dshList:[]});
+        zhcxListPage.setData({ddList:[]});
         if(status=="ok"){
-          var dshList=data.list;
-          for(let i=0;i<dshList.length;i++){
-            let dsh=dshList[i];
+          var ddList=data.list;
+          for(let i=0;i<ddList.length;i++){
+            let dsh=ddList[i];
             let lxlx=dsh.lxlx;
             let lxlxMc=zhcxListPage.getLxlxMcById(lxlx);
             dsh.lxlxMc=lxlxMc;
+
+            let yjzt=dsh.yjzt;
+            let yjztMc=zhcxListPage.getGbztMcById(yjzt);
+            dsh.yjztMc=yjztMc;
+
+            let ejzt=dsh.ejzt;
+            let ejztMc=zhcxListPage.getGbztMcById(ejzt);
+            dsh.ejztMc=ejztMc;
+
+            let yjbfh=dsh.yjbfh;
+            let yjbfMc=zhcxListPage.getBfMcByBfh(yjbfh);
+            dsh.yjbfMc=yjbfMc;
+
+            let ejbfh=dsh.ejbfh;
+            let ejbfMc=zhcxListPage.getBfMcByBfh(ejbfh);
+            dsh.ejbfMc=ejbfMc;
           }
-          zhcxListPage.setData({dshList:dshList});
+          zhcxListPage.setData({ddList:ddList});
           zhcxListPage.showNoDataView(false);
           zhcxListPage.setData({noDataText:""});
         }
@@ -269,6 +304,57 @@ Page({
     }
     return str;
   },
+  getGbztMcById:function(gbztId){
+    let constantMap=zhcxListPage.data.constantMap;
+    let ddGbztMap=constantMap.ddGbztMap;
+    //console.log(ddGbztMap);
+    var str;
+    switch (gbztId) {
+      case ddGbztMap.dsbGbzt:
+        str=ddGbztMap.dsbGbztMc;//待上磅
+        break;
+      case ddGbztMap.sbzGbzt:
+        str=ddGbztMap.sbzGbztMc;//上磅中
+        break;
+      case ddGbztMap.dczGbzt:
+        str=ddGbztMap.dczGbztMc;//待称重
+        break;
+      case ddGbztMap.czzGbzt:
+        str=ddGbztMap.czzGbztMc;//称重中
+        break;
+      case ddGbztMap.dxbGbzt:
+        str=ddGbztMap.dxbGbztMc;//待下磅
+        break;
+      case ddGbztMap.xbzGbzt:
+        str=ddGbztMap.xbzGbztMc;//下磅中
+        break;
+      case ddGbztMap.ywcGbzt:
+        str=ddGbztMap.ywcGbztMc;//已完成
+        break;
+    }
+    return str;
+  },
+  getBfMcByBfh:function(bfh){
+    let constantMap=zhcxListPage.data.constantMap;
+    let placeMap=constantMap.placeMap;
+    //console.log(placeMap);
+    var str;
+    switch (bfh) {
+      case placeMap.wgb:
+        str=placeMap.wgbMc;
+        break;
+      case placeMap.yhbf:
+        str=placeMap.yhbfMc;
+        break;
+      case placeMap.ehbf:
+        str=placeMap.ehbfMc;
+        break;
+      case placeMap.shbf:
+        str=placeMap.shbfMc;
+        break;
+    }
+    return str;
+  },
   getDdztSelectData:function(){
     wx.request({
       url: rootIP+"getDingDanZhuangTaiSelectList",
@@ -293,9 +379,12 @@ Page({
   // 点击下拉列表
   selectDdztOption(e) {
     let index = e.currentTarget.dataset.index; //获取点击的下拉列表的下标
-    console.log(index)
+    let ddztList=zhcxListPage.data.ddztList;
+    let ddzt=ddztList[index];
+    console.log(index+","+ddzt.id+","+ddzt.mc);
     this.setData({
       ddztSelectIndex: index,
+      ddztSelectId: ddzt.id,
       showDdztOption: !this.data.showDdztOption
     });
   },
@@ -310,11 +399,14 @@ Page({
   onPickerJcsjChange: function (e) {
     console.log("dateString==="+e.detail.dateString)
     zhcxListPage.setData({
-      date:e.detail.dateString  //选中的数据
+      jcsj:e.detail.dateString  //选中的数据
     })
   },
-  pickerJcsjCancel:function(e){
-    console.log(1111111111)
+  onPickerCcsjChange: function (e) {
+    console.log("dateString==="+e.detail.dateString)
+    zhcxListPage.setData({
+      ccsj:e.detail.dateString  //选中的数据
+    })
   },
   toDouble: function (num) {
     if (num >= 10) {//大于10

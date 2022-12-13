@@ -51,11 +51,19 @@
   </view>
   <view class="jcsj_v">
     <span class="jcsj_span">进厂时间</span>
-    <view class="pt_v" style="width:140px;height:40px;">
-  <pickerTime placeholder="{{placeholder}}" date="{{date}}" bindcancel="pickerJcsjCancel" bind:onPickerChange="onPickerJcsjChange"
-startDate="{{startDate}}" endDate="{{endDate}}" style="margin-top: -148px;margin-left: 91px;position: absolute;">
-  </pickerTime>
-</view>
+    <view class="jcsj_pt_v">
+      <pickerTime class="jcsj_pt" placeholder="{{jcsjPlaceholder}}" date="{{jcsj}}" bind:onPickerChange="onPickerJcsjChange"
+        startDate="{{pickerStartTime}}" endDate="{{pickerEndTime}}">
+      </pickerTime>
+    </view>
+  </view>
+  <view class="ccsj_v">
+    <span class="ccsj_span">出厂时间</span>
+    <view class="ccsj_pt_v">
+      <pickerTime class="ccsj_pt" placeholder="{{ccsjPlaceholder}}" date="{{ccsj}}" bind:onPickerChange="onPickerCcsjChange"
+        startDate="{{pickerStartTime}}" endDate="{{pickerEndTime}}">
+      </pickerTime>
+    </view>
   </view>
   <view class="space2_v"></view>
   <view class="bottom_v">
@@ -71,18 +79,26 @@ startDate="{{startDate}}" endDate="{{endDate}}" style="margin-top: -148px;margin
   <view class="back_but_v">{{backButSign}}</view>
   <view class="no_data_v" wx:if="{{showNoDataView}}">{{noDataText}}</view>
   <view class="list_v" wx:else>
-    <view class="item_v" wx:for-items="{{dshList}}">
+    <view class="item_v" wx:for-items="{{ddList}}">
       <view class="row_v ddh_v">
         <view class="key_v">订单号</view>
         <view class="val_v">{{item.ddh}}</view>
       </view>
-      <view class="row_v cyclCph_v">
-        <view class="key_v">车牌号</view>
-        <view class="val_v">{{item.cyclCph}}</view>
+      <view class="row_v cysjSfzh_v">
+        <view class="key_v">司机身份证号</view>
+        <view class="val_v">{{item.cysjSfzh}}</view>
+      </view>
+      <view class="row_v wzlxMc_v">
+        <view class="key_v">物资类型</view>
+        <view class="val_v">{{item.wzlxMc}}</view>
       </view>
       <view class="row_v wzMc_v">
         <view class="key_v">物资名称</view>
         <view class="val_v">{{item.wzMc}}</view>
+      </view>
+      <view class="row_v cyclCph_v">
+        <view class="key_v">车牌号</view>
+        <view class="val_v">{{item.cyclCph}}</view>
       </view>
       <view class="row_v yssMc_v">
         <view class="key_v">运输商</view>
@@ -104,13 +120,69 @@ startDate="{{startDate}}" endDate="{{endDate}}" style="margin-top: -148px;margin
         <view class="key_v">计划运输日期</view>
         <view class="val_v">{{item.jhysrq}}</view>
       </view>
+      <view class="row_v ddztMc_v">
+        <view class="key_v">订单状态</view>
+        <view class="val_v">{{item.ddztMc}}</view>
+      </view>
+      <view class="row_v yjztMc_v">
+        <view class="key_v">一检状态</view>
+        <view class="val_v">{{item.yjztMc}}</view>
+      </view>
+      <view class="row_v ejztMc_v">
+        <view class="key_v">二检状态</view>
+        <view class="val_v">{{item.ejztMc}}</view>
+      </view>
+      <view class="row_v yjbfMc_v">
+        <view class="key_v">一检地磅</view>
+        <view class="val_v">{{item.yjbfMc}}</view>
+      </view>
+      <view class="row_v ejbfMc_v">
+        <view class="key_v">二检地磅</view>
+        <view class="val_v">{{item.ejbfMc}}</view>
+      </view>
       <view class="row_v yzxzl_v">
         <view class="key_v">预装卸重量</view>
         <view class="val_v">{{item.yzxzl}}</view>
       </view>
+      <view class="row_v bjsj_v">
+        <view class="key_v">编辑时间</view>
+        <view class="val_v">{{item.bjsj}}</view>
+      </view>
+      <view class="row_v jcsj_v">
+        <view class="key_v">进厂时间</view>
+        <view class="val_v">{{item.jcsj}}</view>
+      </view>
+      <view class="row_v ccsj_v">
+        <view class="key_v">出厂时间</view>
+        <view class="val_v">{{item.ccsj}}</view>
+      </view>
+      <view class="row_v mz_v">
+        <view class="key_v">毛重</view>
+        <view class="val_v">{{item.mz}}</view>
+      </view>
+      <view class="row_v pz_v">
+        <view class="key_v">皮重</view>
+        <view class="val_v">{{item.pz}}</view>
+      </view>
+      <view class="row_v sjzl_v">
+        <view class="key_v">实际重量</view>
+        <view class="val_v">{{item.sjzl}}</view>
+      </view>
+      <view class="row_v dfgbmz_v">
+        <view class="key_v">对方过磅毛重</view>
+        <view class="val_v">{{item.dfgbmz}}</view>
+      </view>
+      <view class="row_v dfgbpz_v">
+        <view class="key_v">对方过磅皮重</view>
+        <view class="val_v">{{item.dfgbpz}}</view>
+      </view>
+      <view class="row_v dfgbjz_v">
+        <view class="key_v">对方过磅净重</view>
+        <view class="val_v">{{item.dfgbjz}}</view>
+      </view>
       <view class="but_list_v">
-        <view class="but_v tg_but_v" data-id="{{item.id}}" catchtap="">通过</view>
-        <view class="but_v th_but_v" data-id="{{item.id}}" catchtap="">退回</view>
+        <view class="but_v detail_but_v" data-id="{{item.id}}" catchtap="">详情</view>
+        <view class="but_v edit_but_v" data-id="{{item.id}}" catchtap="">编辑</view>
       </view>
     </view>
   </view>
