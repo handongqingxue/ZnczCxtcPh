@@ -1,5 +1,6 @@
 {
   "pages": [
+    "pages/ddgl/zhcx/new",
     "pages/ddgl/zhcx/list",
     "pages/test/datePicker",
     "pages/home/home",

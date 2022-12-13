@@ -423,4 +423,9 @@ Page({
     let day = date.getDate();
     return year + '-' + this.toDouble(month) + '-' + this.toDouble(day)
   },
+  goAddPage:function(){
+    wx.redirectTo({
+      url: '/pages/ddgl/zhcx/new',
+    })
+  },
 })

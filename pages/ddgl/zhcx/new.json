@@ -1,0 +1,5 @@
+{
+  "usingComponents": {
+    "pickerTime": "/components/pickerTime/pickerTime"
+  }
+}

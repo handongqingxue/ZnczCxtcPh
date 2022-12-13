@@ -187,8 +187,6 @@
     </view>
   </view>
 
-
-
   <view class="space1_v"></view>
   <view class="bottom_v">
     <a wx:if="{{showDjckgdView}}" data-flag="{{false}}" catchtap="showPageView">点击查看更多</a>
@@ -207,6 +205,7 @@
     </view>
     <view class="but_list_v">
       <view class="but_v screen_but_v" data-flag="{{true}}" catchtap="showToolBarView">筛选</view>
+      <view class="but_v add_but_v" catchtap="goAddPage">添加</view>
     </view>
   </view>
 </view>
