@@ -17,13 +17,21 @@
       <view class='item_v' wx:for="{{ddztList}}" data-index="{{index}}" catchtap='selectDdztOption'>{{item.mc}}</view>
     </view>
   </view>
-  <view class="wzMc_v">
-    <span class="wzMc_span">物资名称</span>
-    <input class="wzMc_inp" id="wzMc_inp" type="text" placeholder="请输入物资名称" value="{{wzMc}}" bindinput="getInputValue"/>
+  <view class="cyclCph_v">
+    <span class="cyclCph_span">车牌号</span>
+    <input class="cyclCph_inp" id="cyclCph_inp" type="text" placeholder="请输入车牌号" value="{{cyclCph}}" bindinput="getInputValue"/>
+  </view>
+  <view class="jhysrq_v">
+    <span class="jhysrq_span">计划运输日期</span>
+    <picker class="jhysrq_picker" mode="date" bindcancel="pickerJhysrqCancel" bindchange="pickerJhysrqChange">{{jhysrq==''?jhysrqPlaceholder:jhysrq}}</picker>
   </view>
   <view class="yssMc_v">
     <span class="yssMc_span">运输商</span>
     <input class="yssMc_inp" id="yssMc_inp" type="text" placeholder="请输入运输商" value="{{yssMc}}" bindinput="getInputValue"/>
+  </view>
+  <view class="wzMc_v">
+    <span class="wzMc_span">物资名称</span>
+    <input class="wzMc_inp" id="wzMc_inp" type="text" placeholder="请输入物资名称" value="{{wzMc}}" bindinput="getInputValue"/>
   </view>
   <view class="fhdwMc_v">
     <span class="fhdwMc_span">发货单位</span>
@@ -33,6 +41,23 @@
     <span class="shdwMc_span">收货单位</span>
     <input class="shdwMc_inp" id="shdwMc_inp" type="text" placeholder="请输入收货单位" value="{{shdwMc}}" bindinput="getInputValue"/>
   </view>
+  <view class="cysjXm_v">
+    <span class="cysjXm_span">司机姓名</span>
+    <input class="cysjXm_inp" id="cysjXm_inp" type="text" placeholder="请输入司机姓名" value="{{cysjXm}}" bindinput="getInputValue"/>
+  </view>
+  <view class="cysjSfzh_v">
+    <span class="cysjSfzh_span">司机身份证号</span>
+    <input class="cysjSfzh_inp" id="cysjSfzh_inp" type="text" placeholder="请输入司机身份证号" value="{{cysjSfzh}}" bindinput="getInputValue"/>
+  </view>
+  <view class="jcsj_v">
+    <span class="jcsj_span">进厂时间</span>
+    <view class="pt_v">
+  <pickerTime placeholder="{{placeholder}}" date="{{date}}" bindcancel="pickerJcsjCancel" bind:onPickerChange="onPickerJcsjChange"
+startDate="{{startDate}}" endDate="{{endDate}}">
+  </pickerTime>
+</view>
+  </view>
+  <view class="space2_v"></view>
   <view class="bottom_v">
     <view class="but_list_v">
       <view class="but_v confirm_but_v" catchtap="getListData">确定</view>
@@ -90,11 +115,7 @@
     </view>
   </view>
 
-<view class="pt_v">
-  <pickerTime placeholder="{{placeholder}}" date="{{date}}" bind:onPickerChange="onPickerChange"
-startDate="{{startDate}}" endDate="{{endDate}}">
-  </pickerTime>
-</view>
+
 
   <view class="space1_v"></view>
   <view class="bottom_v">

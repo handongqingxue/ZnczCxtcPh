@@ -5,34 +5,58 @@
   background-color: #fff;
   position: fixed;
   z-index: 1;
+  overflow-y: auto;
 }
 .tool_bar_v .ddh_v,
 .tool_bar_v .ddzt_v,
-.tool_bar_v .wzMc_v,
+.tool_bar_v .cyclCph_v,
+.tool_bar_v .jhysrq_v,
 .tool_bar_v .yssMc_v,
+.tool_bar_v .wzMc_v,
 .tool_bar_v .fhdwMc_v,
-.tool_bar_v .shdwMc_v{
+.tool_bar_v .shdwMc_v,
+.tool_bar_v .cysjXm_v,
+.tool_bar_v .cysjSfzh_v,
+.tool_bar_v .jcsj_v{
   width:100%;
   height:50px;
   line-height:50px;
 }
 .tool_bar_v .ddh_v .ddh_span,
 .tool_bar_v .ddzt_v .ddzt_span,
-.tool_bar_v .wzMc_v .wzMc_span,
+.tool_bar_v .cyclCph_v .cyclCph_span,
+.tool_bar_v .jhysrq_v .jhysrq_span,
 .tool_bar_v .yssMc_v .yssMc_span,
+.tool_bar_v .wzMc_v .wzMc_span,
 .tool_bar_v .fhdwMc_v .fhdwMc_span,
-.tool_bar_v .shdwMc_v .shdwMc_span{
+.tool_bar_v .shdwMc_v .shdwMc_span,
+.tool_bar_v .cysjXm_v .cysjXm_span,
+.tool_bar_v .cysjSfzh_v .cysjSfzh_span,
+.tool_bar_v .jcsj_v .jcsj_span{
   margin-left:10px;
 }
 .tool_bar_v .ddh_v .ddh_inp,
-.tool_bar_v .wzMc_v .wzMc_inp,
+.tool_bar_v .cyclCph_v .cyclCph_inp,
 .tool_bar_v .yssMc_v .yssMc_inp,
+.tool_bar_v .wzMc_v .wzMc_inp,
 .tool_bar_v .fhdwMc_v .fhdwMc_inp,
-.tool_bar_v .shdwMc_v .shdwMc_inp{
+.tool_bar_v .shdwMc_v .shdwMc_inp,
+.tool_bar_v .cysjXm_v .cysjXm_inp,
+.tool_bar_v .cysjSfzh_v .cysjSfzh_inp{
   width:180px;
   margin-top:-35px;
-  margin-left:80px;
+  margin-left:120px;
   border: #eee solid 1px;
+}
+.tool_bar_v .jhysrq_v .jhysrq_picker{
+  width:150px;
+  height:30px;
+  line-height:30px; 
+  margin-top:-40px;
+  margin-left:120px;
+  /*
+  background-color:#00f;
+  */
 }
 .ddzt_select_v{
   width: 150px;
@@ -76,7 +100,10 @@
   padding-left: 10px;
   background-color: #0f0;
 }
-
+.space2_v{
+  width: 100%;
+  height: 60px;
+}
 .tool_bar_v .bottom_v{
   width: 100%;
   height: 50px;
@@ -168,9 +195,6 @@
 .space1_v{
   width: 100%;
   height: 80px;
-}
-.pt_v{
-  margin-top: 100px;
 }
 
 .main_v .bottom_v{

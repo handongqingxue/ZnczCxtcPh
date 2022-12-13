@@ -1,5 +1,7 @@
 // pages/ddgl/zhcx/list.js
 //https://www.jb51.net/article/226579.htm
+//日历控件:http://www.manongjc.com/detail/50-ojjdzoacvsunmma.html
+//复选框控件:https://www.nhooo.com/note/qado3w.html
 var zhcxListPage;
 var rootIP;
 var lxlxMap;
@@ -17,10 +19,13 @@ Page({
     pageSize:10,
     showNoDataView:false,
     ddh:"",
+    cyclCph:"",
     wzMc:"",
     yssMc:"",
     fhdwMc:"",
     shdwMc:"",
+    cysjXm:"",
+    cysjSfzh:"",
     prePageFlag:1,
     nextPageFlag:2,
     prePageEnable:false,
@@ -28,9 +33,11 @@ Page({
     showDdztOption:false,
     
     date: '2019-01-01 13:37',
-    startDate: '2019-01-01 12:37',
-    endDate: '2029-03-12 12:38',
-    placeholder: '请选择时间'
+    startDate: '1970-01-01 12:37',
+    endDate: '2099-12-31 12:38',
+    placeholder: '请选择时间',
+    jhysrq:'',
+    jhysrqPlaceholder:'请选择计划运输日期',
   },
 
   /**
@@ -292,11 +299,22 @@ Page({
       showDdztOption: !this.data.showDdztOption
     });
   },
-  onPickerChange: function (e) {
+  pickerJhysrqChange:function(e){
+    let value = e.detail.value;
+    console.log(value)
+    zhcxListPage.setData({jhysrq:value});
+  },
+  pickerJhysrqCancel:function(){
+    zhcxListPage.setData({jhysrq:''});
+  },
+  onPickerJcsjChange: function (e) {
     console.log("dateString==="+e.detail.dateString)
     zhcxListPage.setData({
       date:e.detail.dateString  //选中的数据
     })
+  },
+  pickerJcsjCancel:function(e){
+    console.log(1111111111)
   },
   toDouble: function (num) {
     if (num >= 10) {//大于10

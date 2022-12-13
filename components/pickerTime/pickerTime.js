@@ -169,6 +169,7 @@ Component({
         data.year.push({ id: i, name: i + "年" });
       }
       data.index[0] = nYear - tYear;
+      console.log(nYear+"-"+nMonth+"-"+nDay+","+tYear+"-"+tMonth+"-"+tDay)
       //判断年份是否相同 相同则继续
       if (nYear == tYear){
         //判断结束年份 赋值月份 如果结束年份相同则把结束月份 一并赋值
@@ -683,7 +684,7 @@ Component({
         division: division < 10 ? '0' + division : division + ''
       }
       date.dateString = date.year + '-' + date.month + '-' + date.day + ' ' + date.time + ':' + date.division;
-      // console.log(date);
+      console.log(date);
       this.setData({
         chooseIndex: e.detail.value,
         chooseArray: this.data.pickerArray,
@@ -711,9 +712,10 @@ Component({
         cDay = daysn;
       }
       
-      // console.log(cYear + '-' + cMonth + '-' + cDay + ' ' + cTime + ':' + cDivision);
+      //console.log("pickerColumnChange==="+cYear + '-' + cMonth + '-' + cDay + ' ' + cTime + ':' + cDivision);
       let newDate = this._getDefaultDate(cYear + '-' + cMonth + '-' + cDay + ' ' + cTime + ':' + cDivision);
       //判断修改后的日期是否在限制范围内 不在则重新赋值
+      //console.log(this.data.stDate+"-"+this.data.enDate)
       if (newDate > this.data.enDate) {
         newDate = this.data.enDate;
       }
@@ -736,10 +738,11 @@ Component({
       this.setData(data);
     },
     pickerCancel: function (e) {
-      // console.log("取消");
+      console.log("取消");
       this.setData({
         pickerIndex: this.data.chooseIndex,
-        pickerArray: this.data.chooseArray
+        pickerArray: this.data.chooseArray,
+        placeholder:'请选择时间'
       })
     },
   },

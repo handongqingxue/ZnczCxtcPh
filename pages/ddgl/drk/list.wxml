@@ -8,7 +8,7 @@
   </view>
   <view class="cyclCph_v">
     <span class="cyclCph_span">车牌号</span>
-    <input class="cyclCph_inp" id="cyclCph_inp" type="text" placeholder="请输入运输商" value="{{cyclCph}}" bindinput="getInputValue"/>
+    <input class="cyclCph_inp" id="cyclCph_inp" type="text" placeholder="请输入车牌号" value="{{cyclCph}}" bindinput="getInputValue"/>
   </view>
   <view class="yssMc_v">
     <span class="yssMc_span">运输商</span>
