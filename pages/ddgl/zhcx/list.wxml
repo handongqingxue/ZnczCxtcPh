@@ -51,9 +51,9 @@
   </view>
   <view class="jcsj_v">
     <span class="jcsj_span">进厂时间</span>
-    <view class="pt_v">
+    <view class="pt_v" style="width:140px;height:40px;">
   <pickerTime placeholder="{{placeholder}}" date="{{date}}" bindcancel="pickerJcsjCancel" bind:onPickerChange="onPickerJcsjChange"
-startDate="{{startDate}}" endDate="{{endDate}}">
+startDate="{{startDate}}" endDate="{{endDate}}" style="margin-top: -148px;margin-left: 91px;position: absolute;">
   </pickerTime>
 </view>
   </view>
