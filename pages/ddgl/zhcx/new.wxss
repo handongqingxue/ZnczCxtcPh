@@ -94,7 +94,13 @@
 }
 
 .main_v .add_v .lxlx_select_v,
-.main_v .add_v .yss_select_v{
+.main_v .add_v .yss_select_v,
+.main_v .add_v .wzlx_select_v,
+.main_v .add_v .wz_select_v,
+.main_v .add_v .fhdw_select_v,
+.main_v .add_v .shdw_select_v,
+.main_v .add_v .cycl_select_v,
+.main_v .add_v .cysj_select_v{
   width: 150px;
   height: 30px;
   margin-top: -40px;
@@ -103,7 +109,13 @@
   border: #eee solid 1px;
 }
 .main_v .add_v .lxlx_select_v .selected_text_v,
-.main_v .add_v .yss_select_v .selected_text_v {
+.main_v .add_v .yss_select_v .selected_text_v,
+.main_v .add_v .wzlx_select_v .selected_text_v,
+.main_v .add_v .wz_select_v .selected_text_v,
+.main_v .add_v .fhdw_select_v .selected_text_v,
+.main_v .add_v .shdw_select_v .selected_text_v,
+.main_v .add_v .cycl_select_v .selected_text_v,
+.main_v .add_v .cysj_select_v .selected_text_v {
   width: 120px;
   height: 30px;
   line-height: 30px;
@@ -112,7 +124,13 @@
   background-color: #0f0;
 }
 .main_v .add_v .lxlx_select_v .select_img,
-.main_v .add_v .yss_select_v .select_img {
+.main_v .add_v .yss_select_v .select_img,
+.main_v .add_v .wzlx_select_v .select_img,
+.main_v .add_v .wz_select_v .select_img,
+.main_v .add_v .fhdw_select_v .select_img,
+.main_v .add_v .shdw_select_v .select_img,
+.main_v .add_v .cycl_select_v .select_img,
+.main_v .add_v .cysj_select_v .select_img {
   width: 17px;
   height: 17px;
   float: right;
@@ -120,11 +138,23 @@
   margin-right: 3px;
 }
 .main_v .add_v .lxlx_select_v .select_img_rotate,
-.main_v .add_v .yss_select_v .select_img_rotate {
+.main_v .add_v .yss_select_v .select_img_rotate,
+.main_v .add_v .wzlx_select_v .select_img_rotate,
+.main_v .add_v .wz_select_v .select_img_rotate,
+.main_v .add_v .fhdw_select_v .select_img_rotate,
+.main_v .add_v .shdw_select_v .select_img_rotate,
+.main_v .add_v .cycl_select_v .select_img_rotate,
+.main_v .add_v .cysj_select_v .select_img_rotate {
   transform: rotate(180deg);
 }
 .main_v .add_v .lxlx_option_list_v,
-.main_v .add_v .yss_option_list_v{
+.main_v .add_v .yss_option_list_v,
+.main_v .add_v .wzlx_option_list_v,
+.main_v .add_v .wz_option_list_v,
+.main_v .add_v .fhdw_option_list_v,
+.main_v .add_v .shdw_option_list_v,
+.main_v .add_v .cycl_option_list_v,
+.main_v .add_v .cysj_option_list_v{
   width: 150px;
   margin-top: 1px;
   margin-left: 120px;
@@ -134,7 +164,13 @@
   z-index: 3;
 }
 .main_v .add_v .lxlx_option_list_v .item_v,
-.main_v .add_v .yss_option_list_v .item_v{
+.main_v .add_v .yss_option_list_v .item_v,
+.main_v .add_v .wzlx_option_list_v .item_v,
+.main_v .add_v .wz_option_list_v .item_v,
+.main_v .add_v .fhdw_option_list_v .item_v,
+.main_v .add_v .shdw_option_list_v .item_v,
+.main_v .add_v .cycl_option_list_v .item_v,
+.main_v .add_v .cysj_option_list_v .item_v{
   width: 100%;
   height: 30px;
   line-height: 30px;
