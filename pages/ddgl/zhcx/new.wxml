@@ -71,10 +71,12 @@
           <input class="dfgbmz_inp" id="dfgbmz_inp" type="number" placeholder="请输入对方过磅毛重" value="{{dfgbmz}}" bindinput="getInputValue"/>
         </view>
       </view>
-      <view class="row_v dfgbzp_v">
-        <view class="key_v">对方过磅照片</view>
-        <view class="val_v">
-          
+      <view class="row_v dfbdzp_v">
+        <view class="key_v dfbdzp_key_v">对方磅单照片</view>
+        <view class="val_v dfbdzp_val_v">
+          <view class="choose_but_v" catchtap="takeDfbdzp">选择文件</view>
+          <image class="dfbdzp_img" src="{{dfbdzp}}" wx:if="{{dfbdzp!=null}}"/>
+          <view class="delete_but_v" wx:if="{{dfbdzp!=null}}" catchtap="deleteDfbdzp">x</view>
         </view>
       </view>
       <view class="row_v dfgbsj_v">
@@ -166,7 +168,9 @@
   <view class="space1_v"></view>
   <view class="bottom_v">
     <view class="but_list_v">
-      <view class="but_v save_but_v" data-flag="{{true}}" catchtap="checkNew">保存</view>
+      <view class="but_v save_but_v" data-flag="{{true}}" catchtap="checkNew" wx:if="{{showSaveBut}}">保存</view>
+      <view class="but_v saving_but_v" wx:if="{{showSavingBut}}">保存中...</view>
+      <view class="but_v saved_but_v" wx:if="{{showSavedBut}}">已保存</view>
       <view class="but_v more_but_v">更多操作</view>
     </view>
   </view>

@@ -22,6 +22,9 @@ Page({
     pickerEndTime: '2099-12-31 12:38',
     jhysrqPlaceholder:'请选择计划运输日期',
     dfgbsjPlaceholder: '请选择时间',
+    showSaveBut:true,
+    showSavingBut:false,
+    showSavedBut:false,
   },
 
   /**
@@ -104,6 +107,7 @@ Page({
     }
   },
   newDingDan:function(){
+    newPage.saving(true);
     let yzxzl=newPage.data.yzxzl;
     let lxlxSelectId=newPage.data.lxlxSelectId;
     let sjzl=newPage.data.sjzl;
@@ -122,6 +126,7 @@ Page({
     let fhdwSelectId=newPage.data.fhdwSelectId;
     let shdwSelectId=newPage.data.shdwSelectId;
     let cyclSelectId=newPage.data.cyclSelectId;
+    let cyclSelectCph=newPage.data.cyclSelectCph;
     let cysjSelectId=newPage.data.cysjSelectId;
     console.log("yzxzl==="+yzxzl)
     console.log("lxlxSelectId==="+lxlxSelectId)
@@ -142,10 +147,10 @@ Page({
     console.log("shdwSelectId==="+shdwSelectId)
     console.log("cyclSelectId==="+cyclSelectId)
     console.log("cysjSelectId==="+cysjSelectId)
-    return false;
+    //return false;
     wx.request({
       url: rootIP+"newDingDan",
-      data:{yzxzl:yzxzl,lxlx:lxlxSelectId,sjzl:sjzl,jhysrq:jhysrq,bz:bz,jszl:jszl,bs:bs,ks:ks,dfgbjz:dfgbjz,dfgbpz:dfgbpz,dfgbmz:dfgbmz,dfgbsj:dfgbsj,yssId:yssSelectId,wzlxId:wzlxSelectId,wzId:wzSelectId,fhdwId:fhdwSelectId,shdwId:shdwSelectId,cyclId:cyclSelectId,cysjId:cysjSelectId},
+      data:{yzxzl:yzxzl,lxlx:lxlxSelectId,sjzl:sjzl,jhysrq:jhysrq,bz:bz,jszl:jszl,bs:bs,ks:ks,dfgbjz:dfgbjz,dfgbpz:dfgbpz,dfgbmz:dfgbmz,dfgbsj:dfgbsj,yssId:yssSelectId,wzlxId:wzlxSelectId,wzId:wzSelectId,fhdwId:fhdwSelectId,shdwId:shdwSelectId,cyclId:cyclSelectId,cyclCph:cyclSelectCph,cysjId:cysjSelectId},
       method: 'POST',
       header: {
         'content-type': 'application/x-www-form-urlencoded',
@@ -155,10 +160,22 @@ Page({
         let message=data.message;
         console.log("message==="+message)
         if(message=="ok"){
-          wx.showToast({
-            title: data.info,
-          })
-          newPage.goListPage();          
+          let dfbdzp=newPage.data.dfbdzp;
+          //console.log("dfbdzp==="+dfbdzp)
+          if(dfbdzp==null){
+            newPage.saving(false);
+            wx.showToast({
+              title: data.info,
+            })
+            setTimeout(() => {
+              newPage.goListPage();
+            }, 1000);
+          }
+          else{
+            console.log("ddId==="+data.ddId);
+            newPage.setData({ddId:data.ddId});
+            newPage.uploadDfbdzp(); 
+          }
         }
         else{
           wx.showToast({
@@ -462,6 +479,7 @@ Page({
     newPage.setData({
       cyclSelectIndex: index,
       cyclSelectId: cycl.id,
+      cyclSelectCph: cycl.cph,
       showCyclOption: !newPage.data.showCyclOption
     });
   },
@@ -596,4 +614,46 @@ Page({
       }
     })
   },
+  takeDfbdzp:function(){
+    wx.chooseImage({
+      count: 1, // 默认9
+      sizeType: ['original', 'compressed'], // 可以指定是原图还是压缩图，默认二者都有
+      sourceType: ['album', 'camera'], // 可以指定来源是相册还是相机，默认二者都有
+      success: function (res) {
+        console.log("res.tempFilePaths==="+res.tempFilePaths)
+        
+        let tempFilePaths=res.tempFilePaths;
+        let data=newPage.data;
+        if(data.dfbdzp==null)
+          newPage.setData({dfbdzp:tempFilePaths[0]});
+      }
+    })
+  },
+  deleteDfbdzp:function(){
+    newPage.setData({dfbdzp:null});
+  },
+  saving:function(flag){
+    if(flag){
+      newPage.setData({showSaveBut:false,showSavingBut:true});
+    }
+    else{
+      newPage.setData({showSavingBut:false,showSavedBut:true});
+    }
+  },
+  uploadDfbdzp:function(){
+    let ddId=newPage.data.ddId;
+    let dfbdzp=newPage.data.dfbdzp;
+    wx.uploadFile({
+      url: rootIP+'uploadDuiFangGuoBangJiLuFile', //仅为示例，非真实的接口地址
+      filePath: dfbdzp,
+      name: 'file',
+      formData:{ddId:ddId},
+      success: function(res){
+        newPage.saving(false);
+        setTimeout(() => {
+          newPage.goListPage();
+        }, 1000);
+      }
+    })
+  }
 })
