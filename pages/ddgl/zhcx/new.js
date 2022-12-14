@@ -82,17 +82,70 @@ Page({
   },
   checkNew:function(){
     if(newPage.checkYzxzl()){
-      newPage.newDingDan();
+      if(newPage.checkLXLXId()){
+        if(newPage.checkJHYSRQ()){
+          if(newPage.checkYSSId()){
+            if(newPage.checkWZLXId()){
+              if(newPage.checkWZId()){
+                if(newPage.checkFHDWId()){
+                  if(newPage.checkSHDWId()){
+                    if(newPage.checkCYCLId()){
+                      if(newPage.checkCYSJId()){
+                        newPage.newDingDan();
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
     }
   },
   newDingDan:function(){
-    let mc=newPage.data.mc;
-    let px=newPage.data.px;
-    console.log(mc)
-    console.log(px)
+    let yzxzl=newPage.data.yzxzl;
+    let lxlxSelectId=newPage.data.lxlxSelectId;
+    let sjzl=newPage.data.sjzl;
+    let jhysrq=newPage.data.jhysrq;
+    let bz=newPage.data.bz;
+    let jszl=newPage.data.jszl;
+    let bs=newPage.data.bs;
+    let ks=newPage.data.ks;
+    let dfgbjz=newPage.data.dfgbjz;
+    let dfgbpz=newPage.data.dfgbpz;
+    let dfgbmz=newPage.data.dfgbmz;
+    let dfgbsj=newPage.data.dfgbsj;
+    let yssSelectId=newPage.data.yssSelectId;
+    let wzlxSelectId=newPage.data.wzlxSelectId;
+    let wzSelectId=newPage.data.wzSelectId;
+    let fhdwSelectId=newPage.data.fhdwSelectId;
+    let shdwSelectId=newPage.data.shdwSelectId;
+    let cyclSelectId=newPage.data.cyclSelectId;
+    let cysjSelectId=newPage.data.cysjSelectId;
+    console.log("yzxzl==="+yzxzl)
+    console.log("lxlxSelectId==="+lxlxSelectId)
+    console.log("sjzl==="+sjzl)
+    console.log("jhysrq==="+jhysrq)
+    console.log("bz==="+bz)
+    console.log("jszl==="+jszl)
+    console.log("bs==="+bs)
+    console.log("ks==="+ks)
+    console.log("dfgbjz==="+dfgbjz)
+    console.log("dfgbpz==="+dfgbpz)
+    console.log("dfgbmz==="+dfgbmz)
+    console.log("dfgbsj==="+dfgbsj)
+    console.log("yssSelectId==="+yssSelectId)
+    console.log("wzlxSelectId==="+wzlxSelectId)
+    console.log("wzSelectId==="+wzSelectId)
+    console.log("fhdwSelectId==="+fhdwSelectId)
+    console.log("shdwSelectId==="+shdwSelectId)
+    console.log("cyclSelectId==="+cyclSelectId)
+    console.log("cysjSelectId==="+cysjSelectId)
+    return false;
     wx.request({
       url: rootIP+"newDingDan",
-      data:{mc:mc,px:px},
+      data:{yzxzl:yzxzl,lxlx:lxlxSelectId,sjzl:sjzl,jhysrq:jhysrq,bz:bz,jszl:jszl,bs:bs,ks:ks,dfgbjz:dfgbjz,dfgbpz:dfgbpz,dfgbmz:dfgbmz,dfgbsj:dfgbsj,yssId:yssSelectId,wzlxId:wzlxSelectId,wzId:wzSelectId,fhdwId:fhdwSelectId,shdwId:shdwSelectId,cyclId:cyclSelectId,cysjId:cysjSelectId},
       method: 'POST',
       header: {
         'content-type': 'application/x-www-form-urlencoded',
@@ -120,9 +173,37 @@ Page({
       let yzxzl=e.detail.value;
       newPage.setData({yzxzl:yzxzl});
     }
-    else if(e.currentTarget.id=="px_inp"){
-      let px=e.detail.value;
-      newPage.setData({px:px});
+    else if(e.currentTarget.id=="sjzl_inp"){
+      let sjzl=e.detail.value;
+      newPage.setData({sjzl:sjzl});
+    }
+    else if(e.currentTarget.id=="bz_inp"){
+      let bz=e.detail.value;
+      newPage.setData({bz:bz});
+    }
+    else if(e.currentTarget.id=="jszl_inp"){
+      let jszl=e.detail.value;
+      newPage.setData({jszl:jszl});
+    }
+    else if(e.currentTarget.id=="bs_inp"){
+      let bs=e.detail.value;
+      newPage.setData({bs:bs});
+    }
+    else if(e.currentTarget.id=="ks_inp"){
+      let ks=e.detail.value;
+      newPage.setData({ks:ks});
+    }
+    else if(e.currentTarget.id=="dfgbjz_inp"){
+      let dfgbjz=e.detail.value;
+      newPage.setData({dfgbjz:dfgbjz});
+    }
+    else if(e.currentTarget.id=="dfgbpz_inp"){
+      let dfgbpz=e.detail.value;
+      newPage.setData({dfgbpz:dfgbpz});
+    }
+    else if(e.currentTarget.id=="dfgbmz_inp"){
+      let dfgbmz=e.detail.value;
+      newPage.setData({dfgbmz:dfgbmz});
     }
   },
   focusYzxzl:function(){
@@ -140,6 +221,112 @@ Page({
     else{
       return true;
     }
+  },
+  checkLXLXId:function(){
+    let lxlxSelectId=newPage.data.lxlxSelectId;
+    if(lxlxSelectId==null||lxlxSelectId==""){
+      wx.showToast({
+        title: "请选择流向类型",
+      })
+	  	return false;
+    }
+    else
+      return true;
+  },
+  checkJHYSRQ:function(){
+    let jhysrq=newPage.data.jhysrq;
+    if(jhysrq==null||jhysrq==""){
+        wx.showToast({
+          title: "请选择计划运输日期",
+        })
+        return false;
+    }
+    else
+      return true;
+  },
+  //验证运输商
+  checkYSSId:function(){
+    let yssSelectId=newPage.data.yssSelectId;
+    if(yssSelectId==null||yssSelectId==""){
+        wx.showToast({
+          title: "请选择运输商",
+        })
+        return false;
+    }
+    else
+      return true;
+  },
+  //验证物资类型
+  checkWZLXId:function(){
+    let wzlxSelectId=newPage.data.wzlxSelectId;
+    if(wzlxSelectId==null||wzlxSelectId==""){
+        wx.showToast({
+          title: "请选择物资类型",
+        })
+        return false;
+    }
+    else
+      return true;
+  },
+  //验证物资名称
+  checkWZId:function(){
+    let wzSelectId=newPage.data.wzSelectId;
+    if(wzSelectId==null||wzSelectId==""){
+        wx.showToast({
+          title: "请选择物资名称",
+        })
+        return false;
+    }
+    else
+      return true;
+  },
+  //验证发货单位
+  checkFHDWId:function(){
+    let fhdwSelectId=newPage.data.fhdwSelectId;
+    if(fhdwSelectId==null||fhdwSelectId==""){
+        wx.showToast({
+          title: "请选择发货单位",
+        })
+        return false;
+    }
+    else
+      return true;
+  },
+  //验证收货单位
+  checkSHDWId:function(){
+    let shdwSelectId=newPage.data.shdwSelectId;
+    if(shdwSelectId==null||shdwSelectId==""){
+        wx.showToast({
+          title: "请选择收货单位",
+        })
+        return false;
+    }
+    else
+      return true;
+  },
+  //验证承运车辆
+  checkCYCLId:function(){
+    let cyclSelectId=newPage.data.cyclSelectId;
+    if(cyclSelectId==null||cyclSelectId==""){
+        wx.showToast({
+          title: "请选择承运车辆",
+        })
+        return false;
+    }
+    else
+      return true;
+  },
+  //验证承运司机
+  checkCYSJId:function(){
+    let cysjSelectId=newPage.data.cysjSelectId;
+    if(cysjSelectId==null||cysjSelectId==""){
+        wx.showToast({
+          title: "请选择承运司机",
+        })
+        return false;
+    }
+    else
+      return true;
   },
   goListPage:function(){
     wx.redirectTo({
@@ -199,11 +386,11 @@ Page({
     let index = e.currentTarget.dataset.index; //获取点击的下拉列表的下标
     let lxlxList=newPage.data.lxlxList;
     let lxlx=lxlxList[index];
-    console.log(index+","+lxlx.id+","+lxlx.mc);
-    this.setData({
+    console.log(index+","+lxlx.value+","+lxlx.text);
+    newPage.setData({
       lxlxSelectIndex: index,
-      lxlxSelectId: lxlx.id,
-      showLxlxOption: !this.data.showLxlxOption
+      lxlxSelectId: lxlx.value,
+      showLxlxOption: !newPage.data.showLxlxOption
     });
   },
   // 点击下拉列表
@@ -212,10 +399,10 @@ Page({
     let yssList=newPage.data.yssList;
     let yss=yssList[index];
     console.log(index+","+yss.id+","+yss.mc);
-    this.setData({
+    newPage.setData({
       yssSelectIndex: index,
       yssSelectId: yss.id,
-      showYssOption: !this.data.showYssOption
+      showYssOption: !newPage.data.showYssOption
     });
   },
   // 点击下拉列表
@@ -224,10 +411,10 @@ Page({
     let wzlxList=newPage.data.wzlxList;
     let wzlx=wzlxList[index];
     console.log(index+","+wzlx.id+","+wzlx.mc);
-    this.setData({
+    newPage.setData({
       wzlxSelectIndex: index,
       wzlxSelectId: wzlx.id,
-      showWzlxOption: !this.data.showWzlxOption
+      showWzlxOption: !newPage.data.showWzlxOption
     });
   },
   // 点击下拉列表
@@ -236,10 +423,10 @@ Page({
     let wzList=newPage.data.wzList;
     let wz=wzList[index];
     console.log(index+","+wz.id+","+wz.mc);
-    this.setData({
+    newPage.setData({
       wzSelectIndex: index,
       wzSelectId: wz.id,
-      showWzOption: !this.data.showWzOption
+      showWzOption: !newPage.data.showWzOption
     });
   },
   // 点击下拉列表
@@ -248,10 +435,10 @@ Page({
     let fhdwList=newPage.data.fhdwList;
     let fhdw=fhdwList[index];
     console.log(index+","+fhdw.id+","+fhdw.mc);
-    this.setData({
+    newPage.setData({
       fhdwSelectIndex: index,
       fhdwSelectId: fhdw.id,
-      showFhdwOption: !this.data.showFhdwOption
+      showFhdwOption: !newPage.data.showFhdwOption
     });
   },
   // 点击下拉列表
@@ -260,10 +447,10 @@ Page({
     let shdwList=newPage.data.shdwList;
     let shdw=shdwList[index];
     console.log(index+","+shdw.id+","+shdw.mc);
-    this.setData({
+    newPage.setData({
       shdwSelectIndex: index,
       shdwSelectId: shdw.id,
-      showShdwOption: !this.data.showShdwOption
+      showShdwOption: !newPage.data.showShdwOption
     });
   },
   // 点击下拉列表
@@ -272,10 +459,10 @@ Page({
     let cyclList=newPage.data.cyclList;
     let cycl=cyclList[index];
     console.log(index+","+cycl.id+","+cycl.cph);
-    this.setData({
+    newPage.setData({
       cyclSelectIndex: index,
       cyclSelectId: cycl.id,
-      showCyclOption: !this.data.showCyclOption
+      showCyclOption: !newPage.data.showCyclOption
     });
   },
   // 点击下拉列表
@@ -284,10 +471,10 @@ Page({
     let cysjList=newPage.data.cysjList;
     let cysj=cysjList[index];
     console.log(index+","+cysj.id+","+cysj.xm);
-    this.setData({
+    newPage.setData({
       cysjSelectIndex: index,
       cysjSelectId: cysj.id,
-      showCysjOption: !this.data.showCysjOption
+      showCysjOption: !newPage.data.showCysjOption
     });
   },
   pickerJhysrqChange:function(e){

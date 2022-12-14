@@ -12,7 +12,7 @@
       <view class="row_v lxlx_v">
         <view class="key_v">流向类型</view>
         <view class='lxlx_select_v'>
-          <view class='selected_text_v' catchtap='showLxlxOption'>{{lxlxList[lxlxSelectIndex]==null?'请选择':lxlxList[lxlxSelectIndex].mc}}</view>
+          <view class='selected_text_v' catchtap='showLxlxOption'>{{lxlxList[lxlxSelectIndex]==null?'请选择':lxlxList[lxlxSelectIndex].text}}</view>
           <image class='select_img {{showLxlxOption&&"select_img_rotate"}}' src='../../../images/sanjiao.png'></image>
         </view>
         <view class='lxlx_option_list_v' style='height:{{showLxlxOption?(lxlxList.length>5?300:lxlxList.length*30):0}}px;'>
