@@ -428,4 +428,16 @@ Page({
       url: '/pages/ddgl/zhcx/new',
     })
   },
+  goEditPage:function(e){
+    let id=e.currentTarget.dataset.id;
+    wx.redirectTo({
+      url: '/pages/ddgl/zhcx/edit?id='+id,
+    })
+  },
+  goDetailPage:function(e){
+    let id=e.currentTarget.dataset.id;
+    wx.redirectTo({
+      url: '/pages/ddgl/zhcx/detail?id='+id,
+    })
+  }
 })

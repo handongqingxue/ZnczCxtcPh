@@ -1,0 +1,177 @@
+<!--pages/ddgl/zhcx/edit.wxml-->
+<view class="main_v">
+  <view class="title_v">编辑页面</view>
+  <view class="back_but_v" catchtap="goListPage">{{backButSign}}</view>
+  <view class="edit_v">
+      <view class="row_v yzxzl_v">
+        <view class="key_v">预装卸重量</view>
+        <view class="val_v">
+          <input class="yzxzl_inp" id="yzxzl_inp" type="text" placeholder="请输入预装卸重量" value="{{yzxzl}}" bindfocus="focusYzxzl" bindblur="checkYzxzl" bindinput="getInputValue"/>
+        </view>
+      </view>
+      <view class="row_v lxlx_v">
+        <view class="key_v">流向类型</view>
+        <view class='lxlx_select_v'>
+          <view class='selected_text_v' catchtap='showLxlxOption'>{{lxlxList[lxlxSelectIndex]==null?'请选择':lxlxList[lxlxSelectIndex].text}}</view>
+          <image class='select_img {{showLxlxOption&&"select_img_rotate"}}' src='../../../images/sanjiao.png'></image>
+        </view>
+        <view class='lxlx_option_list_v' style='height:{{showLxlxOption?(lxlxList.length>5?300:lxlxList.length*30):0}}px;'>
+          <view class='item_v' wx:for="{{lxlxList}}" data-index="{{index}}" catchtap='selectLxlxOption'>{{item.text}}</view>
+        </view>
+      </view>
+      <view class="row_v sjzl_v">
+        <view class="key_v">实际重量</view>
+        <view class="val_v">
+          <input class="sjzl_inp" id="sjzl_inp" type="number" placeholder="请输入实际重量" value="{{sjzl}}" bindinput="getInputValue"/>
+        </view>
+      </view>
+      <view class="row_v jhysrq_v">
+        <view class="key_v">计划运输日期</view>
+        <picker class="jhysrq_picker" mode="date" bindcancel="pickerJhysrqCancel" bindchange="pickerJhysrqChange">{{jhysrq==''?jhysrqPlaceholder:jhysrq}}</picker>
+      </view>
+      <view class="row_v bz_v">
+        <view class="key_v bz_key_v">备注</view>
+        <view class="val_v bz_val_v">
+          <textarea class="bz_inp" id="bz_inp" type="text" placeholder="请输入备注" value="{{bz}}" bindinput="getInputValue"/>
+        </view>
+      </view>
+      <view class="row_v jszl_v">
+        <view class="key_v">结算重量</view>
+        <view class="val_v">
+          <input class="jszl_inp" id="jszl_inp" type="number" placeholder="请输入结算重量" value="{{jszl}}" bindinput="getInputValue"/>
+        </view>
+      </view>
+      <view class="row_v bs_v">
+        <view class="key_v">包数</view>
+        <view class="val_v">
+          <input class="bs_inp" id="bs_inp" type="number" placeholder="请输入包数" value="{{bs}}" bindinput="getInputValue"/>
+        </view>
+      </view>
+      <view class="row_v ks_v">
+        <view class="key_v">块数</view>
+        <view class="val_v">
+          <input class="ks_inp" id="ks_inp" type="number" placeholder="请输入块数" value="{{ks}}" bindinput="getInputValue"/>
+        </view>
+      </view>
+      <view class="row_v dfgbjz_v">
+        <view class="key_v">对方过磅净重</view>
+        <view class="val_v">
+          <input class="dfgbjz_inp" id="dfgbjz_inp" type="number" placeholder="请输入对方过磅净重" value="{{dfgbjz}}" bindinput="getInputValue"/>
+        </view>
+      </view>
+      <view class="row_v dfgbpz_v">
+        <view class="key_v">对方过磅皮重</view>
+        <view class="val_v">
+          <input class="dfgbpz_inp" id="dfgbpz_inp" type="number" placeholder="请输入对方过磅皮重" value="{{dfgbpz}}" bindinput="getInputValue"/>
+        </view>
+      </view>
+      <view class="row_v dfgbmz_v">
+        <view class="key_v">对方过磅毛重</view>
+        <view class="val_v">
+          <input class="dfgbmz_inp" id="dfgbmz_inp" type="number" placeholder="请输入对方过磅毛重" value="{{dfgbmz}}" bindinput="getInputValue"/>
+        </view>
+      </view>
+      <view class="row_v dfbdzp_v">
+        <view class="key_v dfbdzp_key_v">对方磅单照片</view>
+        <view class="val_v dfbdzp_val_v">
+          <view class="choose_but_v" catchtap="takeDfbdzp">选择文件</view>
+          <image class="dfbdzp_img" src="{{dfbdzp}}" wx:if="{{dfbdzp!=null}}"/>
+          <view class="delete_but_v" wx:if="{{dfbdzp!=null}}" catchtap="deleteDfbdzp">x</view>
+        </view>
+      </view>
+      <view class="row_v dfgbsj_v">
+        <view class="key_v">对方过磅时间</view>
+        <view class="dfgbsj_pt_v">
+          <pickerTime class="dfgbsj_pt" placeholder="{{dfgbsjPlaceholder}}" date="{{dfgbsj}}" bind:onPickerChange="onPickerDfgbsjChange"
+            startDate="{{pickerStartTime}}" endDate="{{pickerEndTime}}">
+          </pickerTime>
+        </view>
+      </view>
+      <view class="row_v yss_v">
+        <view class="key_v">运输商</view>
+        <view class='yss_select_v'>
+          <view class='selected_text_v' catchtap='showYssOption'>{{yssList[yssSelectIndex]==null?'请选择':yssList[yssSelectIndex].mc}}</view>
+          <image class='select_img {{showYssOption&&"select_img_rotate"}}' src='../../../images/sanjiao.png'></image>
+        </view>
+        <view class='yss_option_list_v' style='height:{{showYssOption?(yssList.length>5?300:(yssList.length+1)*30):0}}px;'>
+          <view class='item_v' data-index="" catchtap='selectYssOption'>请选择</view>
+          <view class='item_v' wx:for="{{yssList}}" data-index="{{index}}" catchtap='selectYssOption'>{{item.mc}}</view>
+        </view>
+      </view>
+      <view class="row_v wzlx_v">
+        <view class="key_v">物资类型</view>
+        <view class='wzlx_select_v'>
+          <view class='selected_text_v' catchtap='showWzlxOption'>{{wzlxList[wzlxSelectIndex]==null?'请选择':wzlxList[wzlxSelectIndex].mc}}</view>
+          <image class='select_img {{showWzlxOption&&"select_img_rotate"}}' src='../../../images/sanjiao.png'></image>
+        </view>
+        <view class='wzlx_option_list_v' style='height:{{showWzlxOption?(wzlxList.length>5?300:(wzlxList.length+1)*30):0}}px;'>
+          <view class='item_v' data-index="" catchtap='selectWzlxOption'>请选择</view>
+          <view class='item_v' wx:for="{{wzlxList}}" data-index="{{index}}" catchtap='selectWzlxOption'>{{item.mc}}</view>
+        </view>
+      </view>
+      <view class="row_v wz_v">
+        <view class="key_v">物资名称</view>
+        <view class='wz_select_v'>
+          <view class='selected_text_v' catchtap='showWzOption'>{{wzList[wzSelectIndex]==null?'请选择':wzList[wzSelectIndex].mc}}</view>
+          <image class='select_img {{showWzOption&&"select_img_rotate"}}' src='../../../images/sanjiao.png'></image>
+        </view>
+        <view class='wz_option_list_v' style='height:{{showWzOption?(wzList.length>5?300:(wzList.length+1)*30):0}}px;'>
+          <view class='item_v' data-index="" catchtap='selectWzOption'>请选择</view>
+          <view class='item_v' wx:for="{{wzList}}" data-index="{{index}}" catchtap='selectWzOption'>{{item.mc}}</view>
+        </view>
+      </view>
+      <view class="row_v fhdw_v">
+        <view class="key_v">发货单位</view>
+        <view class='fhdw_select_v'>
+          <view class='selected_text_v' catchtap='showFhdwOption'>{{fhdwList[fhdwSelectIndex]==null?'请选择':fhdwList[fhdwSelectIndex].mc}}</view>
+          <image class='select_img {{showFhdwOption&&"select_img_rotate"}}' src='../../../images/sanjiao.png'></image>
+        </view>
+        <view class='fhdw_option_list_v' style='height:{{showFhdwOption?(fhdwList.length>5?300:(fhdwList.length+1)*30):0}}px;'>
+          <view class='item_v' data-index="" catchtap='selectFhdwOption'>请选择</view>
+          <view class='item_v' wx:for="{{fhdwList}}" data-index="{{index}}" catchtap='selectFhdwOption'>{{item.mc}}</view>
+        </view>
+      </view>
+      <view class="row_v shdw_v">
+        <view class="key_v">收货单位</view>
+        <view class='shdw_select_v'>
+          <view class='selected_text_v' catchtap='showShdwOption'>{{shdwList[shdwSelectIndex]==null?'请选择':shdwList[shdwSelectIndex].mc}}</view>
+          <image class='select_img {{showShdwOption&&"select_img_rotate"}}' src='../../../images/sanjiao.png'></image>
+        </view>
+        <view class='shdw_option_list_v' style='height:{{showShdwOption?(shdwList.length>5?300:(shdwList.length+1)*30):0}}px;'>
+          <view class='item_v' data-index="" catchtap='selectShdwOption'>请选择</view>
+          <view class='item_v' wx:for="{{shdwList}}" data-index="{{index}}" catchtap='selectShdwOption'>{{item.mc}}</view>
+        </view>
+      </view>
+      <view class="row_v cycl_v">
+        <view class="key_v">承运车辆</view>
+        <view class='cycl_select_v'>
+          <view class='selected_text_v' catchtap='showCyclOption'>{{cyclList[cyclSelectIndex]==null?'请选择':cyclList[cyclSelectIndex].cph}}</view>
+          <image class='select_img {{showCyclOption&&"select_img_rotate"}}' src='../../../images/sanjiao.png'></image>
+        </view>
+        <view class='cycl_option_list_v' style='height:{{showCyclOption?(cyclList.length>5?300:(cyclList.length+1)*30):0}}px;'>
+          <view class='item_v' data-index="" catchtap='selectCyclOption'>请选择</view>
+          <view class='item_v' wx:for="{{cyclList}}" data-index="{{index}}" catchtap='selectCyclOption'>{{item.cph}}</view>
+        </view>
+      </view>
+      <view class="row_v cysj_v">
+        <view class="key_v">承运司机</view>
+        <view class='cysj_select_v'>
+          <view class='selected_text_v' catchtap='showCysjOption'>{{cysjList[cysjSelectIndex]==null?'请选择':cysjList[cysjSelectIndex].xm}}</view>
+          <image class='select_img {{showCyclOption&&"select_img_rotate"}}' src='../../../images/sanjiao.png'></image>
+        </view>
+        <view class='cysj_option_list_v' style='height:{{showCysjOption?(cysjList.length>5?300:(cysjList.length+1)*30):0}}px;'>
+          <view class='item_v' data-index="" catchtap='selectCysjOption'>请选择</view>
+          <view class='item_v' wx:for="{{cysjList}}" data-index="{{index}}" catchtap='selectCysjOption'>{{item.xm}}</view>
+        </view>
+      </view>
+  </view>
+  <view class="space1_v"></view>
+  <view class="bottom_v">
+    <view class="but_list_v">
+      <view class="but_v save_but_v" data-flag="{{true}}" catchtap="checkEdit" wx:if="{{showSaveBut}}">保存</view>
+      <view class="but_v saving_but_v" wx:if="{{showSavingBut}}">保存中...</view>
+      <view class="but_v saved_but_v" wx:if="{{showSavedBut}}">已保存</view>
+      <view class="but_v more_but_v">更多操作</view>
+    </view>
+  </view>
+</view>
