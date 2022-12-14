@@ -1,0 +1,91 @@
+<!--pages/ddgl/zhcx/detail.wxml-->
+<view class="main_v">
+  <view class="title_v">详情页面</view>
+  <view class="back_but_v" catchtap="goListPage">{{backButSign}}</view>
+  <view class="edit_v">
+      <view class="row_v yzxzl_v">
+        <view class="key_v">预装卸重量</view>
+        <view class="val_v">
+          {{yzxzl}}
+        </view>
+      </view>
+      <view class="row_v lxlx_v">
+        <view class="key_v">流向类型</view>
+        <view class="val_v">{{lxlx==1?'送运':'取运'}}</view>
+      </view>
+      <view class="row_v sjzl_v">
+        <view class="key_v">实际重量</view>
+        <view class="val_v">{{sjzl}}</view>
+      </view>
+      <view class="row_v jhysrq_v">
+        <view class="key_v">计划运输日期</view>
+        <view class="val_v">{{jhysrq}}</view>
+      </view>
+      <view class="row_v bz_v">
+        <view class="key_v bz_key_v">备注</view>
+        <view class="val_v bz_val_v">{{bz}}</view>
+      </view>
+      <view class="row_v jszl_v">
+        <view class="key_v">结算重量</view>
+        <view class="val_v">{{jszl}}</view>
+      </view>
+      <view class="row_v bs_v">
+        <view class="key_v">包数</view>
+        <view class="val_v">{{bs}}</view>
+      </view>
+      <view class="row_v ks_v">
+        <view class="key_v">块数</view>
+        <view class="val_v">{{ks}}</view>
+      </view>
+      <view class="row_v dfgbjz_v">
+        <view class="key_v">对方过磅净重</view>
+        <view class="val_v">{{dfgbjz}}</view>
+      </view>
+      <view class="row_v dfgbpz_v">
+        <view class="key_v">对方过磅皮重</view>
+        <view class="val_v">{{dfgbpz}}</view>
+      </view>
+      <view class="row_v dfgbmz_v">
+        <view class="key_v">对方过磅毛重</view>
+        <view class="val_v">{{dfgbmz}}</view>
+      </view>
+      <view class="row_v dfbdzp_v">
+        <view class="key_v dfbdzp_key_v">对方磅单照片</view>
+        <view class="val_v dfbdzp_val_v">
+          <image class="dfbdzp_img" src="{{dfbdzp}}" wx:if="{{dfbdzp!=null}}"/>
+        </view>
+      </view>
+      <view class="row_v dfgbsj_v">
+        <view class="key_v">对方过磅时间</view>
+        <view class="val_v">{{dfgbsj}}</view>
+      </view>
+      <view class="row_v yss_v">
+        <view class="key_v">运输商</view>
+        <view class='val_v'>{{yssMc}}</view>
+      </view>
+      <view class="row_v wzlx_v">
+        <view class="key_v">物资类型</view>
+        <view class='val_v'>{{wzlxMc}}</view>
+      </view>
+      <view class="row_v wz_v">
+        <view class="key_v">物资名称</view>
+        <view class='val_v'>{{wzMc}}</view>
+      </view>
+      <view class="row_v fhdw_v">
+        <view class="key_v">发货单位</view>
+        <view class='val_v'>{{fhdwMc}}</view>
+      </view>
+      <view class="row_v shdw_v">
+        <view class="key_v">收货单位</view>
+        <view class='val_v'>{{shdwMc}}</view>
+      </view>
+      <view class="row_v cycl_v">
+        <view class="key_v">承运车辆</view>
+        <view class='val_v'>{{cyclCph}}</view>
+      </view>
+      <view class="row_v cysj_v">
+        <view class="key_v">承运司机</view>
+        <view class='val_v'>{{cysjXm}}</view>
+      </view>
+  </view>
+</view>
