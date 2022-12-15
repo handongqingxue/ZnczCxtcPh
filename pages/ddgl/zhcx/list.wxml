@@ -49,6 +49,58 @@
     <span class="cysjSfzh_span">司机身份证号</span>
     <input class="cysjSfzh_inp" id="cysjSfzh_inp" type="text" placeholder="请输入司机身份证号" value="{{cysjSfzh}}" bindinput="getInputValue"/>
   </view>
+  <view class="jcksrq_v">
+    <span class="jcksrq_span">进厂开始日期</span>
+    <view class="jcksrq_picker_v">
+      <picker class="jcksrq_picker" mode="date" bindcancel="pickerJcksrqCancel" bindchange="pickerJcksrqChange">{{jcksrq==''?jcksrqPlaceholder:jcksrq}}</picker>
+    </view>
+  </view>
+  <view class="jckssj_v">
+    <span class="jckssj_span">进厂开始时间</span>
+    <view class="jckssj_picker_v">
+      <picker class="jckssj_picker" mode="time" bindcancel="pickerJckssjCancel" bindchange="pickerJckssjChange">{{jckssj==''?jckssjPlaceholder:jckssj}}</picker>
+    </view>
+  </view>
+  <view class="jcjsrq_v">
+    <span class="jcjsrq_span">进厂结束日期</span>
+    <view class="jcjsrq_picker_v">
+      <picker class="jcjsrq_picker" mode="date" bindcancel="pickerJcjsrqCancel" bindchange="pickerJcjsrqChange">{{jcjsrq==''?jcjsrqPlaceholder:jcjsrq}}</picker>
+    </view>
+  </view>
+  <view class="jcjssj_v">
+    <span class="jcjssj_span">进厂结束时间</span>
+    <view class="jcjssj_picker_v">
+      <picker class="jcjssj_picker" mode="time" bindcancel="pickerJcjssjCancel" bindchange="pickerJcjssjChange">{{jcjssj==''?jcjssjPlaceholder:jcjssj}}</picker>
+    </view>
+  </view>
+  <view class="ccksrq_v">
+    <span class="ccksrq_span">出厂开始日期</span>
+    <view class="ccksrq_picker_v">
+      <picker class="ccksrq_picker" mode="date" bindcancel="pickerCcksrqCancel" bindchange="pickerCcksrqChange">{{ccksrq==''?ccksrqPlaceholder:ccksrq}}</picker>
+    </view>
+  </view>
+  <view class="ccjsrq_v">
+    <span class="ccjsrq_span">出厂结束日期</span>
+    <view class="ccjsrq_picker_v">
+      <picker class="ccjsrq_picker" mode="date" bindcancel="pickerCcjsrqCancel" bindchange="pickerCcjsrqChange">{{ccjsrq==''?ccjsrqPlaceholder:ccjsrq}}</picker>
+    </view>
+  </view>
+  <view class="ccjssj_v">
+    <span class="ccjssj_span">出厂结束时间</span>
+    <view class="ccjssj_picker_v">
+      <picker class="ccjssj_picker" mode="time" bindcancel="pickerCcjssjCancel" bindchange="pickerCcjssjChange">{{ccjssj==''?ccjssjPlaceholder:ccjssj}}</picker>
+    </view>
+  </view>
+  
+  <!--
+  <view class="ccksrq_v">
+    <span class="ccksrq_span">出厂开始日期</span>
+    <view class="ccksrq_picker_v">
+      <picker class="ccksrq_picker" mode="date" bindcancel="pickerCcksrqCancel" bindchange="pickerCcksrqChange">{{ccksrq==''?ccksrqPlaceholder:ccksrq}}</picker>
+    </view>
+  </view>
+  -->
+  <!--
   <view class="jcsj_v">
     <span class="jcsj_span">进厂时间</span>
     <view class="jcsj_pt_v">
@@ -65,6 +117,7 @@
       </pickerTime>
     </view>
   </view>
+  -->
   <view class="space2_v"></view>
   <view class="bottom_v">
     <view class="but_list_v">

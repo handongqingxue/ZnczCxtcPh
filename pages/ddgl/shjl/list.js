@@ -29,8 +29,6 @@ Page({
     prePageEnable:false,
     nextPageEnable:true,
     showShlxOption:false,
-    pickerStartTime: '1970-01-01 12:37',
-    pickerEndTime: '2099-12-31 12:38',
     shksrq:'',
     shksrqPlaceholder: '请选择开始日期',
     shkssj:'',

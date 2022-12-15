@@ -32,13 +32,26 @@ Page({
     prePageEnable:false,
     nextPageEnable:true,
     showDdztOption:false,
-    
     //date: '2019-01-01 13:37',
-    pickerStartTime: '1970-01-01 12:37',
-    pickerEndTime: '2099-12-31 12:38',
-    jcsjPlaceholder: '请选择时间',
-    ccsjPlaceholder: '请选择时间',
     jhysrqPlaceholder:'请选择计划运输日期',
+
+    jcksrq:'',
+    jcksrqPlaceholder: '请选择开始日期',
+    jckssj:'',
+    jckssjPlaceholder: '请选择开始时间',
+    jcjsrq:'',
+    jcjsrqPlaceholder: '请选择结束日期',
+    jcjssj:'',
+    jcjssjPlaceholder: '请选择结束时间',
+    
+    ccksrq:'',
+    ccksrqPlaceholder: '请选择开始日期',
+    cckssj:'',
+    cckssjPlaceholder: '请选择开始时间',
+    ccjsrq:'',
+    ccjsrqPlaceholder: '请选择结束日期',
+    ccjssj:'',
+    ccjssjPlaceholder: '请选择结束时间',
   },
 
   /**
@@ -233,6 +246,31 @@ Page({
     let shdwMc=zhcxListPage.data.shdwMc;
     let cysjXm=zhcxListPage.data.cysjXm;
     let cysjSfzh=zhcxListPage.data.cysjSfzh;
+
+    let jcksrq=zhcxListPage.data.jcksrq;
+    let jckssj=zhcxListPage.data.jckssj;
+    let jcsjs="";
+    if(jcksrq!=""&jckssj!="")
+      jcsjs=jcksrq+" "+jckssj;
+
+    let jcjsrq=zhcxListPage.data.jcjsrq;
+    let jcjssj=zhcxListPage.data.jcjssj;
+    let jcsje="";
+    if(jcjsrq!=""&jcjssj!="")
+      jcsje=jcjsrq+" "+jcjssj;
+
+    let ccksrq=zhcxListPage.data.ccksrq;
+    let cckssj=zhcxListPage.data.cckssj;
+    let ccsjs="";
+    if(ccksrq!=""&cckssj!="")
+      ccsjs=ccksrq+" "+cckssj;
+
+    let ccjsrq=zhcxListPage.data.ccjsrq;
+    let ccjssj=zhcxListPage.data.ccjssj;
+    let ccsje="";
+    if(ccjsrq!=""&ccjssj!="")
+      ccsje=ccjsrq+" "+ccjssj;
+
     console.log("ddh==="+ddh)
     console.log("ddztId==="+ddztId)
     console.log("cyclCph==="+cyclCph)
@@ -243,10 +281,14 @@ Page({
     console.log("shdwMc==="+shdwMc)
     console.log("cysjXm==="+cysjXm)
     console.log("cysjSfzh==="+cysjSfzh)
+    console.log("jcsjs==="+jcsjs)
+    console.log("jcsje==="+jcsje)
+    console.log("ccsjs==="+ccsjs)
+    console.log("ccsje==="+ccsje)
     
     wx.request({
       url: rootIP+"getDDZHCXList",
-      data:{page:currentPage,rows:pageSize,ddh:ddh,ddztId:ddztId,cyclCph:cyclCph,jhysrq:jhysrq,wzMc:wzMc,yssMc:yssMc,fhdwMc:fhdwMc,shdwMc:shdwMc,cysjXm:cysjXm,cysjSfzh:cysjSfzh},
+      data:{page:currentPage,rows:pageSize,ddh:ddh,ddztId:ddztId,cyclCph:cyclCph,jhysrq:jhysrq,wzMc:wzMc,yssMc:yssMc,fhdwMc:fhdwMc,shdwMc:shdwMc,cysjXm:cysjXm,cysjSfzh:cysjSfzh,jcsjs:jcsjs,jcsje:jcsje,ccsjs:ccsjs,ccsje:ccsje},
       method: 'POST',
       header: {
         'content-type': 'application/x-www-form-urlencoded',
@@ -400,9 +442,66 @@ Page({
     console.log(value)
     zhcxListPage.setData({jhysrq:value});
   },
+  pickerJcksrqChange:function(e){
+    let value = e.detail.value;
+    console.log(value)
+    zhcxListPage.setData({jcksrq:value});
+  },
+  pickerJckssjChange:function(e){
+    let value = e.detail.value;
+    console.log(value)
+    zhcxListPage.setData({jckssj:value});
+  },
+  pickerJcjsrqChange:function(e){
+    let value = e.detail.value;
+    console.log(value)
+    zhcxListPage.setData({jcjsrq:value});
+  },
+  pickerJcjssjChange:function(e){
+    let value = e.detail.value;
+    console.log(value)
+    zhcxListPage.setData({jcjssj:value});
+  },
+  pickerCcksrqChange:function(e){
+    let value = e.detail.value;
+    console.log(value)
+    zhcxListPage.setData({ccksrq:value});
+  },
+  pickerCcjsrqChange:function(e){
+    let value = e.detail.value;
+    console.log(value)
+    zhcxListPage.setData({ccjsrq:value});
+  },
+  pickerCcjssjChange:function(e){
+    let value = e.detail.value;
+    console.log(value)
+    zhcxListPage.setData({ccjssj:value});
+  },
   pickerJhysrqCancel:function(){
     zhcxListPage.setData({jhysrq:''});
   },
+  pickerJcksrqCancel:function(){
+    zhcxListPage.setData({jcksrq:''});
+  },
+  pickerJckssjCancel:function(){
+    zhcxListPage.setData({jckssj:''});
+  },
+  pickerJcjsrqCancel:function(){
+    zhcxListPage.setData({jcjsrq:''});
+  },
+  pickerJcjssjCancel:function(){
+    zhcxListPage.setData({jcjssj:''});
+  },
+  pickerCcksrqCancel:function(){
+    zhcxListPage.setData({ccksrq:''});
+  },
+  pickerCcjsrqCancel:function(){
+    zhcxListPage.setData({ccjsrq:''});
+  },
+  pickerCcjssjCancel:function(){
+    zhcxListPage.setData({ccjssj:''});
+  },
+  /*
   onPickerJcsjChange: function (e) {
     console.log("dateString==="+e.detail.dateString)
     zhcxListPage.setData({
@@ -415,6 +514,7 @@ Page({
       ccsj:e.detail.dateString  //选中的数据
     })
   },
+  */
   toDouble: function (num) {
     if (num >= 10) {//大于10
       return num;
