@@ -16,7 +16,7 @@ Page({
   onLoad: function (options) {
     editPage=this;
     rootIP=getApp().getRootIP();
-    let id=1;//options.id;
+    let id=options.id;
     console.log(id)
     editPage.setData({id:id});
   },
@@ -87,15 +87,16 @@ Page({
         console.log(res);
         let data=res.data;
         let ddzt=data.ddzt;
-        editPage.setData({ddzt:ddzt});
+        let mc=ddzt.mc;
+        let px=ddzt.px;
+        editPage.setData({mc:mc,px:px});
       }
     })
   },
   editDingDanZhuangTai:function(){
-    let ddzt=editPage.data.ddzt;
-    let id=ddzt.id;
-    let mc=ddzt.mc;
-    let px=ddzt.px;
+    let id=editPage.data.id;
+    let mc=editPage.data.mc;
+    let px=editPage.data.px;
     console.log(mc)
     console.log(px)
     wx.request({
@@ -126,31 +127,23 @@ Page({
   getInputValue:function(e){
     if(e.currentTarget.id=="mc_inp"){
       let mc=e.detail.value;
-      let ddzt=editPage.data.ddzt;
-      ddzt.mc=mc;
-      editPage.setData({ddzt:ddzt});
+      editPage.setData({mc:mc});
     }
     else if(e.currentTarget.id=="px_inp"){
       let px=e.detail.value;
-      let ddzt=editPage.data.ddzt;
-      ddzt.px=px;
-      editPage.setData({ddzt:ddzt});
+      editPage.setData({px:px});
     }
   },
   focusMc:function(){
-    let mc=editPage.data.ddzt.mc;
+    let mc=editPage.data.mc;
     if(mc=="名称不能为空"){
-      let ddzt=editPage.data.ddzt;
-      ddzt.mc='';
-      editPage.setData({ddzt:ddzt});
+      editPage.setData({mc:''});
     }
   },
   checkMc:function(){
-    let mc=editPage.data.ddzt.mc;
+    let mc=editPage.data.mc;
     if(mc==""||mc==null||mc=="名称不能为空"){
-      let ddzt=editPage.data.ddzt;
-      ddzt.mc='名称不能为空';
-      editPage.setData({ddzt:ddzt});
+      editPage.setData({mc:'名称不能为空'});
       return false;
     }
     else{

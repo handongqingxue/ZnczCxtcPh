@@ -20,7 +20,7 @@
 
 <view class="main_v">
   <view class="title_v">列表页面</view>
-  <view class="back_but_v">{{backButSign}}</view>
+  <view class="back_but_v" catchtap="goHomePage">{{backButSign}}</view>
   <view class="no_data_v" wx:if="{{showNoDataView}}">{{noDataText}}</view>
   <view class="list_v" wx:else>
     <view class="item_v" wx:for-items="{{dshList}}">

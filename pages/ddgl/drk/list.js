@@ -268,4 +268,9 @@ Page({
     }
     return str;
   },
+  goHomePage:function(){
+    wx.redirectTo({
+      url: '/pages/home/home',
+    })
+  }
 })

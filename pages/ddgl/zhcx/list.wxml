@@ -92,32 +92,6 @@
     </view>
   </view>
   
-  <!--
-  <view class="ccksrq_v">
-    <span class="ccksrq_span">出厂开始日期</span>
-    <view class="ccksrq_picker_v">
-      <picker class="ccksrq_picker" mode="date" bindcancel="pickerCcksrqCancel" bindchange="pickerCcksrqChange">{{ccksrq==''?ccksrqPlaceholder:ccksrq}}</picker>
-    </view>
-  </view>
-  -->
-  <!--
-  <view class="jcsj_v">
-    <span class="jcsj_span">进厂时间</span>
-    <view class="jcsj_pt_v">
-      <pickerTime class="jcsj_pt" placeholder="{{jcsjPlaceholder}}" date="{{jcsj}}" bind:onPickerChange="onPickerJcsjChange"
-        startDate="{{pickerStartTime}}" endDate="{{pickerEndTime}}">
-      </pickerTime>
-    </view>
-  </view>
-  <view class="ccsj_v">
-    <span class="ccsj_span">出厂时间</span>
-    <view class="ccsj_pt_v">
-      <pickerTime class="ccsj_pt" placeholder="{{ccsjPlaceholder}}" date="{{ccsj}}" bind:onPickerChange="onPickerCcsjChange"
-        startDate="{{pickerStartTime}}" endDate="{{pickerEndTime}}">
-      </pickerTime>
-    </view>
-  </view>
-  -->
   <view class="space2_v"></view>
   <view class="bottom_v">
     <view class="but_list_v">
@@ -129,7 +103,7 @@
 
 <view class="main_v">
   <view class="title_v">列表页面</view>
-  <view class="back_but_v">{{backButSign}}</view>
+  <view class="back_but_v" catchtap="goHomePage">{{backButSign}}</view>
   <view class="no_data_v" wx:if="{{showNoDataView}}">{{noDataText}}</view>
   <view class="list_v" wx:else>
     <view class="item_v" wx:for-items="{{ddList}}">

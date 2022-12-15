@@ -138,7 +138,7 @@ Page({
     let pageSize=ddztListPage.data.pageSize;
     let mc=ddztListPage.data.mc;
     wx.request({
-      url: rootIP+"queryDDZTList",
+      url: rootIP+"getDDZTList",
       data:{page:currentPage,rows:pageSize,mc:mc},
       method: 'POST',
       header: {
@@ -179,6 +179,11 @@ Page({
     let id=e.currentTarget.dataset.id;
     wx.redirectTo({
       url: '/pages/ddgl/ddzt/detail?id='+id,
+    })
+  },
+  goHomePage:function(){
+    wx.redirectTo({
+      url: '/pages/home/home',
     })
   }
 })

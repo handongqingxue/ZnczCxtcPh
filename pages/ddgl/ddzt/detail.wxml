@@ -6,13 +6,13 @@
       <view class="row_v mc_v">
         <view class="key_v">名称</view>
         <view class="val_v">
-          {{ddzt.mc}}
+          {{mc}}
         </view>
       </view>
       <view class="row_v px_v">
         <view class="key_v">排序</view>
         <view class="val_v">
-          {{ddzt.px}}
+          {{px}}
         </view>
       </view>
   </view>

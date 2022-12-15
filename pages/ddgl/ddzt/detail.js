@@ -82,7 +82,9 @@ Page({
         console.log(res);
         let data=res.data;
         let ddzt=data.ddzt;
-        detailPage.setData({ddzt:ddzt});
+        let mc=ddzt.mc;
+        let px=ddzt.px;
+        detailPage.setData({mc:mc,px:px});
       }
     })
   },

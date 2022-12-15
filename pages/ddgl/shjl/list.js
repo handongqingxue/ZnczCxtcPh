@@ -397,4 +397,9 @@ Page({
   pickerShjssjCancel:function(){
     shjlListPage.setData({shjssj:''});
   },
+  goHomePage:function(){
+    wx.redirectTo({
+      url: '/pages/home/home',
+    })
+  }
 })

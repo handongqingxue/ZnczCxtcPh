@@ -501,20 +501,6 @@ Page({
   pickerCcjssjCancel:function(){
     zhcxListPage.setData({ccjssj:''});
   },
-  /*
-  onPickerJcsjChange: function (e) {
-    console.log("dateString==="+e.detail.dateString)
-    zhcxListPage.setData({
-      jcsj:e.detail.dateString  //选中的数据
-    })
-  },
-  onPickerCcsjChange: function (e) {
-    console.log("dateString==="+e.detail.dateString)
-    zhcxListPage.setData({
-      ccsj:e.detail.dateString  //选中的数据
-    })
-  },
-  */
   toDouble: function (num) {
     if (num >= 10) {//大于10
       return num;
@@ -545,6 +531,11 @@ Page({
     let id=e.currentTarget.dataset.id;
     wx.redirectTo({
       url: '/pages/ddgl/zhcx/detail?id='+id,
+    })
+  },
+  goHomePage:function(){
+    wx.redirectTo({
+      url: '/pages/home/home',
     })
   }
 })

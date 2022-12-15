@@ -6,13 +6,13 @@
       <view class="row_v mc_v">
         <view class="key_v">名称</view>
         <view class="val_v">
-          <input class="mc_inp" id="mc_inp" type="text" placeholder="请输入名称" value="{{ddzt.mc}}" bindfocus="focusMc" bindblur="checkMc" bindinput="getInputValue"/>
+          <input class="mc_inp" id="mc_inp" type="text" placeholder="请输入名称" value="{{mc}}" bindfocus="focusMc" bindblur="checkMc" bindinput="getInputValue"/>
         </view>
       </view>
       <view class="row_v px_v">
         <view class="key_v">排序</view>
         <view class="val_v">
-          <input class="px_inp" id="px_inp" type="number" value="{{ddzt.px}}" bindinput="getInputValue"/>
+          <input class="px_inp" id="px_inp" type="number" value="{{px}}" bindinput="getInputValue"/>
         </view>
       </view>
   </view>
