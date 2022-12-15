@@ -33,7 +33,7 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-    bdjlListPage.selectListData();
+    bdjlListPage.getConstantFlagMap();
   },
 
   /**
@@ -76,6 +76,39 @@ Page({
    */
   onShareAppMessage: function () {
 
+  },
+  getConstantFlagMap:function(){
+    wx.request({
+      url: rootIP+"getConstantFlagMap",
+      method: 'POST',
+      header: {
+        'content-type': 'application/x-www-form-urlencoded',
+      },
+      success: function (res) {
+        let constantFlagMap=res.data;
+        console.log(constantFlagMap);
+        let gbjlGbzt=constantFlagMap.gbjlGbzt;
+        let gblx=constantFlagMap.gblx;
+        let constantFlags=gbjlGbzt+","+gblx;
+        bdjlListPage.getConstantMap(constantFlags);
+      }
+    })
+  },
+  getConstantMap:function(flags){
+    wx.request({
+      url: rootIP+"getConstantMap",
+      data:{flags:flags},
+      method: 'POST',
+      header: {
+        'content-type': 'application/x-www-form-urlencoded',
+      },
+      success: function (res) {
+        let constantMap=res.data;
+        console.log(constantMap);
+        bdjlListPage.setData({constantMap:constantMap});
+        bdjlListPage.getListData();
+      }
+    })
   },
   showPageView:function(flag){
     if(flag){
@@ -131,9 +164,9 @@ Page({
       bdjlListPage.setData({prePageEnable:true,nextPageEnable:false});
     }
     bdjlListPage.setData({currentPage:currentPage});
-    bdjlListPage.selectListData();
+    bdjlListPage.getListData();
   },
-  selectListData:function(){
+  getListData:function(){
     let currentPage=bdjlListPage.data.currentPage;
     let pageSize=bdjlListPage.data.pageSize;
     let ddh=bdjlListPage.data.ddh;
@@ -150,8 +183,18 @@ Page({
         console.log("status==="+status)
         let dataCount;
         if(status=="ok"){
-          var ddztList=data.list;
-          bdjlListPage.setData({ddztList:ddztList});
+          var gbjlList=data.list;
+          for(let i=0;i<gbjlList.length;i++){
+            let gbjl=gbjlList[i];
+            let gbzt=gbjl.gbzt;
+            let gbztMc=bdjlListPage.getGbztMcById(gbzt);
+            gbjl.gbztMc=gbztMc;
+
+            let gblx=gbjl.gblx;
+            let gblxMc=bdjlListPage.getGblxMcById(gblx);
+            gbjl.gblxMc=gblxMc;
+          }
+          bdjlListPage.setData({gbjlList:gbjlList});
         }
         else{
           bdjlListPage.showNoDataView(true);
@@ -164,4 +207,34 @@ Page({
       }
     })
   },
+  getGbztMcById:function(gbztId){
+    let constantMap=bdjlListPage.data.constantMap;
+    let gbztMap=constantMap.gbjlGbztMap;
+    //console.log(gbztMap);
+    var str;
+    switch (gbztId) {
+    case gbztMap.zcGbzt:
+      str=gbztMap.zcGbztMc;//正常
+      break;
+    case gbztMap.ycGbzt:
+      str=gbztMap.ycGbztMc;//异常
+      break;
+    }
+    return str;
+  },
+  getGblxMcById:function(gblxId){
+    let constantMap=bdjlListPage.data.constantMap;
+    let gblxMap=constantMap.gblxMap;
+    //console.log(gblxMap);
+    var str;
+    switch (gblxId) {
+    case gblxMap.rcgbGblx:
+      str=gblxMap.rcgbGblxMc;//入厂过磅
+      break;
+    case gblxMap.ccgbGblx:
+      str=gblxMap.ccgbGblxMc;//出厂过磅
+      break;
+    }
+    return str;
+  }
 })

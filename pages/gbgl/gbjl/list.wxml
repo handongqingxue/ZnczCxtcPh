@@ -4,14 +4,30 @@
   <view class="back_but_v" catchtap="goHomePage">{{backButSign}}</view>
   <view class="no_data_v" wx:if="{{showNoDataView}}">{{noDataText}}</view>
   <view class="list_v" wx:if="{{!showNoDataView}}">
-    <view class="item_v" wx:for-items="{{ddztList}}">
+    <view class="item_v" wx:for-items="{{gbjlList}}">
       <view class="row_v ddh_v">
         <view class="key_v">订单号</view>
         <view class="val_v">{{item.ddh}}</view>
       </view>
-      <view class="row_v mz_v">
-        <view class="key_v">毛重</view>
-        <view class="val_v">{{item.mz}}</view>
+      <view class="row_v cyclCph_v">
+        <view class="key_v">车牌号</view>
+        <view class="val_v">{{item.cyclCph}}</view>
+      </view>
+      <view class="row_v gbzl_v">
+        <view class="key_v">过磅重量</view>
+        <view class="val_v">{{item.gbzl}}</view>
+      </view>
+      <view class="row_v gbztMc_v">
+        <view class="key_v">过磅状态</view>
+        <view class="val_v">{{item.gbztMc}}</view>
+      </view>
+      <view class="row_v gblxMc_v">
+        <view class="key_v">过磅类型</view>
+        <view class="val_v">{{item.gblxMc}}</view>
+      </view>
+      <view class="row_v gbsj_v">
+        <view class="key_v">过磅时间</view>
+        <view class="val_v">{{item.gbsj}}</view>
       </view>
     </view>
   </view>

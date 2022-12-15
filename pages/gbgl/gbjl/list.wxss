@@ -38,9 +38,10 @@
   margin: auto;
 }
 .main_v .list_v .item_v .ddh_v,
-.main_v .list_v .item_v .mz_v,
-.main_v .list_v .item_v .pz_v,
-.main_v .list_v .item_v .jz_v{
+.main_v .list_v .item_v .cyclCph_v,
+.main_v .list_v .item_v .gbzl_v,
+.main_v .list_v .item_v .gbztMc_v,
+.main_v .list_v .item_v .gblxMc_v{
   border-bottom: #eee solid 1px;
 }
 .main_v .list_v .item_v .key_v{
