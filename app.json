@@ -1,5 +1,6 @@
 {
   "pages": [
+    "pages/gbgl/gbjl/list",
     "pages/gbgl/bdjl/list",
     "pages/home/home",
     "pages/ddgl/ddzt/detail",
