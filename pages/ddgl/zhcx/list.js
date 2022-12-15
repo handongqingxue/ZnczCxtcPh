@@ -170,13 +170,13 @@ Page({
       let ddh=e.detail.value;
       zhcxListPage.setData({ddh:ddh});
     }
-    else if(e.currentTarget.id=="wzMc_inp"){
-      let wzMc=e.detail.value;
-      zhcxListPage.setData({wzMc:wzMc});
-    }
     else if(e.currentTarget.id=="yssMc_inp"){
       let yssMc=e.detail.value;
       zhcxListPage.setData({yssMc:yssMc});
+    }
+    else if(e.currentTarget.id=="wzMc_inp"){
+      let wzMc=e.detail.value;
+      zhcxListPage.setData({wzMc:wzMc});
     }
     else if(e.currentTarget.id=="fhdwMc_inp"){
       let fhdwMc=e.detail.value;
@@ -185,6 +185,14 @@ Page({
     else if(e.currentTarget.id=="shdwMc_inp"){
       let shdwMc=e.detail.value;
       zhcxListPage.setData({shdwMc:shdwMc});
+    }
+    else if(e.currentTarget.id=="cysjXm_inp"){
+      let cysjXm=e.detail.value;
+      zhcxListPage.setData({cysjXm:cysjXm});
+    }
+    else if(e.currentTarget.id=="cysjSfzh_inp"){
+      let cysjSfzh=e.detail.value;
+      zhcxListPage.setData({cysjSfzh:cysjSfzh});
     }
   },
   loadListDataByPageFlag:function(e){

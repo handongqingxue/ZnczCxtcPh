@@ -9,67 +9,70 @@
 }
 .tool_bar_v .ddh_v,
 .tool_bar_v .shlx_v,
+.tool_bar_v .shksrq_v,
+.tool_bar_v .shkssj_v,
+.tool_bar_v .shjsrq_v,
+.tool_bar_v .shjssj_v,
 .tool_bar_v .cyclCph_v,
-.tool_bar_v .jhysrq_v,
+.tool_bar_v .shr_v,
 .tool_bar_v .yssMc_v,
 .tool_bar_v .wzMc_v,
 .tool_bar_v .fhdwMc_v,
 .tool_bar_v .shdwMc_v,
-.tool_bar_v .cysjXm_v,
-.tool_bar_v .cysjSfzh_v,
-.tool_bar_v .jcsj_v,
-.tool_bar_v .ccsj_v{
+.tool_bar_v .sjXm_v,
+.tool_bar_v .sjSfzh_v{
   width:100%;
   height:50px;
   line-height:50px;
 }
 .tool_bar_v .ddh_v .ddh_span,
 .tool_bar_v .shlx_v .shlx_span,
+.tool_bar_v .shksrq_v .shksrq_span,
+.tool_bar_v .shkssj_v .shkssj_span,
+.tool_bar_v .shjsrq_v .shjsrq_span,
+.tool_bar_v .shjssj_v .shjssj_span,
 .tool_bar_v .cyclCph_v .cyclCph_span,
-.tool_bar_v .jhysrq_v .jhysrq_span,
+.tool_bar_v .shr_v .shr_span,
 .tool_bar_v .yssMc_v .yssMc_span,
 .tool_bar_v .wzMc_v .wzMc_span,
 .tool_bar_v .fhdwMc_v .fhdwMc_span,
 .tool_bar_v .shdwMc_v .shdwMc_span,
-.tool_bar_v .cysjXm_v .cysjXm_span,
-.tool_bar_v .cysjSfzh_v .cysjSfzh_span,
-.tool_bar_v .jcsj_v .jcsj_span,
-.tool_bar_v .ccsj_v .ccsj_span{
+.tool_bar_v .sjXm_v .sjXm_span,
+.tool_bar_v .sjSfzh_v .sjSfzh_span{
   margin-left:10px;
 }
 .tool_bar_v .ddh_v .ddh_inp,
 .tool_bar_v .cyclCph_v .cyclCph_inp,
+.tool_bar_v .shr_v .shr_inp,
 .tool_bar_v .yssMc_v .yssMc_inp,
 .tool_bar_v .wzMc_v .wzMc_inp,
 .tool_bar_v .fhdwMc_v .fhdwMc_inp,
 .tool_bar_v .shdwMc_v .shdwMc_inp,
-.tool_bar_v .cysjXm_v .cysjXm_inp,
-.tool_bar_v .cysjSfzh_v .cysjSfzh_inp{
+.tool_bar_v .sjXm_v .sjXm_inp,
+.tool_bar_v .sjSfzh_v .sjSfzh_inp{
   width:180px;
   margin-top:-35px;
   margin-left:120px;
   border: #eee solid 1px;
 }
-.tool_bar_v .jhysrq_v .jhysrq_picker{
-  width:150px;
-  height:30px;
-  line-height:30px; 
-  margin-top:-40px;
-  margin-left:120px;
-  /*
-  background-color:#00f;
-  */
-}
-.tool_bar_v .jcsj_v .jcsj_pt_v,
-.tool_bar_v .ccsj_v .ccsj_pt_v{
-  width:140px;
+.tool_bar_v .shksrq_v .shksrq_picker_v,
+.tool_bar_v .shkssj_v .shkssj_picker_v,
+.tool_bar_v .shjsrq_v .shjsrq_picker_v,
+.tool_bar_v .shjssj_v .shjssj_picker_v{
+  width:170px;
   height:40px;
 }
-.tool_bar_v .jcsj_v .jcsj_pt_v .jcsj_pt,
-.tool_bar_v .ccsj_v .ccsj_pt_v .ccsj_pt{
-  margin-top: -148px;
-  margin-left: 91px;
-  position: absolute;
+.tool_bar_v .shksrq_v .shksrq_picker_v .shksrq_picker,
+.tool_bar_v .shkssj_v .shkssj_picker_v .shkssj_picker,
+.tool_bar_v .shjsrq_v .shjsrq_picker_v .shjsrq_picker,
+.tool_bar_v .shjssj_v .shjssj_picker_v .shjssj_picker{
+  width:100%;
+  height:40px;
+  margin-top: -48px;
+  margin-left: 123px;
+  /*
+  background-color: #00f;
+  */
 }
 
 .tool_bar_v .shlx_v .shlx_select_v{

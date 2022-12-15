@@ -15,6 +15,15 @@ Page({
     pageSize:10,
     showNoDataView:false,
     ddh:"",
+    shlxSelectId:"",
+    cyclCph:"",
+    shrYhm:"",
+    yssMc:"",
+    wzMc:"",
+    fhdwMc:"",
+    shdwMc:"",
+    sjXm:"",
+    sjSfzh:"",
     prePageFlag:1,
     nextPageFlag:2,
     prePageEnable:false,
@@ -22,6 +31,14 @@ Page({
     showShlxOption:false,
     pickerStartTime: '1970-01-01 12:37',
     pickerEndTime: '2099-12-31 12:38',
+    shksrq:'',
+    shksrqPlaceholder: '请选择开始日期',
+    shkssj:'',
+    shkssjPlaceholder: '请选择开始时间',
+    shjsrq:'',
+    shjsrqPlaceholder: '请选择结束日期',
+    shjssj:'',
+    shjssjPlaceholder: '请选择结束时间',
     shlxList:[{"value":"","text":"请选择"},{"value":1,"text":"下单审核"},{"value":2,"text":"一检审核"},{"value":3,"text":"入库审核"},{"value":4,"text":"二检审核"}]
   },
 
@@ -143,6 +160,40 @@ Page({
       shjlListPage.setData({showNoDataView:false});
     }
   },
+  getInputValue:function(e){
+    if(e.currentTarget.id=="ddh_inp"){
+      let ddh=e.detail.value;
+      shjlListPage.setData({ddh:ddh});
+    }
+    else if(e.currentTarget.id=="shr_inp"){
+      let shr=e.detail.value;
+      shjlListPage.setData({shr:shr});
+    }
+    else if(e.currentTarget.id=="yssMc_inp"){
+      let yssMc=e.detail.value;
+      shjlListPage.setData({yssMc:yssMc});
+    }
+    else if(e.currentTarget.id=="wzMc_inp"){
+      let wzMc=e.detail.value;
+      shjlListPage.setData({wzMc:wzMc});
+    }
+    else if(e.currentTarget.id=="fhdwMc_inp"){
+      let fhdwMc=e.detail.value;
+      shjlListPage.setData({fhdwMc:fhdwMc});
+    }
+    else if(e.currentTarget.id=="shdwMc_inp"){
+      let shdwMc=e.detail.value;
+      shjlListPage.setData({shdwMc:shdwMc});
+    }
+    else if(e.currentTarget.id=="sjXm_inp"){
+      let sjXm=e.detail.value;
+      shjlListPage.setData({sjXm:sjXm});
+    }
+    else if(e.currentTarget.id=="sjSfzh_inp"){
+      let sjSfzh=e.detail.value;
+      shjlListPage.setData({sjSfzh:sjSfzh});
+    }
+  },
   loadListDataByPageFlag:function(e){
     let flag=e.currentTarget.dataset.flag;
     let prePageFlag=shjlListPage.data.prePageFlag;
@@ -171,11 +222,42 @@ Page({
   getListData:function(){
     let currentPage=shjlListPage.data.currentPage;
     let pageSize=shjlListPage.data.pageSize;
+    let ddh=shjlListPage.data.ddh;
+    let shlx=shjlListPage.data.shlxSelectId;
+    let shksrq=shjlListPage.data.shksrq;
+    let shkssj=shjlListPage.data.shkssj;
+    let shsjks="";
+    if(shksrq!=""&shkssj!="")
+      shsjks=shksrq+" "+shkssj;
+    let shjsrq=shjlListPage.data.shjsrq;
+    let shjssj=shjlListPage.data.shjssj;
+    let shsjjs="";
+    if(shjsrq!=""&shjssj!="")
+      shsjjs=shjsrq+" "+shjssj;
+    var cyclCph=shjlListPage.data.cyclCph;
+    var shrYhm=shjlListPage.data.shrYhm;
+    var yssMc=shjlListPage.data.yssMc;
+    var wzMc=shjlListPage.data.wzMc;
+    var fhdwMc=shjlListPage.data.fhdwMc;
+    var shdwMc=shjlListPage.data.shdwMc;
+    var sjXm=shjlListPage.data.sjXm;
+    var sjSfzh=shjlListPage.data.sjSfzh;
+    console.log("ddh==="+ddh)
+    console.log("shlx==="+shlx)
+    console.log("shsjks==="+shsjks)
+    console.log("shsjjs==="+shsjjs)
+    console.log("cyclCph==="+cyclCph)
+    console.log("shrYhm==="+shrYhm)
+    console.log("yssMc==="+yssMc)
+    console.log("wzMc==="+wzMc)
+    console.log("fhdwMc==="+fhdwMc)
+    console.log("shdwMc==="+shdwMc)
+    console.log("sjXm==="+sjXm)
+    console.log("sjSfzh==="+sjSfzh)
     
     wx.request({
       url: rootIP+"getDDSHJLList",
-      //data:{page:currentPage,rows:pageSize,ddh:ddh,ddztId:ddztId,cyclCph:cyclCph,jhysrq:jhysrq,wzMc:wzMc,yssMc:yssMc,fhdwMc:fhdwMc,shdwMc:shdwMc,cysjXm:cysjXm,cysjSfzh:cysjSfzh},
-      data:{page:currentPage,rows:pageSize},
+      data:{page:currentPage,rows:pageSize,ddh:ddh,shlx:shlx,shsjks:shsjks,shsjjs:shsjjs,cyclCph:cyclCph,shrYhm:shrYhm,yssMc:yssMc,wzMc:wzMc,fhdwMc:fhdwMc,shdwMc:shdwMc,sjXm:sjXm,sjSfzh:sjSfzh},
       method: 'POST',
       header: {
         'content-type': 'application/x-www-form-urlencoded',
@@ -285,4 +367,36 @@ Page({
       showShlxOption: !shjlListPage.data.showShlxOption
     });
   },
+  pickerShksrqChange:function(e){
+    let value = e.detail.value;
+    console.log(value)
+    shjlListPage.setData({shksrq:value});
+  },
+  pickerShkssjChange:function(e){
+    let value = e.detail.value;
+    console.log(value)
+    shjlListPage.setData({shkssj:value});
+  },
+  pickerShjsrqChange:function(e){
+    let value = e.detail.value;
+    console.log(value)
+    shjlListPage.setData({shjsrq:value});
+  },
+  pickerShjssjChange:function(e){
+    let value = e.detail.value;
+    console.log(value)
+    shjlListPage.setData({shjssj:value});
+  },
+  pickerShksrqCancel:function(){
+    shjlListPage.setData({shksrq:''});
+  },
+  pickerShkssjCancel:function(){
+    shjlListPage.setData({shkssj:''});
+  },
+  pickerShjsrqCancel:function(){
+    shjlListPage.setData({shjsrq:''});
+  },
+  pickerShjssjCancel:function(){
+    shjlListPage.setData({shjssj:''});
+  },
 })

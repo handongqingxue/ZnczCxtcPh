@@ -16,6 +16,62 @@
       <view class='item_v' wx:for="{{shlxList}}" data-index="{{index}}" catchtap='selectShlxOption'>{{item.text}}</view>
     </view>
   </view>
+  <view class="shksrq_v">
+    <span class="shksrq_span">审核开始日期</span>
+    <view class="shksrq_picker_v">
+      <picker class="shksrq_picker" mode="date" bindcancel="pickerShksrqCancel" bindchange="pickerShksrqChange">{{shksrq==''?shksrqPlaceholder:shksrq}}</picker>
+    </view>
+  </view>
+  <view class="shkssj_v">
+    <span class="shkssj_span">审核开始时间</span>
+    <view class="shkssj_picker_v">
+      <picker class="shkssj_picker" mode="time" bindcancel="pickerShkssjCancel" bindchange="pickerShkssjChange">{{shkssj==''?shkssjPlaceholder:shkssj}}</picker>
+    </view>
+  </view>
+  <view class="shjsrq_v">
+    <span class="shjsrq_span">审核结束日期</span>
+    <view class="shjsrq_picker_v">
+      <picker class="shjsrq_picker" mode="date" bindcancel="pickerShjsrqCancel" bindchange="pickerShjsrqChange">{{shjsrq==''?shjsrqPlaceholder:shjsrq}}</picker>
+    </view>
+  </view>
+  <view class="shjssj_v">
+    <span class="shjssj_span">审核结束时间</span>
+    <view class="shjssj_picker_v">
+      <picker class="shjssj_picker" mode="time" bindcancel="pickerShjssjCancel" bindchange="pickerShjssjChange">{{shjssj==''?shjssjPlaceholder:shjssj}}</picker>
+    </view>
+  </view>
+  <view class="cyclCph_v">
+    <span class="cyclCph_span">车牌号</span>
+    <input class="cyclCph_inp" id="cyclCph_inp" type="text" placeholder="请输入车牌号" value="{{cyclCph}}" bindinput="getInputValue"/>
+  </view>
+  <view class="shr_v">
+    <span class="shr_span">审核人</span>
+    <input class="shr_inp" id="shr_inp" type="text" placeholder="请输入审核人" value="{{shr}}" bindinput="getInputValue"/>
+  </view>
+  <view class="yssMc_v">
+    <span class="yssMc_span">运输商</span>
+    <input class="yssMc_inp" id="yssMc_inp" type="text" placeholder="请输入运输商" value="{{yssMc}}" bindinput="getInputValue"/>
+  </view>
+  <view class="wzMc_v">
+    <span class="wzMc_span">物资名称</span>
+    <input class="wzMc_inp" id="wzMc_inp" type="text" placeholder="请输入物资名称" value="{{wzMc}}" bindinput="getInputValue"/>
+  </view>
+  <view class="fhdwMc_v">
+    <span class="fhdwMc_span">发货单位</span>
+    <input class="fhdwMc_inp" id="fhdwMc_inp" type="text" placeholder="请输入发货单位" value="{{fhdwMc}}" bindinput="getInputValue"/>
+  </view>
+  <view class="shdwMc_v">
+    <span class="shdwMc_span">收货单位</span>
+    <input class="shdwMc_inp" id="shdwMc_inp" type="text" placeholder="请输入收货单位" value="{{shdwMc}}" bindinput="getInputValue"/>
+  </view>
+  <view class="sjXm_v">
+    <span class="sjXm_span">司机姓名</span>
+    <input class="sjXm_inp" id="sjXm_inp" type="text" placeholder="请输入司机姓名" value="{{cysjXm}}" bindinput="getInputValue"/>
+  </view>
+  <view class="sjSfzh_v">
+    <span class="sjSfzh_span">司机身份证号</span>
+    <input class="sjSfzh_inp" id="sjSfzh_inp" type="text" placeholder="请输入司机身份证号" value="{{cysjSfzh}}" bindinput="getInputValue"/>
+  </view>
   <view class="space2_v"></view>
   <view class="bottom_v">
     <view class="but_list_v">
