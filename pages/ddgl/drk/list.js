@@ -218,7 +218,7 @@ Page({
     let cysjSfzh=drkListPage.data.cysjSfzh;
     
     wx.request({
-      url: rootIP+"getZHCXList",
+      url: rootIP+"getDDZHCXList",
       data:{page:currentPage,rows:pageSize,ddh:ddh,ddztMc:defaultDdztMc,cyclCph:cyclCph,yssMc:yssMc,wzMc:wzMc,fhdwMc:fhdwMc,shdwMc:shdwMc,cysjXm:cysjXm,cysjSfzh:cysjSfzh},
       method: 'POST',
       header: {

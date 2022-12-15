@@ -182,7 +182,7 @@ Page({
     let cyclCph=dzjListPage.data.cyclCph;
     
     wx.request({
-      url: rootIP+"getZHCXList",
+      url: rootIP+"getDDZHCXList",
       data:{page:currentPage,rows:pageSize,ddh:ddh,ddztMc:defaultDdztMc,cyclCph:cyclCph},
       method: 'POST',
       header: {

@@ -1,0 +1,121 @@
+<!--pages/ddgl/shjl/list.wxml-->
+<view class="tool_bar_v" wx:if="{{showToolBarView}}">
+  <view class="title_v">筛选页面</view>
+  <view class="back_but_v" data-flag="{{false}}" catchtap="showToolBarView">{{backButSign}}</view>
+  <view class="ddh_v">
+    <span class="ddh_span">订单号</span>
+    <input class="ddh_inp" id="ddh_inp" type="text" placeholder="请输入订单号" value="{{ddh}}" bindinput="getInputValue"/>
+  </view>
+  <view class="shlx_v">
+    <span class="shlx_span">审核类型</span>
+    <view class='shlx_select_v'>
+      <view class='selected_text_v' catchtap='showShlxOption'>{{shlxList[shjlSelectIndex]==null?'请选择':shlxList[shjlSelectIndex].text}}</view>
+      <image class='select_img {{showShlxOption&&"select_img_rotate"}}' src='../../../images/sanjiao.png'></image>
+    </view>
+    <view class='shlx_option_list_v' style='height:{{showShlxOption?(shlxList.length>5?300:shlxList.length*30):0}}px;'>
+      <view class='item_v' wx:for="{{shlxList}}" data-index="{{index}}" catchtap='selectShlxOption'>{{item.text}}</view>
+    </view>
+  </view>
+  <view class="space2_v"></view>
+  <view class="bottom_v">
+    <view class="but_list_v">
+      <view class="but_v confirm_but_v" catchtap="getListData">确定</view>
+      <view class="but_v reset_but_v">重置</view>
+    </view>
+  </view>
+</view>
+
+<view class="main_v">
+  <view class="title_v">列表页面</view>
+  <view class="back_but_v">{{backButSign}}</view>
+  <view class="no_data_v" wx:if="{{showNoDataView}}">{{noDataText}}</view>
+  <view class="list_v" wx:else>
+    <view class="item_v" wx:for-items="{{shjlList}}">
+      <view class="row_v ddh_v">
+        <view class="key_v">订单号</view>
+        <view class="val_v">{{item.ddh}}</view>
+      </view>
+      <view class="row_v shlxMc_v">
+        <view class="key_v">审核类型</view>
+        <view class="val_v">{{item.shlxMc}}</view>
+      </view>
+      <view class="row_v shsj_v">
+        <view class="key_v">审核时间</view>
+        <view class="val_v">{{item.shsj}}</view>
+      </view>
+      <view class="row_v shjgMc_v">
+        <view class="key_v">审核结果</view>
+        <view class="val_v">{{item.shjgMc}}</view>
+      </view>
+      <view class="row_v shrYhm_v">
+        <view class="key_v">审核人</view>
+        <view class="val_v">{{item.shrYhm}}</view>
+      </view>
+      <view class="row_v sjSfzh_v">
+        <view class="key_v">司机身份证号</view>
+        <view class="val_v">{{item.sjSfzh}}</view>
+      </view>
+      <view class="row_v sjXm_v">
+        <view class="key_v">司机姓名</view>
+        <view class="val_v">{{item.sjXm}}</view>
+      </view>
+      <view class="row_v cyclCph_v">
+        <view class="key_v">车牌号</view>
+        <view class="val_v">{{item.cyclCph}}</view>
+      </view>
+      <view class="row_v wzMc_v">
+        <view class="key_v">物资名称</view>
+        <view class="val_v">{{item.wzMc}}</view>
+      </view>
+      <view class="row_v yssMc_v">
+        <view class="key_v">运输商</view>
+        <view class="val_v">{{item.yssMc}}</view>
+      </view>
+      <view class="row_v fhdwMc_v">
+        <view class="key_v">发货单位</view>
+        <view class="val_v">{{item.fhdwMc}}</view>
+      </view>
+      <view class="row_v shdwMc_v">
+        <view class="key_v">收货单位</view>
+        <view class="val_v">{{item.shdwMc}}</view>
+      </view>
+      <view class="row_v lxlxMc_v">
+        <view class="key_v">流向类型</view>
+        <view class="val_v">{{item.lxlxMc}}</view>
+      </view>
+      <view class="row_v yzxzl_v">
+        <view class="key_v">预装卸重量</view>
+        <view class="val_v">{{item.yzxzl}}</view>
+      </view>
+      <view class="row_v sjzl_v">
+        <view class="key_v">实际重量</view>
+        <view class="val_v">{{item.sjzl}}</view>
+      </view>
+      <view class="row_v zlceb_v">
+        <view class="key_v">重量差额比</view>
+        <view class="val_v">{{item.zlceb}}</view>
+      </view>
+    </view>
+  </view>
+
+  <view class="space1_v"></view>
+  <view class="bottom_v">
+    <a wx:if="{{showDjckgdView}}" data-flag="{{false}}" catchtap="showPageView">点击查看更多</a>
+    <view class="page_v" wx:if="{{showPageView}}">
+      <view class="data_count_v">
+        共<text class="val_text">{{dataCount}}</text>条
+      </view>
+      <view class="pre_page_v click_v" data-flag="{{prePageFlag}}" wx:if="{{prePageEnable}}" catchtap="loadListDataByPageFlag">上一页</view>
+      <view class="pre_page_v unClick_v" wx:if="{{!prePageEnable}}">上一页</view>
+      <view class="page_count_v">
+        <text class="curr_page_text">{{currentPage}}</text>/
+        <text class="page_count_text">{{pageCount}}</text>
+      </view>
+      <view class="next_page_v click_v" data-flag="{{nextPageFlag}}" wx:if="{{nextPageEnable}}" catchtap="loadListDataByPageFlag">下一页</view>
+      <view class="next_page_v unClick_v" wx:if="{{!nextPageEnable}}">下一页</view>
+    </view>
+    <view class="but_list_v">
+      <view class="but_v screen_but_v" data-flag="{{true}}" catchtap="showToolBarView">筛选</view>
+    </view>
+  </view>
+</view>

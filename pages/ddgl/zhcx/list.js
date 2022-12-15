@@ -4,7 +4,6 @@
 //复选框控件:https://www.nhooo.com/note/qado3w.html
 var zhcxListPage;
 var rootIP;
-var lxlxMap;
 Page({
 
   /**
@@ -238,7 +237,7 @@ Page({
     console.log("cysjSfzh==="+cysjSfzh)
     
     wx.request({
-      url: rootIP+"getZHCXList",
+      url: rootIP+"getDDZHCXList",
       data:{page:currentPage,rows:pageSize,ddh:ddh,ddztId:ddztId,cyclCph:cyclCph,jhysrq:jhysrq,wzMc:wzMc,yssMc:yssMc,fhdwMc:fhdwMc,shdwMc:shdwMc,cysjXm:cysjXm,cysjSfzh:cysjSfzh},
       method: 'POST',
       header: {

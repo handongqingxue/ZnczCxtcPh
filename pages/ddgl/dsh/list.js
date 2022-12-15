@@ -200,7 +200,7 @@ Page({
     let shdwMc=dshListPage.data.shdwMc;
     
     wx.request({
-      url: rootIP+"getZHCXList",
+      url: rootIP+"getDDZHCXList",
       data:{page:currentPage,rows:pageSize,ddh:ddh,ddztMc:defaultDdztMc,wzMc:wzMc,yssMc:yssMc,fhdwMc:fhdwMc,shdwMc:shdwMc},
       method: 'POST',
       header: {

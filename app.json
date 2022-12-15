@@ -1,11 +1,12 @@
 {
   "pages": [
+    "pages/ddgl/shjl/list",
     "pages/ddgl/zhcx/list",
+    "pages/home/home",
     "pages/ddgl/zhcx/detail",
     "pages/ddgl/zhcx/edit",
     "pages/ddgl/zhcx/new",
     "pages/test/datePicker",
-    "pages/home/home",
     "pages/ddgl/drk/list",
     "pages/ddgl/dzj/list",
     "pages/ddgl/dsh/list",
