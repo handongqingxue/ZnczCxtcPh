@@ -1,4 +1,4 @@
-/* pages/ddgl/ddzt/list.wxss */
+/* pages/wzgl/wzlx/list.wxss */
 .tool_bar_v{
   width: 100%;
   height: 100%;
@@ -66,7 +66,10 @@
   width: 95%;
   margin: auto;
 }
-.main_v .list_v .item_v .mc_v{
+.main_v .list_v .item_v .mc_v,
+.main_v .list_v .item_v .cjsj_v,
+.main_v .list_v .item_v .bjsj_v,
+.main_v .list_v .item_v .px_v{
   border-bottom: #eee solid 1px;
 }
 .main_v .list_v .item_v .key_v{

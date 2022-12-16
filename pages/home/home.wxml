@@ -16,4 +16,8 @@
     <view class="yjdsh_v second_level_v" data-pageflag="{{gbgl_yjdsh}}" catchtap="goPage">一检待审核</view>
     <view class="ejdsh_v second_level_v" data-pageflag="{{gbgl_ejdsh}}" catchtap="goPage">二检待审核</view>
   </view>
+  <view class="wzgl_v first_level_v">
+    <view class="title_v">物资管理</view>
+    <view class="wzlx_v second_level_v" data-pageflag="{{wzgl_wzlx}}" catchtap="goPage">物资类型</view>
+  </view>
 </view>

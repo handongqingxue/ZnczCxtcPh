@@ -1,4 +1,4 @@
-<!--pages/ddgl/ddzt/list.wxml-->
+<!--pages/wzgl/wzlx/list.wxml-->
 <view class="tool_bar_v" wx:if="{{showToolBarView}}">
   <view class="title_v">筛选页面</view>
   <view class="back_but_v" data-flag="{{false}}" catchtap="showToolBarView">{{backButSign}}</view>
@@ -19,14 +19,26 @@
   <view class="back_but_v" catchtap="goHomePage">{{backButSign}}</view>
   <view class="no_data_v" wx:if="{{showNoDataView}}">{{noDataText}}</view>
   <view class="list_v" wx:else>
-    <view class="item_v" wx:for-items="{{ddztList}}">
+    <view class="item_v" wx:for-items="{{wzlxList}}">
       <view class="row_v mc_v">
-        <view class="key_v">名称</view>
+        <view class="key_v">类名</view>
         <view class="val_v">{{item.mc}}</view>
+      </view>
+      <view class="row_v cjsj_v">
+        <view class="key_v">创建时间</view>
+        <view class="val_v">{{item.cjsj}}</view>
+      </view>
+      <view class="row_v bjsj_v">
+        <view class="key_v">编辑时间</view>
+        <view class="val_v">{{item.bjsj}}</view>
       </view>
       <view class="row_v px_v">
         <view class="key_v">排序</view>
         <view class="val_v">{{item.px}}</view>
+      </view>
+      <view class="row_v bz_v">
+        <view class="key_v">备注</view>
+        <view class="val_v">{{item.bz}}</view>
       </view>
       <view class="but_list_v">
         <view class="but_v detail_but_v" data-id="{{item.id}}" catchtap="goDetailPage">详情</view>

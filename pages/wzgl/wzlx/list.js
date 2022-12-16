@@ -1,5 +1,5 @@
-// pages/ddgl/ddzt/list.js
-var ddztListPage;
+// pages/wzgl/wzlx/list.js
+var wzlxListPage;
 var rootIP;
 Page({
 
@@ -25,7 +25,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    ddztListPage=this;
+    wzlxListPage=this;
     rootIP=getApp().getRootIP();
   },
 
@@ -33,7 +33,7 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-    ddztListPage.getListData();
+    wzlxListPage.getListData();
   },
 
   /**
@@ -79,41 +79,41 @@ Page({
   },
   showPageView:function(flag){
     if(flag){
-      ddztListPage.setData({showDjckgdView:false,showPageView:true});
+      wzlxListPage.setData({showDjckgdView:false,showPageView:true});
     }
     else{
-      ddztListPage.setData({showDjckgdView:true,showPageView:false});
+      wzlxListPage.setData({showDjckgdView:true,showPageView:false});
     }
   },
   showToolBarView:function(e){
     let flag=e.currentTarget.dataset.flag;
     if(flag){
-      ddztListPage.setData({showToolBarView:true});
+      wzlxListPage.setData({showToolBarView:true});
     }
     else{
-      ddztListPage.setData({showToolBarView:false});
+      wzlxListPage.setData({showToolBarView:false});
     }
   },
   showNoDataView:function(flag){
     if(flag){
-      ddztListPage.setData({showNoDataView:true});
+      wzlxListPage.setData({showNoDataView:true});
     }
     else{
-      ddztListPage.setData({showNoDataView:false});
+      wzlxListPage.setData({showNoDataView:false});
     }
   },
   getInputValue:function(e){
     if(e.currentTarget.id=="mc_inp"){
       let mc=e.detail.value;
-      ddztListPage.setData({mc:mc});
+      wzlxListPage.setData({mc:mc});
     }
   },
   loadListDataByPageFlag:function(e){
     let flag=e.currentTarget.dataset.flag;
-    let prePageFlag=ddztListPage.data.prePageFlag;
-    let nextPageFlag=ddztListPage.data.nextPageFlag;
-    let currentPage=ddztListPage.data.currentPage;
-    let pageCount=ddztListPage.data.pageCount;
+    let prePageFlag=wzlxListPage.data.prePageFlag;
+    let nextPageFlag=wzlxListPage.data.nextPageFlag;
+    let currentPage=wzlxListPage.data.currentPage;
+    let pageCount=wzlxListPage.data.pageCount;
     if(flag==prePageFlag)
       currentPage--;
     else if(flag==nextPageFlag)
@@ -125,20 +125,20 @@ Page({
       currentPage=pageCount;
 
     if(currentPage<=1){
-      ddztListPage.setData({prePageEnable:false,nextPageEnable:true});
+      wzlxListPage.setData({prePageEnable:false,nextPageEnable:true});
     }
     else if(currentPage>=pageCount){
-      ddztListPage.setData({prePageEnable:true,nextPageEnable:false});
+      wzlxListPage.setData({prePageEnable:true,nextPageEnable:false});
     }
-    ddztListPage.setData({currentPage:currentPage});
-    ddztListPage.getListData();
+    wzlxListPage.setData({currentPage:currentPage});
+    wzlxListPage.getListData();
   },
   getListData:function(){
-    let currentPage=ddztListPage.data.currentPage;
-    let pageSize=ddztListPage.data.pageSize;
-    let mc=ddztListPage.data.mc;
+    let currentPage=wzlxListPage.data.currentPage;
+    let pageSize=wzlxListPage.data.pageSize;
+    let mc=wzlxListPage.data.mc;
     wx.request({
-      url: rootIP+"getDDZTList",
+      url: rootIP+"getWZLXList",
       data:{page:currentPage,rows:pageSize,mc:mc},
       method: 'POST',
       header: {
@@ -149,39 +149,39 @@ Page({
         let status=data.status;
         console.log("status==="+status)
         let dataCount;
-        ddztListPage.setData({wzlxList:[]});
+        wzlxListPage.setData({wzlxList:[]});
         if(status=="ok"){
-          var ddztList=data.list;
-          ddztListPage.setData({ddztList:ddztList});
-          ddztListPage.showNoDataView(false);
-          ddztListPage.setData({noDataText:""});
+          var wzlxList=data.list;
+          wzlxListPage.setData({wzlxList:wzlxList});
+          wzlxListPage.showNoDataView(false);
+          wzlxListPage.setData({noDataText:""});
         }
         else{
-          ddztListPage.showNoDataView(true);
-          ddztListPage.setData({noDataText:data.message});
+          wzlxListPage.showNoDataView(true);
+          wzlxListPage.setData({noDataText:data.message});
         }
         dataCount=data.total;
-        ddztListPage.setData({dataCount:dataCount,pageCount:Math.floor((dataCount-1)/pageSize)+1});
+        wzlxListPage.setData({dataCount:dataCount,pageCount:Math.floor((dataCount-1)/pageSize)+1});
         let e={currentTarget:{dataset:{flag:false}}};
-        ddztListPage.showToolBarView(e);
+        wzlxListPage.showToolBarView(e);
       }
     })
   },
   goAddPage:function(){
     wx.redirectTo({
-      url: '/pages/ddgl/ddzt/new',
+      url: '/pages/wzgl/wzlx/new',
     })
   },
   goEditPage:function(e){
     let id=e.currentTarget.dataset.id;
     wx.redirectTo({
-      url: '/pages/ddgl/ddzt/edit?id='+id,
+      url: '/pages/wzgl/wzlx/edit?id='+id,
     })
   },
   goDetailPage:function(e){
     let id=e.currentTarget.dataset.id;
     wx.redirectTo({
-      url: '/pages/ddgl/ddzt/detail?id='+id,
+      url: '/pages/wzgl/wzlx/detail?id='+id,
     })
   },
   goHomePage:function(){
