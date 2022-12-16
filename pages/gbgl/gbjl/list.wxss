@@ -1,4 +1,60 @@
 /* pages/gbgl/gbjl/list.wxss */
+.tool_bar_v{
+  width: 100%;
+  height: 100%;
+  background-color: #fff;
+  position: fixed;
+  z-index: 1;
+}
+.tool_bar_v .ddh_v,
+.tool_bar_v .cyclCph_v,
+.tool_bar_v .gbksrq_v,
+.tool_bar_v .gbkssj_v,
+.tool_bar_v .gbjsrq_v,
+.tool_bar_v .gbjssj_v{
+  width:100%;
+  height:50px;
+  line-height:50px;
+}
+.tool_bar_v .ddh_v .ddh_span,
+.tool_bar_v .cyclCph_v .cyclCph_span,
+.tool_bar_v .gbksrq_v .gbksrq_span,
+.tool_bar_v .gbkssj_v .gbkssj_span,
+.tool_bar_v .gbjsrq_v .gbjsrq_span,
+.tool_bar_v .gbjssj_v .gbjssj_span{
+  margin-left:10px;
+}
+.tool_bar_v .ddh_v .ddh_inp,
+.tool_bar_v .cyclCph_v .cyclCph_inp{
+  width:180px;
+  margin-top:-35px;
+  margin-left:80px;
+  border: #eee solid 1px;
+}
+.tool_bar_v .gbksrq_v .gbksrq_picker_v,
+.tool_bar_v .gbkssj_v .gbkssj_picker_v,
+.tool_bar_v .gbjsrq_v .gbjsrq_picker_v,
+.tool_bar_v .gbjssj_v .gbjssj_picker_v{
+  width:170px;
+  height:40px;
+}
+.tool_bar_v .gbksrq_v .gbksrq_picker_v .gbksrq_picker,
+.tool_bar_v .gbkssj_v .gbkssj_picker_v .gbkssj_picker,
+.tool_bar_v .gbjsrq_v .gbjsrq_picker_v .gbjsrq_picker,
+.tool_bar_v .gbjssj_v .gbjssj_picker_v .gbjssj_picker{
+  width:100%;
+  height:40px;
+  margin-top: -48px;
+  margin-left: 123px;
+}
+.tool_bar_v .bottom_v{
+  width: 100%;
+  height: 50px;
+  background-color: #fff;
+  bottom: 0;
+  position: fixed;
+}
+
 .main_v{
   width: 100%;
 }

@@ -15,10 +15,20 @@ Page({
     pageSize:10,
     showNoDataView:false,
     ddh:"",
+    cyclCph:"",
     prePageFlag:1,
     nextPageFlag:2,
     prePageEnable:false,
-    nextPageEnable:true
+    nextPageEnable:true,
+
+    gbksrq:'',
+    gbksrqPlaceholder: '请选择开始日期',
+    gbkssj:'',
+    gbkssjPlaceholder: '请选择开始时间',
+    gbjsrq:'',
+    gbjsrqPlaceholder: '请选择结束日期',
+    gbjssj:'',
+    gbjssjPlaceholder: '请选择结束时间',
   },
 
   /**
@@ -140,6 +150,10 @@ Page({
       let ddh=e.detail.value;
       bdjlListPage.setData({ddh:ddh});
     }
+    else if(e.currentTarget.id=="cyclCph_inp"){
+      let cyclCph=e.detail.value;
+      bdjlListPage.setData({cyclCph:cyclCph});
+    }
   },
   loadListDataByPageFlag:function(e){
     let flag=e.currentTarget.dataset.flag;
@@ -170,9 +184,28 @@ Page({
     let currentPage=bdjlListPage.data.currentPage;
     let pageSize=bdjlListPage.data.pageSize;
     let ddh=bdjlListPage.data.ddh;
+    let cyclCph=bdjlListPage.data.cyclCph;
+
+    let gbksrq=bdjlListPage.data.gbksrq;
+    let gbkssj=bdjlListPage.data.gbkssj;
+    let gbsjks="";
+    if(gbksrq!=""&gbkssj!="")
+      gbsjks=gbksrq+" "+gbkssj;
+
+    let gbjsrq=bdjlListPage.data.gbjsrq;
+    let gbjssj=bdjlListPage.data.gbjssj;
+    let gbsjjs="";
+    if(gbjsrq!=""&gbjssj!="")
+      gbsjjs=gbjsrq+" "+gbjssj;
+
+    console.log("ddh==="+ddh)
+    console.log("cyclCph==="+cyclCph)
+    console.log("gbsjks==="+gbsjks)
+    console.log("gbsjjs==="+gbsjjs)
+
     wx.request({
       url: rootIP+"getGBJLList",
-      data:{page:currentPage,rows:pageSize,ddh:ddh},
+      data:{page:currentPage,rows:pageSize,ddh:ddh,cyclCph:cyclCph,gbsjks:gbsjks,gbsjjs:gbsjjs},
       method: 'POST',
       header: {
         'content-type': 'application/x-www-form-urlencoded',
@@ -236,6 +269,38 @@ Page({
       break;
     }
     return str;
+  },
+  pickerGbksrqChange:function(e){
+    let value = e.detail.value;
+    console.log(value)
+    bdjlListPage.setData({gbksrq:value});
+  },
+  pickerGbkssjChange:function(e){
+    let value = e.detail.value;
+    console.log(value)
+    bdjlListPage.setData({gbkssj:value});
+  },
+  pickerGbjsrqChange:function(e){
+    let value = e.detail.value;
+    console.log(value)
+    bdjlListPage.setData({gbjsrq:value});
+  },
+  pickerGbjssjChange:function(e){
+    let value = e.detail.value;
+    console.log(value)
+    bdjlListPage.setData({gbjssj:value});
+  },
+  pickerGbksrqCancel:function(){
+    bdjlListPage.setData({gbksrq:''});
+  },
+  pickerGbkssjCancel:function(){
+    bdjlListPage.setData({gbkssj:''});
+  },
+  pickerGbjsrqCancel:function(){
+    bdjlListPage.setData({gbjsrq:''});
+  },
+  pickerGbjssjCancel:function(){
+    bdjlListPage.setData({gbjssj:''});
   },
   goDetailPage:function(e){
     let id=e.currentTarget.dataset.id;
