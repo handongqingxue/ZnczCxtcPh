@@ -1,0 +1,31 @@
+<!--pages/wzgl/wzlx/new.wxml-->
+<view class="main_v">
+  <view class="title_v">添加页面</view>
+  <view class="back_but_v" catchtap="goListPage">{{backButSign}}</view>
+  <view class="add_v">
+      <view class="row_v mc_v">
+        <view class="key_v">名称</view>
+        <view class="val_v">
+          <input class="mc_inp" id="mc_inp" type="text" placeholder="请输入名称" value="{{mc}}" bindfocus="focusMc" bindblur="checkMc" bindinput="getInputValue"/>
+        </view>
+      </view>
+      <view class="row_v px_v">
+        <view class="key_v">排序</view>
+        <view class="val_v">
+          <input class="px_inp" id="px_inp" type="number" value="{{px}}" bindinput="getInputValue"/>
+        </view>
+      </view>
+      <view class="row_v bz_v">
+        <view class="key_v bz_key_v">备注</view>
+        <view class="val_v bz_val_v">
+          <textarea class="bz_inp" id="bz_inp" type="text" placeholder="请输入备注" value="{{bz}}" bindinput="getInputValue"/>
+        </view>
+      </view>
+  </view>
+  <view class="bottom_v">
+    <view class="but_list_v">
+      <view class="but_v save_but_v" data-flag="{{true}}" catchtap="checkNew">保存</view>
+      <view class="but_v more_but_v">更多操作</view>
+    </view>
+  </view>
+</view>
