@@ -29,6 +29,9 @@
         <view class="key_v">过磅时间</view>
         <view class="val_v">{{item.gbsj}}</view>
       </view>
+      <view class="but_list_v">
+        <view class="but_v detail_but_v" data-id="{{item.id}}" catchtap="goDetailPage">详情</view>
+      </view>
     </view>
   </view>
   <view class="bottom_v">

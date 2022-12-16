@@ -1,0 +1,47 @@
+<!--pages/gbgl/gbjl/detail.wxml-->
+<view class="main_v">
+  <view class="title_v">详情页面</view>
+  <view class="back_but_v" catchtap="goListPage">{{backButSign}}</view>
+  <view class="detail_v">
+      <view class="row_v ddh_v">
+        <view class="key_v">订单号</view>
+        <view class="val_v">
+          {{ddh}}
+        </view>
+      </view>
+      <view class="row_v gbzl_v">
+        <view class="key_v">过磅重量</view>
+        <view class="val_v">{{gbzl}}</view>
+      </view>
+      <view class="row_v gbsj_v">
+        <view class="key_v">过磅时间</view>
+        <view class="val_v">{{gbsj}}</view>
+      </view>
+      <view class="row_v gbztMc_v">
+        <view class="key_v">过磅状态</view>
+        <view class="val_v">{{gbztMc}}</view>
+      </view>
+      <view class="row_v gblxMc_v">
+        <view class="key_v">过磅类型</view>
+        <view class="val_v">{{gblxMc}}</view>
+      </view>
+      <view class="row_v zp1_v">
+        <view class="key_v zp1_key_v">照片1</view>
+        <view class="val_v zp1_val_v">
+          <image class="zp1_img" src="{{zp1}}" wx:if="{{zp1!=null}}"/>
+        </view>
+      </view>
+      <view class="row_v zp2_v">
+        <view class="key_v zp2_key_v">照片2</view>
+        <view class="val_v zp2_val_v">
+          <image class="zp2_img" src="{{zp2}}" wx:if="{{zp2!=null}}"/>
+        </view>
+      </view>
+      <view class="row_v zp3_v">
+        <view class="key_v zp3_key_v">照片3</view>
+        <view class="val_v zp3_val_v">
+          <image class="zp3_img" src="{{zp3}}" wx:if="{{zp3!=null}}"/>
+        </view>
+      </view>
+  </view>
+</view>

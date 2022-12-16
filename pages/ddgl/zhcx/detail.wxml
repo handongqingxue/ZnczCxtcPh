@@ -2,7 +2,7 @@
 <view class="main_v">
   <view class="title_v">详情页面</view>
   <view class="back_but_v" catchtap="goListPage">{{backButSign}}</view>
-  <view class="edit_v">
+  <view class="detail_v">
       <view class="row_v yzxzl_v">
         <view class="key_v">预装卸重量</view>
         <view class="val_v">

@@ -58,6 +58,20 @@
   margin-top:-40px;
   margin-left:120px;
 }
+.main_v .list_v .item_v .but_list_v{
+  width: 95%;
+  height: 40px;
+  margin: auto;
+}
+.main_v .list_v .item_v .but_list_v .but_v{
+  width: 80px;
+  height: 30px;
+  line-height: 30px;
+  margin-top: 10px;
+  text-align: center;
+  border: #BFBFBF solid 1px;
+  border-radius:3px;
+}
 
 .main_v .bottom_v{
   width: 100%;

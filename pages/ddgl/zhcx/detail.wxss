@@ -15,25 +15,25 @@
   margin-top: -40px;
   margin-left: 10px;
 }
-.main_v .edit_v{
+.main_v .detail_v{
   width: 95%;
   margin: auto;
 }
-.main_v .edit_v .row_v{
+.main_v .detail_v .row_v{
   width: 95%;
   margin: auto;
 }
-.main_v .edit_v .bz_v,
-.main_v .edit_v .dfbdzp_v{
+.main_v .detail_v .bz_v,
+.main_v .detail_v .dfbdzp_v{
   height: 120px;
 }
-.main_v .edit_v .yzxzl_v{
+.main_v .detail_v .yzxzl_v{
   margin-top: 10px;
 }
-.main_v .edit_v .yss_v{
+.main_v .detail_v .yss_v{
   margin-top:40px;
 }
-.main_v .edit_v .key_v{
+.main_v .detail_v .key_v{
   width:100px;
   height:40px;
   line-height:40px;
@@ -41,22 +41,22 @@
   font-size: 15px;
   text-align:center;
 }
-.main_v .edit_v .bz_key_v,
-.main_v .edit_v .dfbdzp_key_v{
+.main_v .detail_v .bz_key_v,
+.main_v .detail_v .dfbdzp_key_v{
   height:100px;
   line-height:100px;
 }
-.main_v .edit_v .val_v{
+.main_v .detail_v .val_v{
   height:40px;
   line-height:40px;
   margin-top:-40px;
   margin-left:120px;
 }
-.main_v .edit_v .bz_val_v,
-.main_v .edit_v .dfbdzp_val_v{
+.main_v .detail_v .bz_val_v,
+.main_v .detail_v .dfbdzp_val_v{
   margin-top:-100px;
 }
-.main_v .edit_v .dfbdzp_val_v .dfbdzp_img{
+.main_v .detail_v .dfbdzp_val_v .dfbdzp_img{
   width:100px;
   height:100px;
 }

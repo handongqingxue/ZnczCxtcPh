@@ -236,5 +236,16 @@ Page({
       break;
     }
     return str;
+  },
+  goDetailPage:function(e){
+    let id=e.currentTarget.dataset.id;
+    wx.redirectTo({
+      url: '/pages/gbgl/gbjl/detail?id='+id,
+    })
+  },
+  goHomePage:function(){
+    wx.redirectTo({
+      url: '/pages/home/home',
+    })
   }
 })

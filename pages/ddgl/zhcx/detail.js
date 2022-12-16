@@ -1,5 +1,5 @@
 // pages/ddgl/zhcx/detail.js
-var editPage;
+var detailPage;
 var rootIP;
 var serverRootIP;
 Page({
@@ -15,19 +15,20 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    editPage=this;
+    detailPage=this;
     rootIP=getApp().getRootIP();
     serverRootIP=getApp().getServerRootIP();
     let id=options.id;
-    console.log(id)
-    editPage.setData({id:id});
+    //let id=16;
+    console.log(id);
+    detailPage.setData({id:id});
   },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-    editPage.getDDInfo();
+    detailPage.getDDInfo();
   },
 
   /**
@@ -72,7 +73,7 @@ Page({
 
   },
   getDDInfo:function(){
-    let id=editPage.data.id;
+    let id=detailPage.data.id;
     wx.request({
       url: rootIP+"getDingDan",
       method: 'POST',
@@ -87,7 +88,6 @@ Page({
         let dfgbjl=data.dfgbjl;
         let yzxzl=dd.yzxzl;
         let lxlx=dd.lxlx;
-        let lxlxSelectIndex;//=editPage.getLxlxIndexInListById(lxlx);
         let sjzl=dd.sjzl;
         let jhysrq=dd.jhysrq;
         let bz=dd.bz;
@@ -106,7 +106,7 @@ Page({
         let shdwMc=dd.shdwMc;
         let cyclCph=dd.cyclCph;
         let cysjXm=dd.cysjXm;
-        editPage.setData({yzxzl:yzxzl,lxlx:lxlx,sjzl:sjzl,jhysrq:jhysrq,bz:bz,jszl:jszl,bs:bs,ks:ks,dfgbjz:dfgbjz,dfgbpz:dfgbpz,dfgbmz:dfgbmz,dfbdzp:serverRootIP+dfbdzp,dfgbsj:dfgbsj,yssMc:yssMc,wzlxMc:wzlxMc,wzMc:wzMc,fhdwMc:fhdwMc,shdwMc:shdwMc,cyclCph:cyclCph,cysjXm:cysjXm});
+        detailPage.setData({yzxzl:yzxzl,lxlx:lxlx,sjzl:sjzl,jhysrq:jhysrq,bz:bz,jszl:jszl,bs:bs,ks:ks,dfgbjz:dfgbjz,dfgbpz:dfgbpz,dfgbmz:dfgbmz,dfbdzp:serverRootIP+dfbdzp,dfgbsj:dfgbsj,yssMc:yssMc,wzlxMc:wzlxMc,wzMc:wzMc,fhdwMc:fhdwMc,shdwMc:shdwMc,cyclCph:cyclCph,cysjXm:cysjXm});
       }
     })
   },

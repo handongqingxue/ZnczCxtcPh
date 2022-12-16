@@ -10,7 +10,10 @@ Page({
     ddgl_dsh:2,
     ddgl_dzj:3,
     ddgl_drk:4,
-    ddgl_zhcx:5
+    ddgl_zhcx:5,
+    ddgl_shjl:6,
+    gbgl_bdjl:7,
+    gbgl_gbjl:8,
   },
 
   /**
@@ -91,6 +94,12 @@ Page({
         break;
       case home.data.ddgl_shjl:
         url+='ddgl/shjl/list';
+        break;
+      case home.data.gbgl_bdjl:
+        url+='gbgl/bdjl/list';
+        break;
+      case home.data.gbgl_gbjl:
+        url+='gbgl/gbjl/list';
         break;
     }
     wx.redirectTo({

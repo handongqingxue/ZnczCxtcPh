@@ -164,4 +164,9 @@ Page({
       }
     })
   },
+  goHomePage:function(){
+    wx.redirectTo({
+      url: '/pages/home/home',
+    })
+  }
 })
