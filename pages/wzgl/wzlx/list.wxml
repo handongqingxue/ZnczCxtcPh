@@ -46,6 +46,7 @@
       </view>
     </view>
   </view>
+  <view class="space1_v"></view>
   <view class="bottom_v">
     <a wx:if="{{showDjckgdView}}" data-flag="{{false}}" catchtap="showPageView">点击查看更多</a>
     <view class="page_v" wx:if="{{showPageView}}">

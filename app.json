@@ -1,8 +1,11 @@
 {
   "pages": [
-    "pages/wzgl/wzlx/new",
-    "pages/wzgl/wzlx/list",
     "pages/home/home",
+    "pages/wzgl/wzcx/list",
+    "pages/wzgl/wzlx/list",
+    "pages/wzgl/wzlx/detail",
+    "pages/wzgl/wzlx/edit",
+    "pages/wzgl/wzlx/new",
     "pages/ddgl/ddzt/detail",
     "pages/ddgl/ddzt/edit",
     "pages/ddgl/ddzt/list",

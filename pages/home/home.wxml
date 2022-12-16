@@ -19,5 +19,6 @@
   <view class="wzgl_v first_level_v">
     <view class="title_v">物资管理</view>
     <view class="wzlx_v second_level_v" data-pageflag="{{wzgl_wzlx}}" catchtap="goPage">物资类型</view>
+    <view class="wzcx_v second_level_v" data-pageflag="{{wzgl_wzcx}}" catchtap="goPage">物资查询</view>
   </view>
 </view>

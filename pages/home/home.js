@@ -19,6 +19,7 @@ Page({
     gbgl_ejdsh:10,
 
     wzgl_wzlx:11,
+    wzgl_wzcx:12,
   },
 
   /**
@@ -114,6 +115,9 @@ Page({
         break;
       case home.data.wzgl_wzlx:
         url+='wzgl/wzlx/list';
+        break;
+      case home.data.wzgl_wzcx:
+        url+='wzgl/wzcx/list';
         break;
     }
     wx.redirectTo({
