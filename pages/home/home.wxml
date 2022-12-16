@@ -13,5 +13,7 @@
     <view class="title_v">过磅管理</view>
     <view class="bdjl_v second_level_v" data-pageflag="{{gbgl_bdjl}}" catchtap="goPage">磅单记录</view>
     <view class="gbjl_v second_level_v" data-pageflag="{{gbgl_gbjl}}" catchtap="goPage">过磅记录</view>
+    <view class="yjdsh_v second_level_v" data-pageflag="{{gbgl_yjdsh}}" catchtap="goPage">一检待审核</view>
+    <view class="ejdsh_v second_level_v" data-pageflag="{{gbgl_ejdsh}}" catchtap="goPage">二检待审核</view>
   </view>
 </view>

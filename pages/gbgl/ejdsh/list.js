@@ -1,5 +1,5 @@
-// pages/gbgl/yjdsh/list.js
-var yjdshListPage;
+// pages/gbgl/ejdsh/list.js
+var ejdshListPage;
 var rootIP;
 Page({
 
@@ -40,7 +40,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    yjdshListPage=this;
+    ejdshListPage=this;
     rootIP=getApp().getRootIP();
   },
 
@@ -48,7 +48,7 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-    yjdshListPage.getConstantFlagMap();
+    ejdshListPage.getConstantFlagMap();
   },
 
   /**
@@ -107,7 +107,7 @@ Page({
         let gbjlGbzt=constantFlagMap.gbjlGbzt;
         let gblx=constantFlagMap.gblx;
         let constantFlags=lxlx+","+ddzt+","+gbjlGbzt+","+gblx;
-        yjdshListPage.getConstantMap(constantFlags);
+        ejdshListPage.getConstantMap(constantFlags);
       }
     })
   },
@@ -122,72 +122,72 @@ Page({
       success: function (res) {
         let constantMap=res.data;
         console.log(constantMap);
-        yjdshListPage.setData({constantMap:constantMap});
-        yjdshListPage.getListData();
+        ejdshListPage.setData({constantMap:constantMap});
+        ejdshListPage.getListData();
       }
     })
   },
   showPageView:function(flag){
     if(flag){
-      yjdshListPage.setData({showDjckgdView:false,showPageView:true});
+      ejdshListPage.setData({showDjckgdView:false,showPageView:true});
     }
     else{
-      yjdshListPage.setData({showDjckgdView:true,showPageView:false});
+      ejdshListPage.setData({showDjckgdView:true,showPageView:false});
     }
   },
   showToolBarView:function(e){
     let flag=e.currentTarget.dataset.flag;
     if(flag){
-      yjdshListPage.setData({showToolBarView:true});
+      ejdshListPage.setData({showToolBarView:true});
     }
     else{
-      yjdshListPage.setData({showToolBarView:false});
+      ejdshListPage.setData({showToolBarView:false});
     }
   },
   showNoDataView:function(flag){
     if(flag){
-      yjdshListPage.setData({showNoDataView:true});
+      ejdshListPage.setData({showNoDataView:true});
     }
     else if(flag){
-      yjdshListPage.setData({showNoDataView:false});
+      ejdshListPage.setData({showNoDataView:false});
     }
   },
   getInputValue:function(e){
     if(e.currentTarget.id=="ddh_inp"){
       let ddh=e.detail.value;
-      yjdshListPage.setData({ddh:ddh});
+      ejdshListPage.setData({ddh:ddh});
     }
     else if(e.currentTarget.id=="cysjXm_inp"){
       let cysjXm=e.detail.value;
-      yjdshListPage.setData({cysjXm:cysjXm});
+      ejdshListPage.setData({cysjXm:cysjXm});
     }
     else if(e.currentTarget.id=="cysjSfzh_inp"){
       let cysjSfzh=e.detail.value;
-      yjdshListPage.setData({cysjSfzh:cysjSfzh});
+      ejdshListPage.setData({cysjSfzh:cysjSfzh});
     }
     else if(e.currentTarget.id=="cyclCph_inp"){
       let cyclCph=e.detail.value;
-      yjdshListPage.setData({cyclCph:cyclCph});
+      ejdshListPage.setData({cyclCph:cyclCph});
     }
     else if(e.currentTarget.id=="yssMc_inp"){
       let yssMc=e.detail.value;
-      yjdshListPage.setData({yssMc:yssMc});
+      ejdshListPage.setData({yssMc:yssMc});
     }
     else if(e.currentTarget.id=="fhdwMc_inp"){
       let fhdwMc=e.detail.value;
-      yjdshListPage.setData({fhdwMc:fhdwMc});
+      ejdshListPage.setData({fhdwMc:fhdwMc});
     }
     else if(e.currentTarget.id=="shdwMc_inp"){
       let shdwMc=e.detail.value;
-      yjdshListPage.setData({shdwMc:shdwMc});
+      ejdshListPage.setData({shdwMc:shdwMc});
     }
   },
   loadListDataByPageFlag:function(e){
     let flag=e.currentTarget.dataset.flag;
-    let prePageFlag=yjdshListPage.data.prePageFlag;
-    let nextPageFlag=yjdshListPage.data.nextPageFlag;
-    let currentPage=yjdshListPage.data.currentPage;
-    let pageCount=yjdshListPage.data.pageCount;
+    let prePageFlag=ejdshListPage.data.prePageFlag;
+    let nextPageFlag=ejdshListPage.data.nextPageFlag;
+    let currentPage=ejdshListPage.data.currentPage;
+    let pageCount=ejdshListPage.data.pageCount;
     if(flag==prePageFlag)
       currentPage--;
     else if(flag==nextPageFlag)
@@ -199,36 +199,36 @@ Page({
       currentPage=pageCount;
 
     if(currentPage<=1){
-      yjdshListPage.setData({prePageEnable:false,nextPageEnable:true});
+      ejdshListPage.setData({prePageEnable:false,nextPageEnable:true});
     }
     else if(currentPage>=pageCount){
-      yjdshListPage.setData({prePageEnable:true,nextPageEnable:false});
+      ejdshListPage.setData({prePageEnable:true,nextPageEnable:false});
     }
-    yjdshListPage.setData({currentPage:currentPage});
-    yjdshListPage.getListData();
+    ejdshListPage.setData({currentPage:currentPage});
+    ejdshListPage.getListData();
   },
   getListData:function(){
-    let currentPage=yjdshListPage.data.currentPage;
-    let pageSize=yjdshListPage.data.pageSize;
-    let constantMap=yjdshListPage.data.constantMap;
-    let defaultDdztMc=constantMap.ddztMap.yjdshDdztMc;
-    let defaultGblx=constantMap.gblxMap.rcgbGblx;
-    let ddh=yjdshListPage.data.ddh;
-    let cysjXm=yjdshListPage.data.cysjXm;
-    let cysjSfzh=yjdshListPage.data.cysjSfzh;
-    let cyclCph=yjdshListPage.data.cyclCph;
-    let yssMc=yjdshListPage.data.yssMc;
-    let fhdwMc=yjdshListPage.data.fhdwMc;
-    let shdwMc=yjdshListPage.data.shdwMc;
+    let currentPage=ejdshListPage.data.currentPage;
+    let pageSize=ejdshListPage.data.pageSize;
+    let constantMap=ejdshListPage.data.constantMap;
+    let defaultDdztMc=constantMap.ddztMap.ejdshDdztMc;
+    let defaultGblx=constantMap.gblxMap.ccgbGblx;
+    let ddh=ejdshListPage.data.ddh;
+    let cysjXm=ejdshListPage.data.cysjXm;
+    let cysjSfzh=ejdshListPage.data.cysjSfzh;
+    let cyclCph=ejdshListPage.data.cyclCph;
+    let yssMc=ejdshListPage.data.yssMc;
+    let fhdwMc=ejdshListPage.data.fhdwMc;
+    let shdwMc=ejdshListPage.data.shdwMc;
 
-    let gbksrq=yjdshListPage.data.gbksrq;
-    let gbkssj=yjdshListPage.data.gbkssj;
+    let gbksrq=ejdshListPage.data.gbksrq;
+    let gbkssj=ejdshListPage.data.gbkssj;
     let gbsjks="";
     if(gbksrq!=""&gbkssj!="")
       gbsjks=gbksrq+" "+gbkssj;
 
-    let gbjsrq=yjdshListPage.data.gbjsrq;
-    let gbjssj=yjdshListPage.data.gbjssj;
+    let gbjsrq=ejdshListPage.data.gbjsrq;
+    let gbjssj=ejdshListPage.data.gbjssj;
     let gbsjjs="";
     if(gbjsrq!=""&gbjssj!="")
       gbsjjs=gbjsrq+" "+gbjssj;
@@ -258,32 +258,32 @@ Page({
         console.log("status==="+status)
         let dataCount;
         if(status=="ok"){
-          var yjdshList=data.list;
-          for(let i=0;i<yjdshList.length;i++){
-            let yjdsh=yjdshList[i];
-            let lxlx=yjdsh.lxlx;
-            let lxlxMc=yjdshListPage.getLxlxMcById(lxlx);
-            yjdsh.lxlxMc=lxlxMc;
+          var ejdshList=data.list;
+          for(let i=0;i<ejdshList.length;i++){
+            let ejdsh=ejdshList[i];
+            let lxlx=ejdsh.lxlx;
+            let lxlxMc=ejdshListPage.getLxlxMcById(lxlx);
+            ejdsh.lxlxMc=lxlxMc;
 
-            let gbzt=yjdsh.gbzt;
-            let gbztMc=yjdshListPage.getGbztMcById(gbzt);
-            yjdsh.gbztMc=gbztMc;
+            let gbzt=ejdsh.gbzt;
+            let gbztMc=ejdshListPage.getGbztMcById(gbzt);
+            ejdsh.gbztMc=gbztMc;
           }
-          yjdshListPage.setData({yjdshList:yjdshList});
+          ejdshListPage.setData({ejdshList:ejdshList});
         }
         else{
-          yjdshListPage.showNoDataView(true);
-          yjdshListPage.setData({noDataText:data.message});
+          ejdshListPage.showNoDataView(true);
+          ejdshListPage.setData({noDataText:data.message});
         }
         dataCount=data.total;
-        yjdshListPage.setData({dataCount:dataCount,pageCount:Math.floor((dataCount-1)/pageSize)+1});
+        ejdshListPage.setData({dataCount:dataCount,pageCount:Math.floor((dataCount-1)/pageSize)+1});
         let e={currentTarget:{dataset:{flag:false}}};
-        yjdshListPage.showToolBarView(e);
+        ejdshListPage.showToolBarView(e);
       }
     })
   },
   getLxlxMcById:function(lxlxId){
-    let constantMap=yjdshListPage.data.constantMap;
+    let constantMap=ejdshListPage.data.constantMap;
     let lxlxMap=constantMap.lxlxMap;
     //console.log(lxlxMap);
     var str;
@@ -298,7 +298,7 @@ Page({
     return str;
   },
   getGbztMcById:function(gbztId){
-    let constantMap=yjdshListPage.data.constantMap;
+    let constantMap=ejdshListPage.data.constantMap;
     let gbztMap=constantMap.gbjlGbztMap;
     //console.log(gbztMap);
     var str;
@@ -315,34 +315,34 @@ Page({
   pickerGbksrqChange:function(e){
     let value = e.detail.value;
     console.log(value)
-    yjdshListPage.setData({gbksrq:value});
+    ejdshListPage.setData({gbksrq:value});
   },
   pickerGbkssjChange:function(e){
     let value = e.detail.value;
     console.log(value)
-    yjdshListPage.setData({gbkssj:value});
+    ejdshListPage.setData({gbkssj:value});
   },
   pickerGbjsrqChange:function(e){
     let value = e.detail.value;
     console.log(value)
-    yjdshListPage.setData({gbjsrq:value});
+    ejdshListPage.setData({gbjsrq:value});
   },
   pickerGbjssjChange:function(e){
     let value = e.detail.value;
     console.log(value)
-    yjdshListPage.setData({gbjssj:value});
+    ejdshListPage.setData({gbjssj:value});
   },
   pickerGbksrqCancel:function(){
-    yjdshListPage.setData({gbksrq:''});
+    ejdshListPage.setData({gbksrq:''});
   },
   pickerGbkssjCancel:function(){
-    yjdshListPage.setData({gbkssj:''});
+    ejdshListPage.setData({gbkssj:''});
   },
   pickerGbjsrqCancel:function(){
-    yjdshListPage.setData({gbjsrq:''});
+    ejdshListPage.setData({gbjsrq:''});
   },
   pickerGbjssjCancel:function(){
-    yjdshListPage.setData({gbjssj:''});
+    ejdshListPage.setData({gbjssj:''});
   },
   goHomePage:function(){
     wx.redirectTo({

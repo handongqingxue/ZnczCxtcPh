@@ -1,7 +1,5 @@
 {
   "pages": [
-    "pages/gbgl/yjdsh/list",
-    "pages/gbgl/gbjl/list",
     "pages/home/home",
     "pages/ddgl/ddzt/detail",
     "pages/ddgl/ddzt/edit",
@@ -17,6 +15,9 @@
     "pages/ddgl/zhcx/new",
     "pages/gbgl/bdjl/list",
     "pages/gbgl/gbjl/detail",
+    "pages/gbgl/gbjl/list",
+    "pages/gbgl/yjdsh/list",
+    "pages/gbgl/ejdsh/list",
     "pages/test/datePicker",
     "pages/test/calendarDemo",
     "pages/test/calendar",
