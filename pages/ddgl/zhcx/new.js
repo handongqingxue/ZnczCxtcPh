@@ -277,10 +277,10 @@ Page({
   checkWZLXId:function(){
     let wzlxSelectId=newPage.data.wzlxSelectId;
     if(wzlxSelectId==null||wzlxSelectId==""){
-        wx.showToast({
-          title: "请选择物资类型",
-        })
-        return false;
+      wx.showToast({
+        title: "请选择物资类型",
+      })
+      return false;
     }
     else
       return true;

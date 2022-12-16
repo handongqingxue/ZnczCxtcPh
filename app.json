@@ -1,7 +1,8 @@
 {
   "pages": [
-    "pages/home/home",
     "pages/wzgl/wzcx/list",
+    "pages/wzgl/wzcx/new",
+    "pages/home/home",
     "pages/wzgl/wzlx/list",
     "pages/wzgl/wzlx/detail",
     "pages/wzgl/wzlx/edit",
