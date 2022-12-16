@@ -1,7 +1,7 @@
 {
   "pages": [
-    "pages/gbgl/gbjl/list",
     "pages/gbgl/yjdsh/list",
+    "pages/gbgl/gbjl/list",
     "pages/home/home",
     "pages/ddgl/ddzt/detail",
     "pages/ddgl/ddzt/edit",

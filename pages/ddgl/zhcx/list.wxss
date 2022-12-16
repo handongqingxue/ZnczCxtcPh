@@ -4,8 +4,8 @@
   height: 100%;
   background-color: #fff;
   position: fixed;
-  z-index: 1;
   overflow-y: auto;
+  z-index: 1;
 }
 .tool_bar_v .ddh_v,
 .tool_bar_v .ddzt_v,
