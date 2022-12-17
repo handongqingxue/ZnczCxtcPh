@@ -1,0 +1,25 @@
+<!--pages/wzgl/wzcx/detail.wxml-->
+<view class="main_v">
+  <view class="title_v">详情页面</view>
+  <view class="back_but_v" catchtap="goListPage">{{backButSign}}</view>
+  <view class="detail_v">
+      <view class="row_v mc_v">
+        <view class="key_v">名称</view>
+        <view class="val_v">
+          {{mc}}
+        </view>
+      </view>
+      <view class="row_v wzlxmc_v">
+        <view class="key_v">物资类型</view>
+        <view class="val_v">
+          {{wzlxmc}}
+        </view>
+      </view>
+      <view class="row_v bjsj_v">
+        <view class="key_v">编辑时间</view>
+        <view class="val_v">
+          {{bjsj}}
+        </view>
+      </view>
+  </view>
+</view>
