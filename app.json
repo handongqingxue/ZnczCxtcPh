@@ -1,5 +1,6 @@
 {
   "pages": [
+    "pages/wzgl/wzcx/edit",
     "pages/wzgl/wzcx/list",
     "pages/wzgl/wzcx/new",
     "pages/home/home",
