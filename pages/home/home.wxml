@@ -21,4 +21,8 @@
     <view class="wzlx_v second_level_v" data-pageflag="{{wzgl_wzlx}}" catchtap="goPage">物资类型</view>
     <view class="wzcx_v second_level_v" data-pageflag="{{wzgl_wzcx}}" catchtap="goPage">物资查询</view>
   </view>
+  <view class="clgl_v first_level_v">
+    <view class="title_v">车辆管理</view>
+    <view class="dsh_v second_level_v" data-pageflag="{{clgl_dsh}}" catchtap="goPage">待审核</view>
+  </view>
 </view>

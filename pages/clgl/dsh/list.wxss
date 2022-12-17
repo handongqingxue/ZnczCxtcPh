@@ -1,0 +1,218 @@
+/* pages/clgl/dsh/list.wxss */
+.tool_bar_v{
+  width: 100%;
+  height: 100%;
+  background-color: #fff;
+  position: fixed;
+  overflow-y: auto;
+  z-index: 1;
+}
+.tool_bar_v .cph_v,
+.tool_bar_v .cllx_v{
+  width:100%;
+  height:50px;
+  line-height:50px;
+}
+.tool_bar_v .cph_v .cph_span,
+.tool_bar_v .cllx_v .cllx_span{
+  margin-left:10px;
+}
+.tool_bar_v .cph_v .cph_inp{
+  width:180px;
+  margin-top:-35px;
+  margin-left:120px;
+  border: #eee solid 1px;
+}
+
+.tool_bar_v .cllx_v .cllx_select_v{
+  width: 150px;
+  height: 30px;
+  margin-top: -40px;
+  margin-left: 120px;
+  background-color: #fff;
+  border: #eee solid 1px;
+}
+.tool_bar_v .cllx_v .cllx_select_v .selected_text_v {
+  width: 120px;
+  height: 30px;
+  line-height: 30px;
+  padding-left: 10px;
+  font-size: 15px;
+  background-color: #0f0;
+}
+.tool_bar_v .cllx_v .cllx_select_v .select_img {
+  width: 17px;
+  height: 17px;
+  float: right;
+  margin-top: -25px;
+  margin-right: 3px;
+}
+.tool_bar_v .cllx_v .cllx_select_v .select_img_rotate {
+  transform: rotate(180deg);
+}
+.tool_bar_v .cllx_v .cllx_option_list_v{
+  width: 150px;
+  margin-top: 1px;
+  margin-left: 120px;
+  background-color: #eee;
+  overflow-y: auto;
+  position: absolute;
+  z-index: 3;
+}
+.tool_bar_v .cllx_v .cllx_option_list_v .item_v{
+  width: 100%;
+  height: 30px;
+  line-height: 30px;
+  padding-left: 10px;
+  background-color: #0f0;
+}
+.space2_v{
+  width: 100%;
+  height: 60px;
+}
+.tool_bar_v .bottom_v{
+  width: 100%;
+  height: 50px;
+  background-color: #fff;
+  bottom: 0;
+  position: fixed;
+}
+
+.main_v{
+  width: 100%;
+}
+.main_v .title_v,.tool_bar_v .title_v{
+  width: 100%;
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
+  font-size: 15px;
+  font-weight: bold;
+  background-color: #F8F8F8;
+}
+.main_v .back_but_v,.tool_bar_v .back_but_v{
+  height: 40px;
+  line-height: 40px;
+  margin-top: -40px;
+  margin-left: 10px;
+}
+.main_v .no_data_v{
+  width: 100%;
+  height:40px;
+  line-height:40px;
+  text-align: center;
+}
+.main_v .list_v{
+  width: 95%;
+  margin: auto;
+}
+.main_v .list_v .item_v{
+  width: 100%;
+  margin-top: 10px;
+  border: #C7C7C7 solid 1px;
+  border-radius:5px;
+}
+.main_v .list_v .item_v .row_v{
+  width: 95%;
+  margin: auto;
+}
+.main_v .list_v .item_v .cph_v,
+.main_v .list_v .item_v .ppxh_v,
+.main_v .list_v .item_v .fdjhm_v,
+.main_v .list_v .item_v .clsbdh_v,
+.main_v .list_v .item_v .zcrq_v,
+.main_v .list_v .item_v .pfjdMc_v,
+.main_v .list_v .item_v .fzrq_v,
+.main_v .list_v .item_v .sfzyMc_v{
+  border-bottom: #eee solid 1px;
+}
+.main_v .list_v .item_v .key_v{
+  width:100px;
+  height:40px;
+  line-height:40px;
+  margin-left:8px;
+  color:#666;
+  text-align:center;
+}
+.main_v .list_v .item_v .val_v{
+  height:40px;
+  line-height:40px;
+  margin-top:-40px;
+  margin-left:130px;
+}
+.main_v .list_v .item_v .but_list_v{
+  width: 95%;
+  height: 40px;
+  margin: auto;
+}
+.main_v .list_v .item_v .but_list_v .but_v{
+  width: 80px;
+  height: 30px;
+  line-height: 30px;
+  margin-top: 10px;
+  text-align: center;
+  border: #BFBFBF solid 1px;
+  border-radius:3px;
+}
+.space1_v{
+  width: 100%;
+  height: 80px;
+}
+
+.main_v .bottom_v{
+  width: 100%;
+  height: 70px;
+  background-color: #F8F8F8;
+  bottom: 0;
+  position: fixed;
+}
+.main_v .bottom_v .page_v{
+  width: 100%;
+  height: 20px;
+}
+.main_v .bottom_v .page_v .pre_page_v{
+  width: 50px;
+  height: 20px;
+  margin-top: -20px;
+  margin-left: 80px;
+}
+.main_v .bottom_v .page_v .page_count_v{
+  margin-top: -20px;
+  margin-left:150px;
+}
+.main_v .bottom_v .page_v .curr_page_text{
+  color: #027999;
+}
+.main_v .bottom_v .page_v .next_page_v{
+  width: 50px;
+  height: 20px;
+  float: right;
+  margin-top: -20px;
+  margin-right: 10px;
+}
+.main_v .bottom_v .page_v .click_v{
+  color: #000;
+}
+.main_v .bottom_v .page_v .unClick_v{
+  color: #666;
+}
+
+.main_v .bottom_v .but_list_v,
+.tool_bar_v .bottom_v .but_list_v{
+  width: 95%;
+  margin: auto;
+}
+.main_v .bottom_v .but_list_v .but_v,
+.tool_bar_v .bottom_v .but_list_v .but_v{
+  width: 45%;
+  height: 30px;
+  line-height: 30px;
+  margin-top: 10px;
+  text-align: center;
+  border: #BFBFBF solid 1px;
+  border-radius:3px;
+}
+.tool_bar_v .bottom_v .but_list_v .reset_but_v{
+  float: right;
+  margin-top:-32px;
+}

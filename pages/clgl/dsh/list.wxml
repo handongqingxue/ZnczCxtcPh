@@ -1,0 +1,97 @@
+<!--pages/clgl/dsh/list.wxml-->
+<view class="tool_bar_v" wx:if="{{showToolBarView}}">
+  <view class="title_v">筛选页面</view>
+  <view class="back_but_v" data-flag="{{false}}" catchtap="showToolBarView">{{backButSign}}</view>
+  <view class="cph_v">
+    <span class="cph_span">车牌号</span>
+    <input class="cph_inp" id="cph_inp" type="text" placeholder="请输入车牌号" value="{{cph}}" bindinput="getInputValue"/>
+  </view>
+  <view class="cllx_v">
+    <span class="cllx_span">车辆类型</span>
+    <view class='cllx_select_v'>
+      <view class='selected_text_v' catchtap='showCllxOption'>{{cllxList[cllxSelectIndex]==null?'请选择':cllxList[cllxSelectIndex].text}}</view>
+      <image class='select_img {{showCllxOption&&"select_img_rotate"}}' src='../../../images/sanjiao.png'></image>
+    </view>
+    <view class='cllx_option_list_v' style='height:{{showCllxOption?(cllxList.length>5?300:cllxList.length*30):0}}px;'>
+      <view class='item_v' wx:for="{{cllxList}}" data-index="{{index}}" catchtap='selectCllxOption'>{{item.text}}</view>
+    </view>
+  </view>
+  
+  <view class="space2_v"></view>
+  <view class="bottom_v">
+    <view class="but_list_v">
+      <view class="but_v confirm_but_v" catchtap="getListData">确定</view>
+      <view class="but_v reset_but_v">重置</view>
+    </view>
+  </view>
+</view>
+
+<view class="main_v">
+  <view class="title_v">列表页面</view>
+  <view class="back_but_v" catchtap="goHomePage">{{backButSign}}</view>
+  <view class="no_data_v" wx:if="{{showNoDataView}}">{{noDataText}}</view>
+  <view class="list_v" wx:else>
+    <view class="item_v" wx:for-items="{{ddList}}">
+      <view class="row_v cph_v">
+        <view class="key_v">车牌号</view>
+        <view class="val_v">{{item.cph}}</view>
+      </view>
+      <view class="row_v ppxh_v">
+        <view class="key_v">品牌型号</view>
+        <view class="val_v">{{item.ppxh}}</view>
+      </view>
+      <view class="row_v fdjhm_v">
+        <view class="key_v">发动机号码</view>
+        <view class="val_v">{{item.fdjhm}}</view>
+      </view>
+      <view class="row_v clsbdh_v">
+        <view class="key_v">车辆识别代号</view>
+        <view class="val_v">{{item.clsbdh}}</view>
+      </view>
+      <view class="row_v zcrq_v">
+        <view class="key_v">注册日期</view>
+        <view class="val_v">{{item.zcrq}}</view>
+      </view>
+      <view class="row_v pfjdMc_v">
+        <view class="key_v">排放阶段</view>
+        <view class="val_v">{{item.pfjdMc}}</view>
+      </view>
+      <view class="row_v fzrq_v">
+        <view class="key_v">发证日期</view>
+        <view class="val_v">{{item.fzrq}}</view>
+      </view>
+      <view class="row_v sfzyMc_v">
+        <view class="key_v">是否在用</view>
+        <view class="val_v">{{item.sfzyMc}}</view>
+      </view>
+      <view class="row_v bz_v">
+        <view class="key_v">备注</view>
+        <view class="val_v">{{item.bz}}</view>
+      </view>
+      <view class="but_list_v">
+        <view class="but_v detail_but_v" data-id="{{item.id}}" catchtap="goDetailPage">详情</view>
+      </view>
+    </view>
+  </view>
+
+  <view class="space1_v"></view>
+  <view class="bottom_v">
+    <a wx:if="{{showDjckgdView}}" data-flag="{{false}}" catchtap="showPageView">点击查看更多</a>
+    <view class="page_v" wx:if="{{showPageView}}">
+      <view class="data_count_v">
+        共<text class="val_text">{{dataCount}}</text>条
+      </view>
+      <view class="pre_page_v click_v" data-flag="{{prePageFlag}}" wx:if="{{prePageEnable}}" catchtap="loadListDataByPageFlag">上一页</view>
+      <view class="pre_page_v unClick_v" wx:if="{{!prePageEnable}}">上一页</view>
+      <view class="page_count_v">
+        <text class="curr_page_text">{{currentPage}}</text>/
+        <text class="page_count_text">{{pageCount}}</text>
+      </view>
+      <view class="next_page_v click_v" data-flag="{{nextPageFlag}}" wx:if="{{nextPageEnable}}" catchtap="loadListDataByPageFlag">下一页</view>
+      <view class="next_page_v unClick_v" wx:if="{{!nextPageEnable}}">下一页</view>
+    </view>
+    <view class="but_list_v">
+      <view class="but_v screen_but_v" data-flag="{{true}}" catchtap="showToolBarView">筛选</view>
+    </view>
+  </view>
+</view>
