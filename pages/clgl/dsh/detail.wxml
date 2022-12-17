@@ -1,2 +1,109 @@
 <!--pages/clgl/dsh/detail.wxml-->
-<text>pages/clgl/dsh/detail.wxml</text>
+<view class="main_v">
+  <view class="title_v">详情页面</view>
+  <view class="back_but_v" catchtap="goListPage">{{backButSign}}</view>
+  <view class="detail_v">
+      <view class="row_v cph_v">
+        <view class="key_v">车牌号</view>
+        <view class="val_v">
+          {{cph}}
+        </view>
+      </view>
+      <view class="row_v fdjhm_v">
+        <view class="key_v">发动机号码</view>
+        <view class="val_v">
+          {{fdjhm}}
+        </view>
+      </view>
+      <view class="row_v clsbdh_v">
+        <view class="key_v">车辆识别代号</view>
+        <view class="val_v">
+          {{clsbdh}}
+        </view>
+      </view>
+      <view class="row_v fzrq_v">
+        <view class="key_v">注册日期</view>
+        <view class="val_v">
+          {{zcrq}}
+        </view>
+      </view>
+      <view class="row_v pfjdMc_v">
+        <view class="key_v">排放阶段</view>
+        <view class="val_v">
+          {{pfjdMc}}
+        </view>
+      </view>
+      <view class="row_v clyslxMc_v">
+        <view class="key_v">车辆运输类型</view>
+        <view class="val_v">
+          {{clyslxMc}}
+        </view>
+      </view>
+      <view class="row_v ppxh_v">
+        <view class="key_v">品牌型号</view>
+        <view class="val_v">
+          {{ppxh}}
+        </view>
+      </view>
+      <view class="row_v czxx_v">
+        <view class="key_v">车主信息</view>
+        <view class="val_v">
+          {{czxx}}
+        </view>
+      </view>
+      <view class="row_v fzrq_v">
+        <view class="key_v">发证日期</view>
+        <view class="val_v">
+          {{fzrq}}
+        </view>
+      </view>
+      <view class="row_v pz_v">
+        <view class="key_v">皮重</view>
+        <view class="val_v">
+          {{pz}}
+        </view>
+      </view>
+      <view class="row_v cllxMc_v">
+        <view class="key_v">车辆类型</view>
+        <view class="val_v">
+          {{cllxMc}}
+        </view>
+      </view>
+      <view class="row_v zp_v">
+        <view class="key_v zp_key_v">照片</view>
+        <view class="val_v zp_val_v">
+          <image class="zp_img" src="{{zp}}" wx:if="{{zp!=null}}"/>
+        </view>
+      </view>
+      <view class="row_v xsz_v">
+        <view class="key_v xsz_key_v">行驶证</view>
+        <view class="val_v xsz_val_v">
+          <image class="xsz_img" src="{{xsz}}" wx:if="{{xsz!=null}}"/>
+        </view>
+      </view>
+      <view class="row_v scqd_v">
+        <view class="key_v scqd_key_v">随车清单</view>
+        <view class="val_v scqd_val_v">
+          <image class="scqd_img" src="{{scqd}}" wx:if="{{scqd!=null}}"/>
+        </view>
+      </view>
+      <view class="row_v pfjdcxjt_v">
+        <view class="key_v pfjdcxjt_key_v">排放阶段查询截图</view>
+        <view class="val_v pfjdcxjt_val_v">
+          <image class="pfjdcxjt_img" src="{{pfjdcxjt}}" wx:if="{{pfjdcxjt!=null}}"/>
+        </view>
+      </view>
+      <view class="row_v sfzy_v">
+        <view class="key_v">是否在用</view>
+        <view class="val_v">
+          {{sfzyMc}}
+        </view>
+      </view>
+      <view class="row_v bz_v">
+        <view class="key_v bz_key_v">备注</view>
+        <view class="val_v bz_val_v">
+          {{bz}}
+        </view>
+      </view>
+  </view>
+</view>
