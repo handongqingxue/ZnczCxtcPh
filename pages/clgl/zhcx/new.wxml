@@ -1,0 +1,59 @@
+<!--pages/clgl/zhcx/new.wxml-->
+<view class="main_v">
+  <view class="title_v">添加页面</view>
+  <view class="back_but_v" catchtap="goListPage">{{backButSign}}</view>
+  <view class="add_v">
+      <view class="row_v yzxzl_v">
+        <view class="key_v">车牌号</view>
+        <view class="val_v">
+          <input class="cph_inp" id="cph_inp" type="text" placeholder="请输入车牌号" value="{{cph}}" bindfocus="focusCph" bindblur="checkCph" bindinput="getInputValue"/>
+        </view>
+      </view>
+      <view class="row_v fdjhm_v">
+        <view class="key_v">发动机号码</view>
+        <view class="val_v">
+          <input class="fdjhm_inp" id="fdjhm_inp" type="text" placeholder="请输入发动机号码" value="{{fdjhm}}" bindinput="getInputValue"/>
+        </view>
+      </view>
+      <view class="row_v clsbdh_v">
+        <view class="key_v">车辆识别代号</view>
+        <view class="val_v">
+          <input class="clsbdh_inp" id="clsbdh_inp" type="text" placeholder="请输入发动机号码" value="{{clsbdh}}" bindinput="getInputValue"/>
+        </view>
+      </view>
+      <view class="row_v zcrq_v">
+        <view class="key_v">注册日期</view>
+        <picker class="zcrq_picker" mode="date" bindcancel="pickerZcrqCancel" bindchange="pickerZcrqChange">{{zcrq==''?zcrqPlaceholder:zcrq}}</picker>
+      </view>
+      <view class="row_v pfjd_v">
+        <view class="key_v">排放阶段</view>
+        <view class='pfjd_select_v'>
+          <view class='selected_text_v' catchtap='showPfjdOption'>{{pfjdList[pfjdSelectIndex]==null?'请选择':pfjdList[pfjdSelectIndex].text}}</view>
+          <image class='select_img {{showPfjdOption&&"select_img_rotate"}}' src='../../../images/sanjiao.png'></image>
+        </view>
+        <view class='pfjd_option_list_v' style='height:{{showPfjdOption?(pfjdList.length>5?300:pfjdList.length*30):0}}px;'>
+          <view class='item_v' wx:for="{{pfjdList}}" data-index="{{index}}" catchtap='selectPfjdOption'>{{item.text}}</view>
+        </view>
+      </view>
+      <view class="row_v clyslx_v">
+        <view class="key_v">车辆运输类型</view>
+        <view class='clyslx_select_v'>
+          <view class='selected_text_v' catchtap='showClyslxOption'>{{clYslxList[clyslxSelectIndex]==null?'请选择':clYslxList[clyslxSelectIndex].text}}</view>
+          <image class='select_img {{showClyslxOption&&"select_img_rotate"}}' src='../../../images/sanjiao.png'></image>
+        </view>
+        <view class='clyslx_option_list_v' style='height:{{showClyslxOption?(clYslxList.length>5?300:clYslxList.length*30):0}}px;'>
+          <view class='item_v' wx:for="{{clYslxList}}" data-index="{{index}}" catchtap='selectClyslxOption'>{{item.text}}</view>
+        </view>
+      </view>
+  </view>
+  <view class="space1_v"></view>
+  <view class="bottom_v">
+    <view class="but_list_v">
+      <view class="but_v save_but_v" data-flag="{{true}}" catchtap="checkNew" wx:if="{{showSaveBut}}">保存</view>
+      <view class="but_v saving_but_v" wx:if="{{showSavingBut}}">保存中...</view>
+      <view class="but_v saved_but_v" wx:if="{{showSavedBut}}">已保存</view>
+      <view class="but_v more_but_v">更多操作</view>
+    </view>
+  </view>
+</view>
+

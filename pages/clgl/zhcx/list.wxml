@@ -98,6 +98,7 @@
       </view>
       <view class="but_list_v">
         <view class="but_v detail_but_v" data-id="{{item.id}}" catchtap="goDetailPage">详情</view>
+        <view class="but_v edit_but_v" data-id="{{item.id}}" catchtap="goEditPage">编辑</view>
       </view>
     </view>
   </view>
@@ -120,6 +121,7 @@
     </view>
     <view class="but_list_v">
       <view class="but_v screen_but_v" data-flag="{{true}}" catchtap="showToolBarView">筛选</view>
+      <view class="but_v add_but_v" catchtap="goAddPage">添加</view>
     </view>
   </view>
 </view>

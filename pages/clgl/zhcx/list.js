@@ -358,6 +358,17 @@ Page({
       showShztOption: !this.data.showShztOption
     });
   },
+  goAddPage:function(){
+    wx.redirectTo({
+      url: '/pages/clgl/zhcx/new',
+    })
+  },
+  goEditPage:function(e){
+    let id=e.currentTarget.dataset.id;
+    wx.redirectTo({
+      url: '/pages/clgl/zhcx/edit?id='+id,
+    })
+  },
   goDetailPage:function(e){
     let id=e.currentTarget.dataset.id;
     wx.redirectTo({
