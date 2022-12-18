@@ -9,12 +9,16 @@ Page({
   data: {
     backButSign:'<',
     showPfjdOption:false,
-    showClyslxOption:false,
+    showYslxOption:false,
+    showCllxOption:false,
     zcrq:'',
     zcrqPlaceholder:'请选择注册日期',
+    fzrq:'',
+    fzrqPlaceholder:'请选择发证日期',
     showSaveBut:true,
     showSavingBut:false,
     showSavedBut:false,
+    cllxList:[{"value":"","text":"请选择车辆类型"},{"value":"1","text":"重型"}],
   },
 
   /**
@@ -106,7 +110,7 @@ Page({
         console.log(constantMap);
         newPage.setData({constantMap:constantMap});
         newPage.initPfjdSelectData();
-        newPage.initClyslxSelectData();
+        newPage.initYslxSelectData();
       }
     })
   },
@@ -121,14 +125,14 @@ Page({
     pfjdList.push({"value":clPfjdMap.ddPfjd,"text":clPfjdMap.ddPfjdMc});
     newPage.setData({pfjdList:pfjdList});
   },
-  initClyslxSelectData:function(){
+  initYslxSelectData:function(){
     let clYslxMap=newPage.data.constantMap.clYslxMap;
-    let clYslxList=[];
-    clYslxList.push({"value":"","text":"请选择"});
-    clYslxList.push({"value":clYslxMap.physYslx,"text":clYslxMap.physYslxMc});
-    clYslxList.push({"value":clYslxMap.cnysYslx,"text":clYslxMap.cnysYslxMc});
-    clYslxList.push({"value":clYslxMap.whpysYslx,"text":clYslxMap.whpysYslxMc});
-    newPage.setData({clYslxList:clYslxList});
+    let yslxList=[];
+    yslxList.push({"value":"","text":"请选择"});
+    yslxList.push({"value":clYslxMap.physYslx,"text":clYslxMap.physYslxMc});
+    yslxList.push({"value":clYslxMap.cnysYslx,"text":clYslxMap.cnysYslxMc});
+    yslxList.push({"value":clYslxMap.whpysYslx,"text":clYslxMap.whpysYslxMc});
+    newPage.setData({yslxList:yslxList});
   },
   getInputValue:function(e){
     if(e.currentTarget.id=="cph_inp"){
@@ -157,8 +161,16 @@ Page({
     console.log(value)
     newPage.setData({zcrq:value});
   },
+  pickerFzrqChange:function(e){
+    let value = e.detail.value;
+    console.log(value)
+    newPage.setData({fzrq:value});
+  },
   pickerZcrqCancel:function(){
     newPage.setData({zcrq:''});
+  },
+  pickerFzrqCancel:function(){
+    newPage.setData({fzrq:''});
   },
   // 点击下拉显示框
   showPfjdOption() {
@@ -167,9 +179,15 @@ Page({
     });
   },
   // 点击下拉显示框
-  showClyslxOption() {
+  showYslxOption() {
     newPage.setData({
-      showClyslxOption: !newPage.data.showClyslxOption,
+      showYslxOption: !newPage.data.showYslxOption,
+    });
+  },
+  // 点击下拉显示框
+  showCllxOption() {
+    newPage.setData({
+      showCllxOption: !newPage.data.showCllxOption,
     });
   },
   // 点击下拉列表
@@ -185,15 +203,27 @@ Page({
     });
   },
   // 点击下拉列表
-  selectClyslxOption(e) {
+  selectYslxOption(e) {
     let index = e.currentTarget.dataset.index; //获取点击的下拉列表的下标
-    let clyslxList=newPage.data.clyslxList;
-    let clyslx=clyslxList[index];
-    console.log(index+","+clyslx.value+","+clyslx.text);
+    let yslxList=newPage.data.yslxList;
+    let yslx=yslxList[index];
+    console.log(index+","+yslx.value+","+yslx.text);
     newPage.setData({
-      clyslxSelectIndex: index,
-      clyslxSelectId: clyslx.value,
-      showClyslxOption: !newPage.data.showClyslxOption
+      yslxSelectIndex: index,
+      yslxSelectId: yslx.value,
+      showYslxOption: !newPage.data.showYslxOption
+    });
+  },
+  // 点击下拉列表
+  selectCllxOption(e) {
+    let index = e.currentTarget.dataset.index; //获取点击的下拉列表的下标
+    let cllxList=newPage.data.cllxList;
+    let cllx=cllxList[index];
+    console.log(index+","+cllx.value+","+cllx.text);
+    newPage.setData({
+      cllxSelectIndex: index,
+      cllxSelectId: cllx.value,
+      showCllxOption: !newPage.data.showCllxOption
     });
   },
 })

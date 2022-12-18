@@ -35,14 +35,46 @@
           <view class='item_v' wx:for="{{pfjdList}}" data-index="{{index}}" catchtap='selectPfjdOption'>{{item.text}}</view>
         </view>
       </view>
-      <view class="row_v clyslx_v">
-        <view class="key_v">车辆运输类型</view>
-        <view class='clyslx_select_v'>
-          <view class='selected_text_v' catchtap='showClyslxOption'>{{clYslxList[clyslxSelectIndex]==null?'请选择':clYslxList[clyslxSelectIndex].text}}</view>
-          <image class='select_img {{showClyslxOption&&"select_img_rotate"}}' src='../../../images/sanjiao.png'></image>
+      <view class="row_v yslx_v">
+        <view class="key_v">运输类型</view>
+        <view class='yslx_select_v'>
+          <view class='selected_text_v' catchtap='showYslxOption'>{{yslxList[yslxSelectIndex]==null?'请选择':yslxList[yslxSelectIndex].text}}</view>
+          <image class='select_img {{showYslxOption&&"select_img_rotate"}}' src='../../../images/sanjiao.png'></image>
         </view>
-        <view class='clyslx_option_list_v' style='height:{{showClyslxOption?(clYslxList.length>5?300:clYslxList.length*30):0}}px;'>
-          <view class='item_v' wx:for="{{clYslxList}}" data-index="{{index}}" catchtap='selectClyslxOption'>{{item.text}}</view>
+        <view class='yslx_option_list_v' style='height:{{showYslxOption?(yslxList.length>5?300:yslxList.length*30):0}}px;'>
+          <view class='item_v' wx:for="{{yslxList}}" data-index="{{index}}" catchtap='selectYslxOption'>{{item.text}}</view>
+        </view>
+      </view>
+      <view class="row_v ppxh_v">
+        <view class="key_v">品牌型号</view>
+        <view class="val_v">
+          <input class="ppxh_inp" id="ppxh_inp" type="text" placeholder="请输入品牌型号" value="{{ppxh}}" bindfocus="focusPPXH" bindblur="checkPPXH" bindinput="getInputValue"/>
+        </view>
+      </view>
+      <view class="row_v czxx_v">
+        <view class="key_v">车主信息</view>
+        <view class="val_v">
+          <input class="czxx_inp" id="czxx_inp" type="text" placeholder="请输入车主信息" value="{{czxx}}" bindinput="getInputValue"/>
+        </view>
+      </view>
+      <view class="row_v fzrq_v">
+        <view class="key_v">发证日期</view>
+        <picker class="fzrq_picker" mode="date" bindcancel="pickerFzrqCancel" bindchange="pickerFzrqChange">{{fzrq==''?fzrqPlaceholder:fzrq}}</picker>
+      </view>
+      <view class="row_v pz_v">
+        <view class="key_v">皮重</view>
+        <view class="val_v">
+          <input class="pz_inp" id="pz_inp" type="text" placeholder="请输入皮重" value="{{pz}}" bindinput="getInputValue"/>
+        </view>
+      </view>
+      <view class="cllx_v">
+        <view class="key_v">车辆类型</view>
+        <view class='cllx_select_v'>
+          <view class='selected_text_v' catchtap='showCllxOption'>{{cllxList[cllxSelectIndex]==null?'请选择':cllxList[cllxSelectIndex].text}}</view>
+          <image class='select_img {{showCllxOption&&"select_img_rotate"}}' src='../../../images/sanjiao.png'></image>
+        </view>
+        <view class='cllx_option_list_v' style='height:{{showCllxOption?(cllxList.length>5?300:cllxList.length*30):0}}px;'>
+          <view class='item_v' wx:for="{{cllxList}}" data-index="{{index}}" catchtap='selectCllxOption'>{{item.text}}</view>
         </view>
       </view>
   </view>
