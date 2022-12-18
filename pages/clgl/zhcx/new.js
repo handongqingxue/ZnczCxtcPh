@@ -263,7 +263,7 @@ Page({
           else{
             console.log("clId==="+data.clId);
             newPage.setData({clId:data.clId});
-            newPage.uploadDfbdzp(); 
+            newPage.uploadZp(); 
           }
         }
         else{
@@ -575,4 +575,20 @@ Page({
       newPage.setData({showSavingBut:false,showSavedBut:true});
     }
   },
+  uploadZp:function(){
+    let ddId=newPage.data.ddId;
+    let dfbdzp=newPage.data.dfbdzp;
+    wx.uploadFile({
+      url: rootIP+'uploadDuiFangGuoBangJiLuFile', //仅为示例，非真实的接口地址
+      filePath: dfbdzp,
+      name: 'file',
+      formData:{ddId:ddId},
+      success: function(res){
+        newPage.saving(false);
+        setTimeout(() => {
+          newPage.goListPage();
+        }, 1000);
+      }
+    })
+  }
 })
