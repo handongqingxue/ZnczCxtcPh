@@ -187,8 +187,92 @@ Page({
   },
   checkNew:function(){
     if(newPage.checkCph()){
-      newPage.newCheLiang();
+      if(newPage.checkZCRQ()){
+        if(newPage.checkPFJD()){
+          if(newPage.checkYSLX()){
+            if(newPage.checkPPXH()){
+              if(newPage.checkFZRQ()){
+                if(newPage.checkCLLX()){
+                  if(newPage.checkSFZY()){
+                    if(newPage.checkSHZT()){
+                      newPage.newCheLiang();
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
     }
+  },
+  newCheLiang:function(){
+    newPage.saving(true);
+    let cph=newPage.data.cph;
+    let fdjhm=newPage.data.fdjhm;
+    let clsbdh=newPage.data.clsbdh;
+    let zcrq=newPage.data.zcrq;
+    let pfjdSelectId=newPage.data.pfjdSelectId;
+    let yslxSelectId=newPage.data.yslxSelectId;
+    let ppxh=newPage.data.ppxh;
+    let czxx=newPage.data.czxx;
+    let fzrq=newPage.data.fzrq;
+    let pz=newPage.data.pz;
+    let cllxSelectId=newPage.data.cllxSelectId;
+    let sfzySelectId=newPage.data.sfzySelectId;
+    let shztSelectId=newPage.data.shztSelectId;
+    let bz=newPage.data.bz;
+    console.log("cph==="+cph)
+    console.log("fdjhm==="+fdjhm)
+    console.log("clsbdh==="+clsbdh)
+    console.log("zcrq==="+zcrq)
+    console.log("pfjdSelectId==="+pfjdSelectId)
+    console.log("yslxSelectId==="+yslxSelectId)
+    console.log("ppxh==="+ppxh)
+    console.log("czxx==="+czxx)
+    console.log("fzrq==="+fzrq)
+    console.log("pz==="+pz)
+    console.log("cllxSelectId==="+cllxSelectId)
+    console.log("sfzySelectId==="+sfzySelectId)
+    console.log("shztSelectId==="+shztSelectId)
+    console.log("bz==="+bz)
+    //return false;
+    wx.request({
+      url: rootIP+"newCheLiang",
+      data:{cph:cph,fdjhm:fdjhm,clsbdh:clsbdh,zcrq:zcrq,pfjdSelectId:pfjdSelectId,yslxSelectId:yslxSelectId,ppxh:ppxh,czxx:czxx,fzrq:fzrq,pz:pz,cllxSelectId:cllxSelectId,sfzySelectId:sfzySelectId,shztSelectId:shztSelectId,bz:bz},
+      method: 'POST',
+      header: {
+        'content-type': 'application/x-www-form-urlencoded',
+      },
+      success: function (res) {
+        let data=res.data;
+        let message=data.message;
+        console.log("message==="+message)
+        if(message=="ok"){
+          let zp=newPage.data.zp;
+          //console.log("zp==="+zp)
+          if(zp==null){
+            newPage.saving(false);
+            wx.showToast({
+              title: data.info,
+            })
+            setTimeout(() => {
+              newPage.goListPage();
+            }, 1000);
+          }
+          else{
+            console.log("clId==="+data.clId);
+            newPage.setData({clId:data.clId});
+            newPage.uploadDfbdzp(); 
+          }
+        }
+        else{
+          wx.showToast({
+            title: data.info,
+          })
+        }
+      }
+    })
   },
   focusCph:function(){
     let cph=newPage.data.cph;
@@ -205,6 +289,105 @@ Page({
     else{
       return true;
     }
+  },
+  checkZCRQ:function(){
+    let zcrq=newPage.data.zcrq;
+    if(zcrq==null||zcrq==""){
+        wx.showToast({
+          title: "请选择注册日期",
+        })
+        return false;
+    }
+    else
+      return true;
+  },
+  //验证排放阶段
+  checkPFJD:function(){
+    let pfjd=newPage.data.pfjd;
+    if(pfjd==null||pfjd==""){
+        wx.showToast({
+          title: "请选择排放阶段",
+        })
+        return false;
+    }
+    else
+      return true;
+  },
+  //验证运输类型
+  checkYSLX:function(){
+    let yslx=newPage.data.yslx;
+    if(yslx==null||yslx==""){
+        wx.showToast({
+          title: "请选择运输类型",
+        })
+        return false;
+    }
+    else
+      return true;
+  },
+  focusPPXH:function(){
+    let ppxh=newPage.data.ppxh;
+    if(ppxh=="品牌型号不能为空"){
+      newPage.setData({ppxh:''});
+    }
+  },
+  checkPPXH:function(){
+    let ppxh=newPage.data.ppxh;
+    if(ppxh==""||ppxh==null||ppxh=="品牌型号不能为空"){
+      newPage.setData({ppxh:'品牌型号不能为空'});
+      return false;
+    }
+    else{
+      return true;
+    }
+  },
+  //验证发证日期
+  checkFZRQ:function(){
+    let fzrq=newPage.data.fzrq;
+    if(fzrq==null||fzrq==""){
+        wx.showToast({
+          title: "请选择发证日期",
+        })
+        return false;
+    }
+    else
+      return true;
+  },
+  //验证车辆类型
+  checkCLLX:function(){
+    let cllx=newPage.data.cllx;
+    if(cllx==null||cllx==""){
+        wx.showToast({
+          title: "请选择车辆类型",
+        })
+        return false;
+    }
+    else
+      return true;
+  },
+  //验证是否在用
+  checkSFZY:function(){
+    let sfzy=newPage.data.sfzy;
+    if(sfzy==null||sfzy==""){
+        wx.showToast({
+          title: "请选择是否在用",
+        })
+        return false;
+    }
+    else
+      return true;
+  },
+  //验证审核状态
+  checkSHZT:function(){
+    let shzt=newPage.data.shzt;
+    if(shzt==null||shzt==""){
+        wx.showToast({
+          title: "请选择审核状态",
+        })
+        return false;
+    }
+    else
+      return true;
   },
   pickerZcrqChange:function(e){
     let value = e.detail.value;
@@ -383,5 +566,13 @@ Page({
   },
   deletePfjdcxjt:function(){
     newPage.setData({pfjdcxjt:null});
+  },
+  saving:function(flag){
+    if(flag){
+      newPage.setData({showSaveBut:false,showSavingBut:true});
+    }
+    else{
+      newPage.setData({showSavingBut:false,showSavedBut:true});
+    }
   },
 })
