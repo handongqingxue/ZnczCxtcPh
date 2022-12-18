@@ -23,6 +23,13 @@
   width: 95%;
   margin: auto;
 }
+.main_v .add_v .zp_v,
+.main_v .add_v .xsz_v,
+.main_v .add_v .scqd_v,
+.main_v .add_v .pfjdcxjt_v,
+.main_v .add_v .bz_v{
+  height: 120px;
+}
 .main_v .add_v .key_v{
   width:100px;
   height:40px;
@@ -31,11 +38,59 @@
   font-size: 15px;
   text-align:center;
 }
+.main_v .add_v .zp_key_v,
+.main_v .add_v .xsz_key_v,
+.main_v .add_v .scqd_key_v,
+.main_v .add_v .bz_key_v{
+  height:100px;
+  line-height:100px;
+}
+.main_v .add_v .pfjdcxjt_key_v{
+  height:100px;
+  line-height:20px;
+}
 .main_v .add_v .val_v{
   height:40px;
   line-height:40px;
   margin-top:-40px;
   margin-left:120px;
+}
+.main_v .add_v .zp_val_v,
+.main_v .add_v .xsz_val_v,
+.main_v .add_v .scqd_val_v,
+.main_v .add_v .pfjdcxjt_val_v,
+.main_v .add_v .bz_val_v{
+  margin-top:-100px;
+}
+.main_v .add_v .zp_val_v .choose_but_v,
+.main_v .add_v .xsz_val_v .choose_but_v,
+.main_v .add_v .scqd_val_v .choose_but_v,
+.main_v .add_v .pfjdcxjt_val_v .choose_but_v{
+  width:80px;
+  height: 30px;
+  line-height: 30px;
+  color: #fff;
+  text-align: center;
+  font-size: 15px;
+  background-color: #00f;
+  border-radius: 5px;
+}
+.main_v .add_v .zp_val_v .zp_img,
+.main_v .add_v .xsz_val_v .xsz_img,
+.main_v .add_v .scqd_val_v .scqd_img,
+.main_v .add_v .pfjdcxjt_val_v .pfjdcxjt_img{
+  width:100px;
+  height:100px;
+}
+.main_v .add_v .zp_val_v .delete_but_v,
+.main_v .add_v .xsz_val_v .delete_but_v,
+.main_v .add_v .scqd_val_v .delete_but_v,
+.main_v .add_v .pfjdcxjt_val_v .delete_but_v{
+  width:31px;
+  height:31px;
+  float: right;
+  margin-top: -30px;
+  margin-right:15px;
 }
 .main_v .add_v .cph_inp,
 .main_v .add_v .fdjhm_inp,
@@ -43,6 +98,13 @@
 .main_v .add_v .ppxh_inp,
 .main_v .add_v .czxx_inp,
 .main_v .add_v .pz_inp{
+  margin-top:10px;
+  border: #eee solid 1px;
+  border-radius: 3px;
+}
+.main_v .add_v .bz_inp{
+  width: 150px;
+  height: 100px;
   margin-top:10px;
   border: #eee solid 1px;
   border-radius: 3px;
@@ -60,7 +122,9 @@
 }
 .main_v .add_v .pfjd_select_v,
 .main_v .add_v .yslx_select_v,
-.main_v .add_v .cllx_select_v{
+.main_v .add_v .cllx_select_v,
+.main_v .add_v .sfzy_select_v,
+.main_v .add_v .shzt_select_v{
   width: 150px;
   height: 30px;
   margin-top: -40px;
@@ -70,7 +134,9 @@
 }
 .main_v .add_v .pfjd_select_v .selected_text_v,
 .main_v .add_v .yslx_select_v .selected_text_v,
-.main_v .add_v .cllx_select_v .selected_text_v {
+.main_v .add_v .cllx_select_v .selected_text_v,
+.main_v .add_v .sfzy_select_v .selected_text_v,
+.main_v .add_v .shzt_select_v .selected_text_v {
   width: 120px;
   height: 30px;
   line-height: 30px;
@@ -80,7 +146,9 @@
 }
 .main_v .add_v .pfjd_select_v .select_img,
 .main_v .add_v .yslx_select_v .select_img,
-.main_v .add_v .cllx_select_v .select_img {
+.main_v .add_v .cllx_select_v .select_img,
+.main_v .add_v .sfzy_select_v .select_img,
+.main_v .add_v .shzt_select_v .select_img {
   width: 17px;
   height: 17px;
   float: right;
@@ -89,12 +157,16 @@
 }
 .main_v .add_v .pfjd_select_v .select_img_rotate,
 .main_v .add_v .yslx_select_v .select_img_rotate,
-.main_v .add_v .cllx_select_v .select_img_rotate {
+.main_v .add_v .cllx_select_v .select_img_rotate,
+.main_v .add_v .sfzy_select_v .select_img_rotate,
+.main_v .add_v .shzt_select_v .select_img_rotate {
   transform: rotate(180deg);
 }
 .main_v .add_v .pfjd_option_list_v,
 .main_v .add_v .yslx_option_list_v,
-.main_v .add_v .cllx_option_list_v {
+.main_v .add_v .cllx_option_list_v,
+.main_v .add_v .sfzy_option_list_v,
+.main_v .add_v .shzt_option_list_v {
   width: 150px;
   margin-top: 1px;
   margin-left: 120px;
@@ -105,7 +177,9 @@
 }
 .main_v .add_v .pfjd_option_list_v .item_v,
 .main_v .add_v .yslx_option_list_v .item_v,
-.main_v .add_v .cllx_option_list_v .item_v {
+.main_v .add_v .cllx_option_list_v .item_v,
+.main_v .add_v .sfzy_option_list_v .item_v,
+.main_v .add_v .shzt_option_list_v .item_v {
   width: 100%;
   height: 30px;
   line-height: 30px;

@@ -11,14 +11,16 @@ Page({
     showPfjdOption:false,
     showYslxOption:false,
     showCllxOption:false,
+    showSfzyOption:false,
+    showShztOption:false,
     zcrq:'',
     zcrqPlaceholder:'请选择注册日期',
     fzrq:'',
     fzrqPlaceholder:'请选择发证日期',
+    cllxList:[{"value":"","text":"请选择车辆类型"},{"value":"1","text":"重型"}],
     showSaveBut:true,
     showSavingBut:false,
     showSavedBut:false,
-    cllxList:[{"value":"","text":"请选择车辆类型"},{"value":"1","text":"重型"}],
   },
 
   /**
@@ -111,6 +113,8 @@ Page({
         newPage.setData({constantMap:constantMap});
         newPage.initPfjdSelectData();
         newPage.initYslxSelectData();
+        newPage.initSfzySelectData();
+        newPage.initShztSelectData();
       }
     })
   },
@@ -134,10 +138,56 @@ Page({
     yslxList.push({"value":clYslxMap.whpysYslx,"text":clYslxMap.whpysYslxMc});
     newPage.setData({yslxList:yslxList});
   },
+  initSfzySelectData:function(){
+    let clSfzyMap=newPage.data.constantMap.clSfzyMap;
+    let sfzyList=[];
+    sfzyList.push({"value":"","text":"请选择"});
+    sfzyList.push({"value":clSfzyMap.shiSfzy,"text":clSfzyMap.shiSfzyMc});
+    sfzyList.push({"value":clSfzyMap.fouSfzy,"text":clSfzyMap.fouSfzyMc});
+    newPage.setData({sfzyList:sfzyList});
+  },
+  initShztSelectData:function(){
+    let clShztMap=newPage.data.constantMap.clShztMap;
+    let shztList=[];
+    shztList.push({"value":"","text":"请选择"});
+    shztList.push({"value":clShztMap.dshShzt,"text":clShztMap.dshShztMc});
+    shztList.push({"value":clShztMap.shtgShzt,"text":clShztMap.shtgShztMc});
+    shztList.push({"value":clShztMap.bjzShzt,"text":clShztMap.bjzShztMc});
+    newPage.setData({shztList:shztList});
+  },
   getInputValue:function(e){
     if(e.currentTarget.id=="cph_inp"){
       let cph=e.detail.value;
       newPage.setData({cph:cph});
+    }
+    else if(e.currentTarget.id=="fdjhm_inp"){
+      let fdjhm=e.detail.value;
+      newPage.setData({fdjhm:fdjhm});
+    }
+    else if(e.currentTarget.id=="clsbdh_inp"){
+      let clsbdh=e.detail.value;
+      newPage.setData({clsbdh:clsbdh});
+    }
+    else if(e.currentTarget.id=="ppxh_inp"){
+      let ppxh=e.detail.value;
+      newPage.setData({ppxh:ppxh});
+    }
+    else if(e.currentTarget.id=="czxx_inp"){
+      let czxx=e.detail.value;
+      newPage.setData({czxx:czxx});
+    }
+    else if(e.currentTarget.id=="pz_inp"){
+      let pz=e.detail.value;
+      newPage.setData({pz:pz});
+    }
+    else if(e.currentTarget.id=="bz_inp"){
+      let bz=e.detail.value;
+      newPage.setData({bz:bz});
+    }
+  },
+  checkNew:function(){
+    if(newPage.checkCph()){
+      newPage.newCheLiang();
     }
   },
   focusCph:function(){
@@ -190,6 +240,18 @@ Page({
       showCllxOption: !newPage.data.showCllxOption,
     });
   },
+  // 点击下拉显示框
+  showSfzyOption() {
+    newPage.setData({
+      showSfzyOption: !newPage.data.showSfzyOption,
+    });
+  },
+  // 点击下拉显示框
+  showShztOption() {
+    newPage.setData({
+      showShztOption: !newPage.data.showShztOption,
+    });
+  },
   // 点击下拉列表
   selectPfjdOption(e) {
     let index = e.currentTarget.dataset.index; //获取点击的下拉列表的下标
@@ -226,4 +288,100 @@ Page({
       showCllxOption: !newPage.data.showCllxOption
     });
   },
+  // 点击下拉列表
+  selectSfzyOption(e) {
+    let index = e.currentTarget.dataset.index; //获取点击的下拉列表的下标
+    let sfzyList=newPage.data.sfzyList;
+    let sfzy=sfzyList[index];
+    console.log(index+","+sfzy.value+","+sfzy.text);
+    newPage.setData({
+      sfzySelectIndex: index,
+      sfzySelectId: sfzy.value,
+      showSfzyOption: !newPage.data.showSfzyOption
+    });
+  },
+  // 点击下拉列表
+  selectShztOption(e) {
+    let index = e.currentTarget.dataset.index; //获取点击的下拉列表的下标
+    let shztList=newPage.data.shztList;
+    let shzt=shztList[index];
+    console.log(index+","+shzt.value+","+shzt.text);
+    newPage.setData({
+      shztSelectIndex: index,
+      shztSelectId: shzt.value,
+      showShztOption: !newPage.data.showShztOption
+    });
+  },
+  takeZp:function(){
+    wx.chooseImage({
+      count: 1, // 默认9
+      sizeType: ['original', 'compressed'], // 可以指定是原图还是压缩图，默认二者都有
+      sourceType: ['album', 'camera'], // 可以指定来源是相册还是相机，默认二者都有
+      success: function (res) {
+        console.log("res.tempFilePaths==="+res.tempFilePaths)
+        
+        let tempFilePaths=res.tempFilePaths;
+        let data=newPage.data;
+        if(data.zp==null)
+          newPage.setData({zp:tempFilePaths[0]});
+      }
+    })
+  },
+  takeXsz:function(){
+    wx.chooseImage({
+      count: 1, // 默认9
+      sizeType: ['original', 'compressed'], // 可以指定是原图还是压缩图，默认二者都有
+      sourceType: ['album', 'camera'], // 可以指定来源是相册还是相机，默认二者都有
+      success: function (res) {
+        console.log("res.tempFilePaths==="+res.tempFilePaths)
+        
+        let tempFilePaths=res.tempFilePaths;
+        let data=newPage.data;
+        if(data.xsz==null)
+          newPage.setData({xsz:tempFilePaths[0]});
+      }
+    })
+  },
+  takeScqd:function(){
+    wx.chooseImage({
+      count: 1, // 默认9
+      sizeType: ['original', 'compressed'], // 可以指定是原图还是压缩图，默认二者都有
+      sourceType: ['album', 'camera'], // 可以指定来源是相册还是相机，默认二者都有
+      success: function (res) {
+        console.log("res.tempFilePaths==="+res.tempFilePaths)
+        
+        let tempFilePaths=res.tempFilePaths;
+        let data=newPage.data;
+        if(data.scqd==null)
+          newPage.setData({scqd:tempFilePaths[0]});
+      }
+    })
+  },
+  takePfjdcxjt:function(){
+    wx.chooseImage({
+      count: 1, // 默认9
+      sizeType: ['original', 'compressed'], // 可以指定是原图还是压缩图，默认二者都有
+      sourceType: ['album', 'camera'], // 可以指定来源是相册还是相机，默认二者都有
+      success: function (res) {
+        console.log("res.tempFilePaths==="+res.tempFilePaths)
+        
+        let tempFilePaths=res.tempFilePaths;
+        let data=newPage.data;
+        if(data.pfjdcxjt==null)
+          newPage.setData({pfjdcxjt:tempFilePaths[0]});
+      }
+    })
+  },
+  deleteZp:function(){
+    newPage.setData({zp:null});
+  },
+  deleteXsz:function(){
+    newPage.setData({xsz:null});
+  },
+  deleteScqd:function(){
+    newPage.setData({scqd:null});
+  },
+  deletePfjdcxjt:function(){
+    newPage.setData({pfjdcxjt:null});
+  },
 })
