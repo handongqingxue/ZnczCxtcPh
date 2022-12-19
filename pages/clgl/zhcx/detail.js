@@ -1,4 +1,4 @@
-// pages/clgl/dsh/detail.js
+// pages/clgl/zhcx/detail.js
 var detailPage;
 var rootIP;
 var serverRootIP;
@@ -19,7 +19,7 @@ Page({
     rootIP=getApp().getRootIP();
     serverRootIP=getApp().getServerRootIP();
     let id=options.id;
-    //let id=7;
+    //let id=13;
     console.log(id);
     detailPage.setData({id:id});
   },
@@ -84,7 +84,8 @@ Page({
         console.log(constantFlagMap);
         let clPfjd=constantFlagMap.clPfjd;
         let clYslx=constantFlagMap.clYslx;
-        let constantFlags=clPfjd+","+clYslx;
+        let clShzt=constantFlagMap.clShzt;
+        let constantFlags=clPfjd+","+clYslx+","+clShzt;
         detailPage.getConstantMap(constantFlags);
       }
     })
@@ -143,8 +144,10 @@ Page({
         let pfjdcxjt=cl.pfjdcxjt;
         let sfzy=cl.sfzy;
         let sfzyMc=sfzy?"是":"否";
+        let shzt=cl.shzt;
+        let shztMc=detailPage.getShztMcById(shzt);
         let bz=cl.bz;
-        detailPage.setData({cph:cph,fdjhm:fdjhm,clsbdh:clsbdh,zcrq:zcrq,pfjdMc:pfjdMc,yslxMc:yslxMc,ppxh:ppxh,czxx:czxx,fzrq:fzrq,pz:pz,cllxMc:cllxMc,zp:zp==null?null:serverRootIP+zp,xsz:xsz==null?null:serverRootIP+xsz,scqd:scqd==null?null:serverRootIP+scqd,pfjdcxjt:pfjdcxjt==null?null:serverRootIP+pfjdcxjt,sfzyMc:sfzyMc,bz:bz});
+        detailPage.setData({cph:cph,fdjhm:fdjhm,clsbdh:clsbdh,zcrq:zcrq,pfjdMc:pfjdMc,yslxMc:yslxMc,ppxh:ppxh,czxx:czxx,fzrq:fzrq,pz:pz,cllxMc:cllxMc,zp:zp==null?null:serverRootIP+zp,xsz:xsz==null?null:serverRootIP+xsz,scqd:scqd==null?null:serverRootIP+scqd,pfjdcxjt:pfjdcxjt==null?null:serverRootIP+pfjdcxjt,sfzyMc:sfzyMc,shztMc:shztMc,bz:bz});
       }
     })
   },
@@ -190,9 +193,27 @@ Page({
     }
     return str;
   },
+  getShztMcById:function(shztId){
+    let constantMap=detailPage.data.constantMap;
+    let shztMap=constantMap.clShztMap;
+    //console.log(shztMap);
+    var str;
+    switch (shztId) {
+    case shztMap.dshShzt:
+      str=shztMap.dshShztMc;//待审核
+      break;
+    case shztMap.shtgShzt:
+      str=shztMap.shtgShztMc;//审核通过
+      break;
+    case shztMap.bjzShzt:
+      str=shztMap.bjzShztMc;//编辑中
+      break;
+    }
+    return str;
+  },
   goListPage:function(){
     wx.redirectTo({
-      url: '/pages/clgl/dsh/list',
+      url: '/pages/clgl/zhcx/list',
     })
   },
 })

@@ -34,9 +34,9 @@
         </view>
       </view>
       <view class="row_v clyslxMc_v">
-        <view class="key_v">车辆运输类型</view>
+        <view class="key_v">运输类型</view>
         <view class="val_v">
-          {{clyslxMc}}
+          {{yslxMc}}
         </view>
       </view>
       <view class="row_v ppxh_v">

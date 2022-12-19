@@ -1,6 +1,7 @@
 {
   "pages": [
     "pages/clgl/zhcx/list",
+    "pages/clgl/zhcx/detail",
     "pages/clgl/zhcx/edit",
     "pages/clgl/zhcx/new",
     "pages/clgl/dsh/list",
