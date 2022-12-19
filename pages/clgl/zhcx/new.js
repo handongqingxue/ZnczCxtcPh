@@ -94,7 +94,8 @@ Page({
         let clPfjd=constantFlagMap.clPfjd;
         let clYslx=constantFlagMap.clYslx;
         let clSfzy=constantFlagMap.clSfzy;
-        let constantFlags=clShzt+","+clPfjd+","+clYslx+","+clSfzy;
+        let clWjlx=constantFlagMap.clWjlx;
+        let constantFlags=clShzt+","+clPfjd+","+clYslx+","+clSfzy+","+clWjlx;
         newPage.getConstantMap(constantFlags);
       }
     })
@@ -115,6 +116,7 @@ Page({
         newPage.initYslxSelectData();
         newPage.initSfzySelectData();
         newPage.initShztSelectData();
+        newPage.initWjlxList();
       }
     })
   },
@@ -154,6 +156,15 @@ Page({
     shztList.push({"value":clShztMap.shtgShzt,"text":clShztMap.shtgShztMc});
     shztList.push({"value":clShztMap.bjzShzt,"text":clShztMap.bjzShztMc});
     newPage.setData({shztList:shztList});
+  },
+  initWjlxList:function(){
+    let clWjlxMap=newPage.data.constantMap.clWjlxMap;
+    let wjlxList=[];
+    wjlxList.push(clWjlxMap.zpWjlx);
+    wjlxList.push(clWjlxMap.xszWjlx);
+    wjlxList.push(clWjlxMap.scqdWjlx);
+    wjlxList.push(clWjlxMap.pfjdcxjtWjlx);
+    newPage.setData({wjlxList:wjlxList});
   },
   getInputValue:function(e){
     if(e.currentTarget.id=="cph_inp"){
@@ -239,7 +250,7 @@ Page({
     //return false;
     wx.request({
       url: rootIP+"newCheLiang",
-      data:{cph:cph,fdjhm:fdjhm,clsbdh:clsbdh,zcrq:zcrq,pfjdSelectId:pfjdSelectId,yslxSelectId:yslxSelectId,ppxh:ppxh,czxx:czxx,fzrq:fzrq,pz:pz,cllxSelectId:cllxSelectId,sfzySelectId:sfzySelectId,shztSelectId:shztSelectId,bz:bz},
+      data:{cph:cph,fdjhm:fdjhm,clsbdh:clsbdh,zcrq:zcrq,pfjd:pfjdSelectId,yslx:yslxSelectId,ppxh:ppxh,czxx:czxx,fzrq:fzrq,pz:pz,cllx:cllxSelectId,sfzy:sfzySelectId,shzt:shztSelectId,bz:bz},
       method: 'POST',
       header: {
         'content-type': 'application/x-www-form-urlencoded',
@@ -250,8 +261,8 @@ Page({
         console.log("message==="+message)
         if(message=="ok"){
           let zp=newPage.data.zp;
-          //console.log("zp==="+zp)
-          if(zp==null){
+          console.log("zp==="+zp)
+          if(zp==undefined){
             newPage.saving(false);
             wx.showToast({
               title: data.info,
@@ -263,7 +274,8 @@ Page({
           else{
             console.log("clId==="+data.clId);
             newPage.setData({clId:data.clId});
-            newPage.uploadZp(); 
+            let zpWjlx=newPage.data.constantMap.clWjlxMap.zpWjlx;
+            newPage.uploadFile(zpWjlx); 
           }
         }
         else{
@@ -303,8 +315,8 @@ Page({
   },
   //验证排放阶段
   checkPFJD:function(){
-    let pfjd=newPage.data.pfjd;
-    if(pfjd==null||pfjd==""){
+    let pfjdSelectId=newPage.data.pfjdSelectId;
+    if(pfjdSelectId==null||pfjdSelectId==""){
         wx.showToast({
           title: "请选择排放阶段",
         })
@@ -315,8 +327,8 @@ Page({
   },
   //验证运输类型
   checkYSLX:function(){
-    let yslx=newPage.data.yslx;
-    if(yslx==null||yslx==""){
+    let yslxSelectId=newPage.data.yslxSelectId;
+    if(yslxSelectId==null||yslxSelectId==""){
         wx.showToast({
           title: "请选择运输类型",
         })
@@ -355,8 +367,8 @@ Page({
   },
   //验证车辆类型
   checkCLLX:function(){
-    let cllx=newPage.data.cllx;
-    if(cllx==null||cllx==""){
+    let cllxSelectId=newPage.data.cllxSelectId;
+    if(cllxSelectId==null||cllxSelectId==""){
         wx.showToast({
           title: "请选择车辆类型",
         })
@@ -367,8 +379,8 @@ Page({
   },
   //验证是否在用
   checkSFZY:function(){
-    let sfzy=newPage.data.sfzy;
-    if(sfzy==null||sfzy==""){
+    let sfzySelectId=newPage.data.sfzySelectId;
+    if(sfzySelectId==null||sfzySelectId==""){
         wx.showToast({
           title: "请选择是否在用",
         })
@@ -379,8 +391,8 @@ Page({
   },
   //验证审核状态
   checkSHZT:function(){
-    let shzt=newPage.data.shzt;
-    if(shzt==null||shzt==""){
+    let shztSelectId=newPage.data.shztSelectId;
+    if(shztSelectId==null||shztSelectId==""){
         wx.showToast({
           title: "请选择审核状态",
         })
@@ -575,20 +587,71 @@ Page({
       newPage.setData({showSavingBut:false,showSavedBut:true});
     }
   },
-  uploadZp:function(){
-    let ddId=newPage.data.ddId;
-    let dfbdzp=newPage.data.dfbdzp;
+  uploadFile:function(index){
+    let clId=newPage.data.clId;
+    let clWjlxMap=newPage.data.constantMap.clWjlxMap;
+    let wjlx;
+    let zpWjlx=clWjlxMap.zpWjlx;
+    let xszWjlx=clWjlxMap.xszWjlx;
+    let scqdWjlx=clWjlxMap.scqdWjlx;
+    let pfjdcxjtWjlx=clWjlxMap.pfjdcxjtWjlx;
+    let filePath;
+    switch (index) {
+      case zpWjlx:
+        wjlx=zpWjlx;
+        filePath=newPage.data.zp;
+        break;
+      case xszWjlx:
+        wjlx=xszWjlx;
+        filePath=newPage.data.xsz;
+        break;
+      case scqdWjlx:
+        wjlx=scqdWjlx;
+        filePath=newPage.data.scqd;
+        break;
+      case pfjdcxjtWjlx:
+        wjlx=pfjdcxjtWjlx;
+        filePath=newPage.data.pfjdcxjt;
+        break;
+    }
+    console.log("wjlx==="+wjlx)
     wx.uploadFile({
-      url: rootIP+'uploadDuiFangGuoBangJiLuFile', //仅为示例，非真实的接口地址
-      filePath: dfbdzp,
+      url: rootIP+'uploadCheLiangFile', //仅为示例，非真实的接口地址
+      filePath: filePath,
       name: 'file',
-      formData:{ddId:ddId},
+      formData:{id:clId,wjlx:wjlx},
       success: function(res){
-        newPage.saving(false);
-        setTimeout(() => {
-          newPage.goListPage();
-        }, 1000);
+        let wjlxListLength=newPage.data.wjlxList.length;
+        index++;
+        if(index<=wjlxListLength){
+          let nextFilePath;
+          switch (index) {
+            case xszWjlx:
+              nextFilePath=newPage.data.xsz;
+              break;
+          }
+          console.log("nextFilePath==="+nextFilePath)
+          if(nextFilePath==undefined){
+            newPage.saving(false);
+            setTimeout(() => {
+              newPage.goListPage();
+            }, 1000);
+          }
+          else
+          newPage.uploadFile(index);
+        }
+        else{
+          newPage.saving(false);
+          setTimeout(() => {
+            newPage.goListPage();
+          }, 2000);
+        }
       }
     })
-  }
+  },
+  goListPage:function(){
+    wx.redirectTo({
+      url: '/pages/clgl/zhcx/list',
+    })
+  },
 })
