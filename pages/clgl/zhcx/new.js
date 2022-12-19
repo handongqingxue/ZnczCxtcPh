@@ -629,6 +629,12 @@ Page({
             case xszWjlx:
               nextFilePath=newPage.data.xsz;
               break;
+            case scqdWjlx:
+              nextFilePath=newPage.data.scqd;
+              break;
+            case pfjdcxjtWjlx:
+              nextFilePath=newPage.data.pfjdcxjt;
+              break;
           }
           console.log("nextFilePath==="+nextFilePath)
           if(nextFilePath==undefined){
@@ -638,7 +644,7 @@ Page({
             }, 1000);
           }
           else
-          newPage.uploadFile(index);
+            newPage.uploadFile(index);
         }
         else{
           newPage.saving(false);
