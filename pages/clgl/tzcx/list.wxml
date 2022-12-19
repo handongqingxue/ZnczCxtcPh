@@ -1,0 +1,128 @@
+<!--pages/clgl/tzcx/list.wxml-->
+<view class="tool_bar_v" wx:if="{{showToolBarView}}">
+  <view class="title_v">筛选页面</view>
+  <view class="back_but_v" data-flag="{{false}}" catchtap="showToolBarView">{{backButSign}}</view>
+  <view class="ddh_v">
+    <span class="ddh_span">订单号</span>
+    <input class="ddh_inp" id="ddh_inp" type="text" placeholder="请输入订单号" value="{{ddh}}" bindinput="getInputValue"/>
+  </view>
+  <view class="cyclCph_v">
+    <span class="cyclCph_span">车牌号</span>
+    <input class="cyclCph_inp" id="cyclCph_inp" type="text" placeholder="请输入车牌号" value="{{cyclCph}}" bindinput="getInputValue"/>
+  </view>
+  <view class="ddzt_v">
+    <span class="ddzt_span">订单状态</span>
+    <view class='ddzt_select_v'>
+      <view class='selected_text_v' catchtap='showDdztOption'>{{ddztList[ddztSelectIndex]==null?'请选择':ddztList[ddztSelectIndex].mc}}</view>
+      <image class='select_img {{showDdztOption&&"select_img_rotate"}}' src='../../../images/sanjiao.png'></image>
+    </view>
+    <view class='ddzt_option_list_v' style='height:{{showDdztOption?(ddztList.length>5?300:ddztList.length*30):0}}px;'>
+      <view class='item_v' data-index="" catchtap='selectDdztOption'>请选择</view>
+      <view class='item_v' wx:for="{{ddztList}}" data-index="{{index}}" catchtap='selectDdztOption'>{{item.mc}}</view>
+    </view>
+  </view>
+  <view class="jcksrq_v">
+    <span class="jcksrq_span">进厂开始日期</span>
+    <view class="jcksrq_picker_v">
+      <picker class="jcksrq_picker" mode="date" bindcancel="pickerJcksrqCancel" bindchange="pickerJcksrqChange">{{jcksrq==''?jcksrqPlaceholder:jcksrq}}</picker>
+    </view>
+  </view>
+  <view class="jckssj_v">
+    <span class="jckssj_span">进厂开始时间</span>
+    <view class="jckssj_picker_v">
+      <picker class="jckssj_picker" mode="time" bindcancel="pickerJckssjCancel" bindchange="pickerJckssjChange">{{jckssj==''?jckssjPlaceholder:jckssj}}</picker>
+    </view>
+  </view>
+  <view class="jcjsrq_v">
+    <span class="jcjsrq_span">进厂结束日期</span>
+    <view class="jcjsrq_picker_v">
+      <picker class="jcjsrq_picker" mode="date" bindcancel="pickerJcjsrqCancel" bindchange="pickerJcjsrqChange">{{jcjsrq==''?jcjsrqPlaceholder:jcjsrq}}</picker>
+    </view>
+  </view>
+  <view class="jcjssj_v">
+    <span class="jcjssj_span">进厂结束时间</span>
+    <view class="jcjssj_picker_v">
+      <picker class="jcjssj_picker" mode="time" bindcancel="pickerJcjssjCancel" bindchange="pickerJcjssjChange">{{jcjssj==''?jcjssjPlaceholder:jcjssj}}</picker>
+    </view>
+  </view>
+  <view class="ccksrq_v">
+    <span class="ccksrq_span">出厂开始日期</span>
+    <view class="ccksrq_picker_v">
+      <picker class="ccksrq_picker" mode="date" bindcancel="pickerCcksrqCancel" bindchange="pickerCcksrqChange">{{ccksrq==''?ccksrqPlaceholder:ccksrq}}</picker>
+    </view>
+  </view>
+  <view class="ccjsrq_v">
+    <span class="ccjsrq_span">出厂结束日期</span>
+    <view class="ccjsrq_picker_v">
+      <picker class="ccjsrq_picker" mode="date" bindcancel="pickerCcjsrqCancel" bindchange="pickerCcjsrqChange">{{ccjsrq==''?ccjsrqPlaceholder:ccjsrq}}</picker>
+    </view>
+  </view>
+  <view class="ccjssj_v">
+    <span class="ccjssj_span">出厂结束时间</span>
+    <view class="ccjssj_picker_v">
+      <picker class="ccjssj_picker" mode="time" bindcancel="pickerCcjssjCancel" bindchange="pickerCcjssjChange">{{ccjssj==''?ccjssjPlaceholder:ccjssj}}</picker>
+    </view>
+  </view>
+  
+  <view class="space2_v"></view>
+  <view class="bottom_v">
+    <view class="but_list_v">
+      <view class="but_v confirm_but_v" catchtap="getListData">确定</view>
+      <view class="but_v reset_but_v">重置</view>
+    </view>
+  </view>
+</view>
+
+<view class="main_v">
+  <view class="title_v">列表页面</view>
+  <view class="back_but_v" catchtap="goHomePage">{{backButSign}}</view>
+  <view class="no_data_v" wx:if="{{showNoDataView}}">{{noDataText}}</view>
+  <view class="list_v" wx:else>
+    <view class="item_v" wx:for-items="{{cltzList}}">
+      <view class="row_v ddh_v">
+        <view class="key_v">订单号</view>
+        <view class="val_v">{{item.ddh}}</view>
+      </view>
+      <view class="row_v cyclCph_v">
+        <view class="key_v">车牌号</view>
+        <view class="val_v">{{item.cyclCph}}</view>
+      </view>
+      <view class="row_v ddztMc_v">
+        <view class="key_v">订单状态</view>
+        <view class="val_v">{{item.ddztMc}}</view>
+      </view>
+      <view class="row_v jcsj_v">
+        <view class="key_v">进厂时间</view>
+        <view class="val_v">{{item.jcsj}}</view>
+      </view>
+      <view class="row_v ccsj_v">
+        <view class="key_v">出厂时间</view>
+        <view class="val_v">{{item.ccsj}}</view>
+      </view>
+      <view class="but_list_v">
+        <view class="but_v detail_but_v" data-id="{{item.id}}" catchtap="goDetailPage">详情</view>
+      </view>
+    </view>
+  </view>
+
+  <view class="space1_v"></view>
+  <view class="bottom_v">
+    <a wx:if="{{showDjckgdView}}" data-flag="{{false}}" catchtap="showPageView">点击查看更多</a>
+    <view class="page_v" wx:if="{{showPageView}}">
+      <view class="data_count_v">
+        共<text class="val_text">{{dataCount}}</text>条
+      </view>
+      <view class="pre_page_v click_v" data-flag="{{prePageFlag}}" wx:if="{{prePageEnable}}" catchtap="loadListDataByPageFlag">上一页</view>
+      <view class="pre_page_v unClick_v" wx:if="{{!prePageEnable}}">上一页</view>
+      <view class="page_count_v">
+        <text class="curr_page_text">{{currentPage}}</text>/
+        <text class="page_count_text">{{pageCount}}</text>
+      </view>
+      <view class="next_page_v click_v" data-flag="{{nextPageFlag}}" wx:if="{{nextPageEnable}}" catchtap="loadListDataByPageFlag">下一页</view>
+      <view class="next_page_v unClick_v" wx:if="{{!nextPageEnable}}">下一页</view>
+    </view>
+    <view class="but_list_v">
+      <view class="but_v screen_but_v" data-flag="{{true}}" catchtap="showToolBarView">筛选</view>
+    </view>
+  </view>
+</view>

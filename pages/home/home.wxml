@@ -26,5 +26,6 @@
     <view class="dsh_v second_level_v" data-pageflag="{{clgl_dsh}}" catchtap="goPage">待审核</view>
     <view class="zhcx_v second_level_v" data-pageflag="{{clgl_zhcx}}" catchtap="goPage">综合查询</view>
     <view class="shjl_v second_level_v" data-pageflag="{{clgl_shjl}}" catchtap="goPage">审核记录</view>
+    <view class="tzcx_v second_level_v" data-pageflag="{{clgl_tzcx}}" catchtap="goPage">台账查询</view>
   </view>
 </view>

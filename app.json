@@ -1,5 +1,6 @@
 {
   "pages": [
+    "pages/clgl/tzcx/list",
     "pages/home/home",
     "pages/clgl/shjl/list",
     "pages/clgl/zhcx/list",

@@ -24,6 +24,7 @@ Page({
     clgl_dsh:17,
     clgl_zhcx:18,
     clgl_shjl:19,
+    clgl_tzcx:20,
   },
 
   /**
@@ -131,6 +132,9 @@ Page({
         break;
       case home.data.clgl_shjl:
         url+='clgl/shjl/list';
+        break;
+      case home.data.clgl_tzcx:
+        url+='clgl/tzcx/list';
         break;
     }
     wx.redirectTo({
