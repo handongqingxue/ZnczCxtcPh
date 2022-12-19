@@ -1,12 +1,13 @@
 {
   "pages": [
+    "pages/home/home",
+    "pages/clgl/shjl/list",
     "pages/clgl/zhcx/list",
     "pages/clgl/zhcx/detail",
     "pages/clgl/zhcx/edit",
     "pages/clgl/zhcx/new",
     "pages/clgl/dsh/list",
     "pages/clgl/dsh/detail",
-    "pages/home/home",
     "pages/ddgl/ddzt/detail",
     "pages/ddgl/ddzt/edit",
     "pages/ddgl/ddzt/list",
