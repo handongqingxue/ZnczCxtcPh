@@ -1,4 +1,4 @@
-<!--pages/clgl/tzcx/list.wxml-->
+<!--pages/clgl/cntz/list.wxml-->
 <view class="tool_bar_v" wx:if="{{showToolBarView}}">
   <view class="title_v">筛选页面</view>
   <view class="back_but_v" data-flag="{{false}}" catchtap="showToolBarView">{{backButSign}}</view>
@@ -17,7 +17,6 @@
       <image class='select_img {{showDdztOption&&"select_img_rotate"}}' src='../../../images/sanjiao.png'></image>
     </view>
     <view class='ddzt_option_list_v' style='height:{{showDdztOption?(ddztList.length>5?300:ddztList.length*30):0}}px;'>
-      <view class='item_v' data-index="" catchtap='selectDdztOption'>请选择</view>
       <view class='item_v' wx:for="{{ddztList}}" data-index="{{index}}" catchtap='selectDdztOption'>{{item.mc}}</view>
     </view>
   </view>
@@ -43,30 +42,6 @@
     <span class="jcjssj_span">进厂结束时间</span>
     <view class="jcjssj_picker_v">
       <picker class="jcjssj_picker" mode="time" bindcancel="pickerJcjssjCancel" bindchange="pickerJcjssjChange">{{jcjssj==''?jcjssjPlaceholder:jcjssj}}</picker>
-    </view>
-  </view>
-  <view class="ccksrq_v">
-    <span class="ccksrq_span">出厂开始日期</span>
-    <view class="ccksrq_picker_v">
-      <picker class="ccksrq_picker" mode="date" bindcancel="pickerCcksrqCancel" bindchange="pickerCcksrqChange">{{ccksrq==''?ccksrqPlaceholder:ccksrq}}</picker>
-    </view>
-  </view>
-  <view class="cckssj_v">
-    <span class="cckssj_span">出厂开始时间</span>
-    <view class="cckssj_picker_v">
-      <picker class="cckssj_picker" mode="time" bindcancel="pickerCckssjCancel" bindchange="pickerCckssjChange">{{cckssj==''?cckssjPlaceholder:cckssj}}</picker>
-    </view>
-  </view>
-  <view class="ccjsrq_v">
-    <span class="ccjsrq_span">出厂结束日期</span>
-    <view class="ccjsrq_picker_v">
-      <picker class="ccjsrq_picker" mode="date" bindcancel="pickerCcjsrqCancel" bindchange="pickerCcjsrqChange">{{ccjsrq==''?ccjsrqPlaceholder:ccjsrq}}</picker>
-    </view>
-  </view>
-  <view class="ccjssj_v">
-    <span class="ccjssj_span">出厂结束时间</span>
-    <view class="ccjssj_picker_v">
-      <picker class="ccjssj_picker" mode="time" bindcancel="pickerCcjssjCancel" bindchange="pickerCcjssjChange">{{ccjssj==''?ccjssjPlaceholder:ccjssj}}</picker>
     </view>
   </view>
   
@@ -100,10 +75,6 @@
       <view class="row_v jcsj_v">
         <view class="key_v">进厂时间</view>
         <view class="val_v">{{item.jcsj}}</view>
-      </view>
-      <view class="row_v ccsj_v">
-        <view class="key_v">出厂时间</view>
-        <view class="val_v">{{item.ccsj}}</view>
       </view>
       <view class="but_list_v">
         <view class="but_v detail_but_v" data-id="{{item.id}}" catchtap="goDetailPage">详情</view>

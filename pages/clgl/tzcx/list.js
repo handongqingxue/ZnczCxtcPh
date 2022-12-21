@@ -281,6 +281,11 @@ Page({
     console.log(value)
     tzcxListPage.setData({ccksrq:value});
   },
+  pickerCckssjChange:function(e){
+    let value = e.detail.value;
+    console.log(value)
+    tzcxListPage.setData({cckssj:value});
+  },
   pickerCcjsrqChange:function(e){
     let value = e.detail.value;
     console.log(value)
@@ -308,6 +313,9 @@ Page({
   },
   pickerCcksrqCancel:function(){
     tzcxListPage.setData({ccksrq:''});
+  },
+  pickerCckssjCancel:function(){
+    tzcxListPage.setData({cckssj:''});
   },
   pickerCcjsrqCancel:function(){
     tzcxListPage.setData({ccjsrq:''});
