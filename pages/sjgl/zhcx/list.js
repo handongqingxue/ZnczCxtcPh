@@ -116,8 +116,8 @@ Page({
     let sjZyztMap=zhcxListPage.data.constantMap.sjZyztMap;
     let zyztList=[];
     zyztList.push({"value":"","text":"请选择"});
-    zyztList.push({"value":sjZyztMap.shiSfzy,"text":sjZyztMap.shiSfzyMc});
-    zyztList.push({"value":sjZyztMap.fouSfzy,"text":sjZyztMap.fouSfzyMc});
+    zyztList.push({"value":sjZyztMap.shiZyzt,"text":sjZyztMap.shiZyztMc});
+    zyztList.push({"value":sjZyztMap.fouZyzt,"text":sjZyztMap.fouZyztMc});
     zhcxListPage.setData({zyztList:zyztList});
   },
   initShztSelectData:function(){
@@ -159,9 +159,13 @@ Page({
       let xm=e.detail.value;
       zhcxListPage.setData({xm:xm});
     }
-    else if(e.currentTarget.id=="bz_inp"){
-      let bz=e.detail.value;
-      zhcxListPage.setData({bz:bz});
+    else if(e.currentTarget.id=="sjh_inp"){
+      let sjh=e.detail.value;
+      zhcxListPage.setData({sjh:sjh});
+    }
+    else if(e.currentTarget.id=="sfzh_inp"){
+      let sfzh=e.detail.value;
+      zhcxListPage.setData({sfzh:sfzh});
     }
   },
   loadListDataByPageFlag:function(e){
@@ -201,6 +205,8 @@ Page({
     console.log("sjh==="+sjh)
     console.log("sfzh==="+sfzh)
     console.log("zyzt==="+zyzt)
+    if(zyzt!='')
+      zyzt=zyzt?1:0;
 
     wx.request({
       url: rootIP+"getSiJiList",
@@ -219,11 +225,13 @@ Page({
           var sjList=data.list;
           for(let i=0;i<sjList.length;i++){
             let sj=sjList[i];
-            /*
-            let pfjd=dsh.pfjd;
-            let pfjdMc=zhcxListPage.getPfjdMcById(pfjd);
-            dsh.pfjdMc=pfjdMc;
-            */
+            let shzt=sj.shzt;
+            let shztMc=zhcxListPage.getShztMcById(shzt);
+            sj.shztMc=shztMc;
+
+            let zyzt=sj.zyzt;
+            let zyztMc=zhcxListPage.getZyztMcById(zyzt);
+            sj.zyztMc=zyztMc;
           }
           zhcxListPage.setData({sjList:sjList});
           zhcxListPage.showNoDataView(false);
@@ -240,6 +248,53 @@ Page({
       }
     })
   },
+  getShztMcById:function(shztId){
+    let constantMap=zhcxListPage.data.constantMap;
+    let shztMap=constantMap.sjShztMap;
+    //console.log(shztMap);
+    var str;
+    switch (shztId) {
+    case shztMap.dshShzt:
+      str=shztMap.dshShztMc;//待审核
+      break;
+    case shztMap.shtgShzt:
+      str=shztMap.shtgShztMc;//审核通过
+      break;
+    case shztMap.bjzShzt:
+      str=shztMap.bjzShztMc;//编辑中
+      break;
+    }
+    return str;
+  },
+  getZyztMcById:function(zyzt){
+    let constantMap=zhcxListPage.data.constantMap;
+    let zyztMap=constantMap.sjZyztMap;
+    //console.log(zyztMap);
+    var str;
+    if(zyzt)
+      str=zyztMap.shiZyztMc;
+    else
+      str=zyztMap.fouZyztMc;
+    return str;
+  },
+  // 点击下拉显示框
+  showZyztOption() {
+    zhcxListPage.setData({
+      showZyztOption: !zhcxListPage.data.showZyztOption,
+    });
+  },
+  // 点击下拉列表
+  selectZyztOption(e) {
+    let index = e.currentTarget.dataset.index; //获取点击的下拉列表的下标
+    let zyztList=zhcxListPage.data.zyztList;
+    let zyzt=zyztList[index];
+    console.log(index+","+zyzt.value+","+zyzt.text);
+    this.setData({
+      zyztSelectIndex: index,
+      zyztSelectId: zyzt.value,
+      showZyztOption: !this.data.showZyztOption
+    });
+  },
   goAddPage:function(){
     wx.redirectTo({
       url: '/pages/clgl/zhcx/new',

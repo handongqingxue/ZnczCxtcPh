@@ -6,6 +6,24 @@
     <span class="xm_span">姓名</span>
     <input class="xm_inp" id="xm_inp" type="text" placeholder="请输入姓名" value="{{xm}}" bindinput="getInputValue"/>
   </view>
+  <view class="sjh_v">
+    <span class="sjh_span">手机号</span>
+    <input class="sjh_inp" id="sjh_inp" type="text" placeholder="请输入手机号" value="{{sjh}}" bindinput="getInputValue"/>
+  </view>
+  <view class="sfzh_v">
+    <span class="sfzh_span">身份证号</span>
+    <input class="sfzh_inp" id="sfzh_inp" type="text" placeholder="请输入身份证号" value="{{sfzh}}" bindinput="getInputValue"/>
+  </view>
+  <view class="zyzt_v">
+    <span class="zyzt_span">在用状态</span>
+    <view class='zyzt_select_v'>
+      <view class='selected_text_v' catchtap='showZyztOption'>{{zyztList[zyztSelectIndex]==null?'请选择':zyztList[zyztSelectIndex].text}}</view>
+      <image class='select_img {{showZyztOption&&"select_img_rotate"}}' src='../../../images/sanjiao.png'></image>
+    </view>
+    <view class='zyzt_option_list_v' style='height:{{showZyztOption?(zyztList.length>5?300:zyztList.length*30):0}}px;'>
+      <view class='item_v' wx:for="{{zyztList}}" data-index="{{index}}" catchtap='selectZyztOption'>{{item.text}}</view>
+    </view>
+  </view>
   
   <view class="space2_v"></view>
   <view class="bottom_v">
