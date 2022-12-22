@@ -1,8 +1,9 @@
 {
   "pages": [
+    "pages/sjgl/zhcx/list",
+    "pages/home/home",
     "pages/sjgl/dsh/detail",
     "pages/sjgl/dsh/list",
-    "pages/home/home",
     "pages/clgl/cntz/list",
     "pages/clgl/cntz/detail",
     "pages/clgl/tzcx/list",
