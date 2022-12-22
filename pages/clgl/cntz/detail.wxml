@@ -1,4 +1,4 @@
-<!--pages/clgl/tzcx/detail.wxml-->
+<!--pages/clgl/cntz/detail.wxml-->
 <view class="main_v">
   <view class="title_v">详情页面</view>
   <view class="back_but_v" catchtap="goListPage">{{backButSign}}</view>
@@ -31,23 +31,12 @@
           {{jcsj}}
         </view>
       </view>
-      <view class="row_v ccsj_v">
-        <view class="key_v">出厂时间</view>
-        <view class="val_v">
-          {{ccsj}}
-        </view>
-      </view>
       <view class="row_v jczp_v">
         <view class="key_v jczp_key_v">进厂照片</view>
         <view class="val_v jczp_val_v">
           <image class="jczp_img" src="{{jczp}}" wx:if="{{jczp!=null}}"/>
         </view>
       </view>
-      <view class="row_v cczp_v">
-        <view class="key_v cczp_key_v">出厂照片</view>
-        <view class="val_v cczp_val_v">
-          <image class="cczp_img" src="{{cczp}}" wx:if="{{cczp!=null}}"/>
-        </view>
-      </view>
   </view>
 </view>
+

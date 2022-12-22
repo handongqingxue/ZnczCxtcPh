@@ -1,9 +1,10 @@
 {
   "pages": [
+    "pages/home/home",
     "pages/clgl/cntz/list",
+    "pages/clgl/cntz/detail",
     "pages/clgl/tzcx/list",
     "pages/clgl/tzcx/detail",
-    "pages/home/home",
     "pages/clgl/shjl/list",
     "pages/clgl/zhcx/list",
     "pages/clgl/zhcx/detail",
