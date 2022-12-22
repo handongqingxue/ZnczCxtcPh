@@ -29,4 +29,8 @@
     <view class="tzcx_v second_level_v" data-pageflag="{{clgl_tzcx}}" catchtap="goPage">台账查询</view>
     <view class="cntz_v second_level_v" data-pageflag="{{clgl_cntz}}" catchtap="goPage">厂内台账</view>
   </view>
+  <view class="sjgl_v first_level_v">
+    <view class="title_v">司机管理</view>
+    <view class="dsh_v second_level_v" data-pageflag="{{sjgl_dsh}}" catchtap="goPage">待审核</view>
+  </view>
 </view>
