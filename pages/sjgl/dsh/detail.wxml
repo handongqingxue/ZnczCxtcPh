@@ -1,2 +1,55 @@
 <!--pages/sjgl/dsh/detail.wxml-->
-<text>pages/sjgl/dsh/detail.wxml</text>
+<view class="main_v">
+  <view class="title_v">详情页面</view>
+  <view class="back_but_v" catchtap="goListPage">{{backButSign}}</view>
+  <view class="detail_v">
+    <view class="row_v xm_v">
+      <view class="key_v">姓名</view>
+      <view class="val_v">
+        {{xm}}
+      </view>
+    </view>
+    <view class="row_v sjh_v">
+      <view class="key_v">手机号</view>
+      <view class="val_v">
+        {{sjh}}
+      </view>
+    </view>
+    <view class="row_v sfzzp_v">
+      <view class="key_v sfzzp_key_v">照片</view>
+      <view class="val_v sfzzp_val_v">
+        <image class="sfzzp_img" src="{{sfzzp}}" wx:if="{{sfzzp!=null}}"/>
+      </view>
+    </view>
+    <view class="row_v sfzh_v">
+      <view class="key_v">身份证号</view>
+      <view class="val_v">
+        {{sfzh}}
+      </view>
+    </view>
+    <view class="row_v zgzyxqz_v">
+      <view class="key_v zgzyxqz_key_v">资格证有效期至</view>
+      <view class="val_v">
+        {{zgzyxqz}}
+      </view>
+    </view>
+    <view class="row_v jzyxqz_v">
+      <view class="key_v jzyxqz_key_v">驾证有效期至</view>
+      <view class="val_v">
+        {{jzyxqz}}
+      </view>
+    </view>
+    <view class="row_v zgzs_v">
+      <view class="key_v zgzs_key_v">资格证书</view>
+      <view class="val_v zgzs_val_v">
+        <image class="zgzs_img" src="{{zgzs}}" wx:if="{{zgzs!=null}}"/>
+      </view>
+    </view>
+    <view class="row_v jz_v">
+      <view class="key_v jz_key_v">驾证</view>
+      <view class="val_v jz_val_v">
+        <image class="jz_img" src="{{jz}}" wx:if="{{jz!=null}}"/>
+      </view>
+    </view>
+  </view>
+</view>
