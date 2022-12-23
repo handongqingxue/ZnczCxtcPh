@@ -15,12 +15,12 @@
         <input class="sjh_inp" id="sjh_inp" type="text" placeholder="请输入手机号" value="{{sjh}}" bindfocus="focusSjh" bindblur="checkSjh" bindinput="getInputValue"/>
       </view>
     </view>
-    <view class="row_v zp_v">
-      <view class="key_v zp_key_v">照片</view>
-      <view class="val_v zp_val_v">
-        <view class="choose_but_v" catchtap="takeZp">选择文件</view>
-        <image class="zp_img" src="{{zp}}" wx:if="{{zp!=null}}"/>
-        <view class="delete_but_v" wx:if="{{zp!=null}}" catchtap="deleteZp">x</view>
+    <view class="row_v sfzzp_v">
+      <view class="key_v sfzzp_key_v">身份证照片</view>
+      <view class="val_v sfzzp_val_v">
+        <view class="choose_but_v" catchtap="takeSfzzp">选择文件</view>
+        <image class="sfzzp_img" src="{{sfzzp}}" wx:if="{{sfzzp!=null}}"/>
+        <view class="delete_but_v" wx:if="{{sfzzp!=null}}" catchtap="deleteSfzzp">x</view>
       </view>
     </view>
     <view class="row_v sfzh_v">
@@ -32,6 +32,36 @@
     <view class="row_v zgzyxqz_v">
       <view class="key_v zgzyxqz_key_v">资格证有效期至</view>
       <picker class="zgzyxqz_picker" mode="date" bindcancel="pickerZgzyxqzCancel" bindchange="pickerZgzyxqzChange">{{zgzyxqz==''?zgzyxqzPlaceholder:zgzyxqz}}</picker>
+    </view>
+    <view class="row_v jzyxqz_v">
+      <view class="key_v jzyxqz_key_v">驾证有效期至</view>
+      <picker class="jzyxqz_picker" mode="date" bindcancel="pickerJzyxqzCancel" bindchange="pickerJzyxqzChange">{{jzyxqz==''?jzyxqzPlaceholder:jzyxqz}}</picker>
+    </view>
+    <view class="row_v zgzs_v">
+      <view class="key_v zgzs_key_v">资格证书</view>
+      <view class="val_v zgzs_val_v">
+        <view class="choose_but_v" catchtap="takeZgzs">选择文件</view>
+        <image class="zgzs_img" src="{{zgzs}}" wx:if="{{zgzs!=null}}"/>
+        <view class="delete_but_v" wx:if="{{zgzs!=null}}" catchtap="deleteZgzs">x</view>
+      </view>
+    </view>
+    <view class="row_v jz_v">
+      <view class="key_v jz_key_v">驾证</view>
+      <view class="val_v jz_val_v">
+        <view class="choose_but_v" catchtap="takeJz">选择文件</view>
+        <image class="jz_img" src="{{jz}}" wx:if="{{jz!=null}}"/>
+        <view class="delete_but_v" wx:if="{{jz!=null}}" catchtap="deleteJz">x</view>
+      </view>
+    </view>
+    <view class="zyzt_v">
+      <view class="key_v">在用状态</view>
+      <view class='zyzt_select_v'>
+        <view class='selected_text_v' catchtap='showZyztOption'>{{zyztList[zyztSelectIndex]==null?'请选择':zyztList[zyztSelectIndex].text}}</view>
+        <image class='select_img {{showZyztOption&&"select_img_rotate"}}' src='../../../images/sanjiao.png'></image>
+      </view>
+      <view class='zyzt_option_list_v' style='height:{{showZyztOption?(zyztList.length>5?300:zyztList.length*30):0}}px;'>
+        <view class='item_v' wx:for="{{zyztList}}" data-index="{{index}}" catchtap='selectZyztOption'>{{item.text}}</view>
+      </view>
     </view>
   </view>
   <view class="space1_v"></view>

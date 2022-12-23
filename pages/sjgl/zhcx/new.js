@@ -29,7 +29,7 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady() {
-
+    newPage.getConstantFlagMap();
   },
 
   /**
@@ -151,43 +151,37 @@ Page({
   },
   checkNew:function(){
     if(newPage.checkXm()){
-      newPage.newCheLiang();
+      if(newPage.checkSjh()){
+        if(newPage.checkSfzh()){
+          if(newPage.checkZyzt()){
+            newPage.newSiJi();
+          }
+        }
+      }
     }
   },
-  newCheLiang:function(){
+  newSiJi:function(){
     newPage.saving(true);
-    let cph=newPage.data.cph;
-    let fdjhm=newPage.data.fdjhm;
-    let clsbdh=newPage.data.clsbdh;
-    let zcrq=newPage.data.zcrq;
-    let pfjdSelectId=newPage.data.pfjdSelectId;
-    let yslxSelectId=newPage.data.yslxSelectId;
-    let ppxh=newPage.data.ppxh;
-    let czxx=newPage.data.czxx;
-    let fzrq=newPage.data.fzrq;
-    let pz=newPage.data.pz;
-    let cllxSelectId=newPage.data.cllxSelectId;
-    let sfzySelectId=newPage.data.sfzySelectId;
-    let shztSelectId=newPage.data.shztSelectId;
-    let bz=newPage.data.bz;
-    console.log("cph==="+cph)
-    console.log("fdjhm==="+fdjhm)
-    console.log("clsbdh==="+clsbdh)
-    console.log("zcrq==="+zcrq)
-    console.log("pfjdSelectId==="+pfjdSelectId)
-    console.log("yslxSelectId==="+yslxSelectId)
-    console.log("ppxh==="+ppxh)
-    console.log("czxx==="+czxx)
-    console.log("fzrq==="+fzrq)
-    console.log("pz==="+pz)
-    console.log("cllxSelectId==="+cllxSelectId)
-    console.log("sfzySelectId==="+sfzySelectId)
-    console.log("shztSelectId==="+shztSelectId)
-    console.log("bz==="+bz)
+    let xm=newPage.data.xm;
+    let sjh=newPage.data.sjh;
+    let sfzh=newPage.data.sfzh;
+    let zgzyxqz=newPage.data.zgzyxqz;
+    let jzyxqz=newPage.data.jzyxqz;
+    let zyztSelectId=newPage.data.zyztSelectId;
+    let sjShztMap=newPage.data.constantMap.sjShztMap;
+    let shzt=sjShztMap.dshShzt;
+
+    console.log("xm==="+xm)
+    console.log("sjh==="+sjh)
+    console.log("sfzh==="+sfzh)
+    console.log("zgzyxqz==="+zgzyxqz)
+    console.log("jzyxqz==="+jzyxqz)
+    console.log("zyztSelectId==="+zyztSelectId)
+    console.log("shzt==="+shzt)
     //return false;
     wx.request({
-      url: rootIP+"newCheLiang",
-      data:{cph:cph,fdjhm:fdjhm,clsbdh:clsbdh,zcrq:zcrq,pfjd:pfjdSelectId,yslx:yslxSelectId,ppxh:ppxh,czxx:czxx,fzrq:fzrq,pz:pz,cllx:cllxSelectId,sfzy:sfzySelectId,shzt:shztSelectId,bz:bz},
+      url: rootIP+"newSiJi",
+      data:{xm:xm,sjh:sjh,sfzh:sfzh,zgzyxqz:zgzyxqz,jzyxqz:jzyxqz,zyzt:zyztSelectId,shzt:shzt},
       method: 'POST',
       header: {
         'content-type': 'application/x-www-form-urlencoded',
@@ -197,9 +191,9 @@ Page({
         let message=data.message;
         console.log("message==="+message)
         if(message=="ok"){
-          let zp=newPage.data.zp;
-          console.log("zp==="+zp)
-          if(zp==undefined){
+          let sfzzp=newPage.data.sfzzp;
+          console.log("sfzzp==="+sfzzp)
+          if(sfzzp==undefined){
             newPage.saving(false);
             wx.showToast({
               title: data.info,
@@ -209,10 +203,10 @@ Page({
             }, 1000);
           }
           else{
-            console.log("clId==="+data.clId);
-            newPage.setData({clId:data.clId});
-            let zpWjlx=newPage.data.constantMap.clWjlxMap.zpWjlx;
-            newPage.uploadFile(zpWjlx); 
+            console.log("sjId==="+data.sjId);
+            newPage.setData({sjId:data.sjId});
+            let sfzzpWjlx=newPage.data.constantMap.sjWjlxMap.sfzzpWjlx;
+            newPage.uploadFile(sfzzpWjlx); 
           }
         }
         else{
@@ -271,15 +265,53 @@ Page({
       return true;
     }
   },
+  //验证在用状态
+  checkZyzt:function(){
+    let zyztSelectId=newPage.data.zyztSelectId;
+    if(zyztSelectId==null||zyztSelectId==""){
+        wx.showToast({
+          title: "请选择在用状态",
+        })
+        return false;
+    }
+    else
+      return true;
+  },
   pickerZgzyxqzChange:function(e){
     let value = e.detail.value;
     console.log(value)
     newPage.setData({zgzyxqz:value});
   },
+  pickerJzyxqzChange:function(e){
+    let value = e.detail.value;
+    console.log(value)
+    newPage.setData({jzyxqz:value});
+  },
   pickerZgzyxqzCancel:function(){
     newPage.setData({zgzyxqz:''});
   },
-  takeZp:function(){
+  pickerJzyxqzCancel:function(){
+    newPage.setData({jzyxqz:''});
+  },
+  // 点击下拉显示框
+  showZyztOption() {
+    newPage.setData({
+      showZyztOption: !newPage.data.showZyztOption,
+    });
+  },
+  // 点击下拉列表
+  selectZyztOption(e) {
+    let index = e.currentTarget.dataset.index; //获取点击的下拉列表的下标
+    let zyztList=newPage.data.zyztList;
+    let zyzt=zyztList[index];
+    console.log(index+","+zyzt.value+","+zyzt.text);
+    newPage.setData({
+      zyztSelectIndex: index,
+      zyztSelectId: zyzt.value,
+      showZyztOption: !newPage.data.showZyztOption
+    });
+  },
+  takeSfzzp:function(){
     wx.chooseImage({
       count: 1, // 默认9
       sizeType: ['original', 'compressed'], // 可以指定是原图还是压缩图，默认二者都有
@@ -289,12 +321,121 @@ Page({
         
         let tempFilePaths=res.tempFilePaths;
         let data=newPage.data;
-        if(data.zp==null)
-          newPage.setData({zp:tempFilePaths[0]});
+        if(data.sfzzp==null)
+          newPage.setData({sfzzp:tempFilePaths[0]});
       }
     })
   },
-  deleteZp:function(){
-    newPage.setData({zp:null});
+  takeZgzs:function(){
+    wx.chooseImage({
+      count: 1, // 默认9
+      sizeType: ['original', 'compressed'], // 可以指定是原图还是压缩图，默认二者都有
+      sourceType: ['album', 'camera'], // 可以指定来源是相册还是相机，默认二者都有
+      success: function (res) {
+        console.log("res.tempFilePaths==="+res.tempFilePaths)
+        
+        let tempFilePaths=res.tempFilePaths;
+        let data=newPage.data;
+        if(data.zgzs==null)
+          newPage.setData({zgzs:tempFilePaths[0]});
+      }
+    })
+  },
+  takeJz:function(){
+    wx.chooseImage({
+      count: 1, // 默认9
+      sizeType: ['original', 'compressed'], // 可以指定是原图还是压缩图，默认二者都有
+      sourceType: ['album', 'camera'], // 可以指定来源是相册还是相机，默认二者都有
+      success: function (res) {
+        console.log("res.tempFilePaths==="+res.tempFilePaths)
+        
+        let tempFilePaths=res.tempFilePaths;
+        let data=newPage.data;
+        if(data.jz==null)
+          newPage.setData({jz:tempFilePaths[0]});
+      }
+    })
+  },
+  deleteSfzzp:function(){
+    newPage.setData({sfzzp:null});
+  },
+  deleteZgzs:function(){
+    newPage.setData({zgzs:null});
+  },
+  deleteJz:function(){
+    newPage.setData({jz:null});
+  },
+  saving:function(flag){
+    if(flag){
+      newPage.setData({showSaveBut:false,showSavingBut:true});
+    }
+    else{
+      newPage.setData({showSavingBut:false,showSavedBut:true});
+    }
+  },
+  uploadFile:function(index){
+    let sjId=newPage.data.sjId;
+    let sjWjlxMap=newPage.data.constantMap.sjWjlxMap;
+    let wjlx;
+    let sfzzpWjlx=sjWjlxMap.sfzzpWjlx;
+    let zgzsWjlx=sjWjlxMap.zgzsWjlx;
+    let jzWjlx=sjWjlxMap.jzWjlx;
+    let filePath;
+    switch (index) {
+      case sfzzpWjlx:
+        wjlx=sfzzpWjlx;
+        filePath=newPage.data.sfzzp;
+        break;
+      case zgzsWjlx:
+        wjlx=zgzsWjlx;
+        filePath=newPage.data.zgzs;
+        break;
+      case jzWjlx:
+        wjlx=jzWjlx;
+        filePath=newPage.data.jz;
+        break;
+    }
+    console.log("wjlx==="+wjlx)
+    wx.uploadFile({
+      url: rootIP+'uploadSiJiFile', //仅为示例，非真实的接口地址
+      filePath: filePath,
+      name: 'file',
+      formData:{id:sjId,wjlx:wjlx},
+      success: function(res){
+        let wjlxListLength=newPage.data.wjlxList.length;
+        index++;
+        if(index<=wjlxListLength){
+          let nextFilePath;
+          switch (index) {
+            case zgzsWjlx:
+              nextFilePath=newPage.data.zgzs;
+              break;
+            case jzWjlx:
+              nextFilePath=newPage.data.jz;
+              break;
+          }
+          console.log("nextFilePath==="+nextFilePath)
+          if(nextFilePath==undefined){
+            newPage.saving(false);
+            setTimeout(() => {
+              newPage.goListPage();
+            }, 1000);
+          }
+          else
+            newPage.uploadFile(index);
+        }
+        else{
+          newPage.saving(false);
+          setTimeout(() => {
+            newPage.goListPage();
+          }, 2000);
+        }
+      }
+    })
+  },
+  goListPage:function(){
+    wx.redirectTo({
+      url: '/pages/sjgl/zhcx/list',
+    })
   },
 })
