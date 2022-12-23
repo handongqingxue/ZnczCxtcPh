@@ -1,2 +1,46 @@
 <!--pages/sjgl/zhcx/new.wxml-->
-<text>pages/sjgl/zhcx/new.wxml</text>
+<view class="main_v">
+  <view class="title_v">添加页面</view>
+  <view class="back_but_v" catchtap="goListPage">{{backButSign}}</view>
+  <view class="add_v">
+    <view class="row_v xm_v">
+      <view class="key_v">姓名</view>
+      <view class="val_v">
+        <input class="xm_inp" id="xm_inp" type="text" placeholder="请输入姓名" value="{{xm}}" bindfocus="focusXm" bindblur="checkXm" bindinput="getInputValue"/>
+      </view>
+    </view>
+    <view class="row_v sjh_v">
+      <view class="key_v">手机号</view>
+      <view class="val_v">
+        <input class="sjh_inp" id="sjh_inp" type="text" placeholder="请输入手机号" value="{{sjh}}" bindfocus="focusSjh" bindblur="checkSjh" bindinput="getInputValue"/>
+      </view>
+    </view>
+    <view class="row_v zp_v">
+      <view class="key_v zp_key_v">照片</view>
+      <view class="val_v zp_val_v">
+        <view class="choose_but_v" catchtap="takeZp">选择文件</view>
+        <image class="zp_img" src="{{zp}}" wx:if="{{zp!=null}}"/>
+        <view class="delete_but_v" wx:if="{{zp!=null}}" catchtap="deleteZp">x</view>
+      </view>
+    </view>
+    <view class="row_v sfzh_v">
+      <view class="key_v">身份证号</view>
+      <view class="val_v">
+        <input class="sfzh_inp" id="sfzh_inp" type="text" placeholder="请输入身份证号" value="{{sfzh}}" bindfocus="focusSfzh" bindblur="checkSfzh" bindinput="getInputValue"/>
+      </view>
+    </view>
+    <view class="row_v zgzyxqz_v">
+      <view class="key_v zgzyxqz_key_v">资格证有效期至</view>
+      <picker class="zgzyxqz_picker" mode="date" bindcancel="pickerZgzyxqzCancel" bindchange="pickerZgzyxqzChange">{{zgzyxqz==''?zgzyxqzPlaceholder:zgzyxqz}}</picker>
+    </view>
+  </view>
+  <view class="space1_v"></view>
+  <view class="bottom_v">
+    <view class="but_list_v">
+      <view class="but_v save_but_v" data-flag="{{true}}" catchtap="checkNew" wx:if="{{showSaveBut}}">保存</view>
+      <view class="but_v saving_but_v" wx:if="{{showSavingBut}}">保存中...</view>
+      <view class="but_v saved_but_v" wx:if="{{showSavedBut}}">已保存</view>
+      <view class="but_v more_but_v">更多操作</view>
+    </view>
+  </view>
+</view>
