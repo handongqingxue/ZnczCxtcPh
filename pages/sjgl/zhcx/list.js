@@ -297,19 +297,19 @@ Page({
   },
   goAddPage:function(){
     wx.redirectTo({
-      url: '/pages/clgl/zhcx/new',
+      url: '/pages/sjgl/zhcx/new',
     })
   },
   goEditPage:function(e){
     let id=e.currentTarget.dataset.id;
     wx.redirectTo({
-      url: '/pages/clgl/zhcx/edit?id='+id,
+      url: '/pages/sjgl/zhcx/edit?id='+id,
     })
   },
   goDetailPage:function(e){
     let id=e.currentTarget.dataset.id;
     wx.redirectTo({
-      url: '/pages/clgl/zhcx/detail?id='+id,
+      url: '/pages/sjgl/zhcx/detail?id='+id,
     })
   },
   goHomePage:function(){
