@@ -1,6 +1,7 @@
 // pages/sjgl/zhcx/edit.js
 var editPage;
 var rootIP;
+var serverRootIP;
 Page({
 
   /**
@@ -112,6 +113,7 @@ Page({
         editPage.initZyztSelectData();
         editPage.initShztSelectData();
         editPage.initWjlxList();
+        editPage.getSJInfo();
       }
     })
   },
@@ -140,6 +142,46 @@ Page({
     wjlxList.push(sjWjlxMap.jzWjlx);
     editPage.setData({wjlxList:wjlxList});
   },
+  getSJInfo:function(){
+    let id=editPage.data.id;
+    wx.request({
+      url: rootIP+"getSiJi",
+      method: 'POST',
+      data: { id:id},
+      header: {
+        'content-type': 'application/x-www-form-urlencoded',
+      },
+      success: function (res) {
+        console.log(res);
+        let data=res.data;
+        let sj=data.sj;
+        let xm=sj.xm;
+        let sjh=sj.sjh;
+        let sfzzp=sj.sfzzp;
+        let sfzh=sj.sfzh;
+        let zgzyxqz=sj.zgzyxqz;
+        let jzyxqz=sj.jzyxqz;
+        let zgzs=sj.zgzs;
+        let jz=sj.jz;
+        let zyzt=sj.zyzt;
+        let zyztSelectIndex=editPage.getZyztIndexInListByIf(zyzt);
+        editPage.setData({xm:xm,sjh:sjh,sfzzp:sfzzp==null?null:serverRootIP+sfzzp,sfzh:sfzh,zgzyxqz:zgzyxqz,jzyxqz:jzyxqz,zgzs:zgzs==null?null:serverRootIP+zgzs,jz:jz==null?null:serverRootIP+jz,zyztSelectId:zyzt,zyztSelectIndex:zyztSelectIndex});
+      }
+    })
+  },
+  getZyztIndexInListByIf:function(zyztId){
+    let zyztSelectIndex;
+    let zyztList=editPage.data.zyztList;
+    //console.log(zyztList)
+    for(let i=0;i<zyztList.length;i++){
+      let zyzt=zyztList[i];
+      if(zyztId==zyzt.value){
+        zyztSelectIndex=i;
+        break;
+      }
+    }
+    return zyztSelectIndex;
+  },
   getInputValue:function(e){
     if(e.currentTarget.id=="xm_inp"){
       let xm=e.detail.value;
@@ -154,27 +196,26 @@ Page({
       editPage.setData({sfzh:sfzh});
     }
   },
-  checkNew:function(){
+  checkEdit:function(){
     if(editPage.checkXm()){
       if(editPage.checkSjh()){
         if(editPage.checkSfzh()){
           if(editPage.checkZyzt()){
-            editPage.newSiJi();
+            editPage.editSiJi();
           }
         }
       }
     }
   },
-  newSiJi:function(){
+  editSiJi:function(){
     editPage.saving(true);
+    let id=editPage.data.id;
     let xm=editPage.data.xm;
     let sjh=editPage.data.sjh;
     let sfzh=editPage.data.sfzh;
     let zgzyxqz=editPage.data.zgzyxqz;
     let jzyxqz=editPage.data.jzyxqz;
     let zyztSelectId=editPage.data.zyztSelectId;
-    let sjShztMap=editPage.data.constantMap.sjShztMap;
-    let shzt=sjShztMap.dshShzt;
 
     console.log("xm==="+xm)
     console.log("sjh==="+sjh)
@@ -182,11 +223,10 @@ Page({
     console.log("zgzyxqz==="+zgzyxqz)
     console.log("jzyxqz==="+jzyxqz)
     console.log("zyztSelectId==="+zyztSelectId)
-    console.log("shzt==="+shzt)
     //return false;
     wx.request({
-      url: rootIP+"newSiJi",
-      data:{xm:xm,sjh:sjh,sfzh:sfzh,zgzyxqz:zgzyxqz,jzyxqz:jzyxqz,zyzt:zyztSelectId,shzt:shzt},
+      url: rootIP+"editSiJi",
+      data:{id:id,xm:xm,sjh:sjh,sfzh:sfzh,zgzyxqz:zgzyxqz,jzyxqz:jzyxqz,zyzt:zyztSelectId},
       method: 'POST',
       header: {
         'content-type': 'application/x-www-form-urlencoded',
@@ -196,7 +236,7 @@ Page({
         let message=data.message;
         console.log("message==="+message)
         if(message=="ok"){
-          let sfzzp=editPage.data.sfzzp;
+          let sfzzp=editPage.data.tempSfzzpPath;
           console.log("sfzzp==="+sfzzp)
           if(sfzzp==undefined){
             editPage.saving(false);
@@ -208,8 +248,6 @@ Page({
             }, 1000);
           }
           else{
-            console.log("sjId==="+data.sjId);
-            editPage.setData({sjId:data.sjId});
             let sfzzpWjlx=editPage.data.constantMap.sjWjlxMap.sfzzpWjlx;
             editPage.uploadFile(sfzzpWjlx); 
           }
@@ -327,7 +365,7 @@ Page({
         let tempFilePaths=res.tempFilePaths;
         let data=editPage.data;
         if(data.sfzzp==null)
-          editPage.setData({sfzzp:tempFilePaths[0]});
+          editPage.setData({sfzzp:tempFilePaths[0],tempSfzzpPath:tempFilePaths[0]});
       }
     })
   },
@@ -342,7 +380,7 @@ Page({
         let tempFilePaths=res.tempFilePaths;
         let data=editPage.data;
         if(data.zgzs==null)
-          editPage.setData({zgzs:tempFilePaths[0]});
+          editPage.setData({zgzs:tempFilePaths[0],tempZgzsPath:tempFilePaths[0]});
       }
     })
   },
@@ -357,7 +395,7 @@ Page({
         let tempFilePaths=res.tempFilePaths;
         let data=editPage.data;
         if(data.jz==null)
-          editPage.setData({jz:tempFilePaths[0]});
+          editPage.setData({jz:tempFilePaths[0],tempJzPath:tempFilePaths[0]});
       }
     })
   },
@@ -379,7 +417,7 @@ Page({
     }
   },
   uploadFile:function(index){
-    let sjId=editPage.data.sjId;
+    let id=editPage.data.id;
     let sjWjlxMap=editPage.data.constantMap.sjWjlxMap;
     let wjlx;
     let sfzzpWjlx=sjWjlxMap.sfzzpWjlx;
@@ -405,7 +443,7 @@ Page({
       url: rootIP+'uploadSiJiFile', //仅为示例，非真实的接口地址
       filePath: filePath,
       name: 'file',
-      formData:{id:sjId,wjlx:wjlx},
+      formData:{id:id,wjlx:wjlx},
       success: function(res){
         let wjlxListLength=editPage.data.wjlxList.length;
         index++;
@@ -413,10 +451,10 @@ Page({
           let nextFilePath;
           switch (index) {
             case zgzsWjlx:
-              nextFilePath=editPage.data.zgzs;
+              nextFilePath=editPage.data.tempZgzsPath;
               break;
             case jzWjlx:
-              nextFilePath=editPage.data.jz;
+              nextFilePath=editPage.data.tempJzPath;
               break;
           }
           console.log("nextFilePath==="+nextFilePath)

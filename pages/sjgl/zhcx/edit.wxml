@@ -67,7 +67,7 @@
   <view class="space1_v"></view>
   <view class="bottom_v">
     <view class="but_list_v">
-      <view class="but_v save_but_v" data-flag="{{true}}" catchtap="checkNew" wx:if="{{showSaveBut}}">保存</view>
+      <view class="but_v save_but_v" data-flag="{{true}}" catchtap="checkEdit" wx:if="{{showSaveBut}}">保存</view>
       <view class="but_v saving_but_v" wx:if="{{showSavingBut}}">保存中...</view>
       <view class="but_v saved_but_v" wx:if="{{showSavedBut}}">已保存</view>
       <view class="but_v more_but_v">更多操作</view>
