@@ -1,0 +1,95 @@
+<!--pages/pdgl/hmcx/list.wxml-->
+<view class="tool_bar_v" wx:if="{{showToolBarView}}">
+  <view class="title_v">筛选页面</view>
+  <view class="back_but_v" data-flag="{{false}}" catchtap="showToolBarView">{{backButSign}}</view>
+  <view class="dlMc_v">
+    <span class="dlMc_span">队列名称</span>
+    <input class="dlMc_inp" id="dlMc_inp" type="text" placeholder="请输入队列名称" value="{{dlMc}}" bindinput="getInputValue"/>
+  </view>
+  <view class="hm_v">
+    <span class="hm_span">号码</span>
+    <input class="hm_inp" id="hm_inp" type="text" placeholder="请输入号码" value="{{hm}}" bindinput="getInputValue"/>
+  </view>
+  <view class="pdh_v">
+    <span class="pdh_span">排队号</span>
+    <input class="pdh_inp" id="pdh_inp" type="text" placeholder="请输入排队号" value="{{pdh}}" bindinput="getInputValue"/>
+  </view>
+  <view class="hmzt_v">
+    <span class="hmzt_span">状态</span>
+    <view class='hmzt_select_v'>
+      <view class='selected_text_v' catchtap='showHmztOption'>{{hmztList[hmztSelectIndex]==null?'请选择':hmztList[hmztSelectIndex].mc}}</view>
+      <image class='select_img {{showHmztOption&&"select_img_rotate"}}' src='../../../images/sanjiao.png'></image>
+    </view>
+    <view class='hmzt_option_list_v' style='height:{{showHmztOption?(hmztList.length>5?300:hmztList.length*30):0}}px;'>
+      <view class='item_v' data-index="" catchtap='selectHmztOption'>请选择</view>
+      <view class='item_v' wx:for="{{hmztList}}" data-index="{{index}}" catchtap='selectHmztOption'>{{item.mc}}</view>
+    </view>
+  </view>
+  
+  <view class="space2_v"></view>
+  <view class="bottom_v">
+    <view class="but_list_v">
+      <view class="but_v confirm_but_v" catchtap="getListData">确定</view>
+      <view class="but_v reset_but_v">重置</view>
+    </view>
+  </view>
+</view>
+
+<view class="main_v">
+  <view class="title_v">列表页面</view>
+  <view class="back_but_v" catchtap="goHomePage">{{backButSign}}</view>
+  <view class="no_data_v" wx:if="{{showNoDataView}}">{{noDataText}}</view>
+  <view class="list_v" wx:else>
+    <view class="item_v" wx:for-items="{{hmList}}">
+      <view class="row_v hm_v">
+        <view class="key_v">号码</view>
+        <view class="val_v">{{item.hm}}</view>
+      </view>
+      <view class="row_v pdh_v">
+        <view class="key_v">排队号</view>
+        <view class="val_v">{{item.pdh}}</view>
+      </view>
+      <view class="row_v prsj_v">
+        <view class="key_v">排入时间</view>
+        <view class="val_v">{{item.prsj}}</view>
+      </view>
+      <view class="row_v flMc_v">
+        <view class="key_v">分类</view>
+        <view class="val_v">{{item.flMc}}</view>
+      </view>
+      <view class="row_v hmztMc_v">
+        <view class="key_v">状态</view>
+        <view class="val_v">{{item.hmztMc}}</view>
+      </view>
+      <view class="row_v ksjhsj_v">
+        <view class="key_v">开始叫号时间</view>
+        <view class="val_v">{{item.ksjhsj}}</view>
+      </view>
+      <view class="row_v jhcs_v">
+        <view class="key_v">叫号次数</view>
+        <view class="val_v">{{item.jhcs}}</view>
+      </view>
+    </view>
+  </view>
+
+  <view class="space1_v"></view>
+  <view class="bottom_v">
+    <a wx:if="{{showDjckgdView}}" data-flag="{{false}}" catchtap="showPageView">点击查看更多</a>
+    <view class="page_v" wx:if="{{showPageView}}">
+      <view class="data_count_v">
+        共<text class="val_text">{{dataCount}}</text>条
+      </view>
+      <view class="pre_page_v click_v" data-flag="{{prePageFlag}}" wx:if="{{prePageEnable}}" catchtap="loadListDataByPageFlag">上一页</view>
+      <view class="pre_page_v unClick_v" wx:if="{{!prePageEnable}}">上一页</view>
+      <view class="page_count_v">
+        <text class="curr_page_text">{{currentPage}}</text>/
+        <text class="page_count_text">{{pageCount}}</text>
+      </view>
+      <view class="next_page_v click_v" data-flag="{{nextPageFlag}}" wx:if="{{nextPageEnable}}" catchtap="loadListDataByPageFlag">下一页</view>
+      <view class="next_page_v unClick_v" wx:if="{{!nextPageEnable}}">下一页</view>
+    </view>
+    <view class="but_list_v">
+      <view class="but_v screen_but_v" data-flag="{{true}}" catchtap="showToolBarView">筛选</view>
+    </view>
+  </view>
+</view>

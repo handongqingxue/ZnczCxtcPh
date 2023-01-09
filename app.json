@@ -1,6 +1,6 @@
 {
   "pages": [
-    "pages/pdgl/hmzt/list",
+    "pages/pdgl/hmcx/list",
     "pages/home/home",
     "pages/ddgl/ddzt/detail",
     "pages/ddgl/ddzt/edit",
@@ -53,6 +53,7 @@
     "pages/login/login",
     "pages/index/index",
     "pages/logs/logs",
+    "pages/pdgl/hmzt/list",
     "pages/pdgl/hmzt/new",
     "pages/pdgl/hmzt/edit",
     "pages/pdgl/hmzt/detail"
