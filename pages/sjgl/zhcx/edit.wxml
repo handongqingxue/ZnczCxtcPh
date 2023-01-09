@@ -1,6 +1,6 @@
 <!--pages/sjgl/zhcx/edit.wxml-->
 <view class="main_v">
-  <view class="title_v">添加页面</view>
+  <view class="title_v">编辑页面</view>
   <view class="back_but_v" catchtap="goListPage">{{backButSign}}</view>
   <view class="edit_v">
     <view class="row_v xm_v">

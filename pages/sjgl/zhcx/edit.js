@@ -25,8 +25,8 @@ Page({
     editPage=this;
     rootIP=getApp().getRootIP();
     serverRootIP=getApp().getServerRootIP();
-    //let id=options.id;
-    let id=6;
+    let id=options.id;
+    //let id=6;
     console.log(id)
     editPage.setData({id:id});
   },
