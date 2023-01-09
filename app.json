@@ -1,5 +1,6 @@
 {
   "pages": [
+    "pages/pdgl/hmzt/list",
     "pages/home/home",
     "pages/ddgl/ddzt/detail",
     "pages/ddgl/ddzt/edit",
