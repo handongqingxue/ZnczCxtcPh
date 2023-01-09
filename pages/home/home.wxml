@@ -33,5 +33,6 @@
     <view class="title_v">司机管理</view>
     <view class="dsh_v second_level_v" data-pageflag="{{sjgl_dsh}}" catchtap="goPage">待审核</view>
     <view class="zhcx_v second_level_v" data-pageflag="{{sjgl_zhcx}}" catchtap="goPage">综合查询</view>
+    <view class="shjl_v second_level_v" data-pageflag="{{sjgl_shjl}}" catchtap="goPage">审核记录</view>
   </view>
 </view>

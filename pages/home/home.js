@@ -29,6 +29,7 @@ Page({
 
     sjgl_dsh:22,
     sjgl_zhcx:23,
+    sjgl_shjl:24,
   },
 
   /**
@@ -148,6 +149,9 @@ Page({
         break;
       case home.data.sjgl_zhcx:
         url+='sjgl/zhcx/list';
+        break;
+      case home.data.sjgl_shjl:
+        url+='sjgl/shjl/list';
         break;
     }
     wx.redirectTo({

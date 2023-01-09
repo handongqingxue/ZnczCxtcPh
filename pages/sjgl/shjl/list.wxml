@@ -1,10 +1,10 @@
-<!--pages/clgl/shjl/list.wxml-->
+<!--pages/sjgl/shjl/list.wxml-->
 <view class="tool_bar_v" wx:if="{{showToolBarView}}">
   <view class="title_v">筛选页面</view>
   <view class="back_but_v" data-flag="{{false}}" catchtap="showToolBarView">{{backButSign}}</view>
-  <view class="clCph_v">
-    <span class="clCph_span">车牌号</span>
-    <input class="clCph_inp" id="clCph_inp" type="text" placeholder="请输入车牌号" value="{{clCph}}" bindinput="getInputValue"/>
+  <view class="sjXm_v">
+    <span class="sjXm_span">姓名</span>
+    <input class="sjXm_inp" id="sjXm_inp" type="text" placeholder="请输入姓名" value="{{sjXm}}" bindinput="getInputValue"/>
   </view>
   <view class="shrYhm_v">
     <span class="shrYhm_span">审核人</span>
@@ -48,9 +48,9 @@
   <view class="no_data_v" wx:if="{{showNoDataView}}">{{noDataText}}</view>
   <view class="list_v" wx:else>
     <view class="item_v" wx:for-items="{{shjlList}}">
-      <view class="row_v clCph_v">
-        <view class="key_v">车牌号</view>
-        <view class="val_v">{{item.clCph}}</view>
+      <view class="row_v sjXm_v">
+        <view class="key_v">姓名</view>
+        <view class="val_v">{{item.sjXm}}</view>
       </view>
       <view class="row_v shrYhm_v">
         <view class="key_v">审核人</view>
@@ -92,3 +92,4 @@
     </view>
   </view>
 </view>
+
