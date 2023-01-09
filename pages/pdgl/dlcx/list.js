@@ -1,4 +1,4 @@
-// pages/pdgl/hmcx/list.js
+// pages/pdgl/dlcx/list.js
 var hmcxListPage;
 var rootIP;
 Page({
@@ -15,12 +15,12 @@ Page({
     pageSize:10,
     showNoDataView:false,
     ddh:"",
-    hmztSelectId:"",
+    ztSelectId:"",
     prePageFlag:1,
     nextPageFlag:2,
     prePageEnable:false,
     nextPageEnable:true,
-    showHmztOption:false,
+    showZtOption:false,
   },
 
   /**
@@ -91,9 +91,8 @@ Page({
         console.log(constantFlagMap);
         //hmcxListPage.setData({constantFlagMap:constantFlagMap});
         let lxlx=constantFlagMap.lxlx;
-        let hmzt=constantFlagMap.hmzt;
-        let hmFl=constantFlagMap.hmFl;
-        let constantFlags=lxlx+","+hmzt+","+hmFl;
+        let dlZt=constantFlagMap.dlZt;
+        let constantFlags=lxlx+","+dlZt;
         hmcxListPage.getConstantMap(constantFlags);
       }
     })
@@ -110,7 +109,8 @@ Page({
         let constantMap=res.data;
         console.log(constantMap);
         hmcxListPage.setData({constantMap:constantMap});
-        hmcxListPage.getHmztSelectData();
+        hmcxListPage.getZtSelectData();
+        hmcxListPage.getListData();
       }
     })
   },
@@ -140,17 +140,13 @@ Page({
     }
   },
   getInputValue:function(e){
-    if(e.currentTarget.id=="dlMc_inp"){
-      let dlMc=e.detail.value;
-      hmcxListPage.setData({dlMc:dlMc});
+    if(e.currentTarget.id=="mc_inp"){
+      let mc=e.detail.value;
+      hmcxListPage.setData({mc:mc});
     }
-    else if(e.currentTarget.id=="hm_inp"){
-      let hm=e.detail.value;
-      hmcxListPage.setData({hm:hm});
-    }
-    else if(e.currentTarget.id=="pdh_inp"){
-      let pdh=e.detail.value;
-      hmcxListPage.setData({pdh:pdh});
+    else if(e.currentTarget.id=="dm_inp"){
+      let dm=e.detail.value;
+      hmcxListPage.setData({dm:dm});
     }
   },
   loadListDataByPageFlag:function(e){
@@ -182,9 +178,9 @@ Page({
     let currentPage=hmcxListPage.data.currentPage;
     let pageSize=hmcxListPage.data.pageSize;
     let ddh=hmcxListPage.data.ddh;
-    let hmztId=hmcxListPage.data.hmztSelectId;
+    let hmztId=hmcxListPage.data.ztSelectId;
     wx.request({
-      url: rootIP+"getHaoMaList",
+      url: rootIP+"getDuiLieList",
       data:{page:currentPage,rows:pageSize,ddh:ddh,hmztId:hmztId},
       method: 'POST',
       header: {
@@ -199,10 +195,12 @@ Page({
         if(status=="ok"){
           var hmList=data.list;
           for(let i=0;i<hmList.length;i++){
+            /*
             let hm=hmList[i];
             let fl=hm.fl;
             let flMc=hmcxListPage.getFlMcById(fl);
             hm.flMc=flMc;
+            */
           }
           hmcxListPage.setData({hmList:hmList});
           hmcxListPage.showNoDataView(false);
@@ -234,37 +232,31 @@ Page({
     }
     return str;
   },
-  getHmztSelectData:function(){
-    wx.request({
-      url: rootIP+"getHaoMaZhuangTaiSelectList",
-      method: 'POST',
-      header: {
-        'content-type': 'application/x-www-form-urlencoded',
-      },
-      success: function (res) {
-        let hmztList=res.data.list;
-        //console.log(hmztList);
-        hmcxListPage.setData({hmztList:hmztList});
-        hmcxListPage.getListData();
-      }
-    })
+  getZtSelectData:function(){
+    let ztMap=hmcxListPage.data.constantMap.dlZtMap;
+    let ztList=[];
+    ztList.push({"value":"","text":"请选择"});
+    ztList.push({"value":ztMap.zyZt,"text":ztMap.zyZtMc});
+    ztList.push({"value":ztMap.ztZt,"text":ztMap.ztZtMc});
+    ztList.push({"value":ztMap.fqZt,"text":ztMap.fqZtMc});
+    hmcxListPage.setData({ztList:ztList});
   },
   // 点击下拉显示框
-  showHmztOption() {
+  showZtOption() {
     hmcxListPage.setData({
-      showHmztOption: !hmcxListPage.data.showHmztOption,
+      showZtOption: !hmcxListPage.data.showZtOption,
     });
   },
   // 点击下拉列表
-  selectHmztOption(e) {
+  selectZtOption(e) {
     let index = e.currentTarget.dataset.index; //获取点击的下拉列表的下标
-    let hmztList=hmcxListPage.data.hmztList;
-    let hmzt=hmztList[index];
-    console.log(index+","+hmzt.id+","+hmzt.mc);
+    let ztList=hmcxListPage.data.ztList;
+    let hmzt=ztList[index];
+    console.log(index+","+hmzt.value+","+hmzt.text);
     this.setData({
-      hmztSelectIndex: index,
-      hmztSelectId: hmzt.id,
-      showHmztOption: !this.data.showHmztOption
+      ztSelectIndex: index,
+      ztSelectId: hmzt.value,
+      showZtOption: !this.data.showZtOption
     });
   },
   goHomePage:function(){
