@@ -169,19 +169,19 @@ Page({
   },
   goAddPage:function(){
     wx.redirectTo({
-      url: '/pages/ddgl/ddzt/new',
+      url: '/pages/pdgl/hmzt/new',
     })
   },
   goEditPage:function(e){
     let id=e.currentTarget.dataset.id;
     wx.redirectTo({
-      url: '/pages/ddgl/ddzt/edit?id='+id,
+      url: '/pages/pdgl/hmzt/edit?id='+id,
     })
   },
   goDetailPage:function(e){
     let id=e.currentTarget.dataset.id;
     wx.redirectTo({
-      url: '/pages/ddgl/ddzt/detail?id='+id,
+      url: '/pages/pdgl/hmzt/detail?id='+id,
     })
   },
   goHomePage:function(){

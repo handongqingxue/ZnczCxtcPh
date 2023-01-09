@@ -52,7 +52,10 @@
     "pages/test/multipleBut",
     "pages/login/login",
     "pages/index/index",
-    "pages/logs/logs"
+    "pages/logs/logs",
+    "pages/pdgl/hmzt/new",
+    "pages/pdgl/hmzt/edit",
+    "pages/pdgl/hmzt/detail"
   ],
   "window": {
     "backgroundTextStyle": "light",
