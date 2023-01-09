@@ -1,6 +1,7 @@
 {
   "pages": [
     "pages/sjgl/zhcx/list",
+    "pages/sjgl/zhcx/detail",
     "pages/sjgl/zhcx/edit",
     "pages/sjgl/zhcx/new",
     "pages/home/home",
