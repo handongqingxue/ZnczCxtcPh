@@ -1,5 +1,5 @@
 // pages/pdgl/dlcx/list.js
-var hmcxListPage;
+var dlcxListPage;
 var rootIP;
 Page({
 
@@ -27,7 +27,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    hmcxListPage=this;
+    dlcxListPage=this;
     rootIP=getApp().getRootIP();
   },
 
@@ -35,7 +35,7 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-    hmcxListPage.getConstantFlagMap();
+    dlcxListPage.getConstantFlagMap();
   },
 
   /**
@@ -89,11 +89,11 @@ Page({
       success: function (res) {
         let constantFlagMap=res.data;
         console.log(constantFlagMap);
-        //hmcxListPage.setData({constantFlagMap:constantFlagMap});
-        let lxlx=constantFlagMap.lxlx;
+        //dlcxListPage.setData({constantFlagMap:constantFlagMap});
+        let dlJhxs=constantFlagMap.dlJhxs;
         let dlZt=constantFlagMap.dlZt;
-        let constantFlags=lxlx+","+dlZt;
-        hmcxListPage.getConstantMap(constantFlags);
+        let constantFlags=dlJhxs+","+dlZt;
+        dlcxListPage.getConstantMap(constantFlags);
       }
     })
   },
@@ -108,53 +108,53 @@ Page({
       success: function (res) {
         let constantMap=res.data;
         console.log(constantMap);
-        hmcxListPage.setData({constantMap:constantMap});
-        hmcxListPage.getZtSelectData();
-        hmcxListPage.getListData();
+        dlcxListPage.setData({constantMap:constantMap});
+        dlcxListPage.getZtSelectData();
+        dlcxListPage.getListData();
       }
     })
   },
   showPageView:function(flag){
     if(flag){
-      hmcxListPage.setData({showDjckgdView:false,showPageView:true});
+      dlcxListPage.setData({showDjckgdView:false,showPageView:true});
     }
     else{
-      hmcxListPage.setData({showDjckgdView:true,showPageView:false});
+      dlcxListPage.setData({showDjckgdView:true,showPageView:false});
     }
   },
   showToolBarView:function(e){
     let flag=e.currentTarget.dataset.flag;
     if(flag){
-      hmcxListPage.setData({showToolBarView:true});
+      dlcxListPage.setData({showToolBarView:true});
     }
     else{
-      hmcxListPage.setData({showToolBarView:false});
+      dlcxListPage.setData({showToolBarView:false});
     }
   },
   showNoDataView:function(flag){
     if(flag){
-      hmcxListPage.setData({showNoDataView:true});
+      dlcxListPage.setData({showNoDataView:true});
     }
     else{
-      hmcxListPage.setData({showNoDataView:false});
+      dlcxListPage.setData({showNoDataView:false});
     }
   },
   getInputValue:function(e){
     if(e.currentTarget.id=="mc_inp"){
       let mc=e.detail.value;
-      hmcxListPage.setData({mc:mc});
+      dlcxListPage.setData({mc:mc});
     }
     else if(e.currentTarget.id=="dm_inp"){
       let dm=e.detail.value;
-      hmcxListPage.setData({dm:dm});
+      dlcxListPage.setData({dm:dm});
     }
   },
   loadListDataByPageFlag:function(e){
     let flag=e.currentTarget.dataset.flag;
-    let prePageFlag=hmcxListPage.data.prePageFlag;
-    let nextPageFlag=hmcxListPage.data.nextPageFlag;
-    let currentPage=hmcxListPage.data.currentPage;
-    let pageCount=hmcxListPage.data.pageCount;
+    let prePageFlag=dlcxListPage.data.prePageFlag;
+    let nextPageFlag=dlcxListPage.data.nextPageFlag;
+    let currentPage=dlcxListPage.data.currentPage;
+    let pageCount=dlcxListPage.data.pageCount;
     if(flag==prePageFlag)
       currentPage--;
     else if(flag==nextPageFlag)
@@ -166,19 +166,19 @@ Page({
       currentPage=pageCount;
 
     if(currentPage<=1){
-      hmcxListPage.setData({prePageEnable:false,nextPageEnable:true});
+      dlcxListPage.setData({prePageEnable:false,nextPageEnable:true});
     }
     else if(currentPage>=pageCount){
-      hmcxListPage.setData({prePageEnable:true,nextPageEnable:false});
+      dlcxListPage.setData({prePageEnable:true,nextPageEnable:false});
     }
-    hmcxListPage.setData({currentPage:currentPage});
-    hmcxListPage.getListData();
+    dlcxListPage.setData({currentPage:currentPage});
+    dlcxListPage.getListData();
   },
   getListData:function(){
-    let currentPage=hmcxListPage.data.currentPage;
-    let pageSize=hmcxListPage.data.pageSize;
-    let ddh=hmcxListPage.data.ddh;
-    let hmztId=hmcxListPage.data.ztSelectId;
+    let currentPage=dlcxListPage.data.currentPage;
+    let pageSize=dlcxListPage.data.pageSize;
+    let ddh=dlcxListPage.data.ddh;
+    let hmztId=dlcxListPage.data.ztSelectId;
     wx.request({
       url: rootIP+"getDuiLieList",
       data:{page:currentPage,rows:pageSize,ddh:ddh,hmztId:hmztId},
@@ -191,66 +191,86 @@ Page({
         let status=data.status;
         console.log("status==="+status)
         let dataCount;
-        hmcxListPage.setData({hmList:[]});
+        dlcxListPage.setData({dlList:[]});
         if(status=="ok"){
-          var hmList=data.list;
-          for(let i=0;i<hmList.length;i++){
-            /*
-            let hm=hmList[i];
-            let fl=hm.fl;
-            let flMc=hmcxListPage.getFlMcById(fl);
-            hm.flMc=flMc;
-            */
+          var dlList=data.list;
+          for(let i=0;i<dlList.length;i++){
+            let dl=dlList[i];
+            let jhxs=dl.jhxs;
+            let jhxsMc=dlcxListPage.getJhxsMcById(jhxs);
+            dl.jhxsMc=jhxsMc;
+
+            let zt=dl.zt;
+            let ztMc=dlcxListPage.getZtMcById(zt);
+            dl.ztMc=ztMc;
           }
-          hmcxListPage.setData({hmList:hmList});
-          hmcxListPage.showNoDataView(false);
-          hmcxListPage.setData({noDataText:""});
+          dlcxListPage.setData({dlList:dlList});
+          dlcxListPage.showNoDataView(false);
+          dlcxListPage.setData({noDataText:""});
         }
         else{
-          hmcxListPage.showNoDataView(true);
-          hmcxListPage.setData({noDataText:data.message});
+          dlcxListPage.showNoDataView(true);
+          dlcxListPage.setData({noDataText:data.message});
         }
         dataCount=data.total;
-        hmcxListPage.setData({dataCount:dataCount,pageCount:Math.floor((dataCount-1)/pageSize)+1});
+        dlcxListPage.setData({dataCount:dataCount,pageCount:Math.floor((dataCount-1)/pageSize)+1});
         let e={currentTarget:{dataset:{flag:false}}};
-        hmcxListPage.showToolBarView(e);
+        dlcxListPage.showToolBarView(e);
       }
     })
   },
-  getFlMcById:function(flId){
-    let constantMap=hmcxListPage.data.constantMap;
-    let flMap=constantMap.hmFlMap;
-    //console.log(flMap);
+  getJhxsMcById:function(jhxsId){
+    let constantMap=dlcxListPage.data.constantMap;
+    let jhxsMap=constantMap.dlJhxsMap;
+    //console.log(jhxsMap);
     var str;
-    switch (flId) {
-      case flMap.ptFl:
-        str=flMap.ptFlMc;//普通
+    switch (jhxsId) {
+      case jhxsMap.zdjhJhxs:
+        str=jhxsMap.zdjhJhxsMc;//自动叫号
         break;
-      case flMap.qtFl:
-        str=flMap.qtFlMc;//其他
+      case jhxsMap.sdjhJhxs:
+        str=jhxsMap.sdjhJhxsMc;//手动叫号
+        break;
+    }
+    return str;
+  },
+  getZtMcById:function(ztId){
+    let constantMap=dlcxListPage.data.constantMap;
+    let ztMap=constantMap.dlZtMap;
+    //console.log(ztMap);
+    var str;
+    switch (ztId) {
+      case ztMap.zyZt:
+        str=ztMap.zyZtMc;//在用
+        break;
+      case ztMap.ztZt:
+        str=ztMap.ztZtMc;//暂停
+        break;
+      case ztMap.fqZt:
+        str=ztMap.fqZtMc;//废弃
         break;
     }
     return str;
   },
   getZtSelectData:function(){
-    let ztMap=hmcxListPage.data.constantMap.dlZtMap;
+    let ztMap=dlcxListPage.data.constantMap.dlZtMap;
     let ztList=[];
     ztList.push({"value":"","text":"请选择"});
     ztList.push({"value":ztMap.zyZt,"text":ztMap.zyZtMc});
     ztList.push({"value":ztMap.ztZt,"text":ztMap.ztZtMc});
     ztList.push({"value":ztMap.fqZt,"text":ztMap.fqZtMc});
-    hmcxListPage.setData({ztList:ztList});
+    dlcxListPage.setData({ztList:ztList});
   },
   // 点击下拉显示框
   showZtOption() {
-    hmcxListPage.setData({
-      showZtOption: !hmcxListPage.data.showZtOption,
+    dlcxListPage.setData({
+      showZtOption: !dlcxListPage.data.showZtOption,
     });
   },
   // 点击下拉列表
   selectZtOption(e) {
     let index = e.currentTarget.dataset.index; //获取点击的下拉列表的下标
-    let ztList=hmcxListPage.data.ztList;
+    let ztList=dlcxListPage.data.ztList;
     let hmzt=ztList[index];
     console.log(index+","+hmzt.value+","+hmzt.text);
     this.setData({

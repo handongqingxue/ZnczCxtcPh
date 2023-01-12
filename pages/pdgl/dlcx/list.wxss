@@ -119,12 +119,11 @@
   width: 95%;
   margin: auto;
 }
+.main_v .list_v .item_v .mc_v,
 .main_v .list_v .item_v .dm_v,
-.main_v .list_v .item_v .pdh_v,
-.main_v .list_v .item_v .prsj_v,
-.main_v .list_v .item_v .flMc_v,
-.main_v .list_v .item_v .hmztMc_v,
-.main_v .list_v .item_v .ksjhsj_v{
+.main_v .list_v .item_v .jhxs_v,
+.main_v .list_v .item_v .jhyz_v,
+.main_v .list_v .item_v .ztMc_v{
   border-bottom: #eee solid 1px;
 }
 .main_v .list_v .item_v .key_v{

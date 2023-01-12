@@ -35,34 +35,26 @@
   <view class="back_but_v" catchtap="goHomePage">{{backButSign}}</view>
   <view class="no_data_v" wx:if="{{showNoDataView}}">{{noDataText}}</view>
   <view class="list_v" wx:else>
-    <view class="item_v" wx:for-items="{{hmList}}">
+    <view class="item_v" wx:for-items="{{dlList}}">
+      <view class="row_v mc_v">
+        <view class="key_v">名称</view>
+        <view class="val_v">{{item.mc}}</view>
+      </view>
       <view class="row_v dm_v">
-        <view class="key_v">号码</view>
-        <view class="val_v">{{item.hm}}</view>
+        <view class="key_v">代码</view>
+        <view class="val_v">{{item.dm}}</view>
       </view>
-      <view class="row_v pdh_v">
-        <view class="key_v">排队号</view>
-        <view class="val_v">{{item.pdh}}</view>
+      <view class="row_v jhxs_v">
+        <view class="key_v">叫号形式</view>
+        <view class="val_v">{{item.jhxsMc}}</view>
       </view>
-      <view class="row_v prsj_v">
-        <view class="key_v">排入时间</view>
-        <view class="val_v">{{item.prsj}}</view>
+      <view class="row_v jhyz_v">
+        <view class="key_v">叫号阈值</view>
+        <view class="val_v">{{item.jhyz}}</view>
       </view>
-      <view class="row_v flMc_v">
-        <view class="key_v">分类</view>
-        <view class="val_v">{{item.flMc}}</view>
-      </view>
-      <view class="row_v hmztMc_v">
+      <view class="row_v ztMc_v">
         <view class="key_v">状态</view>
-        <view class="val_v">{{item.hmztMc}}</view>
-      </view>
-      <view class="row_v ksjhsj_v">
-        <view class="key_v">开始叫号时间</view>
-        <view class="val_v">{{item.ksjhsj}}</view>
-      </view>
-      <view class="row_v jhcs_v">
-        <view class="key_v">叫号次数</view>
-        <view class="val_v">{{item.jhcs}}</view>
+        <view class="val_v">{{item.ztMc}}</view>
       </view>
     </view>
   </view>
