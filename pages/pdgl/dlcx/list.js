@@ -279,6 +279,23 @@ Page({
       showZtOption: !this.data.showZtOption
     });
   },
+  goAddPage:function(){
+    wx.redirectTo({
+      url: '/pages/pdgl/dlcx/new',
+    })
+  },
+  goEditPage:function(e){
+    let id=e.currentTarget.dataset.id;
+    wx.redirectTo({
+      url: '/pages/pdgl/dlcx/edit?id='+id,
+    })
+  },
+  goDetailPage:function(e){
+    let id=e.currentTarget.dataset.id;
+    wx.redirectTo({
+      url: '/pages/pdgl/dlcx/detail?id='+id,
+    })
+  },
   goHomePage:function(){
     wx.redirectTo({
       url: '/pages/home/home',
