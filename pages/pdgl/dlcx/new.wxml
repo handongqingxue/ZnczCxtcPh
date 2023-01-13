@@ -1,0 +1,51 @@
+<!--pages/pdgl/dlcx/new.wxml-->
+<view class="main_v">
+  <view class="title_v">添加页面</view>
+  <view class="back_but_v" catchtap="goListPage">{{backButSign}}</view>
+  <view class="add_v">
+      <view class="row_v mc_v">
+        <view class="key_v">名称</view>
+        <view class="val_v">
+          <input class="mc_inp" id="mc_inp" type="text" placeholder="请输入名称" value="{{mc}}" bindfocus="focusMc" bindblur="checkMc" bindinput="getInputValue"/>
+        </view>
+      </view>
+      <view class="row_v dm_v">
+        <view class="key_v">代码</view>
+        <view class="val_v">
+          <input class="dm_inp" id="dm_inp" type="text" placeholder="请输入代码" value="{{dm}}" bindfocus="focusDm" bindblur="checkDm" bindinput="getInputValue"/>
+        </view>
+      </view>
+      <view class="row_v jhxs_v">
+        <view class="key_v">叫号形式</view>
+        <view class='jhxs_select_v'>
+          <view class='selected_text_v' catchtap='showJhxsOption'>{{jhxsList[jhxsSelectIndex]==null?'请选择':jhxsList[jhxsSelectIndex].text}}</view>
+          <image class='select_img {{showJhxsOption&&"select_img_rotate"}}' src='../../../images/sanjiao.png'></image>
+        </view>
+        <view class='jhxs_option_list_v' style='height:{{showJhxsOption?(jhxsList.length>5?300:jhxsList.length*30):0}}px;'>
+          <view class='item_v' wx:for="{{jhxsList}}" data-index="{{index}}" catchtap='selectJhxsOption'>{{item.text}}</view>
+        </view>
+      </view>
+      <view class="row_v jhyz_v">
+        <view class="key_v">叫号阈值</view>
+        <view class="val_v">
+          <input class="jhyz_inp" id="jhyz_inp" type="text" placeholder="请输入叫号阈值" value="{{jhyz}}" bindfocus="focusJhyz" bindblur="checkJhyz" bindinput="getInputValue"/>
+        </view>
+      </view>
+      <view class="row_v zt_v">
+        <view class="key_v">状态</view>
+        <view class='zt_select_v'>
+          <view class='selected_text_v' catchtap='showZtOption'>{{ztList[ztSelectIndex]==null?'请选择':ztList[ztSelectIndex].text}}</view>
+          <image class='select_img {{showZtOption&&"select_img_rotate"}}' src='../../../images/sanjiao.png'></image>
+        </view>
+        <view class='zt_option_list_v' style='height:{{showZtOption?(ztList.length>5?300:ztList.length*30):0}}px;'>
+          <view class='item_v' wx:for="{{ztList}}" data-index="{{index}}" catchtap='selectZtOption'>{{item.text}}</view>
+        </view>
+      </view>
+  </view>
+  <view class="bottom_v">
+    <view class="but_list_v">
+      <view class="but_v save_but_v" data-flag="{{true}}" catchtap="checkNew">保存</view>
+      <view class="but_v more_but_v">更多操作</view>
+    </view>
+  </view>
+</view>

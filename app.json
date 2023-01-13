@@ -1,5 +1,6 @@
 {
   "pages": [
+    "pages/pdgl/dlcx/new",
     "pages/pdgl/dlcx/list",
     "pages/pdgl/hmcx/list",
     "pages/home/home",
