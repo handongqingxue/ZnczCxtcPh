@@ -1,5 +1,6 @@
 {
   "pages": [
+    "pages/dwgl/yss/list",
     "pages/home/home",
     "pages/ddgl/ddzt/detail",
     "pages/ddgl/ddzt/edit",
@@ -44,7 +45,6 @@
     "pages/sjgl/zhcx/detail",
     "pages/sjgl/zhcx/edit",
     "pages/sjgl/shjl/list",
-
     "pages/pdgl/hmzt/list",
     "pages/pdgl/hmzt/new",
     "pages/pdgl/hmzt/edit",
@@ -54,7 +54,6 @@
     "pages/pdgl/dlcx/new",
     "pages/pdgl/dlcx/detail",
     "pages/pdgl/dlcx/edit",
-
     "pages/test/datePicker",
     "pages/test/calendarDemo",
     "pages/test/calendar",
