@@ -1,2 +1,37 @@
 <!--pages/pdgl/dlcx/detail.wxml-->
-<text>pages/pdgl/dlcx/detail.wxml</text>
+<view class="main_v">
+  <view class="title_v">详情页面</view>
+  <view class="back_but_v" catchtap="goListPage">{{backButSign}}</view>
+  <view class="detail_v">
+      <view class="row_v mc_v">
+        <view class="key_v">名称</view>
+        <view class="val_v">
+          {{mc}}
+        </view>
+      </view>
+      <view class="row_v dm_v">
+        <view class="key_v">代码</view>
+        <view class="val_v">
+          {{dm}}
+        </view>
+      </view>
+      <view class="row_v jhxs_v">
+        <view class="key_v">叫号形式</view>
+        <view class="val_v">
+          {{jhxsMc}}
+        </view>
+      </view>
+      <view class="row_v jhyz_v">
+        <view class="key_v">叫号阈值</view>
+        <view class="val_v">
+          {{jhyz}}
+        </view>
+      </view>
+      <view class="row_v zt_v">
+        <view class="key_v">状态</view>
+        <view class="val_v">
+          {{ztMc}}
+        </view>
+      </view>
+  </view>
+</view>

@@ -32,6 +32,8 @@ Page({
     sjgl_shjl:24,
 
     pdgl_hmzt:25,
+    pdgl_hmcx:26,
+    pdgl_dlcx:27,
   },
 
   /**
@@ -157,6 +159,12 @@ Page({
         break;
       case home.data.pdgl_hmzt:
         url+='pdgl/hmzt/list';
+        break;
+      case home.data.pdgl_hmcx:
+        url+='pdgl/hmcx/list';
+        break;
+      case home.data.pdgl_dlcx:
+        url+='pdgl/dlcx/list';
         break;
     }
     wx.redirectTo({

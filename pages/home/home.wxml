@@ -38,5 +38,7 @@
   <view class="pdgl_v first_level_v">
     <view class="title_v">排队管理</view>
     <view class="hmzt_v second_level_v" data-pageflag="{{pdgl_hmzt}}" catchtap="goPage">号码状态</view>
+    <view class="hmcx_v second_level_v" data-pageflag="{{pdgl_hmcx}}" catchtap="goPage">号码查询</view>
+    <view class="dlcx_v second_level_v" data-pageflag="{{pdgl_dlcx}}" catchtap="goPage">队列查询</view>
   </view>
 </view>
