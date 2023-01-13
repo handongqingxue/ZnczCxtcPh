@@ -19,8 +19,8 @@ Page({
   onLoad: function (options) {
     editPage=this;
     rootIP=getApp().getRootIP();
-    //let id=options.id;
-    let id=5;
+    let id=options.id;
+    //let id=5;
     console.log(id)
     editPage.setData({id:id});
   },

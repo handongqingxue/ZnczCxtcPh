@@ -1,7 +1,7 @@
 {
   "pages": [
-    "pages/pdgl/dlcx/edit",
     "pages/pdgl/dlcx/list",
+    "pages/pdgl/dlcx/edit",
     "pages/pdgl/dlcx/new",
     "pages/pdgl/hmcx/list",
     "pages/home/home",
@@ -59,7 +59,8 @@
     "pages/pdgl/hmzt/list",
     "pages/pdgl/hmzt/new",
     "pages/pdgl/hmzt/edit",
-    "pages/pdgl/hmzt/detail"
+    "pages/pdgl/hmzt/detail",
+    "pages/pdgl/dlcx/detail"
   ],
   "window": {
     "backgroundTextStyle": "light",
