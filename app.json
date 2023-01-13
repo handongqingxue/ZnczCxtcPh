@@ -1,7 +1,8 @@
 {
   "pages": [
-    "pages/pdgl/dlcx/new",
+    "pages/pdgl/dlcx/edit",
     "pages/pdgl/dlcx/list",
+    "pages/pdgl/dlcx/new",
     "pages/pdgl/hmcx/list",
     "pages/home/home",
     "pages/ddgl/ddzt/detail",
