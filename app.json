@@ -1,8 +1,9 @@
 {
   "pages": [
+    "pages/dwgl/yss/list",
     "pages/dwgl/yss/edit",
     "pages/dwgl/yss/new",
-    "pages/dwgl/yss/list",
+    "pages/dwgl/yss/detail",
     "pages/home/home",
     "pages/ddgl/ddzt/detail",
     "pages/ddgl/ddzt/edit",
