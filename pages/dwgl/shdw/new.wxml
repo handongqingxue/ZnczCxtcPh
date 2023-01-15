@@ -1,0 +1,29 @@
+<!--pages/dwgl/shdw/new.wxml-->
+<view class="main_v">
+  <view class="title_v">添加页面</view>
+  <view class="back_but_v" catchtap="goListPage">{{backButSign}}</view>
+  <view class="add_v">
+      <view class="row_v mc_v">
+        <view class="key_v">名称</view>
+        <view class="val_v">
+          <input class="mc_inp" id="mc_inp" type="text" placeholder="请输入名称" value="{{mc}}" bindfocus="focusMc" bindblur="checkMc" bindinput="getInputValue"/>
+        </view>
+      </view>
+      <view class="row_v dl_v">
+        <view class="key_v">队列</view>
+        <view class='dl_select_v'>
+          <view class='selected_text_v' catchtap='showDlOption'>{{dlList[dlSelectIndex]==null?'请选择':dlList[dlSelectIndex].mc}}</view>
+          <image class='select_img {{showDlOption&&"select_img_rotate"}}' src='../../../images/sanjiao.png'></image>
+        </view>
+        <view class='dl_option_list_v' style='height:{{showDlOption?(dlList.length>5?300:dlList.length*30):0}}px;'>
+          <view class='item_v' wx:for="{{dlList}}" data-index="{{index}}" catchtap='selectDlOption'>{{item.mc}}</view>
+        </view>
+      </view>
+  </view>
+  <view class="bottom_v">
+    <view class="but_list_v">
+      <view class="but_v save_but_v" data-flag="{{true}}" catchtap="checkNew">保存</view>
+      <view class="but_v more_but_v">更多操作</view>
+    </view>
+  </view>
+</view>
