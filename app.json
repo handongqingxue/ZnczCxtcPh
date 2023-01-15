@@ -1,5 +1,7 @@
 {
   "pages": [
+    "pages/dwgl/yss/edit",
+    "pages/dwgl/yss/new",
     "pages/dwgl/yss/list",
     "pages/home/home",
     "pages/ddgl/ddzt/detail",
