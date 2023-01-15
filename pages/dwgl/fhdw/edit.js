@@ -1,5 +1,5 @@
-// pages/dwgl/yss/new.js
-var newPage;
+// pages/dwgl/fhdw/edit.js
+var editPage;
 var rootIP;
 Page({
 
@@ -14,15 +14,19 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    newPage=this;
+    editPage=this;
     rootIP=getApp().getRootIP();
+    //let id=options.id;
+    let id=4;
+    console.log(id)
+    editPage.setData({id:id});
   },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-
+    editPage.getFhdwInfo();
   },
 
   /**
@@ -66,17 +70,36 @@ Page({
   onShareAppMessage: function () {
 
   },
-  checkNew:function(){
-    if(newPage.checkMc()){
-      newPage.newYunShuShang();
+  checkEdit:function(){
+    if(editPage.checkMc()){
+      editPage.editFaHuoDanWei();
     }
   },
-  newYunShuShang:function(){
-    let mc=newPage.data.mc;
+  getFhdwInfo:function(){
+    let id=editPage.data.id;
+    wx.request({
+      url: rootIP+"getFaHuoDanWei",
+      method: 'POST',
+      data: { id:id},
+      header: {
+        'content-type': 'application/x-www-form-urlencoded',
+      },
+      success: function (res) {
+        console.log(res);
+        let data=res.data;
+        let fhdw=data.fhdw;
+        let mc=fhdw.mc;
+        editPage.setData({mc:mc});
+      }
+    })
+  },
+  editFaHuoDanWei:function(){
+    let id=editPage.data.id;
+    let mc=editPage.data.mc;
     console.log(mc)
     wx.request({
-      url: rootIP+"newYunShuShang",
-      data:{mc:mc},
+      url: rootIP+"editFaHuoDanWei",
+      data:{id:id,mc:mc},
       method: 'POST',
       header: {
         'content-type': 'application/x-www-form-urlencoded',
@@ -89,7 +112,7 @@ Page({
           wx.showToast({
             title: data.info,
           })
-          newPage.goListPage();          
+          editPage.goListPage();          
         }
         else{
           wx.showToast({
@@ -102,19 +125,19 @@ Page({
   getInputValue:function(e){
     if(e.currentTarget.id=="mc_inp"){
       let mc=e.detail.value;
-      newPage.setData({mc:mc});
+      editPage.setData({mc:mc});
     }
   },
   focusMc:function(){
-    let mc=newPage.data.mc;
+    let mc=editPage.data.mc;
     if(mc=="名称不能为空"){
-      newPage.setData({mc:''});
+      editPage.setData({mc:''});
     }
   },
   checkMc:function(){
-    let mc=newPage.data.mc;
+    let mc=editPage.data.mc;
     if(mc==""||mc==null||mc=="名称不能为空"){
-      newPage.setData({mc:'名称不能为空'});
+      editPage.setData({mc:'名称不能为空'});
       return false;
     }
     else{
@@ -123,7 +146,7 @@ Page({
   },
   goListPage:function(){
     wx.redirectTo({
-      url: '/pages/dwgl/yss/list',
+      url: '/pages/dwgl/fhdw/list',
     })
   }
 })

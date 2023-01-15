@@ -1,4 +1,4 @@
-// pages/dwgl/yss/new.js
+// pages/dwgl/fhdw/new.js
 var newPage;
 var rootIP;
 Page({
@@ -68,14 +68,14 @@ Page({
   },
   checkNew:function(){
     if(newPage.checkMc()){
-      newPage.newYunShuShang();
+      newPage.newFaHuoDanWei();
     }
   },
-  newYunShuShang:function(){
+  newFaHuoDanWei:function(){
     let mc=newPage.data.mc;
     console.log(mc)
     wx.request({
-      url: rootIP+"newYunShuShang",
+      url: rootIP+"newFaHuoDanWei",
       data:{mc:mc},
       method: 'POST',
       header: {
@@ -123,7 +123,7 @@ Page({
   },
   goListPage:function(){
     wx.redirectTo({
-      url: '/pages/dwgl/yss/list',
+      url: '/pages/dwgl/fhdw/list',
     })
   }
 })

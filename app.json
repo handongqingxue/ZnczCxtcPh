@@ -1,6 +1,9 @@
 {
   "pages": [
     "pages/dwgl/fhdw/list",
+    "pages/dwgl/fhdw/detail",
+    "pages/dwgl/fhdw/edit",
+    "pages/dwgl/fhdw/new",
     "pages/dwgl/yss/list",
     "pages/dwgl/yss/edit",
     "pages/dwgl/yss/new",
