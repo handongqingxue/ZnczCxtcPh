@@ -1,6 +1,7 @@
 {
   "pages": [
     "pages/dwgl/ck/list",
+    "pages/dwgl/ck/edit",
     "pages/dwgl/shdw/list",
     "pages/dwgl/shdw/detail",
     "pages/dwgl/shdw/edit",

@@ -1,0 +1,70 @@
+/* pages/dwgl/ck/edit.wxss */
+.main_v{
+  width: 100%;
+}
+.main_v .title_v{
+  width: 100%;
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
+  background-color: #eee;
+}
+.main_v .back_but_v{
+  height: 40px;
+  line-height: 40px;
+  margin-top: -40px;
+  margin-left: 10px;
+}
+.main_v .edit_v{
+  width: 95%;
+  margin: auto;
+}
+.main_v .edit_v .row_v{
+  width: 95%;
+  margin: auto;
+}
+.main_v .edit_v .key_v{
+  width:80px;
+  height:40px;
+  line-height:40px;
+  margin-left:8px;
+  text-align:center;
+}
+.main_v .edit_v .val_v{
+  height:40px;
+  line-height:40px;
+  margin-top:-40px;
+  margin-left:120px;
+}
+.main_v .edit_v .mc_inp,
+.main_v .edit_v .wz_inp,
+.main_v .edit_v .bz_inp{
+  margin-top:10px;
+  border: #eee solid 1px;
+  border-radius: 3px;
+}
+
+.main_v .bottom_v{
+  width: 100%;
+  height: 50px;
+  background-color: #F8F8F8;
+  bottom: 0;
+  position: fixed;
+}
+.main_v .bottom_v .but_list_v{
+  width: 95%;
+  margin: auto;
+}
+.main_v .bottom_v .but_list_v .but_v{
+  width: 45%;
+  height: 30px;
+  line-height: 30px;
+  margin-top: 10px;
+  text-align: center;
+  border: #BFBFBF solid 1px;
+  border-radius:3px;
+}
+.main_v .bottom_v .but_list_v .more_but_v{
+  float: right;
+  margin-top:-32px;
+}
