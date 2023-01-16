@@ -21,6 +21,13 @@
     <view class="wzlx_v second_level_v" data-pageflag="{{wzgl_wzlx}}" catchtap="goPage">物资类型</view>
     <view class="wzcx_v second_level_v" data-pageflag="{{wzgl_wzcx}}" catchtap="goPage">物资查询</view>
   </view>
+  <view class="dwgl_v first_level_v">
+    <view class="title_v">单位管理</view>
+    <view class="yss_v second_level_v" data-pageflag="{{dwgl_yss}}" catchtap="goPage">运输商</view>
+    <view class="fhdw_v second_level_v" data-pageflag="{{dwgl_fhdw}}" catchtap="goPage">发货单位</view>
+    <view class="shdw_v second_level_v" data-pageflag="{{dwgl_shdw}}" catchtap="goPage">收货单位</view>
+    <view class="ck_v second_level_v" data-pageflag="{{dwgl_ck}}" catchtap="goPage">仓库</view>
+  </view>
   <view class="clgl_v first_level_v">
     <view class="title_v">车辆管理</view>
     <view class="dsh_v second_level_v" data-pageflag="{{clgl_dsh}}" catchtap="goPage">待审核</view>

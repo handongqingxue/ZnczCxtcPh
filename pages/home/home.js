@@ -21,6 +21,11 @@ Page({
     wzgl_wzlx:11,
     wzgl_wzcx:12,
 
+    dwgl_yss:13,
+    dwgl_fhdw:14,
+    dwgl_shdw:15,
+    dwgl_ck:16,
+
     clgl_dsh:17,
     clgl_zhcx:18,
     clgl_shjl:19,
@@ -132,6 +137,18 @@ Page({
         break;
       case home.data.wzgl_wzcx:
         url+='wzgl/wzcx/list';
+        break;
+      case home.data.dwgl_yss:
+        url+='dwgl/yss/list';
+        break;
+      case home.data.dwgl_fhdw:
+        url+='dwgl/fhdw/list';
+        break;
+      case home.data.dwgl_shdw:
+        url+='dwgl/shdw/list';
+        break;
+      case home.data.dwgl_ck:
+        url+='dwgl/ck/list';
         break;
       case home.data.clgl_dsh:
         url+='clgl/dsh/list';

@@ -1,19 +1,5 @@
 {
   "pages": [
-    "pages/dwgl/ck/list",
-    "pages/dwgl/ck/edit",
-    "pages/dwgl/shdw/list",
-    "pages/dwgl/shdw/detail",
-    "pages/dwgl/shdw/edit",
-    "pages/dwgl/shdw/new",
-    "pages/dwgl/fhdw/list",
-    "pages/dwgl/fhdw/detail",
-    "pages/dwgl/fhdw/edit",
-    "pages/dwgl/fhdw/new",
-    "pages/dwgl/yss/list",
-    "pages/dwgl/yss/edit",
-    "pages/dwgl/yss/new",
-    "pages/dwgl/yss/detail",
     "pages/home/home",
     "pages/ddgl/ddzt/detail",
     "pages/ddgl/ddzt/edit",
@@ -27,11 +13,13 @@
     "pages/ddgl/zhcx/edit",
     "pages/ddgl/zhcx/list",
     "pages/ddgl/zhcx/new",
+
     "pages/gbgl/bdjl/list",
     "pages/gbgl/gbjl/detail",
     "pages/gbgl/gbjl/list",
     "pages/gbgl/yjdsh/list",
     "pages/gbgl/ejdsh/list",
+
     "pages/wzgl/wzlx/detail",
     "pages/wzgl/wzlx/edit",
     "pages/wzgl/wzlx/list",
@@ -40,6 +28,24 @@
     "pages/wzgl/wzcx/edit",
     "pages/wzgl/wzcx/list",
     "pages/wzgl/wzcx/new",
+
+    "pages/dwgl/yss/list",
+    "pages/dwgl/yss/edit",
+    "pages/dwgl/yss/new",
+    "pages/dwgl/yss/detail",
+    "pages/dwgl/fhdw/list",
+    "pages/dwgl/fhdw/detail",
+    "pages/dwgl/fhdw/edit",
+    "pages/dwgl/fhdw/new",
+    "pages/dwgl/shdw/list",
+    "pages/dwgl/shdw/detail",
+    "pages/dwgl/shdw/edit",
+    "pages/dwgl/shdw/new",
+    "pages/dwgl/ck/list",
+    "pages/dwgl/ck/new",
+    "pages/dwgl/ck/edit",
+    "pages/dwgl/ck/detail",
+
     "pages/clgl/dsh/list",
     "pages/clgl/dsh/detail",
     "pages/clgl/zhcx/list",
@@ -51,6 +57,7 @@
     "pages/clgl/tzcx/detail",
     "pages/clgl/cntz/list",
     "pages/clgl/cntz/detail",
+
     "pages/sjgl/dsh/list",
     "pages/sjgl/dsh/detail",
     "pages/sjgl/zhcx/list",
@@ -58,6 +65,7 @@
     "pages/sjgl/zhcx/detail",
     "pages/sjgl/zhcx/edit",
     "pages/sjgl/shjl/list",
+
     "pages/pdgl/hmzt/list",
     "pages/pdgl/hmzt/new",
     "pages/pdgl/hmzt/edit",
@@ -67,6 +75,7 @@
     "pages/pdgl/dlcx/new",
     "pages/pdgl/dlcx/detail",
     "pages/pdgl/dlcx/edit",
+
     "pages/test/datePicker",
     "pages/test/calendarDemo",
     "pages/test/calendar",
@@ -74,8 +83,7 @@
     "pages/test/multipleBut",
     "pages/login/login",
     "pages/index/index",
-    "pages/logs/logs",
-    "pages/dwgl/ck/new"
+    "pages/logs/logs"
   ],
   "window": {
     "backgroundTextStyle": "light",
