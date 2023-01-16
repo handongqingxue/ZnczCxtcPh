@@ -1,0 +1,76 @@
+<!--pages/xtgl/yhcx/list.wxml-->
+<view class="tool_bar_v" wx:if="{{showToolBarView}}">
+  <view class="title_v">筛选页面</view>
+  <view class="back_but_v" data-flag="{{false}}" catchtap="showToolBarView">{{backButSign}}</view>
+  <view class="yhm_v">
+    <span class="yhm_span">用户名</span>
+    <input class="yhm_inp" id="yhm_inp" type="text" placeholder="请输入用户名" value="{{yhm}}" bindinput="getInputValue"/>
+  </view>
+  
+  <view class="space2_v"></view>
+  <view class="bottom_v">
+    <view class="but_list_v">
+      <view class="but_v confirm_but_v" catchtap="getListData">确定</view>
+      <view class="but_v reset_but_v">重置</view>
+    </view>
+  </view>
+</view>
+
+<view class="main_v">
+  <view class="title_v">列表页面</view>
+  <view class="back_but_v" catchtap="goHomePage">{{backButSign}}</view>
+  <view class="no_data_v" wx:if="{{showNoDataView}}">{{noDataText}}</view>
+  <view class="list_v" wx:else>
+    <view class="item_v" wx:for-items="{{yhList}}">
+      <view class="row_v yhm_v">
+        <view class="key_v">用户名</view>
+        <view class="val_v">{{item.yhm}}</view>
+      </view>
+      <view class="row_v nc_v">
+        <view class="key_v">昵称</view>
+        <view class="val_v">{{item.nc}}</view>
+      </view>
+      <view class="row_v xm_v">
+        <view class="key_v">真实姓名</view>
+        <view class="val_v">{{item.xm}}</view>
+      </view>
+      <view class="row_v jsMcs_v">
+        <view class="key_v">角色</view>
+        <view class="val_v">{{item.jsMcs}}</view>
+      </view>
+      <view class="row_v cjsj_v">
+        <view class="key_v">创建时间</view>
+        <view class="val_v">{{item.cjsj}}</view>
+      </view>
+      <view class="row_v shztMc_v">
+        <view class="key_v">审核状态</view>
+        <view class="val_v">{{item.shztMc}}</view>
+      </view>
+      <view class="but_list_v">
+        <view class="but_v detail_but_v" data-id="{{item.id}}" catchtap="goDetailPage">详情</view>
+        <view class="but_v edit_but_v" data-id="{{item.id}}" catchtap="goEditPage">编辑</view>
+      </view>
+    </view>
+  </view>
+
+  <view class="space1_v"></view>
+  <view class="bottom_v">
+    <a wx:if="{{showDjckgdView}}" data-flag="{{false}}" catchtap="showPageView">点击查看更多</a>
+    <view class="page_v" wx:if="{{showPageView}}">
+      <view class="data_count_v">
+        共<text class="val_text">{{dataCount}}</text>条
+      </view>
+      <view class="pre_page_v click_v" data-flag="{{prePageFlag}}" wx:if="{{prePageEnable}}" catchtap="loadListDataByPageFlag">上一页</view>
+      <view class="pre_page_v unClick_v" wx:if="{{!prePageEnable}}">上一页</view>
+      <view class="page_count_v">
+        <text class="curr_page_text">{{currentPage}}</text>/
+        <text class="page_count_text">{{pageCount}}</text>
+      </view>
+      <view class="next_page_v click_v" data-flag="{{nextPageFlag}}" wx:if="{{nextPageEnable}}" catchtap="loadListDataByPageFlag">下一页</view>
+      <view class="next_page_v unClick_v" wx:if="{{!nextPageEnable}}">下一页</view>
+    </view>
+    <view class="but_list_v">
+      <view class="but_v screen_but_v" data-flag="{{true}}" catchtap="showToolBarView">筛选</view>
+    </view>
+  </view>
+</view>
