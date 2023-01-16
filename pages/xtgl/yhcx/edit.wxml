@@ -40,7 +40,7 @@
         <image class='select_img {{showJsOption&&"select_img_rotate"}}' src='../../../images/sanjiao.png'></image>
       </view>
       <view class='js_option_list_v' style='height:{{showJsOption?(jsList.length>5?300:jsList.length*30):0}}px;'>
-        <view class='item_v' wx:for="{{jsList}}" data-index="{{index}}" catchtap='selectJsOption'>{{item.mc}}</view>
+        <view class="item_v {{item.selected?'selected_v':''}}" wx:for="{{jsList}}" data-index="{{index}}" catchtap='selectJsOption'>{{item.mc}}</view>
       </view>
     </view>
   </view>

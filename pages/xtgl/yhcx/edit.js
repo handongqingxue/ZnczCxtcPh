@@ -11,6 +11,7 @@ Page({
     showSaveBut:true,
     showSavingBut:false,
     showSavedBut:false,
+    selectedJsList:[],
   },
 
   /**
@@ -115,6 +116,10 @@ Page({
       success: function (res) {
         let jsList=res.data.list;
         jsList.unshift({id:"",mc:"请选择"});
+        for(let i=0;i<jsList.length;i++){
+          let js=jsList[i];
+          js.selected=false;
+        }
         //console.log(jsList);
         editPage.setData({jsList:jsList});
         editPage.getYHInfo();
@@ -132,13 +137,54 @@ Page({
     let index = e.currentTarget.dataset.index; //获取点击的下拉列表的下标
     let jsList=editPage.data.jsList;
     let js=jsList[index];
-    console.log(index+","+js.id+","+js.mc);
+    js.selected=!js.selected;
+    console.log(index+","+js.id+","+js.mc+","+js.selected);
+    if(js.selected){
+      if(!editPage.checkIfJsInSelectedList(js.id))
+        editPage.pushJsInSelectedList(js);
+    }
+    else{
+      editPage.removeJsFromSelectedList(js);
+    }
+
     this.setData({
       jsSelectIndex: index,
       jsSelectId: js.id,
-      showJsOption: !this.data.showJsOption
+      //showJsOption: !this.data.showJsOption,
+      jsList:jsList
     });
   },
+  pushJsInSelectedList:function(js){
+    console.log(js)
+    let selectedJsList=editPage.data.selectedJsList;
+    selectedJsList.push(js);
+    console.log(selectedJsList)
+    this.setData({selectedJsList:selectedJsList});
+  },
+  removeJsFromSelectedList:function(js){
+    let selectedJsList=editPage.data.selectedJsList;
+    for(let i=0;i<selectedJsList.length;i++){
+      let selectedJs=selectedJsList[i];
+      if(selectedJs.id==js.id){
+        selectedJsList.splice(i,1);
+        break;
+      }
+    }
+    console.log(selectedJsList)
+  },
+  checkIfJsInSelectedList:function(id){
+    let flag=false;
+    let selectedJsList=editPage.data.selectedJsList;
+    for(let i=0;i<selectedJsList.length;i++){
+      let selectedJs=selectedJsList[i];
+      if(selectedJs.id==id){
+        flag=true;
+        break;
+      }
+    }
+    console.log("flag==="+flag)
+    return flag;
+  },
   getYHInfo:function(){
     let id=editPage.data.id;
     wx.request({
