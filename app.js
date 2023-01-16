@@ -1,5 +1,5 @@
 // app.js
-var rootIP = "http://192.168.1.100:8080/ZnczCxtc/phone/";
+var rootIP = "http://192.168.1.102:8080/ZnczCxtc/phone/";
 var serverRootIP = "http://192.168.1.100:8080/";
 //var rootIP = "http://192.168.0.103:8080/ZnczCxtc/phone/";
 //var serverRootIP = "http://192.168.0.103:8080/";

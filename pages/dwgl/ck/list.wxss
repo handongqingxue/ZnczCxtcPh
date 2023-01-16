@@ -103,6 +103,10 @@
   margin-top:-32px;
   margin-left:100px;
 }
+.space1_v{
+  width: 100%;
+  height: 100px;
+}
 
 .main_v .bottom_v{
   width: 100%;
