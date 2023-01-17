@@ -159,7 +159,7 @@ Page({
     let selectedJsList=editPage.data.selectedJsList;
     selectedJsList.push(js);
     console.log(selectedJsList)
-    this.setData({selectedJsList:selectedJsList});
+    editPage.sortJsSelectedAttrs(selectedJsList);
   },
   removeJsFromSelectedList:function(js){
     let selectedJsList=editPage.data.selectedJsList;
@@ -171,6 +171,7 @@ Page({
       }
     }
     console.log(selectedJsList)
+    editPage.sortJsSelectedAttrs(selectedJsList);
   },
   checkIfJsInSelectedList:function(id){
     let flag=false;
@@ -185,6 +186,22 @@ Page({
     console.log("flag==="+flag)
     return flag;
   },
+  sortJsSelectedAttrs:function(selectedJsList){
+    let jsSelectIds="";
+    let jsSelectMcs="";
+    for(let i=0;i<selectedJsList.length;i++){
+      let selectedJs=selectedJsList[i];
+      let jsId=selectedJs.id;
+      let jsMc=selectedJs.mc;
+      console.log("jsId="+jsId+",jsMc="+jsMc);
+      jsSelectIds+=","+jsId;
+      jsSelectMcs+=","+jsMc;
+    }
+    jsSelectIds=jsSelectIds.substring(1);
+    jsSelectMcs=jsSelectMcs.substring(1);
+    console.log("jsSelectIds="+jsSelectIds+",jsSelectMcs="+jsSelectMcs);
+    this.setData({jsSelectIds:jsSelectIds,jsSelectMcs:jsSelectMcs});
+  },
   getYHInfo:function(){
     let id=editPage.data.id;
     wx.request({
@@ -198,15 +215,16 @@ Page({
         console.log(res);
         let data=res.data;
         let yh=data.yh;
+        let id=yh.id;
         let yhm=yh.yhm;
         let xm=yh.xm;
         let cjsj=yh.cjsj;
         let shzt=yh.shzt;
         let shztMc=editPage.getShztMcById(shzt);
         let js=yh.js;
-        //let jsSelectIndex=editPage.getZyztIndexInListByIf(zyzt);
-        //editPage.setData({xm:xm,sjh:sjh,sfzzp:sfzzp==null?null:serverRootIP+sfzzp,sfzh:sfzh,zgzyxqz:zgzyxqz,jzyxqz:jzyxqz,zgzs:zgzs==null?null:serverRootIP+zgzs,jz:jz==null?null:serverRootIP+jz,zyztSelectId:zyzt,jsSelectIndex:jsSelectIndex});
-        editPage.setData({yhm:yhm,xm:xm,cjsj:cjsj,shztMc:shztMc,js:js});
+        let jsIds=yh.jsIds;
+        editPage.getJsMcsByIds(jsIds);
+        editPage.setData({id:id,yhm:yhm,xm:xm,cjsj:cjsj,shztMc:shztMc,js:js});
       }
     })
   },
@@ -227,6 +245,69 @@ Page({
       break;
     }
     return str;
+  },
+  getJsMcsByIds:function(jsIds){
+    let jsSelectMcs="";
+    let jsList=editPage.data.jsList;
+    let jsIdArr=jsIds.split(",");
+    for(let i=0;i<jsIdArr.length;i++){
+      let jsId=jsIdArr[i];
+      for(let j=0;j<jsList.length;j++){
+        let js=jsList[j];
+        if(jsId==js.id){
+          js.selected=true;
+          jsSelectMcs+=","+js.mc;
+          break;
+        }
+      }
+    }
+    jsSelectMcs=jsSelectMcs.substring(1);
+    editPage.setData({jsList:jsList,jsSelectMcs:jsSelectMcs});
+  },
+  checkEdit:function(){
+    editPage.editYongHu();
+  },
+  editYongHu:function(){
+    editPage.saving(true);
+    let id=editPage.data.id;
+    let jsSelectIds=editPage.data.jsSelectIds;
+    let jsSelectIdArr=jsSelectIds.split(",");
+    let jsIds=jsSelectIdArr.sort().toString();
+    if(jsIds.substring(0,1)==",")
+      jsIds=jsIds.substring(1);
+    console.log(jsIds);
+    //return false;
+    wx.request({
+      url: rootIP+"editYongHu",
+      data:{id:id,jsIds:jsIds},
+      method: 'POST',
+      header: {
+        'content-type': 'application/x-www-form-urlencoded',
+      },
+      success: function (res) {
+        let data=res.data;
+        let message=data.message;
+        console.log("message==="+message)
+        if(message=="ok"){
+            setTimeout(() => {
+              editPage.goListPage();
+            }, 1000);
+        }
+        else{
+          wx.showToast({
+            title: data.info,
+          })
+        }
+      }
+    })
+  },
+  saving:function(flag){
+    if(flag){
+      editPage.setData({showSaveBut:false,showSavingBut:true});
+    }
+    else{
+      editPage.setData({showSavingBut:false,showSavedBut:true});
+    }
   },
   goListPage:function(){
     wx.redirectTo({

@@ -34,9 +34,9 @@
       </view>
     </view>
     <view class="js_v">
-      <view class="key_v">在用状态</view>
+      <view class="key_v">角色</view>
       <view class='js_mutiSelect_v'>
-        <view class='selected_text_v' catchtap='showJsOption'>{{jsList[jsSelectIndex]==null?'请选择':jsList[jsSelectIndex].mc}}</view>
+        <view class='selected_text_v' catchtap='showJsOption'>{{jsSelectMcs==null?'请选择':jsSelectMcs}}</view>
         <image class='select_img {{showJsOption&&"select_img_rotate"}}' src='../../../images/sanjiao.png'></image>
       </view>
       <view class='js_option_list_v' style='height:{{showJsOption?(jsList.length>5?300:jsList.length*30):0}}px;'>
