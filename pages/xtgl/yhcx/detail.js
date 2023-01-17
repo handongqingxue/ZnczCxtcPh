@@ -16,8 +16,8 @@ Page({
   onLoad: function (options) {
     detailPage=this;
     rootIP=getApp().getRootIP();
-    //let id=options.id;
-    let id=11;
+    let id=options.id;
+    //let id=11;
     console.log(id);
     detailPage.setData({id:id});
   },
