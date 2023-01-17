@@ -1,0 +1,43 @@
+<!--pages/xtgl/yhcx/detail.wxml-->
+<view class="main_v">
+  <view class="title_v">详情页面</view>
+  <view class="back_but_v" catchtap="goListPage">{{backButSign}}</view>
+  <view class="detail_v">
+    <view class="row_v yhm_v">
+      <view class="key_v">用户名</view>
+      <view class="val_v">
+        {{yhm}}
+      </view>
+    </view>
+    <view class="row_v xm_v">
+      <view class="key_v">真实姓名</view>
+      <view class="val_v">
+        {{xm}}
+      </view>
+    </view>
+    <view class="row_v cjsj_v">
+      <view class="key_v">创建时间</view>
+      <view class="val_v">
+        {{cjsj}}
+      </view>
+    </view>
+    <view class="row_v shzt_v">
+      <view class="key_v">审核状态</view>
+      <view class="val_v">
+        {{shztMc}}
+      </view>
+    </view>
+    <view class="row_v js_v">
+      <view class="key_v">简述</view>
+      <view class="val_v">
+        {{js}}
+      </view>
+    </view>
+    <view class="row_v jsMcs_v">
+      <view class="key_v">角色</view>
+      <view class="val_v">
+        {{jsMcs}}
+      </view>
+    </view>
+  </view>
+</view>

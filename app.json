@@ -1,7 +1,8 @@
 {
   "pages": [
-    "pages/xtgl/yhcx/edit",
+    "pages/xtgl/yhcx/detail",
     "pages/xtgl/yhcx/list",
+    "pages/xtgl/yhcx/edit",
     "pages/home/home",
     "pages/ddgl/ddzt/detail",
     "pages/ddgl/ddzt/edit",
