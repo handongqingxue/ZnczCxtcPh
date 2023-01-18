@@ -1,0 +1,43 @@
+/* pages/xtgl/jscx/detail.wxss */
+.main_v{
+  width: 100%;
+}
+.main_v .title_v{
+  width: 100%;
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
+  background-color: #eee;
+}
+.main_v .back_but_v{
+  height: 40px;
+  line-height: 40px;
+  margin-top: -40px;
+  margin-left: 10px;
+}
+.main_v .detail_v{
+  width: 95%;
+  margin: auto;
+}
+.main_v .detail_v .row_v{
+  width: 95%;
+  margin: auto;
+}
+.main_v .detail_v .key_v{
+  width:100px;
+  height:40px;
+  line-height:40px;
+  margin-left:8px;
+  font-size: 15px;
+  text-align:center;
+}
+.main_v .detail_v .val_v{
+  height:40px;
+  line-height:40px;
+  margin-top:-40px;
+  margin-left:120px;
+}
+.main_v .detail_v .qxMcs_val_v,
+.main_v .detail_v .ms_val_v{
+  line-height:20px;
+}

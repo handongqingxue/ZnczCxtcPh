@@ -1,0 +1,31 @@
+<!--pages/xtgl/jscx/detail.wxml-->
+<view class="main_v">
+  <view class="title_v">详情页面</view>
+  <view class="back_but_v" catchtap="goListPage">{{backButSign}}</view>
+  <view class="detail_v">
+    <view class="row_v mc_v">
+      <view class="key_v">名称</view>
+      <view class="val_v">
+        {{mc}}
+      </view>
+    </view>
+    <view class="row_v ztMc_v">
+      <view class="key_v">状态</view>
+      <view class="val_v">
+        {{ztMc}}
+      </view>
+    </view>
+    <view class="row_v qxMcs_v" style="height:{{qxMcsRowHeight}}px">
+      <view class="key_v">权限</view>
+      <view class="val_v qxMcs_val_v">
+        {{qxMcs}}
+      </view>
+    </view>
+    <view class="row_v ms_v">
+      <view class="key_v">描述</view>
+      <view class="val_v ms_val_v">
+        {{ms}}
+      </view>
+    </view>
+  </view>
+</view>

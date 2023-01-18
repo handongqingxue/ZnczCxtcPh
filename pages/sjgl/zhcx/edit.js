@@ -164,12 +164,12 @@ Page({
         let zgzs=sj.zgzs;
         let jz=sj.jz;
         let zyzt=sj.zyzt;
-        let zyztSelectIndex=editPage.getZyztIndexInListByIf(zyzt);
+        let zyztSelectIndex=editPage.getZyztIndexInListById(zyzt);
         editPage.setData({xm:xm,sjh:sjh,sfzzp:sfzzp==null?null:serverRootIP+sfzzp,sfzh:sfzh,zgzyxqz:zgzyxqz,jzyxqz:jzyxqz,zgzs:zgzs==null?null:serverRootIP+zgzs,jz:jz==null?null:serverRootIP+jz,zyztSelectId:zyzt,zyztSelectIndex:zyztSelectIndex});
       }
     })
   },
-  getZyztIndexInListByIf:function(zyztId){
+  getZyztIndexInListById:function(zyztId){
     let zyztSelectIndex;
     let zyztList=editPage.data.zyztList;
     //console.log(zyztList)
