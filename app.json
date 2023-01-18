@@ -1,5 +1,7 @@
 {
   "pages": [
+    "pages/xtgl/qxcx/list",
+    "pages/xtgl/qxcx/new",
     "pages/xtgl/jscx/list",
     "pages/xtgl/jscx/detail",
     "pages/xtgl/jscx/edit",
