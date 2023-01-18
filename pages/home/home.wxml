@@ -48,4 +48,13 @@
     <view class="hmcx_v second_level_v" data-pageflag="{{pdgl_hmcx}}" catchtap="goPage">号码查询</view>
     <view class="dlcx_v second_level_v" data-pageflag="{{pdgl_dlcx}}" catchtap="goPage">队列查询</view>
   </view>
+  <view class="xtgl_v first_level_v">
+    <view class="title_v">系统管理</view>
+    <view class="yhxx_v second_level_v" data-pageflag="{{xtgl_yhxx}}" catchtap="goPage">用户信息</view>
+    <view class="yhcx_v second_level_v" data-pageflag="{{xtgl_yhcx}}" catchtap="goPage">用户查询</view>
+    <view class="dshyh_v second_level_v" data-pageflag="{{xtgl_dshyh}}" catchtap="goPage">待审核用户</view>
+    <view class="yhshjl_v second_level_v" data-pageflag="{{xtgl_yhshjl}}" catchtap="goPage">用户审核记录</view>
+    <view class="jscx_v second_level_v" data-pageflag="{{xtgl_jscx}}" catchtap="goPage">角色查询</view>
+    <view class="qxcx_v second_level_v" data-pageflag="{{xtgl_qxcx}}" catchtap="goPage">权限查询</view>
+  </view>
 </view>

@@ -39,6 +39,13 @@ Page({
     pdgl_hmzt:25,
     pdgl_hmcx:26,
     pdgl_dlcx:27,
+
+    xtgl_yhxx:28,
+    xtgl_yhcx:29,
+    xtgl_dshyh:30,
+    xtgl_yhshjl:31,
+    xtgl_jscx:32,
+    xtgl_qxcx:33,
   },
 
   /**
@@ -182,6 +189,24 @@ Page({
         break;
       case home.data.pdgl_dlcx:
         url+='pdgl/dlcx/list';
+        break;
+      case home.data.xtgl_yhxx:
+        url+='xtgl/yhxx/list';
+        break;
+      case home.data.xtgl_yhcx:
+        url+='xtgl/yhcx/list';
+        break;
+      case home.data.xtgl_dshyh:
+        url+='xtgl/dshyh/list';
+        break;
+      case home.data.xtgl_yhshjl:
+        url+='xtgl/yhshjl/list';
+        break;
+      case home.data.xtgl_jscx:
+        url+='xtgl/jscx/list';
+        break;
+      case home.data.xtgl_qxcx:
+        url+='xtgl/qxcx/list';
         break;
     }
     wx.redirectTo({

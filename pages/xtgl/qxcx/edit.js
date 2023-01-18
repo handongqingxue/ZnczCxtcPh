@@ -1,5 +1,5 @@
-// pages/xtgl/qxcx/new.js
-var newPage;
+// pages/xtgl/qxcx/edit.js
+var editPage;
 var rootIP;
 Page({
 
@@ -14,15 +14,19 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    newPage=this;
+    editPage=this;
     rootIP=getApp().getRootIP();
+    let id=options.id;
+    //let id=5;
+    console.log(id)
+    editPage.setData({id:id});
   },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-
+    editPage.getQxInfo();
   },
 
   /**
@@ -66,21 +70,42 @@ Page({
   onShareAppMessage: function () {
 
   },
-  checkNew:function(){
-    if(newPage.checkMc()){
-      newPage.newQuanXian();
+  checkEdit:function(){
+    if(editPage.checkMc()){
+      editPage.editQuanXian();
     }
   },
-  newQuanXian:function(){
-    let mc=newPage.data.mc;
-    let px=newPage.data.px;
+  getQxInfo:function(){
+    let id=editPage.data.id;
+    wx.request({
+      url: rootIP+"getQuanXian",
+      method: 'POST',
+      data: { id:id},
+      header: {
+        'content-type': 'application/x-www-form-urlencoded',
+      },
+      success: function (res) {
+        console.log(res);
+        let data=res.data;
+        let qx=data.qx;
+        let mc=qx.mc;
+        let px=qx.px;
+        let ms=qx.ms;
+        editPage.setData({mc:mc,px:px,ms:ms});
+      }
+    })
+  },
+  editQuanXian:function(){
+    let id=editPage.data.id;
+    let mc=editPage.data.mc;
+    let px=editPage.data.px;
     let ms=newPage.data.ms;
     console.log(mc)
     console.log(px)
     console.log(ms)
     wx.request({
-      url: rootIP+"newQuanXian",
-      data:{mc:mc,px:px,ms:ms},
+      url: rootIP+"editQuanXian",
+      data:{id:id,mc:mc,px:px,ms:ms},
       method: 'POST',
       header: {
         'content-type': 'application/x-www-form-urlencoded',
@@ -93,7 +118,7 @@ Page({
           wx.showToast({
             title: data.info,
           })
-          newPage.goListPage();          
+          editPage.goListPage();          
         }
         else{
           wx.showToast({
@@ -106,11 +131,11 @@ Page({
   getInputValue:function(e){
     if(e.currentTarget.id=="mc_inp"){
       let mc=e.detail.value;
-      newPage.setData({mc:mc});
+      editPage.setData({mc:mc});
     }
     else if(e.currentTarget.id=="px_inp"){
       let px=e.detail.value;
-      newPage.setData({px:px});
+      editPage.setData({px:px});
     }
     else if(e.currentTarget.id=="ms_inp"){
       let ms=e.detail.value;
@@ -118,15 +143,15 @@ Page({
     }
   },
   focusMc:function(){
-    let mc=newPage.data.mc;
+    let mc=editPage.data.mc;
     if(mc=="名称不能为空"){
-      newPage.setData({mc:''});
+      editPage.setData({mc:''});
     }
   },
   checkMc:function(){
-    let mc=newPage.data.mc;
+    let mc=editPage.data.mc;
     if(mc==""||mc==null||mc=="名称不能为空"){
-      newPage.setData({mc:'名称不能为空'});
+      editPage.setData({mc:'名称不能为空'});
       return false;
     }
     else{

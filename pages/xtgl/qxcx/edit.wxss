@@ -1,4 +1,4 @@
-/* pages/xtgl/qxcx/new.wxss */
+/* pages/xtgl/qxcx/edit.wxss */
 .main_v{
   width: 100%;
 }
@@ -15,49 +15,49 @@
   margin-top: -40px;
   margin-left: 10px;
 }
-.main_v .add_v{
+.main_v .edit_v{
   width: 95%;
   margin: auto;
 }
-.main_v .add_v .row_v{
+.main_v .edit_v .row_v{
   width: 95%;
   margin: auto;
 }
-.main_v .add_v .ms_v{
+.main_v .edit_v .ms_v{
   height: 120px;
 }
-.main_v .add_v .key_v{
+.main_v .edit_v .key_v{
   width:80px;
   height:40px;
   line-height:40px;
   margin-left:8px;
   text-align:center;
 }
-.main_v .add_v .ms_key_v{
+.main_v .edit_v .ms_key_v{
   height:100px;
   line-height:100px;
 }
-.main_v .add_v .val_v{
+.main_v .edit_v .val_v{
   height:40px;
   line-height:40px;
   margin-top:-40px;
   margin-left:120px;
 }
-.main_v .add_v .ms_val_v{
+.main_v .edit_v .ms_val_v{
   margin-top:-100px;
 }
-.main_v .add_v .mc_inp{
+.main_v .edit_v .mc_inp{
   margin-top:10px;
   border: #eee solid 1px;
   border-radius: 3px;
 }
-.main_v .add_v .px_inp{
+.main_v .edit_v .px_inp{
   width:80px;
   margin-top:10px;
   border: #eee solid 1px;
   border-radius: 3px;
 }
-.main_v .add_v .ms_inp{
+.main_v .edit_v .ms_inp{
   width: 150px;
   height: 100px;
   line-height: 20px;
