@@ -92,7 +92,7 @@ Page({
         if(status=="ok"){
           wx.setStorageSync("yongHu",data.yongHu);
           wx.redirectTo({
-            url: '/pages/index/index',
+            url: '/pages/xtgl/yhxx',
           })
         }
         else{

@@ -1,7 +1,8 @@
 {
   "pages": [
+    "pages/xtgl/yhxx",
+    "pages/login/login",
     "pages/home/home",
-
     "pages/ddgl/ddzt/list",
     "pages/ddgl/ddzt/new",
     "pages/ddgl/ddzt/edit",
@@ -14,13 +15,11 @@
     "pages/ddgl/zhcx/edit",
     "pages/ddgl/zhcx/detail",
     "pages/ddgl/shjl/list",
-
     "pages/gbgl/bdjl/list",
     "pages/gbgl/gbjl/list",
     "pages/gbgl/gbjl/detail",
     "pages/gbgl/yjdsh/list",
     "pages/gbgl/ejdsh/list",
-
     "pages/wzgl/wzlx/list",
     "pages/wzgl/wzlx/new",
     "pages/wzgl/wzlx/edit",
@@ -29,7 +28,6 @@
     "pages/wzgl/wzcx/new",
     "pages/wzgl/wzcx/edit",
     "pages/wzgl/wzcx/detail",
-
     "pages/dwgl/yss/list",
     "pages/dwgl/yss/new",
     "pages/dwgl/yss/edit",
@@ -46,7 +44,6 @@
     "pages/dwgl/ck/new",
     "pages/dwgl/ck/edit",
     "pages/dwgl/ck/detail",
-
     "pages/clgl/dsh/list",
     "pages/clgl/dsh/detail",
     "pages/clgl/zhcx/list",
@@ -58,7 +55,6 @@
     "pages/clgl/tzcx/detail",
     "pages/clgl/cntz/list",
     "pages/clgl/cntz/detail",
-
     "pages/sjgl/dsh/list",
     "pages/sjgl/dsh/detail",
     "pages/sjgl/zhcx/list",
@@ -66,7 +62,6 @@
     "pages/sjgl/zhcx/edit",
     "pages/sjgl/zhcx/detail",
     "pages/sjgl/shjl/list",
-
     "pages/pdgl/hmzt/list",
     "pages/pdgl/hmzt/new",
     "pages/pdgl/hmzt/edit",
@@ -76,7 +71,6 @@
     "pages/pdgl/dlcx/new",
     "pages/pdgl/dlcx/edit",
     "pages/pdgl/dlcx/detail",
-
     "pages/xtgl/yhcx/list",
     "pages/xtgl/yhcx/edit",
     "pages/xtgl/yhcx/detail",
@@ -89,13 +83,11 @@
     "pages/xtgl/qxcx/list",
     "pages/xtgl/qxcx/new",
     "pages/xtgl/qxcx/edit",
-
     "pages/test/datePicker",
     "pages/test/calendarDemo",
     "pages/test/calendar",
     "pages/test/sineleSelect",
     "pages/test/multipleBut",
-    "pages/login/login",
     "pages/index/index",
     "pages/logs/logs"
   ],

@@ -1,0 +1,66 @@
+<!--pages/xtgl/yhxx.wxml-->
+<view class="xgmm_v" wx:if="{{showXgmmView}}">
+  <view class="title_v">修改密码</view>
+  <view class="back_but_v" data-flag="{{false}}" catchtap="showXgmmView">{{backButSign}}</view>
+  <view class="mm_v">
+    <span class="mm_span">原密码</span>
+    <input class="mm_inp" id="mm_inp" type="password" placeholder="请输入原密码" value="{{mm}}" bindinput="getInputValue"/>
+  </view>
+  <view class="xmm_v">
+    <span class="xmm_span">新密码</span>
+    <input class="xmm_inp" id="xmm_inp" type="password" placeholder="请输入新密码" value="{{xmm}}" bindinput="getInputValue"/>
+  </view>
+  <view class="xmm2_v">
+    <span class="xmm2_span">确认密码</span>
+    <input class="xmm2_inp" id="xmm2_inp" type="password" placeholder="请输入确认密码" value="{{xmm2}}" bindinput="getInputValue"/>
+  </view>
+  <view class="bottom_v">
+    <view class="but_list_v">
+      <view class="but_v confirm_but_v" catchtap="checkEditMm">确定</view>
+      <view class="but_v cancel_but_v" data-flag="{{false}}" catchtap="showXgmmView">取消</view>
+    </view>
+  </view>
+</view>
+
+<view class="main_v">
+  <view class="title_v">用户信息</view>
+  <view class="back_but_v" catchtap="goListPage">{{backButSign}}</view>
+  <view class="yhxx_v">
+      <view class="row_v yhm_v">
+        <view class="key_v">用户名</view>
+        <view class="val_v">
+          {{yongHu.yhm}}
+        </view>
+      </view>
+      <view class="row_v nc_v">
+        <view class="key_v">昵称</view>
+        <view class="val_v">
+          {{yongHu.nc}}
+        </view>
+      </view>
+      <view class="row_v xm_v">
+        <view class="key_v">姓名</view>
+        <view class="val_v">
+          {{yongHu.xm}}
+        </view>
+      </view>
+      <view class="row_v mm_v">
+        <view class="key_v">密码</view>
+        <view class="val_v">
+          已设置
+          <view class="xgmm_but_v" data-flag="{{true}}" catchtap="showXgmmView">修改密码</view>
+        </view>
+      </view>
+      <view class="row_v xm_v">
+        <view class="key_v">简述</view>
+        <view class="val_v xm_val_v">
+          {{yongHu.js}}
+        </view>
+      </view>
+  </view>
+  <view class="bottom_v">
+    <view class="but_list_v">
+      <view class="but_v xgyyxx_but_v" data-flag="{{true}}" catchtap="checkNew">修改用户信息</view>
+    </view>
+  </view>
+</view>
