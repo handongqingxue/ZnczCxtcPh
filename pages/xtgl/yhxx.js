@@ -10,6 +10,7 @@ Page({
   data: {
     backButSign:'<',
     showXgmmView:false,
+    showXgyhxxView:false,
   },
 
   /**
@@ -79,6 +80,15 @@ Page({
       yhxxPage.setData({showXgmmView:false});
     }
   },
+  showXgyhxxView:function(e){
+    let flag=e.currentTarget.dataset.flag;
+    if(flag){
+      yhxxPage.setData({showXgyhxxView:true});
+    }
+    else{
+      yhxxPage.setData({showXgyhxxView:false});
+    }
+  },
   getInputValue:function(e){
     if(e.currentTarget.id=="mm_inp"){
       let mm=e.detail.value;
@@ -91,6 +101,14 @@ Page({
     else if(e.currentTarget.id=="xmm2_inp"){
       let xmm2=e.detail.value;
       yhxxPage.setData({xmm2:xmm2});
+    }
+    else if(e.currentTarget.id=="nc_inp"){
+      let nc=e.detail.value;
+      yhxxPage.setData({nc:nc});
+    }
+    else if(e.currentTarget.id=="xm_inp"){
+      let xm=e.detail.value;
+      yhxxPage.setData({xm:xm});
     }
   },
   checkMm:function(){
@@ -209,6 +227,38 @@ Page({
         }
       }
     })
+  },
+  focusNc:function(){
+    let nc=yhxxPage.data.nc;
+    if(nc=="昵称不能为空"){
+      yhxxPage.setData({nc:''});
+    }
+  },
+  checkNc:function(){
+    let nc=yhxxPage.data.nc;
+    if(nc==""||nc==null||nc=="昵称不能为空"){
+      yhxxPage.setData({nc:'昵称不能为空'});
+      return false;
+    }
+    else{
+      return true;
+    }
+  },
+  focusXm:function(){
+    let xm=yhxxPage.data.xm;
+    if(xm=="姓名不能为空"){
+      yhxxPage.setData({xm:''});
+    }
+  },
+  checkXm:function(){
+    let xm=yhxxPage.data.xm;
+    if(xm==""||xm==null||xm=="姓名不能为空"){
+      yhxxPage.setData({xm:'姓名不能为空'});
+      return false;
+    }
+    else{
+      return true;
+    }
   },
   goHomePage:function(){
     wx.redirectTo({

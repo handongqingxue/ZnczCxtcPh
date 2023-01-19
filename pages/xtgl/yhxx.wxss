@@ -1,5 +1,6 @@
 /* pages/xtgl/yhxx.wxss */
-.xgmm_v{
+.xgmm_v,
+.xgyhxx_v{
   width: 100%;
   height: 100%;
   background-color: #fff;
@@ -8,32 +9,40 @@
 }
 .xgmm_v .mm_v,
 .xgmm_v .xmm_v,
-.xgmm_v .xmm2_v{
+.xgmm_v .xmm2_v,
+.xgyhxx_v .nc_v,
+.xgyhxx_v .xm_v{
   width:100%;
   height:50px;
   line-height:50px;
 }
 .xgmm_v .mm_v .mm_span,
 .xgmm_v .xmm_v .xmm_span,
-.xgmm_v .xmm2_v .xmm2_span{
+.xgmm_v .xmm2_v .xmm2_span,
+.xgyhxx_v .nc_v .nc_span,
+.xgyhxx_v .xm_v .xm_span{
   margin-left:25px;
 }
 .xgmm_v .mm_v .mm_inp,
 .xgmm_v .xmm_v .xmm_inp,
-.xgmm_v .xmm2_v .xmm2_inp{
+.xgmm_v .xmm2_v .xmm2_inp,
+.xgyhxx_v .nc_v .nc_inp,
+.xgyhxx_v .xm_v .xm_inp{
   width:180px;
   margin-top:-35px;
   margin-left:100px;
   border: #eee solid 1px;
 }
-.xgmm_v .bottom_v{
+.xgmm_v .bottom_v,
+.xgyhxx_v .bottom_v{
   width: 100%;
   height: 50px;
   background-color: #fff;
   bottom: 0;
   position: fixed;
 }
-.xgmm_v .bottom_v .but_list_v .but_v{
+.xgmm_v .bottom_v .but_list_v .but_v,
+.xgyhxx_v .bottom_v .but_list_v .but_v{
   width: 45%;
   height: 30px;
   line-height: 30px;
@@ -42,7 +51,8 @@
   border: #BFBFBF solid 1px;
   border-radius:3px;
 }
-.xgmm_v .bottom_v .but_list_v .cancel_but_v{
+.xgmm_v .bottom_v .but_list_v .cancel_but_v,
+.xgyhxx_v .bottom_v .but_list_v .cancel_but_v{
   float: right;
   margin-top:-32px;
 }
@@ -50,14 +60,18 @@
 .main_v{
   width: 100%;
 }
-.main_v .title_v,.xgmm_v .title_v{
+.main_v .title_v,
+.xgmm_v .title_v,
+.xgyhxx_v .title_v{
   width: 100%;
   height: 40px;
   line-height: 40px;
   text-align: center;
   background-color: #eee;
 }
-.main_v .back_but_v,.xgmm_v .back_but_v{
+.main_v .back_but_v,
+.xgmm_v .back_but_v,
+.xgyhxx_v .back_but_v{
   height: 40px;
   line-height: 40px;
   margin-top: -40px;

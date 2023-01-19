@@ -22,6 +22,25 @@
   </view>
 </view>
 
+<view class="xgyhxx_v" wx:if="{{showXgyhxxView}}">
+  <view class="title_v">修改用户信息</view>
+  <view class="back_but_v" data-flag="{{false}}" catchtap="showXgyhxxView">{{backButSign}}</view>
+  <view class="nc_v">
+    <span class="nc_span">昵称</span>
+    <input class="nc_inp" id="nc_inp" type="text" placeholder="请输入昵称" value="{{yongHu.nc}}" bindinput="getInputValue"/>
+  </view>
+  <view class="xm_v">
+    <span class="xm_span">姓名</span>
+    <input class="xm_inp" id="xm_inp" type="text" placeholder="请输入新密码" value="{{yongHu.xm}}" bindinput="getInputValue"/>
+  </view>
+  <view class="bottom_v">
+    <view class="but_list_v">
+      <view class="but_v confirm_but_v" catchtap="checkEditYhxx">确定</view>
+      <view class="but_v cancel_but_v" data-flag="{{false}}" catchtap="showXgyhxxView">取消</view>
+    </view>
+  </view>
+</view>
+
 <view class="main_v">
   <view class="title_v">用户信息</view>
   <view class="back_but_v" catchtap="goListPage">{{backButSign}}</view>
@@ -60,7 +79,7 @@
   </view>
   <view class="bottom_v">
     <view class="but_list_v">
-      <view class="but_v xgyyxx_but_v" data-flag="{{true}}" catchtap="checkNew">修改用户信息</view>
+      <view class="but_v xgyyxx_but_v" data-flag="{{true}}" catchtap="showXgyhxxView">修改用户信息</view>
     </view>
   </view>
 </view>
