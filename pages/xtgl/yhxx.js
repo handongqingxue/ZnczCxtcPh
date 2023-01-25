@@ -27,7 +27,11 @@ Page({
    */
   onReady: function () {
     let yongHu=wx.getStorageSync("yongHu");
-    yhxxPage.setData({yongHu:yongHu});
+    let nc=yongHu.nc;
+    let xm=yongHu.xm;
+    let js=yongHu.js;
+    yhxxPage.setData({yongHu:yongHu,nc:nc,xm:xm,js:js});
+    yhxxPage.getConstantFlagMap();
   },
 
   /**
@@ -71,6 +75,38 @@ Page({
   onShareAppMessage: function () {
 
   },
+  getConstantFlagMap:function(){
+    wx.request({
+      url: rootIP+"getConstantFlagMap",
+      method: 'POST',
+      header: {
+        'content-type': 'application/x-www-form-urlencoded',
+      },
+      success: function (res) {
+        let constantFlagMap=res.data;
+        console.log(constantFlagMap);
+        //dshListPage.setData({constantFlagMap:constantFlagMap});
+        let yhShzt=constantFlagMap.yhShzt;
+        let constantFlags=yhShzt;
+        yhxxPage.getConstantMap(constantFlags);
+      }
+    })
+  },
+  getConstantMap:function(flags){
+    wx.request({
+      url: rootIP+"getConstantMap",
+      data:{flags:flags},
+      method: 'POST',
+      header: {
+        'content-type': 'application/x-www-form-urlencoded',
+      },
+      success: function (res) {
+        let constantMap=res.data;
+        console.log(constantMap);
+        yhxxPage.setData({constantMap:constantMap});
+      }
+    })
+  },
   showXgmmView:function(e){
     let flag=e.currentTarget.dataset.flag;
     if(flag){
@@ -109,6 +145,10 @@ Page({
     else if(e.currentTarget.id=="xm_inp"){
       let xm=e.detail.value;
       yhxxPage.setData({xm:xm});
+    }
+    else if(e.currentTarget.id=="js_ta"){
+      let js=e.detail.value;
+      yhxxPage.setData({js:js});
     }
   },
   checkMm:function(){
@@ -259,6 +299,64 @@ Page({
     else{
       return true;
     }
+  },
+  checkEditYhxx:function(){
+    if(yhxxPage.checkNc()){
+      if(yhxxPage.checkXm()){
+        yhxxPage.editYongHu();
+      }
+    }
+  },
+  editYongHu:function(){
+    let data=yhxxPage.data;
+    let yongHu=data.yongHu;
+    let yhShztMap=data.constantMap.yhShztMap;
+    let id=yongHu.id;
+    let nc=data.nc;
+    let xm=data.xm;
+    let js=data.js;
+    let shzt=yongHu.shzt;
+    let dshShzt=yhShztMap.dshShzt;
+    let bjzShzt=yhShztMap.bjzShzt;
+    console.log(id)
+    console.log(shzt)
+    console.log(dshShzt)
+    console.log(bjzShzt)
+    if(shzt==bjzShzt)
+				shzt=dshShzt;
+    wx.request({
+      url: rootIP+"editYongHu",
+      data:{id:id,nc:nc,xm:xm,js:js,shzt:shzt},
+      method: 'POST',
+      header: {
+        'content-type': 'application/x-www-form-urlencoded',
+      },
+      success: function (res) {
+        let data=res.data;
+        let message=data.message;
+        console.log("message==="+message)
+        if(message=="ok"){
+          //https://blog.csdn.net/Tir_zhang/article/details/124158066
+          wx.showModal({
+            title: "提示",
+            content: data.info,
+            success (res) {
+              if (res.confirm) {
+                //console.log('用户点击确定')
+                yhxxPage.exit();
+              } else if (res.cancel) {
+                //console.log('用户点击取消')
+              }
+            }
+          })
+        }
+        else{
+          wx.showToast({
+            title: data.message,
+          })
+        }
+      }
+    })
   },
   goHomePage:function(){
     wx.redirectTo({

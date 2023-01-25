@@ -1,7 +1,7 @@
 {
   "pages": [
-    "pages/xtgl/yhxx",
     "pages/login/login",
+    "pages/xtgl/yhxx",
     "pages/home/home",
     "pages/ddgl/ddzt/list",
     "pages/ddgl/ddzt/new",

@@ -16,11 +16,16 @@
   height:50px;
   line-height:50px;
 }
+.xgyhxx_v .js_v{
+  width:100%;
+  height:120px;
+}
 .xgmm_v .mm_v .mm_span,
 .xgmm_v .xmm_v .xmm_span,
 .xgmm_v .xmm2_v .xmm2_span,
 .xgyhxx_v .nc_v .nc_span,
-.xgyhxx_v .xm_v .xm_span{
+.xgyhxx_v .xm_v .xm_span,
+.xgyhxx_v .js_v .js_span{
   margin-left:25px;
 }
 .xgmm_v .mm_v .mm_inp,
@@ -30,6 +35,12 @@
 .xgyhxx_v .xm_v .xm_inp{
   width:180px;
   margin-top:-35px;
+  margin-left:100px;
+  border: #eee solid 1px;
+}
+.xgyhxx_v .js_v .js_ta{
+  width:180px;
+  margin-top:-15px;
   margin-left:100px;
   border: #eee solid 1px;
 }

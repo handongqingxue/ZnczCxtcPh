@@ -31,7 +31,11 @@
   </view>
   <view class="xm_v">
     <span class="xm_span">姓名</span>
-    <input class="xm_inp" id="xm_inp" type="text" placeholder="请输入新密码" value="{{yongHu.xm}}" bindinput="getInputValue"/>
+    <input class="xm_inp" id="xm_inp" type="text" placeholder="请输入姓名" value="{{yongHu.xm}}" bindinput="getInputValue"/>
+  </view>
+  <view class="js_v">
+    <span class="js_span">简述</span>
+    <textarea class="js_ta" id="js_ta" type="text" placeholder="请输入简述" value="{{yongHu.js}}" bindinput="getInputValue"/>
   </view>
   <view class="bottom_v">
     <view class="but_list_v">
@@ -43,7 +47,7 @@
 
 <view class="main_v">
   <view class="title_v">用户信息</view>
-  <view class="back_but_v" catchtap="goListPage">{{backButSign}}</view>
+  <view class="back_but_v" catchtap="goHomePage">{{backButSign}}</view>
   <view class="yhxx_v">
       <view class="row_v yhm_v">
         <view class="key_v">用户名</view>
