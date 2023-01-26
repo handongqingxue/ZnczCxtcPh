@@ -115,6 +115,14 @@
   border: #BFBFBF solid 1px;
   border-radius:3px;
 }
+.main_v .list_v .item_v .but_list_v .tg_but_v{
+  margin-top:-32px;
+  margin-left:100px;
+}
+.main_v .list_v .item_v .but_list_v .th_but_v{
+  margin-top:-32px;
+  margin-left:200px;
+}
 .space1_v{
   width: 100%;
   height: 80px;

@@ -271,6 +271,48 @@ Page({
       showCllxOption: !this.data.showCllxOption
     });
   },
+  checkById:function(e){
+    let shjg=e.currentTarget.dataset.shjg;
+    let tsStr;
+    if(shjg)
+      tsStr="审核";
+    else
+      tsStr="退回";
+    let confirmStr="确定要"+tsStr+"吗？";
+    wx.showModal({
+      title: "提示",
+      content: confirmStr,
+      success (res) {
+        if (res.confirm) {
+          //console.log('用户点击确定')
+          let id=e.currentTarget.dataset.id;
+          let yongHu=wx.getStorageSync("yongHu");
+          let shrId=yongHu.id;
+          wx.request({
+            url: rootIP+"checkCheLiangByIds",
+            data:{ids:id,shjg:shjg,shrId:shrId},
+            method: 'POST',
+            header: {
+              'content-type': 'application/x-www-form-urlencoded',
+            },
+            success: function (res) {
+              let data=res.data;
+              let status=data.status;
+              console.log("status==="+status)
+              if(status==1){
+                wx.showToast({
+                  title: data.msg,
+                })
+              }
+              else{
+                
+              }
+            }
+          })
+        }
+      }
+    })
+  },
   goDetailPage:function(e){
     let id=e.currentTarget.dataset.id;
     wx.redirectTo({

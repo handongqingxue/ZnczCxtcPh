@@ -39,6 +39,7 @@
       <view class="but_list_v">
         <view class="but_v detail_but_v" data-id="{{item.id}}" catchtap="goDetailPage">详情</view>
         <view class="but_v edit_but_v" data-id="{{item.id}}" catchtap="goEditPage">编辑</view>
+        <view class="but_v delete_but_v" data-id="{{item.id}}" catchtap="deleteById">删除</view>
       </view>
     </view>
   </view>
