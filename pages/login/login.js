@@ -24,7 +24,10 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-
+    let yongHu=wx.getStorageSync("yongHu");
+    let yhm=yongHu.yhm;
+    let ymm=yongHu.ymm;
+    login.setData({yhm:yhm,mm:ymm});
   },
 
   /**
@@ -77,7 +80,8 @@ Page({
   },
   login:function(){
     let yhm=login.data.yhm;
-    let mm=utilMd5.hexMD5(login.data.mm).toUpperCase();
+    let ymm=login.data.mm;
+    let mm=utilMd5.hexMD5(ymm).toUpperCase();
     wx.request({
       url: rootIP+"login",
       data:{yhm:yhm,mm:mm},
@@ -90,7 +94,9 @@ Page({
         let status=data.status;
         console.log("status==="+status)
         if(status=="ok"){
-          wx.setStorageSync("yongHu",data.yongHu);
+          let yongHu=data.yongHu;
+          yongHu.ymm=ymm;
+          wx.setStorageSync("yongHu",yongHu);
           wx.redirectTo({
             url: '/pages/xtgl/yhxx',
           })
