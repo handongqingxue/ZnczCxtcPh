@@ -92,7 +92,8 @@ Page({
         //dzjListPage.setData({constantFlagMap:constantFlagMap});
         let lxlx=constantFlagMap.lxlx;
         let ddzt=constantFlagMap.ddzt;
-        let constantFlags=lxlx+","+ddzt;
+        let ddShlx=constantFlagMap.ddShlx;
+        let constantFlags=lxlx+","+ddzt+","+ddShlx;
         dzjListPage.getConstantMap(constantFlags);
       }
     })
@@ -231,6 +232,52 @@ Page({
         break;
     }
     return str;
+  },
+  checkById:function(e){
+    let confirmStr="请确保所有订单都认真审核过！";
+    wx.showModal({
+      title: "提示",
+      content: confirmStr,
+      success (res) {
+        if (res.confirm) {
+          //console.log('用户点击确定')
+          let id=e.currentTarget.dataset.id;
+          let shjg=e.currentTarget.dataset.shjg;
+          let ddztConstantMap=dzjListPage.data.constantMap.ddztMap;
+          let yjdsmDdztMc=ddztConstantMap.yjdsmDdztMc;
+          let ddztMc;
+          if(shjg)
+            ddztMc=yjdsmDdztMc;
+          let ddShlxConstantMap=dzjListPage.data.constantMap.ddShlxMap;
+          let shlx=ddShlxConstantMap.zjshShlx;
+          let yongHu=wx.getStorageSync("yongHu");
+          let shrId=yongHu.id;
+          wx.request({
+            url: rootIP+"checkDingDanByIds",
+            data:{ids:id,ddztMc:ddztMc,shlx:shlx,shjg:shjg,shrId:shrId},
+            method: 'POST',
+            header: {
+              'content-type': 'application/x-www-form-urlencoded',
+            },
+            success: function (res) {
+              let data=res.data;
+              let status=data.status;
+              console.log("status==="+status)
+              if(status==1){
+                wx.showToast({
+                  title: data.msg,
+                })
+              }
+              else{
+                
+              }
+            }
+          })
+        } else if (res.cancel) {
+          //console.log('用户点击取消')
+        }
+      }
+    })
   },
   goHomePage:function(){
     wx.redirectTo({
