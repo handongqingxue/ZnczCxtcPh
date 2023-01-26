@@ -104,6 +104,10 @@
   margin-top:-32px;
   margin-left:100px;
 }
+.main_v .list_v .item_v .but_list_v .delete_but_v{
+  margin-top:-32px;
+  margin-left:200px;
+}
 .space1_v{
   width: 100%;
   height: 80px;

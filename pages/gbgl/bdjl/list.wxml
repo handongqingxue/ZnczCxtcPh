@@ -40,8 +40,12 @@
         <view class="key_v">日期</view>
         <view class="val_v">{{item.rq}}</view>
       </view>
+      <view class="but_list_v">
+        <view class="but_v delete_but_v" data-id="{{item.id}}" catchtap="deleteById">删除</view>
+      </view>
     </view>
   </view>
+  <view class="space1_v"></view>
   <view class="bottom_v">
     <a wx:if="{{showDjckgdView}}" data-flag="{{false}}" catchtap="showPageView">点击查看更多</a>
     <view class="page_v" wx:if="{{showPageView}}">

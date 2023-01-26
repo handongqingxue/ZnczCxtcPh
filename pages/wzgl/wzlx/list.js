@@ -167,6 +167,83 @@ Page({
       }
     })
   },
+  checkIfExistWuZiByLxId:function(e){
+    let confirmStr="确定要删除吗？";
+    wx.showModal({
+      title: "提示",
+      content: confirmStr,
+      success (res) {
+        if (res.confirm) {
+          //console.log('用户点击确定')
+          let id=e.currentTarget.dataset.id;
+          let mc=e.currentTarget.dataset.mc;
+          wx.request({
+            url: rootIP+"checkIfExistWuZiByLxIds",
+            data:{lxIds:id,lxMcs:mc},
+            method: 'POST',
+            header: {
+              'content-type': 'application/x-www-form-urlencoded',
+            },
+            success: function (res) {
+              let data=res.data;
+              let status=data.status;
+              console.log("status==="+status)
+              if(status==1){
+                wx.showToast({
+                  title: data.msg,
+                })
+                let delIds="";
+                let idArr=ids.split(",");
+                let wzlxList=result.data;
+                for (let i = 0; i < idArr.length; i++){
+                  let id=idArr[i];
+                  if(!checkWzlxIdInList(id,wzlxList)){//若不存在，则说明该类型下没有物资，就得删除掉
+                    delIds+=","+id;
+                  }
+                }
+                delIds=delIds.substring(1);
+                if(delIds!="")//若有没有物资的物资类型id，则删除
+                  deleteByIds(delIds);
+              }
+              else{
+                
+              }
+            }
+          })
+        } else if (res.cancel) {
+          //console.log('用户点击取消')
+        }
+      }
+    })
+  },
+  deleteByIds:function(ids){
+    $.post(rootIP + "deleteWuZiLeiXing",
+      {ids:ids},
+      function(result){
+        if(result.status==1){
+          wx.showToast({
+            title: result.msg,
+          })
+        }
+        else{
+          wx.showToast({
+            title: result.msg,
+          })
+        }
+      }
+    ,"json");
+  },
+  //验证物资类型id是否存在于集合里
+  checkWzlxIdInList:function(wzlxId,wzlxList){
+    let flag=false;
+    for (let i = 0; i < wzlxList.length; i++){
+      if(wzlxId==wzlxList[i].id){
+        flag=true;
+        break;
+      }
+    }
+    return flag;
+  },
   goAddPage:function(){
     wx.redirectTo({
       url: '/pages/wzgl/wzlx/new',

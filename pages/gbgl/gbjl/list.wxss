@@ -128,6 +128,14 @@
   border: #BFBFBF solid 1px;
   border-radius:3px;
 }
+.main_v .list_v .item_v .but_list_v .delete_but_v{
+  margin-top:-32px;
+  margin-left:100px;
+}
+.space1_v{
+  width: 100%;
+  height: 80px;
+}
 
 .main_v .bottom_v{
   width: 100%;
