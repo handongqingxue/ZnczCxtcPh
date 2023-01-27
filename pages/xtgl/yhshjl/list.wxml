@@ -70,6 +70,9 @@
         <view class="key_v">备注</view>
         <view class="val_v">{{item.bz}}</view>
       </view>
+      <view class="but_list_v">
+        <view class="but_v delete_but_v" data-id="{{item.id}}" catchtap="deleteById">删除</view>
+      </view>
     </view>
   </view>
 

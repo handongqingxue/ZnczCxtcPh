@@ -1,40 +1,40 @@
 <!--pages/home/home.wxml-->
 <view class="main_v">
-  <view class="ddgl_v first_level_v">
+  <view class="ddgl_v first_level_v" wx:if="{{showDdglV}}">
     <view class="title_v">订单管理</view>
-    <view class="ddzt_v second_level_v" data-pageflag="{{ddgl_ddzt}}" catchtap="goPage">订单状态</view>
-    <view class="dsh_v second_level_v" data-pageflag="{{ddgl_dsh}}" catchtap="goPage">待审核</view>
-    <view class="dzj_v second_level_v" data-pageflag="{{ddgl_dzj}}" catchtap="goPage">待质检</view>
-    <view class="drk_v second_level_v" data-pageflag="{{ddgl_drk}}" catchtap="goPage">待入库</view>
-    <view class="zhcx_v second_level_v" data-pageflag="{{ddgl_zhcx}}" catchtap="goPage">综合查询</view>
-    <view class="shjl_v second_level_v" data-pageflag="{{ddgl_shjl}}" catchtap="goPage">审核记录</view>
+    <view class="ddzt_v second_level_v" data-pageflag="{{ddgl_ddzt}}" catchtap="goPage" wx:if="{{showDdglDdztV}}">订单状态</view>
+    <view class="dsh_v second_level_v" data-pageflag="{{ddgl_dsh}}" catchtap="goPage" wx:if="{{showDdglDshV}}">待审核</view>
+    <view class="dzj_v second_level_v" data-pageflag="{{ddgl_dzj}}" catchtap="goPage" wx:if="{{showDdglDzjV}}">待质检</view>
+    <view class="drk_v second_level_v" data-pageflag="{{ddgl_drk}}" catchtap="goPage" wx:if="{{showDdglDrkV}}">待入库</view>
+    <view class="zhcx_v second_level_v" data-pageflag="{{ddgl_zhcx}}" catchtap="goPage" wx:if="{{showDdglZhcxV}}">综合查询</view>
+    <view class="shjl_v second_level_v" data-pageflag="{{ddgl_shjl}}" catchtap="goPage" wx:if="{{showDdglShjlV}}">审核记录</view>
   </view>
-  <view class="gbgl_v first_level_v">
+  <view class="gbgl_v first_level_v" wx:if="{{showGbglV}}">
     <view class="title_v">过磅管理</view>
-    <view class="bdjl_v second_level_v" data-pageflag="{{gbgl_bdjl}}" catchtap="goPage">磅单记录</view>
-    <view class="gbjl_v second_level_v" data-pageflag="{{gbgl_gbjl}}" catchtap="goPage">过磅记录</view>
-    <view class="yjdsh_v second_level_v" data-pageflag="{{gbgl_yjdsh}}" catchtap="goPage">一检待审核</view>
-    <view class="ejdsh_v second_level_v" data-pageflag="{{gbgl_ejdsh}}" catchtap="goPage">二检待审核</view>
+    <view class="bdjl_v second_level_v" data-pageflag="{{gbgl_bdjl}}" catchtap="goPage" wx:if="{{showGbglBdjlV}}">磅单记录</view>
+    <view class="gbjl_v second_level_v" data-pageflag="{{gbgl_gbjl}}" catchtap="goPage" wx:if="{{showGbglGbjlV}}">过磅记录</view>
+    <view class="yjdsh_v second_level_v" data-pageflag="{{gbgl_yjdsh}}" catchtap="goPage" wx:if="{{showGbglYjdshV}}">一检待审核</view>
+    <view class="ejdsh_v second_level_v" data-pageflag="{{gbgl_ejdsh}}" catchtap="goPage" wx:if="{{showGbglEjdshV}}">二检待审核</view>
   </view>
-  <view class="wzgl_v first_level_v">
+  <view class="wzgl_v first_level_v" wx:if="{{showWzglV}}">
     <view class="title_v">物资管理</view>
-    <view class="wzlx_v second_level_v" data-pageflag="{{wzgl_wzlx}}" catchtap="goPage">物资类型</view>
-    <view class="wzcx_v second_level_v" data-pageflag="{{wzgl_wzcx}}" catchtap="goPage">物资查询</view>
+    <view class="wzlx_v second_level_v" data-pageflag="{{wzgl_wzlx}}" catchtap="goPage" wx:if="{{showWzglWzlxV}}">物资类型</view>
+    <view class="wzcx_v second_level_v" data-pageflag="{{wzgl_wzcx}}" catchtap="goPage" wx:if="{{showWzglWzcxV}}">物资查询</view>
   </view>
-  <view class="dwgl_v first_level_v">
+  <view class="dwgl_v first_level_v" wx:if="{{showDwglV}}">
     <view class="title_v">单位管理</view>
-    <view class="yss_v second_level_v" data-pageflag="{{dwgl_yss}}" catchtap="goPage">运输商</view>
-    <view class="fhdw_v second_level_v" data-pageflag="{{dwgl_fhdw}}" catchtap="goPage">发货单位</view>
-    <view class="shdw_v second_level_v" data-pageflag="{{dwgl_shdw}}" catchtap="goPage">收货单位</view>
-    <view class="ck_v second_level_v" data-pageflag="{{dwgl_ck}}" catchtap="goPage">仓库</view>
+    <view class="yss_v second_level_v" data-pageflag="{{dwgl_yss}}" catchtap="goPage" wx:if="{{showDwglYssV}}">运输商</view>
+    <view class="fhdw_v second_level_v" data-pageflag="{{dwgl_fhdw}}" catchtap="goPage" wx:if="{{showDwglFhdwV}}">发货单位</view>
+    <view class="shdw_v second_level_v" data-pageflag="{{dwgl_shdw}}" catchtap="goPage" wx:if="{{showDwglShdwV}}">收货单位</view>
+    <view class="ck_v second_level_v" data-pageflag="{{dwgl_ck}}" catchtap="goPage" wx:if="{{showDwglCkV}}">仓库</view>
   </view>
-  <view class="clgl_v first_level_v">
+  <view class="clgl_v first_level_v" wx:if="{{showClglV}}">
     <view class="title_v">车辆管理</view>
-    <view class="dsh_v second_level_v" data-pageflag="{{clgl_dsh}}" catchtap="goPage">待审核</view>
-    <view class="zhcx_v second_level_v" data-pageflag="{{clgl_zhcx}}" catchtap="goPage">综合查询</view>
-    <view class="shjl_v second_level_v" data-pageflag="{{clgl_shjl}}" catchtap="goPage">审核记录</view>
-    <view class="tzcx_v second_level_v" data-pageflag="{{clgl_tzcx}}" catchtap="goPage">台账查询</view>
-    <view class="cntz_v second_level_v" data-pageflag="{{clgl_cntz}}" catchtap="goPage">厂内台账</view>
+    <view class="dsh_v second_level_v" data-pageflag="{{clgl_dsh}}" catchtap="goPage" wx:if="{{showClglDshV}}">待审核</view>
+    <view class="zhcx_v second_level_v" data-pageflag="{{clgl_zhcx}}" catchtap="goPage" wx:if="{{showClglZhcxV}}">综合查询</view>
+    <view class="shjl_v second_level_v" data-pageflag="{{clgl_shjl}}" catchtap="goPage" wx:if="{{showClglShjlV}}">审核记录</view>
+    <view class="tzcx_v second_level_v" data-pageflag="{{clgl_tzcx}}" catchtap="goPage" wx:if="{{showClglTzcxV}}">台账查询</view>
+    <view class="cntz_v second_level_v" data-pageflag="{{clgl_cntz}}" catchtap="goPage" wx:if="{{showClglCntzV}}">厂内台账</view>
   </view>
   <view class="sjgl_v first_level_v">
     <view class="title_v">司机管理</view>

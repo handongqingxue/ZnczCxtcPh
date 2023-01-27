@@ -1,5 +1,6 @@
 // pages/home/home.js
 var home;
+var rootIP;
 Page({
 
   /**
@@ -46,6 +47,37 @@ Page({
     xtgl_yhshjl:31,
     xtgl_jscx:32,
     xtgl_qxcx:33,
+    
+    showDdglV:false,
+    showDdglDdztV:false,
+    showDdglDshV:false,
+    showDdglDzjV:false,
+    showDdglDrkV:false,
+    showDdglZhcxV:false,
+    showDdglShjlV:false,
+
+    showGbglV:false,
+    showGbglBdjlV:false,
+    showGbglGbjlV:false,
+    showGbglYjdshV:false,
+    showGbglEjdshV:false,
+
+    showWzglV:false,
+    showWzglWzlxV:false,
+    showWzglWzcxV:false,
+
+    showDwglV:false,
+    showDwglYssV:false,
+    showDwglFhdwV:false,
+    showDwglShdwV:false,
+    showDwglCkV:false,
+
+    showClglV:false,
+    showClglDshV:false,
+    showClglZhcxV:false,
+    showClglShjlV:false,
+    showClglTzcxV:false,
+    showClglCntzV:false,
   },
 
   /**
@@ -53,14 +85,14 @@ Page({
    */
   onLoad: function (options) {
     home=this;
-
+    rootIP=getApp().getRootIP();
   },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-
+    home.getConstantFlagMap();
   },
 
   /**
@@ -103,6 +135,142 @@ Page({
    */
   onShareAppMessage: function () {
 
+  },
+  getConstantFlagMap:function(){
+    wx.request({
+      url: rootIP+"getConstantFlagMap",
+      method: 'POST',
+      header: {
+        'content-type': 'application/x-www-form-urlencoded',
+      },
+      success: function (res) {
+        let constantFlagMap=res.data;
+        console.log(constantFlagMap);
+        //home.setData({constantFlagMap:constantFlagMap});
+        let yhQx=constantFlagMap.yhQx;
+        let constantFlags=yhQx;
+        home.getConstantMap(constantFlags);
+      }
+    })
+  },
+  getConstantMap:function(flags){
+    wx.request({
+      url: rootIP+"getConstantMap",
+      data:{flags:flags},
+      method: 'POST',
+      header: {
+        'content-type': 'application/x-www-form-urlencoded',
+      },
+      success: function (res) {
+        let constantMap=res.data;
+        console.log(constantMap);
+        home.setData({constantMap:constantMap});
+        home.showMenuByQx();
+      }
+    })
+  },
+  showMenuByQx:function(){
+    let data=home.data;
+    let showDdglV=data.showDdglV;
+    let showDdglDdztV=data.showDdglDdztV;
+    let showDdglDshV=data.showDdglDshV;
+    let showDdglDzjV=data.showDdglDzjV;
+    let showDdglDrkV=data.showDdglDrkV;
+    let showDdglZhcxV=data.showDdglZhcxV;
+    let showDdglShjlV=data.showDdglShjlV;
+
+    let showGbglV=data.showGbglV;
+    let showGbglBdjlV=data.showGbglBdjlV;
+    let showGbglGbjlV=data.showGbglGbjlV;
+    let showGbglYjdshV=data.showGbglYjdshV;
+    let showGbglEjdshV=data.showGbglEjdshV;
+
+    let showWzglV=data.showWzglV;
+    let showWzglWzlxV=data.showWzglWzlxV;
+    let showWzglWzcxV=data.showWzglWzcxV;
+
+    let showDwglV=data.showDwglV;
+    let showDwglYssV=data.showDwglYssV;
+    let showDwglFhdwV=data.showDwglFhdwV;
+    let showDwglShdwV=data.showDwglShdwV;
+    let showDwglCkV=data.showDwglCkV;
+
+    let showClglV=data.showClglV;
+    let showClglDshV=data.showClglDshV;
+    let showClglZhcxV=data.showClglZhcxV;
+    let showClglShjlV=data.showClglShjlV;
+    let showClglTzcxV=data.showClglTzcxV;
+    let showClglCntzV=data.showClglCntzV;
+
+    let yongHu=wx.getStorageSync("yongHu");
+    let yhm=yongHu.yhm;
+    if(yhm=="admin"){
+      showDdglV=true;
+      showDdglDdztV=true;
+      showDdglDshV=true;
+      showDdglDzjV=true;
+      showDdglDrkV=true;
+      showDdglZhcxV=true;
+      showDdglShjlV=true;
+
+      showGbglV=true;
+      showGbglBdjlV=true;
+      showGbglGbjlV=true;
+      showGbglYjdshV=true;
+      showGbglEjdshV=true;
+
+      showWzglV=true;
+      showWzglWzlxV=true;
+      showWzglWzcxV=true;
+
+      showDwglV=true;
+      showDwglYssV=true;
+      showDwglFhdwV=true;
+      showDwglShdwV=true;
+      showDwglCkV=true;
+
+      showClglV=true;
+      showClglDshV=true;
+      showClglZhcxV=true;
+      showClglShjlV=true;
+      showClglTzcxV=true;
+      showClglCntzV=true;
+    }
+    else{
+
+    }
+    home.setData({
+      showDdglV:showDdglV,
+      showDdglDdztV:showDdglDdztV,
+      showDdglDshV:showDdglDshV,
+      showDdglDzjV:showDdglDzjV,
+      showDdglDrkV:showDdglDrkV,
+      showDdglZhcxV:showDdglZhcxV,
+      showDdglShjlV:showDdglShjlV,
+
+      showGbglV:showGbglV,
+      showGbglBdjlV:showGbglBdjlV,
+      showGbglGbjlV:showGbglGbjlV,
+      showGbglYjdshV:showGbglYjdshV,
+      showGbglEjdshV:showGbglEjdshV,
+
+      showWzglV:showWzglV,
+      showWzglWzlxV:showWzglWzlxV,
+      showWzglWzcxV:showWzglWzcxV,
+
+      showDwglV:showDwglV,
+      showDwglYssV:showDwglYssV,
+      showDwglFhdwV:showDwglFhdwV,
+      showDwglShdwV:showDwglShdwV,
+      showDwglCkV:showDwglCkV,
+
+      showClglV:showClglV,
+      showClglDshV:showClglDshV,
+      showClglZhcxV:showClglZhcxV,
+      showClglShjlV:showClglShjlV,
+      showClglTzcxV:showClglTzcxV,
+      showClglCntzV:showClglCntzV,
+    });
   },
   goPage:function(e){
     let pageFlag=e.currentTarget.dataset.pageflag;
