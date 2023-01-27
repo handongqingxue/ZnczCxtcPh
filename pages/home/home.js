@@ -291,7 +291,158 @@ Page({
       showXtglQxcxV=true;
     }
     else{
-
+      let yhQxMap=home.data.constantMap.yhQxMap;
+      let ddztcxQx=yhQxMap.ddztcxQx;
+      let xdshQx=yhQxMap.xdshQx;
+      let zjshQx=yhQxMap.zjshQx;
+      let cxddQx=yhQxMap.cxddQx;
+      let zxhshQx=yhQxMap.zxhshQx;
+      let cxbdjlQx=yhQxMap.cxbdjlQx;
+      let cxgbjlQx=yhQxMap.cxgbjlQx;
+      let yjshQx=yhQxMap.yjshQx;
+      let ejshQx=yhQxMap.ejshQx;
+      let cxwzlxQx=yhQxMap.cxwzlxQx;
+      let cxwzQx=yhQxMap.cxwzQx;
+      let cxyssQx=yhQxMap.cxyssQx;
+      let cxfhdwQx=yhQxMap.cxfhdwQx;
+      let cxshdwQx=yhQxMap.cxshdwQx;
+      let cxckQx=yhQxMap.cxckQx;
+      let shclQx=yhQxMap.shclQx;
+      let cxclQx=yhQxMap.cxclQx;
+      let cxclshjlQx=yhQxMap.cxclshjlQx;
+      let cxcltzQx=yhQxMap.cxcltzQx;
+      let shsjQx=yhQxMap.shsjQx;
+      let cxsjQx=yhQxMap.cxsjQx;
+      let cxsjshjlQx=yhQxMap.cxsjshjlQx;
+      let pdhmztcxQx=yhQxMap.pdhmztcxQx;
+      let cxpdhmQx=yhQxMap.cxpdhmQx;
+      let cxdlQx=yhQxMap.cxdlQx;
+      let cxyhQx=yhQxMap.cxyhQx;
+      let shyhQx=yhQxMap.shyhQx;
+      let cxyhshjlQx=yhQxMap.cxyhshjlQx;
+      let cxjsQx=yhQxMap.cxjsQx;
+      let cxddshjlQx=yhQxMap.cxddshjlQx;
+      let qxIds=yongHu.qxIds;
+      console.log(qxIds)
+      let qxIdArr=qxIds.split(",");
+      for(let i=0;i<qxIdArr.length;i++){
+        if(qxIdArr[i]==ddztcxQx){
+          showDdglDdztV=true;
+          showClglZhcxV=true;
+        }
+        if(qxIdArr[i]==xdshQx){
+          showDdglDshV=true;
+        }
+        if(qxIdArr[i]==zjshQx){
+          showDdglDzjV=true;
+        }
+        if(qxIdArr[i]==cxddQx){
+          showDdglZhcxV=true;
+        }
+        if(qxIdArr[i]==zxhshQx){
+          showDdglDrkV=true;
+        }
+        if(qxIdArr[i]==cxddshjlQx){
+          showDdglShjlV=true;
+        }
+        if(qxIdArr[i]==cxbdjlQx){
+          showGbglBdjlV=true;
+        }
+        if(qxIdArr[i]==cxgbjlQx){
+          showGbglGbjlV=true;
+        }
+        if(qxIdArr[i]==yjshQx){
+          showGbglYjdshV=true;
+        }
+        if(qxIdArr[i]==ejshQx){
+          showGbglEjdshV=true;
+        }
+        if(qxIdArr[i]==cxwzlxQx){
+          showWzglWzlxV=true;
+        }
+        if(qxIdArr[i]==cxwzQx){
+          showWzglWzcxV=true;
+        }
+        if(qxIdArr[i]==cxyssQx){
+          showDwglYssV=true;
+        }
+        if(qxIdArr[i]==cxfhdwQx){
+          showDwglFhdwV=true;
+        }
+        if(qxIdArr[i]==cxshdwQx){
+          showDwglShdwV=true;
+        }
+        if(qxIdArr[i]==cxckQx){
+          showDwglCkV=true;
+        }
+        if(qxIdArr[i]==shclQx){
+          showClglDshV=true;
+        }
+        if(qxIdArr[i]==cxclQx){
+          showClglZhcxV=true;
+        }
+        if(qxIdArr[i]==cxclshjlQx){
+          showClglShjlV=true;
+        }
+        if(qxIdArr[i]==cxcltzQx){
+          showClglTzcxV=true;
+          showClglCntzV=true;
+        }
+        if(qxIdArr[i]==shsjQx){
+          showSjglDshV=true;
+        }
+        if(qxIdArr[i]==cxsjQx){
+          showSjglZhcxV=true;
+        }
+        if(qxIdArr[i]==cxsjshjlQx){
+          showSjglShjlV=true;
+        }
+        if(qxIdArr[i]==pdhmztcxQx){
+          showPdglHmztV=true;
+        }
+        if(qxIdArr[i]==cxpdhmQx){
+          showPdglHmcxV=true;
+        }
+        if(qxIdArr[i]==cxdlQx){
+          showPdglDlcxV=true;
+        }
+        if(qxIdArr[i]==cxyhQx){
+          showXtglYhcxV=true;
+        }
+        if(qxIdArr[i]==shyhQx){
+          showXtglDshyhV=true;
+        }
+        if(qxIdArr[i]==cxyhshjlQx){
+          showXtglYhshjlV=true;
+        }
+        if(qxIdArr[i]==cxjsQx){
+          showXtglJscxV=true;
+        }
+      }
+      if(showDdglDdztV||showDdglDshV||showDdglDzjV||showDdglZhcxV||showDdglDrkV||showDdglShjlV){
+        showDdglV=true;
+      }
+      if(showGbglBdjlV||showGbglGbjlV||showGbglYjdshV||showGbglEjdshV){
+        showGbglV=true;
+      }
+      if(showWzglWzlxV||showWzglWzcxV){
+        showWzglV=true;
+      }
+      if(showDwglYssV||showDwglFhdwV||showDwglShdwV||showDwglCkV){
+        showDwglV=true;
+      }
+      if(showClglDshV||showClglZhcxV||showClglShjlV||showClglTzcxV||showClglCntzV){
+        showClglV=true;
+      }
+      if(showSjglDshV||showSjglZhcxV||showSjglShjlV){
+        showSjglV=true;
+      }
+      if(showPdglHmztV||showPdglHmcxV||showPdglDlcxV){
+        showPdglV=true;
+      }
+      if(showXtglYhcxV||showXtglDshyhV||showXtglYhshjlV||showXtglJscxV){
+        showXtglV=true;
+      }
     }
     home.setData({
       showDdglV:showDdglV,
