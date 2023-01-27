@@ -78,6 +78,24 @@ Page({
     showClglShjlV:false,
     showClglTzcxV:false,
     showClglCntzV:false,
+
+    showSjglV:false,
+    showSjglDshV:false,
+    showSjglZhcxV:false,
+    showSjglShjlV:false,
+
+    showPdglV:false,
+    showPdglHmztV:false,
+    showPdglHmcxV:false,
+    showPdglDlcxV:false,
+
+    showXtglV:false,
+    showXtglYhxxV:false,
+    showXtglYhcxV:false,
+    showXtglDshyhV:false,
+    showXtglYhshjlV:false,
+    showXtglJscxV:false,
+    showXtglQxcxV:false,
   },
 
   /**
@@ -202,6 +220,24 @@ Page({
     let showClglTzcxV=data.showClglTzcxV;
     let showClglCntzV=data.showClglCntzV;
 
+    let showSjglV=data.showSjglV;
+    let showSjglDshV=data.showSjglDshV;
+    let showSjglZhcxV=data.showSjglZhcxV;
+    let showSjglShjlV=data.showSjglShjlV;
+    
+    let showPdglV=data.showPdglV;
+    let showPdglHmztV=data.showPdglHmztV;
+    let showPdglHmcxV=data.showPdglHmcxV;
+    let showPdglDlcxV=data.showPdglDlcxV;
+    
+    let showXtglV=data.showXtglV;
+    let showXtglYhxxV=data.showXtglYhxxV;
+    let showXtglYhcxV=data.showXtglYhcxV;
+    let showXtglDshyhV=data.showXtglDshyhV;
+    let showXtglYhshjlV=data.showXtglYhshjlV;
+    let showXtglJscxV=data.showXtglJscxV;
+    let showXtglQxcxV=data.showXtglQxcxV;
+
     let yongHu=wx.getStorageSync("yongHu");
     let yhm=yongHu.yhm;
     if(yhm=="admin"){
@@ -235,6 +271,24 @@ Page({
       showClglShjlV=true;
       showClglTzcxV=true;
       showClglCntzV=true;
+
+      showSjglV=true;
+      showSjglDshV=true;
+      showSjglZhcxV=true;
+      showSjglShjlV=true;
+      
+      showPdglV=true;
+      showPdglHmztV=true;
+      showPdglHmcxV=true;
+      showPdglDlcxV=true;
+
+      showXtglV=true;
+      showXtglYhxxV=true;
+      showXtglYhcxV=true;
+      showXtglDshyhV=true;
+      showXtglYhshjlV=true;
+      showXtglJscxV=true;
+      showXtglQxcxV=true;
     }
     else{
 
@@ -270,6 +324,24 @@ Page({
       showClglShjlV:showClglShjlV,
       showClglTzcxV:showClglTzcxV,
       showClglCntzV:showClglCntzV,
+
+      showSjglV:showSjglV,
+      showSjglDshV:showSjglDshV,
+      showSjglZhcxV:showSjglZhcxV,
+      showSjglShjlV:showSjglShjlV,
+      
+      showPdglV:showPdglV,
+      showPdglHmztV:showPdglHmztV,
+      showPdglHmcxV:showPdglHmcxV,
+      showPdglDlcxV:showPdglDlcxV,
+
+      showXtglV:showXtglV,
+      showXtglYhxxV:showXtglYhxxV,
+      showXtglYhcxV:showXtglYhcxV,
+      showXtglDshyhV:showXtglDshyhV,
+      showXtglYhshjlV:showXtglYhshjlV,
+      showXtglJscxV:showXtglJscxV,
+      showXtglQxcxV:showXtglQxcxV,
     });
   },
   goPage:function(e){

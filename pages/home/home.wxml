@@ -36,25 +36,25 @@
     <view class="tzcx_v second_level_v" data-pageflag="{{clgl_tzcx}}" catchtap="goPage" wx:if="{{showClglTzcxV}}">台账查询</view>
     <view class="cntz_v second_level_v" data-pageflag="{{clgl_cntz}}" catchtap="goPage" wx:if="{{showClglCntzV}}">厂内台账</view>
   </view>
-  <view class="sjgl_v first_level_v">
+  <view class="sjgl_v first_level_v" wx:if="{{showSjglV}}">
     <view class="title_v">司机管理</view>
-    <view class="dsh_v second_level_v" data-pageflag="{{sjgl_dsh}}" catchtap="goPage">待审核</view>
-    <view class="zhcx_v second_level_v" data-pageflag="{{sjgl_zhcx}}" catchtap="goPage">综合查询</view>
-    <view class="shjl_v second_level_v" data-pageflag="{{sjgl_shjl}}" catchtap="goPage">审核记录</view>
+    <view class="dsh_v second_level_v" data-pageflag="{{sjgl_dsh}}" catchtap="goPage" wx:if="{{showSjglDshV}}">待审核</view>
+    <view class="zhcx_v second_level_v" data-pageflag="{{sjgl_zhcx}}" catchtap="goPage" wx:if="{{showSjglZhcxV}}">综合查询</view>
+    <view class="shjl_v second_level_v" data-pageflag="{{sjgl_shjl}}" catchtap="goPage" wx:if="{{showSjglShjlV}}">审核记录</view>
   </view>
-  <view class="pdgl_v first_level_v">
+  <view class="pdgl_v first_level_v" wx:if="{{showPdglV}}">
     <view class="title_v">排队管理</view>
-    <view class="hmzt_v second_level_v" data-pageflag="{{pdgl_hmzt}}" catchtap="goPage">号码状态</view>
-    <view class="hmcx_v second_level_v" data-pageflag="{{pdgl_hmcx}}" catchtap="goPage">号码查询</view>
-    <view class="dlcx_v second_level_v" data-pageflag="{{pdgl_dlcx}}" catchtap="goPage">队列查询</view>
+    <view class="hmzt_v second_level_v" data-pageflag="{{pdgl_hmzt}}" catchtap="goPage" wx:if="{{showPdglHmztV}}">号码状态</view>
+    <view class="hmcx_v second_level_v" data-pageflag="{{pdgl_hmcx}}" catchtap="goPage" wx:if="{{showPdglHmcxV}}">号码查询</view>
+    <view class="dlcx_v second_level_v" data-pageflag="{{pdgl_dlcx}}" catchtap="goPage" wx:if="{{showPdglDlcxV}}">队列查询</view>
   </view>
-  <view class="xtgl_v first_level_v">
+  <view class="xtgl_v first_level_v" wx:if="{{showXtglV}}">
     <view class="title_v">系统管理</view>
-    <view class="yhxx_v second_level_v" data-pageflag="{{xtgl_yhxx}}" catchtap="goPage">用户信息</view>
-    <view class="yhcx_v second_level_v" data-pageflag="{{xtgl_yhcx}}" catchtap="goPage">用户查询</view>
-    <view class="dshyh_v second_level_v" data-pageflag="{{xtgl_dshyh}}" catchtap="goPage">待审核用户</view>
-    <view class="yhshjl_v second_level_v" data-pageflag="{{xtgl_yhshjl}}" catchtap="goPage">用户审核记录</view>
-    <view class="jscx_v second_level_v" data-pageflag="{{xtgl_jscx}}" catchtap="goPage">角色查询</view>
-    <view class="qxcx_v second_level_v" data-pageflag="{{xtgl_qxcx}}" catchtap="goPage">权限查询</view>
+    <view class="yhxx_v second_level_v" data-pageflag="{{xtgl_yhxx}}" catchtap="goPage" wx:if="{{showXtglYhxxV}}">用户信息</view>
+    <view class="yhcx_v second_level_v" data-pageflag="{{xtgl_yhcx}}" catchtap="goPage" wx:if="{{showXtglYhcxV}}">用户查询</view>
+    <view class="dshyh_v second_level_v" data-pageflag="{{xtgl_dshyh}}" catchtap="goPage" wx:if="{{showXtglDshyhV}}">待审核用户</view>
+    <view class="yhshjl_v second_level_v" data-pageflag="{{xtgl_yhshjl}}" catchtap="goPage" wx:if="{{showXtglYhshjlV}}">用户审核记录</view>
+    <view class="jscx_v second_level_v" data-pageflag="{{xtgl_jscx}}" catchtap="goPage" wx:if="{{showXtglJscxV}}">角色查询</view>
+    <view class="qxcx_v second_level_v" data-pageflag="{{xtgl_qxcx}}" catchtap="goPage" wx:if="{{showXtglQxcxV}}">权限查询</view>
   </view>
 </view>
