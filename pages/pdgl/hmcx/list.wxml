@@ -69,6 +69,9 @@
         <view class="key_v">叫号次数</view>
         <view class="val_v">{{item.jhcs}}</view>
       </view>
+      <view class="but_list_v">
+        <view class="but_v delete_but_v" data-id="{{item.id}}" catchtap="deleteById">删除</view>
+      </view>
     </view>
   </view>
 
