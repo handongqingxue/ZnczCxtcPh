@@ -108,6 +108,9 @@ Page({
       bdjlListPage.setData({ddh:ddh});
     }
   },
+  resetToolBarData:function(){
+    bdjlListPage.setData({ddh:""});
+  },
   loadListDataByPageFlag:function(e){
     let flag=e.currentTarget.dataset.flag;
     let prePageFlag=bdjlListPage.data.prePageFlag;

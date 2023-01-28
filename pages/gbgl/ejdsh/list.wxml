@@ -4,7 +4,7 @@
   <view class="back_but_v" data-flag="{{false}}" catchtap="showToolBarView">{{backButSign}}</view>
   <view class="ddh_v">
     <span class="ddh_span">订单号</span>
-    <input class="ddh_inp" id="ddh_inp" type="text" placeholder="请输入订单号" value="{{mc}}" bindinput="getInputValue"/>
+    <input class="ddh_inp" id="ddh_inp" type="text" placeholder="请输入订单号" value="{{ddh}}" bindinput="getInputValue"/>
   </view>
   <view class="cysjXm_v">
     <span class="cysjXm_span">司机姓名</span>
@@ -58,7 +58,7 @@
   <view class="bottom_v">
     <view class="but_list_v">
       <view class="but_v confirm_but_v" catchtap="getListData">确定</view>
-      <view class="but_v reset_but_v">重置</view>
+      <view class="but_v reset_but_v" catchtap="resetToolBarData">重置</view>
     </view>
   </view>
 </view>

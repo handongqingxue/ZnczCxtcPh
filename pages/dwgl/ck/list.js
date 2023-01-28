@@ -108,6 +108,9 @@ Page({
       ckListPage.setData({mc:mc});
     }
   },
+  resetToolBarData:function(){
+    ckListPage.setData({mc:""});
+  },
   loadListDataByPageFlag:function(e){
     let flag=e.currentTarget.dataset.flag;
     let prePageFlag=ckListPage.data.prePageFlag;

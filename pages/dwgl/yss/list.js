@@ -108,6 +108,9 @@ Page({
       yssListPage.setData({mc:mc});
     }
   },
+  resetToolBarData:function(){
+    yssListPage.setData({mc:""});
+  },
   loadListDataByPageFlag:function(e){
     let flag=e.currentTarget.dataset.flag;
     let prePageFlag=yssListPage.data.prePageFlag;

@@ -155,6 +155,9 @@ Page({
       bdjlListPage.setData({cyclCph:cyclCph});
     }
   },
+  resetToolBarData:function(){
+    bdjlListPage.setData({ddh:"",cyclCph:"",gbksrq:"",gbkssj:"",gbjsrq:"",gbjssj:""});
+  },
   loadListDataByPageFlag:function(e){
     let flag=e.currentTarget.dataset.flag;
     let prePageFlag=bdjlListPage.data.prePageFlag;

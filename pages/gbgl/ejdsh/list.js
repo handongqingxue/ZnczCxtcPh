@@ -182,6 +182,9 @@ Page({
       ejdshListPage.setData({shdwMc:shdwMc});
     }
   },
+  resetToolBarData:function(){
+    ejdshListPage.setData({ddh:"",cysjXm:"",cysjSfzh:"",cyclCph:"",yssMc:"",fhdwMc:"",shdwMc:"",gbksrq:"",gbkssj:"",gbjsrq:"",gbjssj:""});
+  },
   loadListDataByPageFlag:function(e){
     let flag=e.currentTarget.dataset.flag;
     let prePageFlag=ejdshListPage.data.prePageFlag;

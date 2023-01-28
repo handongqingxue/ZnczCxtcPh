@@ -108,6 +108,9 @@ Page({
       fhdwListPage.setData({mc:mc});
     }
   },
+  resetToolBarData:function(){
+    fhdwListPage.setData({mc:""});
+  },
   loadListDataByPageFlag:function(e){
     let flag=e.currentTarget.dataset.flag;
     let prePageFlag=fhdwListPage.data.prePageFlag;

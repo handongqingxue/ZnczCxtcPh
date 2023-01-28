@@ -110,6 +110,9 @@ Page({
       shdwListPage.setData({mc:mc});
     }
   },
+  resetToolBarData:function(){
+    shdwListPage.setData({mc:"",ywdlSelectIndex:0,ywdlSelectId:""});
+  },
   loadListDataByPageFlag:function(e){
     let flag=e.currentTarget.dataset.flag;
     let prePageFlag=shdwListPage.data.prePageFlag;
