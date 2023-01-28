@@ -47,8 +47,14 @@
         <view class="val_v">{{item.shztMc}}</view>
       </view>
       <view class="but_list_v">
-        <view class="but_v detail_but_v" data-id="{{item.id}}" catchtap="goDetailPage">详情</view>
-        <view class="but_v edit_but_v" data-id="{{item.id}}" catchtap="goEditPage">编辑</view>
+        <view class="but_v detail_but_v" data-id="{{item.id}}" catchtap="goDetailPage">
+          <image class="but_img" src="/images/detail.png"/>
+          <text class="but_text">详情</text>
+        </view>
+        <view class="but_v edit_but_v" data-id="{{item.id}}" catchtap="goEditPage">
+          <image class="but_img" src="/images/edit.png"/>
+          <text class="but_text">编辑</text>
+        </view>
       </view>
     </view>
   </view>

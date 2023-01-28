@@ -108,6 +108,9 @@ Page({
       ddztListPage.setData({mc:mc});
     }
   },
+  resetToolBarData:function(){
+    ddztListPage.setData({mc:""});
+  },
   loadListDataByPageFlag:function(e){
     let flag=e.currentTarget.dataset.flag;
     let prePageFlag=ddztListPage.data.prePageFlag;

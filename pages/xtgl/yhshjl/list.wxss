@@ -102,7 +102,7 @@
 .main_v .list_v .item_v .shrYhm_v,
 .main_v .list_v .item_v .shsj_v,
 .main_v .list_v .item_v .shjgMc_v{
-  border-bottom: #eee solid 1px;
+  border-bottom: #C9C9C9 solid 1px;
 }
 .main_v .list_v .item_v .key_v{
   width:100px;
@@ -124,13 +124,24 @@
   margin: auto;
 }
 .main_v .list_v .item_v .but_list_v .but_v{
-  width: 80px;
+  width: 63px;
   height: 30px;
   line-height: 30px;
   margin-top: 10px;
-  text-align: center;
-  border: #BFBFBF solid 1px;
+  font-size: 11px;
+  background-color: #F8F8F8;
+  border: #C8C8C8 solid 1px;
   border-radius:3px;
+}
+.main_v .list_v .item_v .but_list_v .but_v .but_img{
+  width:20px;
+  height:20px;
+  margin-top:5px;
+  margin-left:5px;
+}
+.main_v .list_v .item_v .but_list_v .but_v .but_text{
+  margin-left:5px;
+  position: absolute;
 }
 .space1_v{
   width: 100%;

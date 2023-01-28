@@ -113,6 +113,9 @@ Page({
       wzcxListPage.setData({wzlxmc:wzlxmc});
     }
   },
+  resetToolBarData:function(){
+    wzcxListPage.setData({mc:"",wzlxmc:""});
+  },
   loadListDataByPageFlag:function(e){
     let flag=e.currentTarget.dataset.flag;
     let prePageFlag=wzcxListPage.data.prePageFlag;

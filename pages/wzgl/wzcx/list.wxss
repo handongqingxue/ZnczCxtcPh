@@ -70,8 +70,7 @@
   margin: auto;
 }
 .main_v .list_v .item_v .mc_v,
-.main_v .list_v .item_v .wzlxmc_v
-{
+.main_v .list_v .item_v .wzlxmc_v{
   border-bottom: #C9C9C9 solid 1px;
 }
 .main_v .list_v .item_v .key_v{

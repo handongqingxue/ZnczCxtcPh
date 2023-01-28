@@ -9,7 +9,7 @@
   <view class="bottom_v">
     <view class="but_list_v">
       <view class="but_v confirm_but_v" catchtap="getListData">确定</view>
-      <view class="but_v reset_but_v">重置</view>
+      <view class="but_v reset_but_v" catchtap="resetToolBarData">重置</view>
     </view>
   </view>
 </view>
@@ -40,6 +40,7 @@
       </view>
     </view>
   </view>
+  <view class="space1_v"></view>
   <view class="bottom_v">
     <a wx:if="{{showDjckgdView}}" data-flag="{{false}}" catchtap="showPageView">点击查看更多</a>
     <view class="page_v" wx:if="{{showPageView}}">
