@@ -149,6 +149,9 @@ Page({
       dzjListPage.setData({cyclCph:cyclCph});
     }
   },
+  resetToolBarData:function(){
+    dzjListPage.setData({ddh:"",cyclCph:""});
+  },
   loadListDataByPageFlag:function(e){
     let flag=e.currentTarget.dataset.flag;
     let prePageFlag=dzjListPage.data.prePageFlag;

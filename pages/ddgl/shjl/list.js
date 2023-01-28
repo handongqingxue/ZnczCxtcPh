@@ -192,6 +192,9 @@ Page({
       shjlListPage.setData({sjSfzh:sjSfzh});
     }
   },
+  resetToolBarData:function(){
+    shjlListPage.setData({ddh:"",shjlSelectIndex:0,shlxSelectId:"",shksrq:"",shkssj:"",shjsrq:"",shjssj:"",cyclCph:"",shr:"",yssMc:"",wzMc:"",fhdwMc:"",shdwMc:"",cysjXm:"",cysjSfzh:""});
+  },
   loadListDataByPageFlag:function(e){
     let flag=e.currentTarget.dataset.flag;
     let prePageFlag=shjlListPage.data.prePageFlag;

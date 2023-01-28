@@ -179,6 +179,9 @@ Page({
       drkListPage.setData({cysjSfzh:cysjSfzh});
     }
   },
+  resetToolBarData:function(){
+    drkListPage.setData({ddh:"",cyclCph:"",yssMc:"",wzMc:"",fhdwMc:"",shdwMc:"",cysjXm:"",cysjSfzh:""});
+  },
   loadListDataByPageFlag:function(e){
     let flag=e.currentTarget.dataset.flag;
     let prePageFlag=drkListPage.data.prePageFlag;

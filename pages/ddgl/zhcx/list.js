@@ -208,6 +208,9 @@ Page({
       zhcxListPage.setData({cysjSfzh:cysjSfzh});
     }
   },
+  resetToolBarData:function(){
+    zhcxListPage.setData({ddh:"",ddztSelectIndex:0,ddztSelectId:"",cyclCph:"",jhysrq:"",yssMc:"",wzMc:"",fhdwMc:"",shdwMc:"",cysjXm:"",cysjSfzh:"",jcksrq:"",jckssj:"",jcjsrq:"",jcjssj:"",ccksrq:"",cckssj:"",ccjsrq:"",ccjssj:""});
+  },
   loadListDataByPageFlag:function(e){
     let flag=e.currentTarget.dataset.flag;
     let prePageFlag=zhcxListPage.data.prePageFlag;
@@ -413,6 +416,7 @@ Page({
       },
       success: function (res) {
         let ddztList=res.data.list;
+        ddztList.unshift({id:"",mc:"请选择"});
         //console.log(ddztList);
         zhcxListPage.setData({ddztList:ddztList});
         zhcxListPage.getListData();

@@ -164,6 +164,9 @@ Page({
       dshListPage.setData({shdwMc:shdwMc});
     }
   },
+  resetToolBarData:function(){
+    dshListPage.setData({ddh:"",wzMc:"",yssMc:"",fhdwMc:"",shdwMc:""});
+  },
   loadListDataByPageFlag:function(e){
     let flag=e.currentTarget.dataset.flag;
     let prePageFlag=dshListPage.data.prePageFlag;
