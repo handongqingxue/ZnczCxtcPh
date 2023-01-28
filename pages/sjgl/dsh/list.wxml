@@ -51,9 +51,18 @@
         <view class="val_v">{{item.zgzyxqz}}</view>
       </view>
       <view class="but_list_v">
-        <view class="but_v detail_but_v" data-id="{{item.id}}" catchtap="goDetailPage">详情</view>
-        <view class="but_v tg_but_v" data-shjg="{{true}}" data-id="{{item.id}}" catchtap="checkById">通过</view>
-        <view class="but_v th_but_v" data-shjg="{{false}}" data-id="{{item.id}}" catchtap="checkById">退回</view>
+        <view class="but_v detail_but_v" data-id="{{item.id}}" catchtap="goDetailPage">
+          <image class="but_img" src="/images/detail.png"/>
+          <text class="but_text">详情</text>
+        </view>
+        <view class="but_v tg_but_v" data-shjg="{{true}}" data-id="{{item.id}}" catchtap="checkById">
+          <image class="but_img" src="/images/detail.png"/>
+          <text class="but_text">通过</text>
+        </view>
+        <view class="but_v th_but_v" data-shjg="{{false}}" data-id="{{item.id}}" catchtap="checkById">
+          <image class="but_img" src="/images/detail.png"/>
+          <text class="but_text">退回</text>
+        </view>
       </view>
     </view>
   </view>

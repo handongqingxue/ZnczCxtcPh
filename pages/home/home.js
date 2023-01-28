@@ -582,7 +582,7 @@ Page({
         url+='pdgl/dlcx/list';
         break;
       case home.data.xtgl_yhxx:
-        url+='xtgl/yhxx/list';
+        url+='xtgl/yhxx';
         break;
       case home.data.xtgl_yhcx:
         url+='xtgl/yhcx/list';
