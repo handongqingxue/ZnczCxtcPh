@@ -101,7 +101,10 @@
         <view class="val_v">{{item.bjsj}}</view>
       </view>
       <view class="but_list_v">
-        <view class="but_v sh_but_v" data-shjg="{{true}}" data-id="{{item.id}}" catchtap="checkById">审核</view>
+        <view class="but_v sh_but_v" data-shjg="{{true}}" data-id="{{item.id}}" catchtap="checkById">
+          <image class="but_img" src="/images/detail.png"/>
+          <text class="but_text">审核</text>
+        </view>
       </view>
     </view>
   </view>

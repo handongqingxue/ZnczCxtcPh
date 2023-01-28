@@ -10,18 +10,20 @@
   margin: 10px auto 0;
 }
 .first_level_v .title_v{
-  height: 30px;
-  line-height: 30px;
-  margin-left: 10px;
+  height: 40px;
+  line-height: 40px;
+  padding-left: 10px;
+  font-size: 14px;
   border-bottom: #eee solid 1px;
 }
 .second_level_v{
   width: 92%;
-  height: 30px;
-  line-height: 30px;
+  height: 45px;
+  line-height: 45px;
   margin: auto;
   padding-left: 10px;
-  font-size: 15px;
+  font-size: 11px;
+  border-bottom: #C9C9C9 solid 1px;
   /*
   background-color: #0f0;
   */
