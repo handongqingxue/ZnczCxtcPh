@@ -155,6 +155,9 @@ Page({
       shjlListPage.setData({shrYhm:shrYhm});
     }
   },
+  resetToolBarData:function(){
+    shjlListPage.setData({sjXm:"",shrYhm:"",shksrq:"",shkssj:"",shjsrq:"",shjssj:""});
+  },
   loadListDataByPageFlag:function(e){
     let flag=e.currentTarget.dataset.flag;
     let prePageFlag=shjlListPage.data.prePageFlag;

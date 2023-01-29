@@ -147,6 +147,9 @@ Page({
       dshListPage.setData({sfzh:sfzh});
     }
   },
+  resetToolBarData:function(){
+    dshListPage.setData({xm:"",sjh:"",sfzh:""});
+  },
   loadListDataByPageFlag:function(e){
     let flag=e.currentTarget.dataset.flag;
     let prePageFlag=dshListPage.data.prePageFlag;

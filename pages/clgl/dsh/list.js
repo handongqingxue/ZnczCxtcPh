@@ -16,7 +16,7 @@ Page({
     showNoDataView:false,
     cph:"",
     cllxSelectId:"",
-    cllxList:[{"value":"","text":"请选择车辆类型"},{"value":"1","text":"重型"}]
+    cllxList:[{"value":"","text":"请选择"},{"value":"1","text":"重型"}]
   },
 
   /**
@@ -140,6 +140,9 @@ Page({
       let cph=e.detail.value;
       dshListPage.setData({cph:cph});
     }
+  },
+  resetToolBarData:function(){
+    dshListPage.setData({cph:"",cllxSelectIndex:0,cllxSelectId:""});
   },
   loadListDataByPageFlag:function(e){
     let flag=e.currentTarget.dataset.flag;

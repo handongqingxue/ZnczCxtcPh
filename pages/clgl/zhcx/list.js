@@ -19,7 +19,7 @@ Page({
     cllxSelectId:"",
     sfzySelectId:"",
     shztSelectId:"",
-    cllxList:[{"value":"","text":"请选择车辆类型"},{"value":"1","text":"重型"}],
+    cllxList:[{"value":"","text":"请选择"},{"value":"1","text":"重型"}],
   },
 
   /**
@@ -166,6 +166,9 @@ Page({
       let bz=e.detail.value;
       zhcxListPage.setData({bz:bz});
     }
+  },
+  resetToolBarData:function(){
+    zhcxListPage.setData({cph:"",cllxSelectIndex:0,cllxSelectId:"",sfzySelectIndex:0,sfzySelectId:"",shztSelectIndex:0,shztSelectId:"",bz:""});
   },
   loadListDataByPageFlag:function(e){
     let flag=e.currentTarget.dataset.flag;

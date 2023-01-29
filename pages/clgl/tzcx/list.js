@@ -164,6 +164,9 @@ Page({
       }
     })
   },
+  resetToolBarData:function(){
+    tzcxListPage.setData({ddh:"",cph:"",ddztSelectIndex:0,ddztSelectIds:"",jcksrq:"",jckssj:"",jcjsrq:"",jcjssj:"",ccksrq:"",cckssj:"",ccjsrq:"",ccjssj:""});
+  },
   getListData:function(){
     let currentPage=tzcxListPage.data.currentPage;
     let pageSize=tzcxListPage.data.pageSize;

@@ -223,6 +223,9 @@ Page({
       }
     })
   },
+  resetToolBarData:function(){
+    cntzListPage.setData({ddh:"",cph:"",ddztSelectIndex:0,ddztSelectId:"",jcksrq:"",jckssj:"",jcjsrq:"",jcjssj:""});
+  },
   getListData:function(){
     let currentPage=cntzListPage.data.currentPage;
     let pageSize=cntzListPage.data.pageSize;

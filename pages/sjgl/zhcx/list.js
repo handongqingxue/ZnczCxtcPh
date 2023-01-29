@@ -168,6 +168,9 @@ Page({
       zhcxListPage.setData({sfzh:sfzh});
     }
   },
+  resetToolBarData:function(){
+    zhcxListPage.setData({xm:"",sjh:"",sfzh:"",zyztSelectIndex:0,zyztSelectId:""});
+  },
   loadListDataByPageFlag:function(e){
     let flag=e.currentTarget.dataset.flag;
     let prePageFlag=zhcxListPage.data.prePageFlag;
