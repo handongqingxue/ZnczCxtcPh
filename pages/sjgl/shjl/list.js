@@ -151,7 +151,7 @@ Page({
       shjlListPage.setData({sjXm:sjXm});
     }
     else if(e.currentTarget.id=="shrYhm_inp"){
-      let shr=e.detail.value;
+      let shrYhm=e.detail.value;
       shjlListPage.setData({shrYhm:shrYhm});
     }
   },

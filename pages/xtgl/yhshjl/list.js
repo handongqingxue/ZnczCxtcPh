@@ -15,7 +15,7 @@ Page({
     pageSize:10,
     showNoDataView:false,
     yhm:"",
-    shr:"",
+    shrYhm:"",
     shksrq:'',
     shksrqPlaceholder: '请选择开始日期',
     shkssj:'',
@@ -145,7 +145,7 @@ Page({
       let yhm=e.detail.value;
       yhshjlListPage.setData({yhm:yhm});
     }
-    else if(e.currentTarget.id=="shr_inp"){
+    else if(e.currentTarget.id=="shrYhm_inp"){
       let shrYhm=e.detail.value;
       yhshjlListPage.setData({shrYhm:shrYhm});
     }
@@ -182,7 +182,7 @@ Page({
     let currentPage=yhshjlListPage.data.currentPage;
     let pageSize=yhshjlListPage.data.pageSize;
     let yhm=yhshjlListPage.data.yhm;
-    let shrYhm=yhshjlListPage.data.shr;
+    let shrYhm=yhshjlListPage.data.shrYhm;
     let shksrq=yhshjlListPage.data.shksrq;
     let shkssj=yhshjlListPage.data.shkssj;
     let shsjks="";

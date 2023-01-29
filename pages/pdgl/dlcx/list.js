@@ -14,7 +14,8 @@ Page({
     currentPage:1,
     pageSize:10,
     showNoDataView:false,
-    ddh:"",
+    mc:"",
+    dm:"",
     ztSelectId:"",
     prePageFlag:1,
     nextPageFlag:2,
@@ -180,11 +181,12 @@ Page({
   getListData:function(){
     let currentPage=dlcxListPage.data.currentPage;
     let pageSize=dlcxListPage.data.pageSize;
-    let ddh=dlcxListPage.data.ddh;
-    let hmztId=dlcxListPage.data.ztSelectId;
+    let mc=dlcxListPage.data.mc;
+    let dm=dlcxListPage.data.dm;
+    let zt=dlcxListPage.data.ztSelectId;
     wx.request({
       url: rootIP+"getDuiLieList",
-      data:{page:currentPage,rows:pageSize,ddh:ddh,hmztId:hmztId},
+      data:{page:currentPage,rows:pageSize,mc:mc,dm:dm,zt:zt},
       method: 'POST',
       header: {
         'content-type': 'application/x-www-form-urlencoded',

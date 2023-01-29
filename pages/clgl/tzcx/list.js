@@ -15,9 +15,9 @@ Page({
     pageSize:10,
     showNoDataView:false,
     ddh:"",
-    cph:"",
-    ddztSelectIds:"",
-    ddztSelectMcs:"",
+    cyclCph:"",
+    ddztSelectId:"",
+    ddztSelectMc:"",
     prePageFlag:1,
     nextPageFlag:2,
     prePageEnable:false,
@@ -158,21 +158,32 @@ Page({
       },
       success: function (res) {
         let ddztList=res.data.list;
+        ddztList.unshift({id:"",mc:"请选择"});
         //console.log(ddztList);
         tzcxListPage.setData({ddztList:ddztList});
         tzcxListPage.getListData();
       }
     })
   },
+  getInputValue:function(e){
+    if(e.currentTarget.id=="ddh_inp"){
+      let ddh=e.detail.value;
+      tzcxListPage.setData({ddh:ddh});
+    }
+    else if(e.currentTarget.id=="cyclCph_inp"){
+      let cyclCph=e.detail.value;
+      tzcxListPage.setData({cyclCph:cyclCph});
+    }
+  },
   resetToolBarData:function(){
-    tzcxListPage.setData({ddh:"",cph:"",ddztSelectIndex:0,ddztSelectIds:"",jcksrq:"",jckssj:"",jcjsrq:"",jcjssj:"",ccksrq:"",cckssj:"",ccjsrq:"",ccjssj:""});
+    tzcxListPage.setData({ddh:"",cyclCph:"",ddztSelectIndex:0,ddztSelectId:"",jcksrq:"",jckssj:"",jcjsrq:"",jcjssj:"",ccksrq:"",cckssj:"",ccjsrq:"",ccjssj:""});
   },
   getListData:function(){
     let currentPage=tzcxListPage.data.currentPage;
     let pageSize=tzcxListPage.data.pageSize;
     let ddh=tzcxListPage.data.ddh;
-    let cph=tzcxListPage.data.cph;
-    let ddztIds=tzcxListPage.data.ddztSelectIds;
+    let cyclCph=tzcxListPage.data.cyclCph;
+    let ddztId=tzcxListPage.data.ddztSelectId;
 
     let jcksrq=tzcxListPage.data.jcksrq;
     let jckssj=tzcxListPage.data.jckssj;
@@ -199,8 +210,8 @@ Page({
       ccsje=ccjsrq+" "+ccjssj;
 
     console.log("ddh==="+ddh)
-    console.log("cph==="+cph)
-    console.log("ddztIds==="+ddztIds)
+    console.log("cyclCph==="+cyclCph)
+    console.log("ddztId==="+ddztId)
     console.log("jcsjs==="+jcsjs)
     console.log("jcsje==="+jcsje)
     console.log("ccsjs==="+ccsjs)
@@ -208,7 +219,7 @@ Page({
     
     wx.request({
       url: rootIP+"getCLTZList",
-      data:{page:currentPage,rows:pageSize,ddh:ddh,cph:cph,ddztIds:ddztIds,jcsjs:jcsjs,jcsje:jcsje,ccsjs:ccsjs,ccsje:ccsje},
+      data:{page:currentPage,rows:pageSize,ddh:ddh,cyclCph:cyclCph,ddztIds:ddztId,jcsjs:jcsjs,jcsje:jcsje,ccsjs:ccsjs,ccsje:ccsje},
       method: 'POST',
       header: {
         'content-type': 'application/x-www-form-urlencoded',

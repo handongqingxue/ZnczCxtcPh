@@ -8,7 +8,7 @@
   z-index: 1;
 }
 .tool_bar_v .yhm_v,
-.tool_bar_v .shr_v,
+.tool_bar_v .shrYhm_v,
 .tool_bar_v .shksrq_v,
 .tool_bar_v .shkssj_v,
 .tool_bar_v .shjsrq_v,
@@ -18,7 +18,7 @@
   line-height:50px;
 }
 .tool_bar_v .yhm_v .yhm_span,
-.tool_bar_v .shr_v .shr_span,
+.tool_bar_v .shrYhm_v .shrYhm_span,
 .tool_bar_v .shksrq_v .shksrq_span,
 .tool_bar_v .shkssj_v .shkssj_span,
 .tool_bar_v .shjsrq_v .shjsrq_span,
@@ -26,7 +26,7 @@
   margin-left:10px;
 }
 .tool_bar_v .yhm_v .yhm_inp,
-.tool_bar_v .shr_v .shr_inp{
+.tool_bar_v .shrYhm_v .shrYhm_inp{
   width:180px;
   margin-top:-35px;
   margin-left:120px;

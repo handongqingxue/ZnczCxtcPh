@@ -14,7 +14,9 @@ Page({
     currentPage:1,
     pageSize:10,
     showNoDataView:false,
-    ddh:"",
+    dlMc:"",
+    hm:"",
+    pdh:"",
     hmztSelectId:"",
     prePageFlag:1,
     nextPageFlag:2,
@@ -184,11 +186,13 @@ Page({
   getListData:function(){
     let currentPage=hmcxListPage.data.currentPage;
     let pageSize=hmcxListPage.data.pageSize;
-    let ddh=hmcxListPage.data.ddh;
+    let dlMc=hmcxListPage.data.dlMc;
+    let hm=hmcxListPage.data.hm;
+    let pdh=hmcxListPage.data.pdh;
     let hmztId=hmcxListPage.data.hmztSelectId;
     wx.request({
       url: rootIP+"getHaoMaList",
-      data:{page:currentPage,rows:pageSize,ddh:ddh,hmztId:hmztId},
+      data:{page:currentPage,rows:pageSize,dlMc:dlMc,hm:hm,pdh:pdh,hmztId:hmztId},
       method: 'POST',
       header: {
         'content-type': 'application/x-www-form-urlencoded',

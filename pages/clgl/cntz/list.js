@@ -15,7 +15,7 @@ Page({
     pageSize:10,
     showNoDataView:false,
     ddh:"",
-    cph:"",
+    cyclCph:"",
     ddztSelectIds:"",
     ddztSelectMcs:"",
     prePageFlag:1,
@@ -223,14 +223,24 @@ Page({
       }
     })
   },
+  getInputValue:function(e){
+    if(e.currentTarget.id=="ddh_inp"){
+      let ddh=e.detail.value;
+      cntzListPage.setData({ddh:ddh});
+    }
+    else if(e.currentTarget.id=="cyclCph_inp"){
+      let cyclCph=e.detail.value;
+      cntzListPage.setData({cyclCph:cyclCph});
+    }
+  },
   resetToolBarData:function(){
-    cntzListPage.setData({ddh:"",cph:"",ddztSelectIndex:0,ddztSelectId:"",jcksrq:"",jckssj:"",jcjsrq:"",jcjssj:""});
+    cntzListPage.setData({ddh:"",cyclCph:"",ddztSelectIndex:0,ddztSelectId:"",jcksrq:"",jckssj:"",jcjsrq:"",jcjssj:""});
   },
   getListData:function(){
     let currentPage=cntzListPage.data.currentPage;
     let pageSize=cntzListPage.data.pageSize;
     let ddh=cntzListPage.data.ddh;
-    let cph=cntzListPage.data.cph;
+    let cyclCph=cntzListPage.data.cyclCph;
     let ddztIds=cntzListPage.data.ddztSelectIds;
     let defaultDdztMc=cntzListPage.data.defaultDdztMc;
 
@@ -247,7 +257,7 @@ Page({
       jcsje=jcjsrq+" "+jcjssj;
 
     console.log("ddh==="+ddh)
-    console.log("cph==="+cph)
+    console.log("cyclCph==="+cyclCph)
     console.log("ddztIds==="+ddztIds)
     console.log("defaultDdztMc==="+defaultDdztMc)
     console.log("jcsjs==="+jcsjs)
@@ -255,7 +265,7 @@ Page({
     
     wx.request({
       url: rootIP+"getCLTZList",
-      data:{page:currentPage,rows:pageSize,ddh:ddh,cph:cph,ddztIds:'',ddztMcs:defaultDdztMc,jcsjs:jcsjs,jcsje:jcsje},
+      data:{page:currentPage,rows:pageSize,ddh:ddh,cyclCph:cyclCph,ddztIds:'',ddztMcs:defaultDdztMc,jcsjs:jcsjs,jcsje:jcsje},
       method: 'POST',
       header: {
         'content-type': 'application/x-www-form-urlencoded',

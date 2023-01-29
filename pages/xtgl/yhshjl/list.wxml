@@ -6,9 +6,9 @@
     <span class="yhm_span">用户名</span>
     <input class="yhm_inp" id="yhm_inp" type="text" placeholder="请输入用户名" value="{{yhm}}" bindinput="getInputValue"/>
   </view>
-  <view class="shr_v">
-    <span class="shr_span">审核人</span>
-    <input class="shr_inp" id="shr_inp" type="text" placeholder="请输入审核人" value="{{shr}}" bindinput="getInputValue"/>
+  <view class="shrYhm_v">
+    <span class="shrYhm_span">审核人</span>
+    <input class="shrYhm_inp" id="shrYhm_inp" type="text" placeholder="请输入审核人" value="{{shrYhm}}" bindinput="getInputValue"/>
   </view>
   <view class="shksrq_v">
     <span class="shksrq_span">审核开始日期</span>
