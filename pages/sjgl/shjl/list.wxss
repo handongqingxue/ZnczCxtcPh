@@ -58,6 +58,25 @@
   bottom: 0;
   position: fixed;
 }
+.tool_bar_v .bottom_v .but_list_v,
+.main_v .bottom_v .but_list_v{
+  width: 95%;
+  margin: auto;
+}
+.tool_bar_v .bottom_v .but_list_v .but_v,
+.main_v .bottom_v .but_list_v .but_v{
+  width: 45%;
+  height: 30px;
+  line-height: 30px;
+  margin-top: 10px;
+  text-align: center;
+  border: #BFBFBF solid 1px;
+  border-radius:3px;
+}
+.tool_bar_v .bottom_v .but_list_v .reset_but_v{
+  float: right;
+  margin-top:-32px;
+}
 
 .main_v{
   width: 100%;
@@ -144,24 +163,37 @@
 }
 .space1_v{
   width: 100%;
-  height: 80px;
+  height: 90px;
 }
 
 .main_v .bottom_v{
   width: 100%;
-  height: 70px;
+  height: 80px;
   background-color: #F8F8F8;
   bottom: 0;
   position: fixed;
 }
+.main_v .bottom_v .click_show_more_v{
+  height: 25px;
+  line-height: 25px;
+  margin-left:20px;
+  color:#1473C3;
+  font-size:12px;
+}
 .main_v .bottom_v .page_v{
   width: 100%;
-  height: 20px;
+  height: 25px;
+  line-height: 25px;
+  font-size: 12px;
+  background-color: #F8F8F8;
+}
+.main_v .bottom_v .page_v .data_count_v{
+  margin-left: 10px;
 }
 .main_v .bottom_v .page_v .pre_page_v{
   width: 50px;
   height: 20px;
-  margin-top: -20px;
+  margin-top: -25px;
   margin-left: 80px;
 }
 .main_v .bottom_v .page_v .page_count_v{
@@ -175,7 +207,7 @@
   width: 50px;
   height: 20px;
   float: right;
-  margin-top: -20px;
+  margin-top: -25px;
   margin-right: 10px;
 }
 .main_v .bottom_v .page_v .click_v{
@@ -183,24 +215,4 @@
 }
 .main_v .bottom_v .page_v .unClick_v{
   color: #666;
-}
-
-.main_v .bottom_v .but_list_v,
-.tool_bar_v .bottom_v .but_list_v{
-  width: 95%;
-  margin: auto;
-}
-.main_v .bottom_v .but_list_v .but_v,
-.tool_bar_v .bottom_v .but_list_v .but_v{
-  width: 45%;
-  height: 30px;
-  line-height: 30px;
-  margin-top: 10px;
-  text-align: center;
-  border: #BFBFBF solid 1px;
-  border-radius:3px;
-}
-.tool_bar_v .bottom_v .but_list_v .reset_but_v{
-  float: right;
-  margin-top:-32px;
 }
