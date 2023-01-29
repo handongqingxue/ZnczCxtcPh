@@ -140,6 +140,9 @@ Page({
       jsListPage.setData({mc:mc});
     }
   },
+  resetToolBarData:function(){
+    jsListPage.setData({mc:""});
+  },
   loadListDataByPageFlag:function(e){
     let flag=e.currentTarget.dataset.flag;
     let prePageFlag=jsListPage.data.prePageFlag;

@@ -108,6 +108,9 @@ Page({
       hmztListPage.setData({mc:mc});
     }
   },
+  resetToolBarData:function(){
+    hmztListPage.setData({mc:""});
+  },
   loadListDataByPageFlag:function(e){
     let flag=e.currentTarget.dataset.flag;
     let prePageFlag=hmztListPage.data.prePageFlag;

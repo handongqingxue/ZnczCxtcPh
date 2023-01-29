@@ -149,6 +149,9 @@ Page({
       dlcxListPage.setData({dm:dm});
     }
   },
+  resetToolBarData:function(){
+    dlcxListPage.setData({mc:"",dm:"",ztSelectIndex:0,ztSelectId:""});
+  },
   loadListDataByPageFlag:function(e){
     let flag=e.currentTarget.dataset.flag;
     let prePageFlag=dlcxListPage.data.prePageFlag;

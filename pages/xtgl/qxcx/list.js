@@ -108,6 +108,9 @@ Page({
       qxListPage.setData({mc:mc});
     }
   },
+  resetToolBarData:function(){
+    qxListPage.setData({mc:""});
+  },
   loadListDataByPageFlag:function(e){
     let flag=e.currentTarget.dataset.flag;
     let prePageFlag=qxListPage.data.prePageFlag;

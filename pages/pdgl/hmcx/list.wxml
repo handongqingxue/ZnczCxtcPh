@@ -21,7 +21,6 @@
       <image class='select_img {{showHmztOption&&"select_img_rotate"}}' src='../../../images/sanjiao.png'></image>
     </view>
     <view class='hmzt_option_list_v' style='height:{{showHmztOption?(hmztList.length>5?300:hmztList.length*30):0}}px;'>
-      <view class='item_v' data-index="" catchtap='selectHmztOption'>请选择</view>
       <view class='item_v' wx:for="{{hmztList}}" data-index="{{index}}" catchtap='selectHmztOption'>{{item.mc}}</view>
     </view>
   </view>
@@ -30,7 +29,7 @@
   <view class="bottom_v">
     <view class="but_list_v">
       <view class="but_v confirm_but_v" catchtap="getListData">确定</view>
-      <view class="but_v reset_but_v">重置</view>
+      <view class="but_v reset_but_v" catchtap="resetToolBarData">重置</view>
     </view>
   </view>
 </view>

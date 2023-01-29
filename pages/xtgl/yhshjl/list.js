@@ -145,6 +145,13 @@ Page({
       let yhm=e.detail.value;
       yhshjlListPage.setData({yhm:yhm});
     }
+    else if(e.currentTarget.id=="shr_inp"){
+      let shrYhm=e.detail.value;
+      yhshjlListPage.setData({shrYhm:shrYhm});
+    }
+  },
+  resetToolBarData:function(){
+    yhshjlListPage.setData({yhm:"",shrYhm:"",shksrq:"",shkssj:"",shjsrq:"",shjssj:""});
   },
   loadListDataByPageFlag:function(e){
     let flag=e.currentTarget.dataset.flag;

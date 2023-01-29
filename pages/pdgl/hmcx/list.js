@@ -153,6 +153,9 @@ Page({
       hmcxListPage.setData({pdh:pdh});
     }
   },
+  resetToolBarData:function(){
+    hmcxListPage.setData({dlMc:"",hm:"",pdh:"",hmztSelectIndex:0,hmztSelectId:""});
+  },
   loadListDataByPageFlag:function(e){
     let flag=e.currentTarget.dataset.flag;
     let prePageFlag=hmcxListPage.data.prePageFlag;
@@ -243,6 +246,7 @@ Page({
       },
       success: function (res) {
         let hmztList=res.data.list;
+        hmztList.unshift({id:"",mc:"请选择"});
         //console.log(hmztList);
         hmcxListPage.setData({hmztList:hmztList});
         hmcxListPage.getListData();

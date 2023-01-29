@@ -137,6 +137,9 @@ Page({
       yhcxListPage.setData({yhm:yhm});
     }
   },
+  resetToolBarData:function(){
+    yhcxListPage.setData({yhm:""});
+  },
   loadListDataByPageFlag:function(e){
     let flag=e.currentTarget.dataset.flag;
     let prePageFlag=yhcxListPage.data.prePageFlag;

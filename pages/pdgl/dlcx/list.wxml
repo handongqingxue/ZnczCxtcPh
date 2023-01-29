@@ -8,7 +8,7 @@
   </view>
   <view class="dm_v">
     <span class="dm_span">代码</span>
-    <input class="dm_inp" id="dm_inp" type="text" placeholder="请输入代码" value="{{hm}}" bindinput="getInputValue"/>
+    <input class="dm_inp" id="dm_inp" type="text" placeholder="请输入代码" value="{{dm}}" bindinput="getInputValue"/>
   </view>
   <view class="zt_v">
     <span class="zt_span">状态</span>
@@ -25,7 +25,7 @@
   <view class="bottom_v">
     <view class="but_list_v">
       <view class="but_v confirm_but_v" catchtap="getListData">确定</view>
-      <view class="but_v reset_but_v">重置</view>
+      <view class="but_v reset_but_v" catchtap="resetToolBarData">重置</view>
     </view>
   </view>
 </view>
