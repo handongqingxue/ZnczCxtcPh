@@ -27,7 +27,8 @@
   bottom: 0;
   position: fixed;
 }
-.tool_bar_v .bottom_v .but_list_v{
+.tool_bar_v .bottom_v .but_list_v,
+.main_v .bottom_v .but_list_v{
   width: 95%;
   margin: auto;
 }
@@ -170,10 +171,6 @@
 }
 .main_v .bottom_v .page_v .unClick_v{
   color: #666;
-}
-.main_v .bottom_v .but_list_v{
-  width: 95%;
-  margin: auto;
 }
 
 .main_v .bottom_v .but_list_v .but_v,
