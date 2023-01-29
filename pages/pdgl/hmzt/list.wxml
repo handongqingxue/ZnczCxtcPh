@@ -43,7 +43,7 @@
   
   <view class="space1_v"></view>
   <view class="bottom_v">
-    <a wx:if="{{showDjckgdView}}" data-flag="{{false}}" catchtap="showPageView">点击查看更多</a>
+    <view class="click_show_more_v" wx:if="{{showDjckgdView}}" data-flag="{{false}}" catchtap="showPageView">点击查看更多</view>
     <view class="page_v" wx:if="{{showPageView}}">
       <view class="data_count_v">
         共<text class="val_text">{{dataCount}}</text>条
