@@ -23,6 +23,7 @@ Page({
     prePageEnable:false,
     nextPageEnable:true,
     showDdztOption:false,
+    selectedDdztList:[],
     
     jcksrq:'',
     jcksrqPlaceholder: '请选择开始日期',
@@ -204,7 +205,12 @@ Page({
     let dlcDdztMc=ddztMap.dlcDdztMc;
     let defaultDdztMc=djyDdztMc+","+yjdsmDdztMc+","+yjdsbDdztMc+","+yjzDdztMc+","+yjdshDdztMc+","+dzxhDdztMc+","+ejdsmDdztMc+","+ejdsbDdztMc+","+ejzDdztMc+","+ejdshDdztMc+","+ddypzDdztMc+","+dlcDdztMc;
     //console.log(defaultDdztMc)
-    cntzListPage.setData({ddztSelectIds:ddztSelectIds,defaultDdztMc:defaultDdztMc});
+    let ddztSelectMcs=defaultDdztMc;
+    if(ddztSelectMcs.length>8)
+      ddztSelectMcs=ddztSelectMcs.substring(1,8)+"...";
+    else
+      ddztSelectMcs=ddztSelectMcs.substring(1);
+    cntzListPage.setData({ddztSelectIds:ddztSelectIds,defaultDdztMc:defaultDdztMc,ddztSelectMcs:ddztSelectMcs});
   },
   getDdztSelectData:function(){
     wx.request({
@@ -215,13 +221,32 @@ Page({
       },
       success: function (res) {
         let ddztList=res.data.list;
-        //在数组前添加元素:https://jingyan.baidu.com/article/359911f5bac85116fe0306e0.html
-        ddztList.unshift({id:"",mc:"请选择"});
-        //console.log(ddztList);
-        cntzListPage.setData({ddztList:ddztList});
+        cntzListPage.initDefaultSelectedDdztList(ddztList);
         cntzListPage.getListData();
       }
     })
+  },
+  initDefaultSelectedDdztList:function(ddztList){
+    cntzListPage.setData({selectedDdztList:[]});
+    let ddztSelectIds=cntzListPage.data.ddztSelectIds;
+    let ddztSelectIdArr=ddztSelectIds.split(",");
+    //在数组前添加元素:https://jingyan.baidu.com/article/359911f5bac85116fe0306e0.html
+    ddztList.unshift({id:"",mc:"请选择"});
+    for(let i=0;i<ddztList.length;i++){
+      let ddzt=ddztList[i];
+      let exist=false;
+      for(let j=0;j<ddztSelectIdArr.length;j++){
+        let ddztSelectId=ddztSelectIdArr[j];
+        if(ddzt.id==ddztSelectId){
+          exist=true;
+          cntzListPage.pushDdztInSelectedList(ddzt);
+          break;
+        }
+      }
+      ddzt.selected=exist;
+    }
+    //console.log(ddztList);
+    cntzListPage.setData({ddztList:ddztList});
   },
   getInputValue:function(e){
     if(e.currentTarget.id=="ddh_inp"){
@@ -234,6 +259,9 @@ Page({
     }
   },
   resetToolBarData:function(){
+    cntzListPage.initDefaultDdztMc();
+    let ddztList=cntzListPage.data.ddztList;
+    cntzListPage.initDefaultSelectedDdztList(ddztList);
     cntzListPage.setData({ddh:"",cyclCph:"",ddztSelectIndex:0,ddztSelectId:"",jcksrq:"",jckssj:"",jcjsrq:"",jcjssj:""});
   },
   getListData:function(){
@@ -304,13 +332,72 @@ Page({
     let index = e.currentTarget.dataset.index; //获取点击的下拉列表的下标
     let ddztList=cntzListPage.data.ddztList;
     let ddzt=ddztList[index];
-    console.log(index+","+ddzt.id+","+ddzt.mc);
+    ddzt.selected=!ddzt.selected;
+    console.log(index+","+ddzt.id+","+ddzt.mc+","+ddzt.selected);
+    if(ddzt.selected){
+      if(!cntzListPage.checkIfDdztInSelectedList(ddzt.id))
+      cntzListPage.pushDdztInSelectedList(ddzt);
+    }
+    else{
+      cntzListPage.removeDdztFromSelectedList(ddzt);
+    }
+
     this.setData({
       ddztSelectIndex: index,
       ddztSelectId: ddzt.id,
-      showDdztOption: !this.data.showDdztOption
+      //showDdztOption: !this.data.showDdztOption,
+      ddztList:ddztList
     });
   },
+  pushDdztInSelectedList:function(ddzt){
+    console.log(ddzt)
+    let selectedDdztList=cntzListPage.data.selectedDdztList;
+    selectedDdztList.push(ddzt);
+    console.log(selectedDdztList)
+    cntzListPage.sortDdztSelectedAttrs(selectedDdztList);
+  },
+  removeDdztFromSelectedList:function(ddzt){
+    let selectedDdztList=cntzListPage.data.selectedDdztList;
+    console.log(selectedDdztList)
+    for(let i=0;i<selectedDdztList.length;i++){
+      let selectedDdzt=selectedDdztList[i];
+      if(selectedDdzt.id==ddzt.id){
+        selectedDdztList.splice(i,1);
+        break;
+      }
+    }
+    console.log(selectedDdztList)
+    cntzListPage.sortDdztSelectedAttrs(selectedDdztList);
+  },
+  checkIfDdztInSelectedList:function(id){
+    let flag=false;
+    let selectedDdztList=cntzListPage.data.selectedDdztList;
+    for(let i=0;i<selectedDdztList.length;i++){
+      let selectedDdzt=selectedDdztList[i];
+      if(selectedDdzt.id==id){
+        flag=true;
+        break;
+      }
+    }
+    console.log("flag==="+flag)
+    return flag;
+  },
+  sortDdztSelectedAttrs:function(selectedDdztList){
+    let ddztSelectIds="";
+    let ddztSelectMcs="";
+    for(let i=0;i<selectedDdztList.length;i++){
+      let selectedDdzt=selectedDdztList[i];
+      let ddztId=selectedDdzt.id;
+      let ddztMc=selectedDdzt.mc;
+      console.log("ddztId="+ddztId+",ddztMc="+ddztMc);
+      ddztSelectIds+=","+ddztId;
+      ddztSelectMcs+=","+ddztMc;
+    }
+    ddztSelectIds=ddztSelectIds.substring(1);
+    ddztSelectMcs=ddztSelectMcs.substring(1);
+    console.log("ddztSelectIds="+ddztSelectIds+",ddztSelectMcs="+ddztSelectMcs);
+    this.setData({ddztSelectIds:ddztSelectIds,ddztSelectMcs:ddztSelectMcs});
+  },
   pickerJhysrqChange:function(e){
     let value = e.detail.value;
     console.log(value)

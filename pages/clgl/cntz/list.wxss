@@ -54,7 +54,7 @@
   */
 }
 
-.tool_bar_v .ddzt_v .ddzt_select_v{
+.tool_bar_v .ddzt_v .ddzt_mutiSel_v{
   width: 150px;
   height: 30px;
   margin-top: -40px;
@@ -62,7 +62,7 @@
   background-color: #fff;
   border: #eee solid 1px;
 }
-.tool_bar_v .ddzt_v .ddzt_select_v .selected_text_v {
+.tool_bar_v .ddzt_v .ddzt_mutiSel_v .selected_text_v {
   width: 120px;
   height: 30px;
   line-height: 30px;
@@ -70,14 +70,14 @@
   font-size: 15px;
   background-color: #0f0;
 }
-.tool_bar_v .ddzt_v .ddzt_select_v .select_img {
+.tool_bar_v .ddzt_v .ddzt_mutiSel_v .select_img {
   width: 17px;
   height: 17px;
   float: right;
   margin-top: -25px;
   margin-right: 3px;
 }
-.tool_bar_v .ddzt_v .ddzt_select_v .select_img_rotate {
+.tool_bar_v .ddzt_v .ddzt_mutiSel_v .select_img_rotate {
   transform: rotate(180deg);
 }
 .tool_bar_v .ddzt_v .ddzt_option_list_v{
@@ -95,6 +95,9 @@
   line-height: 30px;
   padding-left: 10px;
   background-color: #0f0;
+}
+.tool_bar_v .ddzt_v .ddzt_option_list_v .selected_v {
+  background-color: #999;
 }
 .space2_v{
   width: 100%;

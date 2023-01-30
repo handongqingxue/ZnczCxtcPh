@@ -57,7 +57,7 @@
   margin-top:-100px;
 }
 .main_v .detail_v .sfzzp_val_v .sfzzp_img,
-.main_v .detail_v .sfzzp_val_v .zgzs_img,
+.main_v .detail_v .zgzs_val_v .zgzs_img,
 .main_v .detail_v .jz_val_v .jz_img{
   width:100px;
   height:100px;

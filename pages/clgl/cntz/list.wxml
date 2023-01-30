@@ -12,12 +12,15 @@
   </view>
   <view class="ddzt_v">
     <span class="ddzt_span">订单状态</span>
-    <view class='ddzt_select_v'>
+    <view class='ddzt_mutiSel_v'>
+      <!--
       <view class='selected_text_v' catchtap='showDdztOption'>{{ddztList[ddztSelectIndex]==null?'请选择':ddztList[ddztSelectIndex].mc}}</view>
+      -->
+      <view class='selected_text_v' catchtap='showDdztOption'>{{ddztSelectMcs==null?'请选择':ddztSelectMcs}}</view>
       <image class='select_img {{showDdztOption&&"select_img_rotate"}}' src='../../../images/sanjiao.png'></image>
     </view>
     <view class='ddzt_option_list_v' style='height:{{showDdztOption?(ddztList.length>5?300:ddztList.length*30):0}}px;'>
-      <view class='item_v' wx:for="{{ddztList}}" data-index="{{index}}" catchtap='selectDdztOption'>{{item.mc}}</view>
+      <view class="item_v {{item.selected?'selected_v':''}}" wx:for="{{ddztList}}" data-index="{{index}}" catchtap='selectDdztOption'>{{item.mc}}</view>
     </view>
   </view>
   <view class="jcksrq_v">
