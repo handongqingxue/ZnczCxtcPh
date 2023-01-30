@@ -163,9 +163,13 @@ Page({
       let ddh=e.detail.value;
       shjlListPage.setData({ddh:ddh});
     }
-    else if(e.currentTarget.id=="shr_inp"){
-      let shr=e.detail.value;
-      shjlListPage.setData({shr:shr});
+    else if(e.currentTarget.id=="cyclCph_inp"){
+      let cyclCph=e.detail.value;
+      shjlListPage.setData({cyclCph:cyclCph});
+    }
+    else if(e.currentTarget.id=="shrYhm_inp"){
+      let shrYhm=e.detail.value;
+      shjlListPage.setData({shrYhm:shrYhm});
     }
     else if(e.currentTarget.id=="yssMc_inp"){
       let yssMc=e.detail.value;
@@ -193,7 +197,7 @@ Page({
     }
   },
   resetToolBarData:function(){
-    shjlListPage.setData({ddh:"",shjlSelectIndex:0,shlxSelectId:"",shksrq:"",shkssj:"",shjsrq:"",shjssj:"",cyclCph:"",shr:"",yssMc:"",wzMc:"",fhdwMc:"",shdwMc:"",cysjXm:"",cysjSfzh:""});
+    shjlListPage.setData({ddh:"",shjlSelectIndex:0,shlxSelectId:"",shksrq:"",shkssj:"",shjsrq:"",shjssj:"",cyclCph:"",shrYhm:"",yssMc:"",wzMc:"",fhdwMc:"",shdwMc:"",sjXm:"",sjSfzh:""});
   },
   loadListDataByPageFlag:function(e){
     let flag=e.currentTarget.dataset.flag;

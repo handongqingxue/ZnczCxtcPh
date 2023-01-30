@@ -337,6 +337,42 @@ Page({
   pickerCcjssjCancel:function(){
     tzcxListPage.setData({ccjssj:''});
   },
+  deleteById:function(e){
+    let confirmStr="确定要删除吗？";
+    wx.showModal({
+      title: "提示",
+      content: confirmStr,
+      success (res) {
+        if (res.confirm) {
+          //console.log('用户点击确定')
+          let id=e.currentTarget.dataset.id;
+          wx.request({
+            url: rootIP+"deleteCLTZ",
+            data:{ids:id},
+            method: 'POST',
+            header: {
+              'content-type': 'application/x-www-form-urlencoded',
+            },
+            success: function (res) {
+              let data=res.data;
+              let status=data.status;
+              console.log("status==="+status)
+              if(status==1){
+                wx.showToast({
+                  title: data.msg,
+                })
+              }
+              else{
+                
+              }
+            }
+          })
+        } else if (res.cancel) {
+          //console.log('用户点击取消')
+        }
+      }
+    })
+  },
   goDetailPage:function(e){
     let id=e.currentTarget.dataset.id;
     wx.redirectTo({

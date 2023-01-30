@@ -44,9 +44,9 @@
     <span class="cyclCph_span">车牌号</span>
     <input class="cyclCph_inp" id="cyclCph_inp" type="text" placeholder="请输入车牌号" value="{{cyclCph}}" bindinput="getInputValue"/>
   </view>
-  <view class="shr_v">
-    <span class="shr_span">审核人</span>
-    <input class="shr_inp" id="shr_inp" type="text" placeholder="请输入审核人" value="{{shr}}" bindinput="getInputValue"/>
+  <view class="shrYhm_v">
+    <span class="shrYhm_span">审核人</span>
+    <input class="shrYhm_inp" id="shrYhm_inp" type="text" placeholder="请输入审核人" value="{{shrYhm}}" bindinput="getInputValue"/>
   </view>
   <view class="yssMc_v">
     <span class="yssMc_span">运输商</span>
@@ -66,11 +66,11 @@
   </view>
   <view class="sjXm_v">
     <span class="sjXm_span">司机姓名</span>
-    <input class="sjXm_inp" id="sjXm_inp" type="text" placeholder="请输入司机姓名" value="{{cysjXm}}" bindinput="getInputValue"/>
+    <input class="sjXm_inp" id="sjXm_inp" type="text" placeholder="请输入司机姓名" value="{{sjXm}}" bindinput="getInputValue"/>
   </view>
   <view class="sjSfzh_v">
     <span class="sjSfzh_span">司机身份证号</span>
-    <input class="sjSfzh_inp" id="sjSfzh_inp" type="text" placeholder="请输入司机身份证号" value="{{cysjSfzh}}" bindinput="getInputValue"/>
+    <input class="sjSfzh_inp" id="sjSfzh_inp" type="text" placeholder="请输入司机身份证号" value="{{sjSfzh}}" bindinput="getInputValue"/>
   </view>
   <view class="space2_v"></view>
   <view class="bottom_v">
