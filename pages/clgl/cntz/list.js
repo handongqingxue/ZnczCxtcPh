@@ -205,12 +205,7 @@ Page({
     let dlcDdztMc=ddztMap.dlcDdztMc;
     let defaultDdztMc=djyDdztMc+","+yjdsmDdztMc+","+yjdsbDdztMc+","+yjzDdztMc+","+yjdshDdztMc+","+dzxhDdztMc+","+ejdsmDdztMc+","+ejdsbDdztMc+","+ejzDdztMc+","+ejdshDdztMc+","+ddypzDdztMc+","+dlcDdztMc;
     //console.log(defaultDdztMc)
-    let ddztSelectMcs=defaultDdztMc;
-    if(ddztSelectMcs.length>8)
-      ddztSelectMcs=ddztSelectMcs.substring(1,8)+"...";
-    else
-      ddztSelectMcs=ddztSelectMcs.substring(1);
-    cntzListPage.setData({ddztSelectIds:ddztSelectIds,defaultDdztMc:defaultDdztMc,ddztSelectMcs:ddztSelectMcs});
+    cntzListPage.setData({ddztSelectIds:ddztSelectIds,defaultDdztMc:defaultDdztMc});
   },
   getDdztSelectData:function(){
     wx.request({
@@ -221,6 +216,7 @@ Page({
       },
       success: function (res) {
         let ddztList=res.data.list;
+        ddztList.unshift({id:"",mc:"请选择"});
         cntzListPage.initDefaultSelectedDdztList(ddztList);
         cntzListPage.getListData();
       }
@@ -231,7 +227,6 @@ Page({
     let ddztSelectIds=cntzListPage.data.ddztSelectIds;
     let ddztSelectIdArr=ddztSelectIds.split(",");
     //在数组前添加元素:https://jingyan.baidu.com/article/359911f5bac85116fe0306e0.html
-    ddztList.unshift({id:"",mc:"请选择"});
     for(let i=0;i<ddztList.length;i++){
       let ddzt=ddztList[i];
       let exist=false;
@@ -396,6 +391,8 @@ Page({
     ddztSelectIds=ddztSelectIds.substring(1);
     ddztSelectMcs=ddztSelectMcs.substring(1);
     console.log("ddztSelectIds="+ddztSelectIds+",ddztSelectMcs="+ddztSelectMcs);
+    if(ddztSelectMcs.length>8)
+      ddztSelectMcs=ddztSelectMcs.substring(0,8)+"...";
     this.setData({ddztSelectIds:ddztSelectIds,ddztSelectMcs:ddztSelectMcs});
   },
   pickerJhysrqChange:function(e){
