@@ -289,8 +289,20 @@ Page({
     wx.scanCode({
       //onlyFromCamera: true,// 只允许从相机扫码
       success(res){
-        console.log("扫码成功："+JSON.stringify(res))
+        let cph=res.result;
+       dzjListPage.goQrcodeInfoPage(cph);
       }
+    })
+  },
+  goQrcodeInfoPage:function(cph){
+    /*
+    console.log('扫码成功：'+cph)
+    wx.showToast({
+      title: '扫码成功：'+JSON.stringify(res),
+    })
+    */
+    wx.redirectTo({
+      url: '/pages/ddgl/dzj/qrcodeInfo?cph='+cph,
     })
   },
   goHomePage:function(){

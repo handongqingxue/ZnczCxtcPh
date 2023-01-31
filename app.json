@@ -89,7 +89,8 @@
     "pages/test/sineleSelect",
     "pages/test/multipleBut",
     "pages/index/index",
-    "pages/logs/logs"
+    "pages/logs/logs",
+    "pages/ddgl/dzj/qrcodeInfo"
   ],
   "window": {
     "backgroundTextStyle": "light",

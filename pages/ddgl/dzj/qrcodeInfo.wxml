@@ -1,0 +1,19 @@
+<!--pages/ddgl/dzj/qrcodeInfo.wxml-->
+<view class="main_v">
+  <view class="title_v">质检页面</view>
+  <view class="back_but_v" catchtap="goListPage">{{backButSign}}</view>
+  <view class="detail_v">
+      <view class="row_v ddh_v">
+        <view class="key_v">订单号</view>
+        <view class="val_v">
+          {{ddh}}
+        </view>
+      </view>
+      <view class="row_v cyclCph_v">
+        <view class="key_v">车牌号</view>
+        <view class="val_v">
+          {{cyclCph}}
+        </view>
+      </view>
+  </view>
+</view>
