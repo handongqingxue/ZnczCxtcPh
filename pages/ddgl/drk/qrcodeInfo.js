@@ -1,4 +1,4 @@
-// pages/ddgl/dzj/qrcodeInfo.js
+// pages/ddgl/drk/qrcodeInfo.js
 var qrcodeInfoPage;
 var rootIP;
 Page({
@@ -100,7 +100,7 @@ Page({
         let constantMap=res.data;
         console.log(constantMap);
         qrcodeInfoPage.setData({constantMap:constantMap});
-        qrcodeInfoPage.getDzjInfo();
+        qrcodeInfoPage.getDrkInfo();
       }
     })
   },
@@ -112,13 +112,13 @@ Page({
       qrcodeInfoPage.setData({showNoDataView:false});
     }
   },
-  getDzjInfo:function(){
+  getDrkInfo:function(){
     let cph=qrcodeInfoPage.data.cph;
-    let djyDdztMc=qrcodeInfoPage.data.constantMap.ddztMap.djyDdztMc;
+    let dzxhDdztMc=qrcodeInfoPage.data.constantMap.ddztMap.dzxhDdztMc;
     wx.request({
       url: rootIP+"getQrcodeInfoByCphZt",
       method: 'POST',
-      data: {cyclCph:cph,ddztMc:djyDdztMc},
+      data: {cyclCph:cph,ddztMc:dzxhDdztMc},
       header: {
         'content-type': 'application/x-www-form-urlencoded',
       },
@@ -131,6 +131,8 @@ Page({
           let dingDan=data.dingDan;
           let id=dingDan.id;
           let ddh=dingDan.ddh;
+          let cysjSfzh=dingDan.cysjSfzh;
+          let cysjXm=dingDan.cysjXm;
           let cyclCph=dingDan.cyclCph;
           let wzMc=dingDan.wzMc;
           let yssMc=dingDan.yssMc;
@@ -138,9 +140,11 @@ Page({
           let shdwMc=dingDan.shdwMc;
           let lxlx=dingDan.lxlx;
           let lxlxMc=qrcodeInfoPage.getLxlxMcById(lxlx);
-          let jhysrq=dingDan.jhysrq;
           let yzxzl=dingDan.yzxzl;
-          qrcodeInfoPage.setData({id:id,ddh:ddh,cyclCph:cyclCph,wzMc:wzMc,yssMc:yssMc,fhdwMc:fhdwMc,shdwMc:shdwMc,lxlxMc:lxlxMc,jhysrq:jhysrq,yzxzl:yzxzl});
+          let sjzl=dingDan.sjzl;
+          let zlceb=dingDan.zlceb;
+          let bjsj=dingDan.bjsj;
+          qrcodeInfoPage.setData({id:id,ddh:ddh,cysjSfzh:cysjSfzh,cysjXm:cysjXm,cyclCph:cyclCph,wzMc:wzMc,yssMc:yssMc,fhdwMc:fhdwMc,shdwMc:shdwMc,lxlxMc:lxlxMc,yzxzl:yzxzl,sjzl:sjzl,zlceb:zlceb,bjsj:bjsj});
           qrcodeInfoPage.showNoDataView(false);
           qrcodeInfoPage.setData({noDataText:""});
         }
@@ -177,12 +181,12 @@ Page({
           let id=qrcodeInfoPage.data.id;
           let shjg=e.currentTarget.dataset.shjg;
           let ddztConstantMap=qrcodeInfoPage.data.constantMap.ddztMap;
-          let yjdsmDdztMc=ddztConstantMap.yjdsmDdztMc;
+          let ejdsmDdztMc=ddztConstantMap.ejdsmDdztMc;
           let ddztMc;
           if(shjg)
-            ddztMc=yjdsmDdztMc;
+            ddztMc=ejdsmDdztMc;
           let ddShlxConstantMap=qrcodeInfoPage.data.constantMap.ddShlxMap;
-          let shlx=ddShlxConstantMap.zjshShlx;
+          let shlx=ddShlxConstantMap.rkshShlx;
           let yongHu=wx.getStorageSync("yongHu");
           let shrId=yongHu.id;
           wx.request({
@@ -217,7 +221,7 @@ Page({
   },
   goListPage:function(){
     wx.redirectTo({
-      url: '/pages/ddgl/dzj/list',
+      url: '/pages/ddgl/drk/list',
     })
   }
 })

@@ -282,12 +282,12 @@ Page({
           //console.log('用户点击确定')
           let id=e.currentTarget.dataset.id;
           let shjg=e.currentTarget.dataset.shjg;
-          let ddztConstantMap=dshListPage.data.constantMap.ddztMap;
+          let ddztConstantMap=drkListPage.data.constantMap.ddztMap;
           let ejdsmDdztMc=ddztConstantMap.ejdsmDdztMc;
           let ddztMc;
           if(shjg)
             ddztMc=ejdsmDdztMc;
-          let ddShlxConstantMap=dshListPage.data.constantMap.ddShlxMap;
+          let ddShlxConstantMap=drkListPage.data.constantMap.ddShlxMap;
           let shlx=ddShlxConstantMap.rkshShlx;
           let yongHu=wx.getStorageSync("yongHu");
           let shrId=yongHu.id;
@@ -316,6 +316,29 @@ Page({
           //console.log('用户点击取消')
         }
       }
+    })
+  },
+  /**
+   * 扫码事件:https://blog.csdn.net/qq_29528701/article/details/117391740
+   */
+  scanCodeEvent: function(){
+    wx.scanCode({
+      //onlyFromCamera: true,// 只允许从相机扫码
+      success(res){
+        let cph=res.result;
+        drkListPage.goQrcodeInfoPage(cph);
+      }
+    })
+  },
+  goQrcodeInfoPage:function(cph){
+    /*
+    console.log('扫码成功：'+cph)
+    wx.showToast({
+      title: '扫码成功：'+JSON.stringify(res),
+    })
+    */
+    wx.redirectTo({
+      url: '/pages/ddgl/drk/qrcodeInfo?cph='+cph,
     })
   },
   goHomePage:function(){

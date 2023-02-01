@@ -9,7 +9,9 @@
     "pages/ddgl/ddzt/detail",
     "pages/ddgl/dsh/list",
     "pages/ddgl/dzj/list",
+    "pages/ddgl/dzj/qrcodeInfo",
     "pages/ddgl/drk/list",
+    "pages/ddgl/drk/qrcodeInfo",
     "pages/ddgl/zhcx/list",
     "pages/ddgl/zhcx/new",
     "pages/ddgl/zhcx/edit",
@@ -89,8 +91,7 @@
     "pages/test/sineleSelect",
     "pages/test/multipleBut",
     "pages/index/index",
-    "pages/logs/logs",
-    "pages/ddgl/dzj/qrcodeInfo"
+    "pages/logs/logs"
   ],
   "window": {
     "backgroundTextStyle": "light",

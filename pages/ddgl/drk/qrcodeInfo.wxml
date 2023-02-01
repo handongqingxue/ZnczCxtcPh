@@ -1,6 +1,6 @@
-<!--pages/ddgl/dzj/qrcodeInfo.wxml-->
+<!--pages/ddgl/drk/qrcodeInfo.wxml-->
 <view class="main_v">
-  <view class="title_v">质检页面</view>
+  <view class="title_v">入库信息页面</view>
   <view class="back_but_v" catchtap="goListPage">{{backButSign}}</view>
   <view class="no_data_v" wx:if="{{showNoDataView}}">{{noDataText}}</view>
   <view class="info_v" wx:else>
@@ -8,6 +8,18 @@
       <view class="key_v">订单号</view>
       <view class="val_v">
         {{ddh}}
+      </view>
+    </view>
+    <view class="row_v cysjSfzh_v">
+      <view class="key_v cysjSfzh_key_v">司机身份证号</view>
+      <view class="val_v">
+        {{cysjSfzh}}
+      </view>
+    </view>
+    <view class="row_v cysjXm_v">
+      <view class="key_v">司机姓名</view>
+      <view class="val_v">
+        {{cysjXm}}
       </view>
     </view>
     <view class="row_v cyclCph_v">
@@ -46,16 +58,28 @@
         {{lxlxMc}}
       </view>
     </view>
-    <view class="row_v jhysrq_v">
-      <view class="key_v jhysrq_key_v">计划运输日期</view>
-      <view class="val_v">
-        {{jhysrq}}
-      </view>
-    </view>
     <view class="row_v yzxzl_v">
       <view class="key_v">预装卸重量</view>
       <view class="val_v">
         {{yzxzl}}
+      </view>
+    </view>
+    <view class="row_v sjzl_v">
+      <view class="key_v">实际重量</view>
+      <view class="val_v">
+        {{sjzl}}
+      </view>
+    </view>
+    <view class="row_v zlceb_v">
+      <view class="key_v">重量差额比</view>
+      <view class="val_v">
+        {{zlceb}}
+      </view>
+    </view>
+    <view class="row_v bjsj_v">
+      <view class="key_v">编辑时间</view>
+      <view class="val_v">
+        {{bjsj}}
       </view>
     </view>
   </view>

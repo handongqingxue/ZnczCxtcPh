@@ -126,6 +126,7 @@
     </view>
     <view class="but_list_v">
       <view class="but_v screen_but_v" data-flag="{{true}}" catchtap="showToolBarView">筛选</view>
+      <view class="but_v scan_but_v" catchtap="scanCodeEvent">扫码入库</view>
     </view>
   </view>
 </view>

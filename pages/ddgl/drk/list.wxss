@@ -211,6 +211,7 @@
   border: #BFBFBF solid 1px;
   border-radius:3px;
 }
+.main_v .bottom_v .but_list_v .scan_but_v,
 .tool_bar_v .bottom_v .but_list_v .reset_but_v{
   float: right;
   margin-top:-32px;
