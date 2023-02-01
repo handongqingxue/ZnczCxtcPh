@@ -30,9 +30,32 @@
   margin-left:8px;
   text-align:center;
 }
+.main_v .detail_v .jhysrq_key_v{
+  line-height:20px;
+}
 .main_v .detail_v .val_v{
   height:40px;
   line-height:40px;
   margin-top:-40px;
   margin-left:120px;
+}
+.main_v .bottom_v{
+  width: 100%;
+  height: 50px;
+  background-color: #fff;
+  bottom: 0;
+  position: fixed;
+}
+.main_v .bottom_v .but_list_v{
+  width: 95%;
+  margin: auto;
+}
+.main_v .bottom_v .but_list_v .but_v{
+  width: 45%;
+  height: 30px;
+  line-height: 30px;
+  margin-top: 10px;
+  text-align: center;
+  border: #BFBFBF solid 1px;
+  border-radius:3px;
 }

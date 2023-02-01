@@ -15,5 +15,52 @@
           {{cyclCph}}
         </view>
       </view>
+      <view class="row_v wzMc_v">
+        <view class="key_v">物资名称</view>
+        <view class="val_v">
+          {{wzMc}}
+        </view>
+      </view>
+      <view class="row_v yssMc_v">
+        <view class="key_v">运输商</view>
+        <view class="val_v">
+          {{yssMc}}
+        </view>
+      </view>
+      <view class="row_v fhdwMc_v">
+        <view class="key_v">发货单位</view>
+        <view class="val_v">
+          {{fhdwMc}}
+        </view>
+      </view>
+      <view class="row_v shdwMc_v">
+        <view class="key_v">收货单位</view>
+        <view class="val_v">
+          {{shdwMc}}
+        </view>
+      </view>
+      <view class="row_v lxlxMc_v">
+        <view class="key_v">流向类型</view>
+        <view class="val_v">
+          {{lxlxMc}}
+        </view>
+      </view>
+      <view class="row_v jhysrq_v">
+        <view class="key_v jhysrq_key_v">计划运输日期</view>
+        <view class="val_v">
+          {{jhysrq}}
+        </view>
+      </view>
+      <view class="row_v yzxzl_v">
+        <view class="key_v">预装卸重量</view>
+        <view class="val_v">
+          {{yzxzl}}
+        </view>
+      </view>
+  </view>
+  <view class="bottom_v">
+    <view class="but_list_v">
+      <view class="but_v tg_but_v" data-shjg="{{true}}" catchtap="checkById">通过</view>
+    </view>
   </view>
 </view>
